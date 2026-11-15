@@ -1103,4 +1103,5 @@ def render_out(J, P):
         bpy.ops.render.render(write_still=True)
         print("frame %d  %.1fs" % (f, time.time() - t0), flush=True)
 
-render_out(*main())
+if os.environ.get("BATTLE_AS_LIBRARY") != "1":
+    render_out(*main())
