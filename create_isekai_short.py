@@ -6,7 +6,9 @@ create_battle.py（バトル本編 5秒）の部品（闘技場・敵リグ・�
 ショット構成（24fps / 720x1280）
   A1  32f  転生前夜  : 夜の横断歩道、右からトラックのライトが迫り白飛び
   A2  64f  転生      : 白から紫へ変わる異空間をキューブと共に落下、魔法陣と「異世界転生」の文字
-  B   96f  開幕      : 闘技場で目覚める→自分の手→剣が出現→空に「デスゲーム開始」→敵が空から着地し走り出す
+  B   96f  開幕      : 闘技場で目覚める→自分の手→剣が出現→空に「デスゲーム開始」→敵が空から着地（リール版は84fまで使用）
+  C  264f  迷い      : 後ずさり→左右を見回す→振り返ると出口が封鎖→威嚇の雷で怯む→空に「戦わなければ死ぬ」
+                       →震える手を見つめ、両手で握り直す→前へ踏み出し構える→敵が走り出す（バトル1f目に接続）
   (battle 120f)      : create_battle.py の映像
   D  120f  決着      : 敵が砕け散る→勝利→空に「第二回戦」と赤い敵の大群→暗転→タイトル
 
@@ -31,7 +33,7 @@ M = B.M
 Track, EASE, lerp, clamp = B.Track, B.EASE, B.lerp, B.clamp
 FONT_PATH = "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc"
 
-LENGTH = {"A1": 32, "A2": 64, "B": 96, "D": 120}[SHOT]
+LENGTH = {"A1": 32, "A2": 64, "B": 96, "C": 264, "D": 120}[SHOT]
 scene.frame_end = LENGTH
 random.seed(23)
 
@@ -171,7 +173,7 @@ def make_camera_only():
     cam.rotation_mode = 'QUATERNION'
     return cam
 
-def dust_ring(prefix, f0, center, count, radius, seed, size=0.35, mat=None):
+def dust_ring(prefix, f0, center, count, radius, seed, size=0.35, mat=None, init=True):
     r = random.Random(seed)
     for i in range(count):
         a = 2 * math.pi * i / count + r.uniform(-0.1, 0.1)
@@ -180,7 +182,8 @@ def dust_ring(prefix, f0, center, count, radius, seed, size=0.35, mat=None):
         ob = B.box("%s_%d" % (prefix, i), (1, 1, 1), (0, 0, 0), mat or M["dust"], bevel=0.08)
         ob.visible_shadow = False
         ob.rotation_euler = (r.random(), r.random(), r.random())
-        key_scale(ob, 1, 0.001)
+        if init:
+            key_scale(ob, 1, 0.001)
         for f in range(f0 - 1, f0 + 18):
             t = clamp((f - f0) / 16)
             sc = 0.001 if f < f0 else s0 * (0.5 + 1.3 * EASE["out"](t)) * (1 - t ** 2) + 0.001
@@ -468,6 +471,267 @@ def shot_B():
             tg = tg.lerp(e, clamp((f - 60) / 6) * (1 - clamp((f - 73) / 3)))
         key_player(P, f, cp, tg, sr, rh(f), lh(f), prevq)
 
+# ================================================================== SHOT C : hesitation
+BCUT = 84          # shot B is cut after this frame; shot C continues from the same state
+
+def _b_state():
+    """state of shot B at frame BCUT (same key data as shot_B) so that C starts seamlessly"""
+    tl = B.PoseTimeline(B.E_DEF, [
+        (75, dict(hz=-0.50, tp=0.75, np=-0.35, shRx=-0.55, shRy=0.15, elR=-0.2, shLx=0.4, shLy=-0.7, elL=-0.3,
+                  fRy=-0.35, fRz=B.ANK, fLy=0.40, fLz=B.ANK), "out3"),
+        (82, dict(hz=-0.46, tp=0.70, np=-0.40), "smooth"),
+        (88, dict(B.STANCE, tp=0.25, np=-0.15), "smoother"),
+    ])
+    cpos = Track([(30, (0, 0, 1.60)), (96, (0, 0, 1.62), "smooth")])
+    lh = Track([(50, (-0.17, -0.42, -0.42)), (90, B.LH(1), "smooth")])
+    return dict(tl(BCUT)), Vector(cpos(BCUT)), tuple(lh(BCUT))
+
+def shot_C():
+    flames, floats = B.build_arena()
+    J = B.build_enemy()
+    P = B.build_player()
+    env_life(flames, floats, LENGTH)
+    pose0, c0, lh0 = _b_state()
+    STANCE, ANK = B.STANCE, B.ANK
+    G = Vector((0.9, 1.9, 0.0))                 # where the warning bolt hits the floor
+    ZAP = 141
+
+    # ---- leftovers of the landing (shot B) so the cut is continuous
+    dust_ring("Shock", 75 - (BCUT - 1), Vector((0, 12.6, 0)), 20, 3.0, 9, init=False)
+    rb = M["rune"].node_tree.nodes["Emission"].inputs["Strength"]
+    for f, v in ((1, 13), (7, 4), (ZAP + 1, 4), (ZAP + 3, 22), (ZAP + 16, 4)):
+        rb.default_value = v
+        rb.keyframe_insert("default_value", frame=f)
+    eb = M["e_eye"].node_tree.nodes["Emission"].inputs["Strength"]
+    for f, v in ((1, 8), (12, 8), (17, 45), (26, 8), (128, 8), (138, 40), (150, 8), (252, 8), (256, 40), (262, 8)):
+        eb.default_value = v
+        eb.keyframe_insert("default_value", frame=f)
+
+    # ---- sky text: "death game start" is replaced by the rule
+    tmat = B.emissive("txt_sky", (1.0, 0.35, 0.8), 7.0)
+    t1 = text_obj("TxtDG", "デスゲーム開始", 3.6, tmat, (0, 44, 17.5), extrude=0.3)
+    t2 = text_obj("TxtR1", "ROUND 1", 1.8, B.emissive("txt_gold", (1.0, 0.75, 0.25), 6.0), (0, 44, 13.3), extrude=0.2)
+    rmat = B.emissive("txt_rule", (1.0, 0.10, 0.18), 9.0)
+    t3 = text_obj("TxtRule1", "戦わなければ", 3.3, rmat, (0, 44, 18.6), extrude=0.3)
+    t4 = text_obj("TxtRule2", "死ぬ", 5.6, rmat, (0, 44, 13.6), extrude=0.4)
+    for o in (t1, t2, t3, t4):
+        o.rotation_euler = (math.pi / 2, 0, 0)
+    for o in (t1, t2):
+        for f, s in ((1, 1.0), (163, 1.0), (165, 1.15), (167, 0.001)):
+            key_scale(o, f, s)
+    for o, d in ((t3, 0), (t4, 3)):
+        for f, s in ((1, 0.001), (167 + d, 0.001), (171 + d, 1.18), (175 + d, 1.0), (244, 1.0), (246, 1.1), (249, 0.001)):
+            key_scale(o, f, s)
+
+    # ---- exit gate behind the player: open (green) -> bars slam down (red)
+    SLAM = 100
+    gy = -9.25
+    gm = B.principled("gate_frame", (0.20, 0.11, 0.34))
+    barm = B.principled("gate_bar", (0.04, 0.02, 0.07))
+    door = B.emissive("gate_door", (0.55, 1.0, 0.75), 6.0)
+    bm = bmesh.new()
+    for x in (-1.75, 1.75):
+        B.bm_box(bm, (0.6, 0.7, 3.9), (x, gy, 1.95))
+    B.bm_box(bm, (4.5, 0.8, 0.6), (0, gy, 4.0))
+    B.mesh_obj("GateFrame", bm, gm, bevel=0.05)
+    B.box("GateDoor", (2.9, 0.05, 3.7), (0, gy - 0.2, 1.85), door, bevel=0)
+    ds = door.node_tree.nodes["Emission"].inputs["Strength"]
+    for f, v in ((1, 6.0), (SLAM - 1, 6.0), (SLAM + 1, 1.2)):
+        ds.default_value = v
+        ds.keyframe_insert("default_value", frame=f)
+    s_open = text_obj("GateOpen", "出口", 0.95, B.emissive("gate_g", (0.4, 1.0, 0.6), 9.0), (0, gy + 0.45, 4.0), extrude=0.05)
+    s_shut = text_obj("GateShut", "封鎖", 0.95, B.emissive("gate_r", (1.0, 0.12, 0.15), 10.0), (0, gy + 0.45, 4.0), extrude=0.05)
+    for o in (s_open, s_shut):
+        o.rotation_euler = (math.pi / 2, 0, math.pi)
+    for f, s in ((1, 1.0), (SLAM - 1, 1.0), (SLAM, 0.001)):
+        key_scale(s_open, f, s)
+    for f, s in ((1, 0.001), (SLAM - 1, 0.001), (SLAM, 1.25), (SLAM + 4, 1.0)):
+        key_scale(s_shut, f, s)
+    bars = B.empty("GateBars", None, (0, gy + 0.1, 0))
+    bm = bmesh.new()
+    for i in range(6):
+        B.bm_box(bm, (0.2, 0.2, 3.7), (-1.2 + i * 0.48, 0, 1.85))
+    for z in (0.9, 2.8):
+        B.bm_box(bm, (3.0, 0.24, 0.2), (0, 0, z))
+    B.mesh_obj("GateBarMesh", bm, barm, bars, bevel=0.03)
+    for f, z, sz in ((1, 3.7, 0.01), (SLAM - 4, 3.7, 0.01), (SLAM, 0.0, 1.0), (SLAM + 2, 0.12, 1.0), (SLAM + 4, 0.0, 1.0)):
+        bars.location = (0, gy + 0.1, z)
+        bars.keyframe_insert("location", frame=f)
+        key_scale(bars, f, (1, 1, sz))
+    gl = B.light("GateGreen", "POINT", 700, (0.4, 1.0, 0.6), (0, gy + 2.0, 2.0), 1.0)
+    gr = B.light("GateRed", "POINT", 0, (1.0, 0.1, 0.15), (0, gy + 2.0, 2.4), 1.0)
+    for f, a, b in ((1, 700, 0), (SLAM - 1, 700, 0), (SLAM, 60, 1500), (SLAM + 8, 0, 500)):
+        gl.data.energy, gr.data.energy = a, b
+        gl.data.keyframe_insert("energy", frame=f)
+        gr.data.keyframe_insert("energy", frame=f)
+    dust_ring("GateDust", SLAM, Vector((0, gy + 0.5, 0)), 12, 1.6, 12, size=0.3)
+
+    # ---- enemy: rises, points at you, fires a warning shot, taunts, then charges
+    WIND = dict(hz=-0.14, tp=-0.28, tt=-0.38, tl=0.08, np=-0.18, shRx=-2.75, shRy=0.15, elR=-0.55,
+                shLx=-1.0, shLy=-0.25, elL=-0.25, fRy=-0.20, fRz=ANK, fLy=0.32, fLz=ANK)
+    THROW = dict(hz=-0.22, tp=0.30, tt=0.32, tl=-0.05, np=-0.05, shRx=-1.30, shRy=0.02, elR=-0.02,
+                 shLx=0.35, shLy=-0.45, elL=-0.9, fRy=-0.55, fRz=ANK, fLy=0.47, fLz=ANK)
+    GLARE = dict(STANCE, tp=0.25, np=-0.15)
+    POINT = dict(STANCE, tp=0.10, tt=0.18, np=-0.12, shRx=-1.50, shRy=0.02, elR=-0.05)
+    BECK_A = dict(STANCE, tp=0.08, shLx=-1.35, shLy=-0.1, elL=-0.55)
+    BECK_B = dict(STANCE, tp=0.08, shLx=-1.45, shLy=-0.1, elL=-1.9)
+    tl = B.PoseTimeline(B.E_DEF, [
+        (1, pose0, "smooth"),
+        (22, GLARE, "smoother"),
+        (34, GLARE, "smooth"),
+        (44, POINT, "smooth"),
+        (62, dict(POINT, tp=0.14), "smooth"),
+        (80, dict(STANCE), "smooth"),
+        (118, dict(STANCE, tp=0.05), "smooth"),
+        (131, WIND, "smooth"),
+        (137, dict(WIND, tp=-0.32, tt=-0.42, shRx=-2.9), "lin"),
+        (ZAP, THROW, "in"),
+        (ZAP + 4, dict(THROW, hz=-0.18, tp=0.12, tt=0.22, shRx=-1.60, elR=-0.15), "out"),
+        (ZAP + 14, dict(THROW, hz=-0.17, tp=0.18, tt=0.25, shRx=-1.30, elR=-0.05), "smooth"),
+        (172, dict(STANCE, tp=0.16), "smooth"),
+        (196, dict(STANCE, tp=0.12), "smooth"),
+        (204, BECK_A, "smooth"), (210, BECK_B, "smooth"), (216, BECK_A, "smooth"), (222, BECK_B, "smooth"),
+        (232, dict(STANCE), "smooth"),
+        (244, GLARE, "smooth"),
+        (256, GLARE, "smooth"),
+        (260, dict(run=0.6, hz=-0.10, tp=0.38, elR=-1.5, elL=-1.5, np=-0.25), "in"),
+        (264, dict(run=1.0), "lin"),
+    ])
+    ry = Track([(1, 12.6), (254, 12.6), (264, 11.2, "in")])
+    for f in range(1, LENGTH + 1):
+        pose = tl(f)
+        pose["hz"] += 0.008 * math.sin(f * 0.21)          # breathing
+        y = ry(f)
+        key_enemy(J, f, pose, (0, y, 0), 0.0, 0.0, run_phase=(11.2 - y) / 2.4)
+
+    # ---- warning bolt
+    elR = J["elR"]
+    hand_local = Vector((0, 0, -0.40))
+    orb = B.box("FX_orb", (0.22, 0.22, 0.22), (0, 0, 0), M["bolt_core"], elR, (0, 0, -0.42), bevel=0)
+    B.box("FX_orb_glow", (0.4, 0.4, 0.4), (0, 0, 0), M["bolt_glow"], orb, bevel=0)
+    for f in range(1, LENGTH + 1):
+        if 124 <= f <= ZAP:
+            s = 0.25 + 0.95 * ((f - 124) / (ZAP - 124)) ** 1.3 + 0.1 * math.sin(f * 2.3)
+        elif ZAP < f <= ZAP + 5:
+            s = 1.1 * (1 - (f - ZAP) / 5) + 0.001
+        else:
+            s = 0.001
+        key_scale(orb, f, s)
+        orb.rotation_euler = (f * 0.5, f * 0.37, f * 0.21)
+        orb.keyframe_insert("rotation_euler", frame=f)
+    hl = B.light("FX_handLight", "POINT", 0, (0.3, 0.6, 1.0), (0, 0, -0.42), 0.15, elR)
+    for f, v in ((1, 0), (124, 0), (ZAP - 1, 150), (ZAP, 350), (ZAP + 6, 60), (ZAP + 14, 0)):
+        hl.data.energy = v
+        hl.data.keyframe_insert("energy", frame=f)
+    for f in range(126, ZAP + 11):
+        scene.frame_set(f)
+        hp = elR.matrix_world @ hand_local
+        rnd = random.Random(3000 + f)
+        bc, bg = bmesh.new(), bmesh.new()
+        if f < ZAP:
+            k = (f - 126) / (ZAP - 126)
+            for _ in range(3 + int(k * 4)):
+                rv = Vector((rnd.uniform(-1, 1), rnd.uniform(-1, 1), rnd.uniform(-1, 1))).normalized()
+                B.add_bolt(bc, bg, hp, hp + rv * rnd.uniform(0.25, 0.55 + k * 0.4), rnd, amp=0.06, w=0.015, branches=0)
+        else:
+            t = clamp((f - ZAP) / 2.0)
+            fade = 1.0 if f < ZAP + 6 else max(0.0, 1 - (f - ZAP - 6) / 5)
+            tip = hp.lerp(G + Vector((0, 0, 0.05)), max(t, 0.15))
+            w = 0.05 * (0.4 + 0.6 * fade) * (1.0 + 0.3 * rnd.random())
+            B.add_bolt(bc, bg, hp, tip, rnd, amp=0.30, w=w, branches=5 if fade > 0.5 else 2)
+            if f % 2 == 0 and fade > 0.3:
+                B.add_bolt(bc, bg, hp, tip, random.Random(f * 7), amp=0.4, w=w * 0.6, branches=1)
+            if t >= 1.0 and fade > 0.2:                     # crackle crawling over the floor
+                for _ in range(5):
+                    a = rnd.uniform(0, 6.28)
+                    e = G + Vector((math.cos(a), math.sin(a), 0)) * rnd.uniform(0.5, 1.5) + Vector((0, 0, 0.04))
+                    B.add_bolt(bc, bg, G + Vector((0, 0, 0.05)), e, rnd, amp=0.08, w=0.02, branches=0)
+        oc = B.mesh_obj("FX_boltCore_%03d" % f, bc, M["bolt_core"])
+        og = B.mesh_obj("FX_boltGlow_%03d" % f, bg, M["bolt_glow"])
+        for o in (oc, og):
+            o.visible_shadow = False
+            B.vis_only(o, [f])
+    zl = B.light("FX_zapLight", "POINT", 0, (0.35, 0.65, 1.0), tuple(G + Vector((0, 0, 0.5))), 0.3)
+    for f, v in ((1, 0), (ZAP + 1, 0), (ZAP + 2, 2600), (ZAP + 6, 1100), (ZAP + 12, 0)):
+        zl.data.energy = v
+        zl.data.keyframe_insert("energy", frame=f)
+    sc_m = B.emissive("scorch", (0.3, 0.7, 1.0), 14.0)
+    scorch = bmesh.new()
+    r_ = random.Random(8)
+    for i in range(9):
+        a = i * 0.7
+        B.bm_box(scorch, (r_.uniform(0.25, 0.7), 0.07, 0.012), G + Vector((0, 0, 0.012)),
+                 Matrix.Rotation(a, 3, 'Z'))
+    so = B.mesh_obj("Scorch", scorch, sc_m, bevel=0)
+    so.visible_shadow = False
+    for f, s in ((1, 0.001), (ZAP + 1, 0.001), (ZAP + 2, 1.0), (226, 1.0), (236, 0.001)):
+        key_scale(so, f, s)
+    ss = sc_m.node_tree.nodes["Emission"].inputs["Strength"]
+    for f, v in ((1, 14.0), (ZAP + 2, 30.0), (ZAP + 20, 6.0), (228, 0.0)):
+        ss.default_value = v
+        ss.keyframe_insert("default_value", frame=f)
+    dust_ring("ZapSpark", ZAP + 2, G, 12, 1.6, 5, size=0.10, mat=M["spark_b"])
+    dust_ring("ZapDust", ZAP + 2, G, 9, 1.1, 6, size=0.26)
+
+    # ---- camera (yaw / pitch in degrees; yaw<0 = left, -180 = looking back at the gate)
+    p0 = math.degrees(math.atan2(1.1 - c0.z, 12.6))
+    p1 = math.degrees(math.atan2(1.45 - 1.62, 11.2))
+    yawT = Track([(1, 0), (28, 0), (36, -52, "smooth"), (42, -50), (52, 56, "smooth"), (57, 54),
+                  (65, 0, "smooth"), (70, 0), (88, -180, "smoother"), (118, -180),
+                  (130, 0, "smoother"), (ZAP, 0), (ZAP + 3, -24, "out"), (ZAP + 11, -18),
+                  (164, 0, "smooth"), (264, 0)])
+    pitT = Track([(1, p0), (22, -0.5, "smooth"), (36, 4), (52, 5), (65, -1), (88, -3), (118, -4),
+                  (130, -2), (ZAP, -3), (ZAP + 3, -17, "out"), (ZAP + 11, -13), (162, -2, "smooth"),
+                  (173, 19, "smooth"), (186, 19), (198, -40, "smoother"), (224, -38),
+                  (238, -2, "smooth"), (264, p1, "smooth")])
+    rollT = Track([(1, 0), (ZAP, 0), (ZAP + 3, 0.13, "out"), (ZAP + 12, 0.07), (166, 0, "smooth"), (264, 0)])
+    cpos = Track([(1, tuple(c0)), (26, (0, 0, 1.62)),
+                  (36, (0.04, -0.45, 1.585), "smooth"), (46, (-0.04, -0.95, 1.60), "smooth"),
+                  (56, (0.03, -1.35, 1.585), "smooth"), (66, (0, -1.6, 1.61), "smooth"),
+                  (86, (0, -1.6, 1.61)), (96, (0, -2.05, 1.60), "smooth"), (118, (0, -2.05, 1.60)),
+                  (130, (0, -1.6, 1.61), "smooth"), (ZAP, (0, -1.6, 1.61)),
+                  (ZAP + 4, (-0.12, -1.98, 1.42), "out"), (ZAP + 14, (-0.10, -1.98, 1.47)),
+                  (170, (0, -1.9, 1.58), "smooth"), (198, (0, -1.9, 1.56), "smooth"), (226, (0, -1.9, 1.58)),
+                  (236, (0.04, -1.2, 1.585), "smooth"), (244, (-0.03, -0.55, 1.60), "smooth"),
+                  (252, (0, 0, 1.62), "smooth"), (264, (0, 0, 1.62))])
+    LOW = (0.19, -0.44, -0.50, 0.25, 0.3, -0.92)
+    GUARD = (0.16, -0.30, -0.52, 0.05, 0.30, -0.95)
+    FLINCH = (0.22, -0.24, -0.36, -0.55, 0.6, -0.4)
+    HOLD = (0.085, -0.15, -0.46, -0.10, 0.75, -0.65)
+    RH1, LH1 = B.RH(1), B.LH(1)
+    rh = Track([(1, LOW), (24, LOW), (34, GUARD, "smooth"), (66, GUARD), (78, LOW, "smooth"), (128, LOW),
+                (136, (0.17, -0.31, -0.54, 0.0, 0.4, -0.9), "smooth"), (ZAP, (0.17, -0.31, -0.54, 0.0, 0.4, -0.9)),
+                (ZAP + 4, FLINCH, "out"), (ZAP + 13, FLINCH), (166, LOW, "smooth"), (190, LOW),
+                (201, HOLD, "smooth"), (226, HOLD), (240, RH1, "smooth"), (264, RH1)])
+    LHLOW = (-0.17, -0.42, -0.42)
+    lh = Track([(1, lh0), (24, LHLOW), (34, (-0.15, -0.30, -0.46), "smooth"), (66, (-0.15, -0.30, -0.46)),
+                (78, LHLOW, "smooth"), (90, LHLOW), (97, (-0.08, -0.10, -0.56), "smooth"),
+                (101, (-0.08, -0.10, -0.56)), (110, LHLOW, "smooth"), (ZAP, LHLOW),
+                (ZAP + 4, (-0.10, -0.13, -0.44), "out"), (ZAP + 13, (-0.11, -0.15, -0.44)), (166, LHLOW, "smooth"),
+                (190, LHLOW), (202, (-0.07, -0.17, -0.44), "smooth"), (212, (-0.07, -0.17, -0.44)),
+                (220, (0.045, -0.215, -0.455), "smooth"), (230, (0.045, -0.215, -0.455)),
+                (242, LH1, "smooth"), (264, LH1)])
+    trem = Track([(1, 0), (20, 0), (30, 1.0), (66, 1.0), (80, 0.5), (128, 0.5), (ZAP + 4, 1.3),
+                  (198, 1.6), (208, 1.6), (221, 0.0, "smooth"), (264, 0)])
+    prevq = {}
+    for f in range(1, LENGTH + 1):
+        s0, r0 = shake(f + BCUT - 1, 75, 0.06, 4)                    # tail of the landing shake
+        s1, r1 = shake(f, SLAM, 0.035, 4)
+        s2, r2 = shake(f, ZAP + 2, 0.07, 5)
+        cp = Vector(cpos(f)) + s0 + s1 + s2 + Vector((0, 0, 0.006 * math.sin((f + BCUT - 1) * 0.25)))
+        ya, pi_ = math.radians(yawT(f)), math.radians(pitT(f))
+        d = Vector((math.sin(ya) * math.cos(pi_), math.cos(ya) * math.cos(pi_), math.sin(pi_)))
+        k = trem(f)
+        tv = Vector((math.sin(f * 2.9) + 0.6 * math.sin(f * 4.7 + 1), math.sin(f * 3.7 + 2) + 0.6 * math.sin(f * 5.3),
+                     0.5 * math.sin(f * 4.1 + 4)))
+        r = list(rh(f))
+        for i in range(3):
+            r[i] += tv[i] * 0.004 * k
+        r[3] += tv[1] * 0.035 * k
+        r[4] += tv[0] * 0.02 * k
+        l = Vector(lh(f)) + Vector((tv[1], tv[2], tv[0])) * 0.004 * k
+        key_player(P, f, cp, cp + d * 10, rollT(f) + r0 + r1 + r2, tuple(r), tuple(l), prevq)
+
 # ================================================================== SHOT D : aftermath
 def shot_D():
     flames, floats = B.build_arena()
@@ -665,7 +929,7 @@ def shot_D():
 # ------------------------------------------------------------------ main
 B.setup_world_render()
 scene.frame_end = LENGTH
-{"A1": shot_A1, "A2": shot_A2, "B": shot_B, "D": shot_D}[SHOT]()
+{"A1": shot_A1, "A2": shot_A2, "B": shot_B, "C": shot_C, "D": shot_D}[SHOT]()
 if SHOT in ("A1", "A2"):
     scene.render.use_motion_blur = True
 scene.frame_set(1)
