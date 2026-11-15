@@ -1,3 +1,4 @@
 frames/
 frames_*/
 __pycache__/
+*.blend1
