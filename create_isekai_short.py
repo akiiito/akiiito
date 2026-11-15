@@ -33,7 +33,7 @@ M = B.M
 Track, EASE, lerp, clamp = B.Track, B.EASE, B.lerp, B.clamp
 FONT_PATH = "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc"
 
-LENGTH = {"A1": 32, "A2": 64, "B": 96, "C": 264, "D": 120}[SHOT]
+LENGTH = {"A1": 32, "A2": 64, "B": 96, "C": 264, "D": 120}.get(SHOT, 120)
 scene.frame_end = LENGTH
 random.seed(23)
 
@@ -927,24 +927,28 @@ def shot_D():
             key_scale(o, f, s)
 
 # ------------------------------------------------------------------ main
-B.setup_world_render()
-scene.frame_end = LENGTH
-{"A1": shot_A1, "A2": shot_A2, "B": shot_B, "C": shot_C, "D": shot_D}[SHOT]()
-if SHOT in ("A1", "A2"):
-    scene.render.use_motion_blur = True
-scene.frame_set(1)
-if not B.NO_SAVE:
-    bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT_DIR, "isekai_shot_%s.blend" % SHOT))
-os.makedirs(FRAME_DIR, exist_ok=True)
-frames = []
-if B.FRAMES_ARG and B.FRAMES_ARG is not True:
-    frames = [int(x) for x in B.FRAMES_ARG.split(",")]
-elif B.DO_ANIM:
-    frames = list(range(1, LENGTH + 1))
-import time
-for f in frames:
-    t0 = time.time()
-    scene.frame_set(f)
-    scene.render.filepath = os.path.join(FRAME_DIR, "%04d.png" % f)
-    bpy.ops.render.render(write_still=True)
-    print("frame %d  %.1fs" % (f, time.time() - t0), flush=True)
+def run_shot():
+    B.setup_world_render()
+    scene.frame_end = LENGTH
+    {"A1": shot_A1, "A2": shot_A2, "B": shot_B, "C": shot_C, "D": shot_D}[SHOT]()
+    if SHOT in ("A1", "A2"):
+        scene.render.use_motion_blur = True
+    scene.frame_set(1)
+    if not B.NO_SAVE:
+        bpy.ops.wm.save_as_mainfile(filepath=os.path.join(OUT_DIR, "isekai_shot_%s.blend" % SHOT))
+    os.makedirs(FRAME_DIR, exist_ok=True)
+    frames = []
+    if B.FRAMES_ARG and B.FRAMES_ARG is not True:
+        frames = [int(x) for x in B.FRAMES_ARG.split(",")]
+    elif B.DO_ANIM:
+        frames = list(range(1, LENGTH + 1))
+    import time
+    for f in frames:
+        t0 = time.time()
+        scene.frame_set(f)
+        scene.render.filepath = os.path.join(FRAME_DIR, "%04d.png" % f)
+        bpy.ops.render.render(write_still=True)
+        print("frame %d  %.1fs" % (f, time.time() - t0), flush=True)
+
+if os.environ.get("ISEKAI_AS_LIBRARY") != "1":
+    run_shot()
