@@ -327,7 +327,7 @@ def main():
     spans = build_voice()
     out = MIX[: n_(DUR)]
     out[-n_(0.6):] *= np.linspace(1, 0, n_(0.6))[:, None]
-    out = np.tanh(out * 1.5 / max(1e-9, np.percentile(np.abs(out), 99.9))) * 0.93
+    out = np.tanh(out * 1.25 / max(1e-9, np.percentile(np.abs(out), 99.9))) * 0.84
     wav = os.path.join(HERE, "reel_audio.wav")
     with wave.open(wav, "wb") as w:
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
@@ -337,7 +337,7 @@ def main():
     mp4 = os.path.join(HERE, "isekai_deathgame_reel.mp4")
     cmd = ["ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", os.path.join(tmp, "%04d.png"),
            "-i", wav, "-vf", "ass=reel_subs.ass", "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18",
-           "-preset", "slow", "-r", str(FPS), "-c:a", "aac", "-b:a", "192k", "-ar", str(SR),
+           "-preset", "slow", "-r", str(FPS), "-af", "volume=-3dB", "-c:a", "aac", "-b:a", "192k", "-ar", str(SR),
            "-movflags", "+faststart", "-shortest", mp4]
     subprocess.run(cmd, check=True, cwd=HERE)
     shutil.rmtree(tmp)
