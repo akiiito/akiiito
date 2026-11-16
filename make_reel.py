@@ -313,9 +313,34 @@ def vv_f0(x, sr):
         k = lo + int(np.argmax(ac[lo:hi]))
         if ac[k] > 0.45 * ac[0]: out.append(sr / k)
     return float(np.median(out)) if out else 0.0
+# 話者照合モデル (WeSpeaker ResNet34, ONNX) で「どの台詞も同じ人の声に聞こえるか」を毎回測る。声のブレは禁物。
+SPK_MODEL = os.environ.get("SPK_MODEL", "/tmp/claude-0/-home-user-akiiito/d0fa9e40-b6b7-5dbc-898d-de3863fd2cf2/scratchpad/spk/voxceleb_resnet34_LM.onnx")
+SPK_REF_TEXT = ["あいつがルールか", "さっきのやつと同じだ", "全部、終わらせる", "ここが、ゲームの外", "動きが同じなのか"]
+_spk = {}
+def spk_emb(x, sr):
+    import onnxruntime as ort, kaldi_native_fbank as knf
+    from scipy.signal import resample_poly
+    if "sess" not in _spk: _spk["sess"] = ort.InferenceSession(SPK_MODEL, providers=["CPUExecutionProvider"])
+    x = resample_poly(x, 16000, sr) if sr != 16000 else x
+    nz = np.where(np.abs(x) > 0.01)[0]; x = x[nz[0]:nz[-1]] if len(nz) else x
+    while len(x) < 16000 * 1.5: x = np.concatenate([x, x])
+    o = knf.FbankOptions(); o.frame_opts.samp_freq = 16000; o.frame_opts.dither = 0; o.mel_opts.num_bins = 80
+    fb = knf.OnlineFbank(o); fb.accept_waveform(16000, (x * 32768).tolist()); fb.input_finished()
+    f = np.stack([fb.get_frame(i) for i in range(fb.num_frames_ready)]); f -= f.mean(0)
+    e = _spk["sess"].run(None, {_spk["sess"].get_inputs()[0].name: f[None].astype(np.float32)})[0][0]
+    return e / np.linalg.norm(e)
+def spk_ref(who):
+    """その役の「地声」の基準（穏やかな台詞 5 本の平均）"""
+    if who not in _spk:
+        sid, _, pitch, spd, inton = VV_CAST[who]
+        es = [spk_emb(*vv_synth(t, sid, pitch, spd, inton)[:2]) for t in SPK_REF_TEXT]
+        c = np.mean(es, 0); _spk[who] = c / np.linalg.norm(c)
+    return _spk[who]
 def build_voice():
     import re
-    spans = []
+    spans, sims = [], []
+    check = VV_ENGINE == "aivis" and os.path.exists(SPK_MODEL)
+    if not check: print("WARNING: speaker-consistency check is OFF (model not found: %s)" % SPK_MODEL)
     for st, en, text, say, style, who in LINES:
         sid, sid_sh, pitch, spd, inton = VV_CAST[who]
         loud = style in ("shout", "resolve") or (who == "girl" and ("！" in text or "！" in say))
@@ -328,10 +353,9 @@ def build_voice():
         src = vv_text(text, say)
         if VV_ENGINE == "aivis" and who in ("champ", "rule", "narr"):
             src = re.sub(r"[！!]+", "", src) or src
-        if VV_ENGINE == "aivis" and who in VV_BASE:
-            # このモデルは「！」や語尾の「っ」で声の高さが 1 オクターブ近く跳ねて別人に聞こえることがある。
-            # 句読点違いの候補をいくつか合成して高さを測り、地声に対して自然な範囲に一番近いものを採用する。
-            want = VV_BASE[who] * (1.22 if loud else 1.0)
+        if check:
+            # 句読点違いの候補を合成し、地声に一番近い（＝同じ人に聞こえる）ものを採用する
+            ref = spk_ref(who)
             noex = re.sub(r"[！!]+", "", src)
             kanji = re.search(r"[一-龥]", src) is not None
             strip = re.sub(r"[っッ]+$", "", noex)
@@ -340,9 +364,9 @@ def build_voice():
             best = None
             for c in dict.fromkeys(c for c in cands if c):
                 x, sr, _ = vv_synth(c, sid, pitch, spd, inton)
-                err = abs(np.log(max(vv_f0(x, sr), 1.0) / want))
-                if best is None or err < best[0] - 0.03: best = (err, c)
-                if err < 0.1: break
+                sim = float(spk_emb(x, sr) @ ref)
+                if best is None or sim > best[0] + 0.05: best = (sim, c)
+                if sim >= 0.6: break
             src = say = best[1]
         slot = en - st + 0.3
         for _try in range(5):
@@ -354,7 +378,16 @@ def build_voice():
             elif ln < 0.55 and src != say and len(say) > len(src) and not __import__("re").search(r"[一-龥]", src): src = say               # 一瞬で終わる叫びは伸ばした読みで
             elif ln < 0.55 and spd > 0.8: spd *= 0.82
             else: break
+        sim = float(spk_emb(x, sr) @ spk_ref(who)) if check else 0.0
+        for _take in range(4):                      # スコアが低い行は録り直して一番良いテイクを使う
+            if not check or sim >= 0.55: break
+            x2, sr2, _ = vv_synth(src, sid, pitch, spd, inton)
+            nz = np.where(np.abs(x2) > 0.01)[0]
+            x2 = x2[max(nz[0] - 200, 0): nz[-1] + 2400] if len(nz) else x2
+            sim2 = float(spk_emb(x2, sr2) @ spk_ref(who))
+            if sim2 > sim and len(x2) / sr2 <= max(slot, len(x) / sr): x, sr, sim = x2, sr2, sim2
         f0 = vv_f0(x, sr)
+        sims.append((sim, who, src))
         if sr != SR: x = resample(x, int(len(x) * SR / sr))
         x = hp(x, 80)
         x = x * (0.17 / max(np.sqrt(np.mean(x ** 2)), 1e-4))    # そろえた音量に（歪ませない）
@@ -362,7 +395,13 @@ def build_voice():
         x = reverb(fade(x, 0.004, 0.03), VOICE.get(who, (0, 0, 0, 0))[3] * (1.0 if who == "rule" else 0.4))
         add(x, st, VOICE.get(who, (0, 0, 1.2, 0))[2] * (1.5 if loud else 1.3))
         spans.append((st, st + len(x) / SR))
-        print("voice %-5s %5.2fs len %.2fs spd %.2f f0 %3.0fHz  %s  [%s]" % (who, st, len(x) / SR, spd, f0, src, kana))
+        print("voice %-5s %5.2fs len %.2fs spd %.2f f0 %3.0fHz same-voice %.2f  %s  [%s]" % (who, st, len(x) / SR, spd, f0, sim, src, kana))
+    if check:
+        for who in sorted(set(w for _, w, _ in sims)):
+            v = [a for a, w, _ in sims if w == who]
+            print("VOICE CHECK %-5s lines %2d  mean %.2f  min %.2f" % (who, len(v), np.mean(v), min(v)))
+        for sim, who, src in sims:
+            if sim < 0.35: print("VOICE CHECK WARNING: low same-voice score %.2f  %s  %s" % (sim, who, src))
     return spans
 
 # ---------------------------------------------------------------- subtitles (ASS, centre-weighted)
