@@ -1,0 +1,58 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hero,IPAPGothic,66,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,1,0,1,7,3,5,30,30,0,1
+Style: narr,IPAPGothic,62,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,2,0,1,7,3,5,30,30,0,1
+Style: shout,IPAPGothic,78,&H0040E6FF,&H0040E6FF,&H00200818,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: resolve,IPAPGothic,80,&H00FFFFFF,&H00FFFFFF,&H003C14DC,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: other,IPAPGothic,66,&H00FFF0A0,&H00FFF0A0,&H00401000,&H96000000,-1,0,0,0,100,100,1,0,1,7,3,5,30,30,0,1
+Style: hud,IPAPGothic,54,&H003C3CFF,&H003C3CFF,&H00100818,&H96000000,-1,0,0,0,100,100,1,0,1,6,2,5,30,30,0,1
+Style: skill,IPAPGothic,64,&H00FFF060,&H00FFF060,&H00602000,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: hook,IPAPGothic,62,&H0030E8FF,&H0030E8FF,&H00000000,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: lv,IPAPGothic,40,&H00FFFFFF,&H00FFFFFF,&H002020C0,&H96000000,-1,0,0,0,100,100,1,0,1,5,2,5,30,30,0,1
+Style: next,IPAPGothic,50,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,-1,0,0,0,100,100,1,0,1,6,2,5,30,30,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.17,0:00:01.67,shout,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)\frz-3}斬れるわけないだろ！
+Dialogue: 0,0:00:01.92,0:00:03.67,other,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}私を斬って。\Nあなたは生きて
+Dialogue: 0,0:00:03.83,0:00:04.67,resolve,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}断る！
+Dialogue: 0,0:00:04.92,0:00:06.25,hero,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}…あいつがルールか
+Dialogue: 0,0:00:06.75,0:00:07.67,shout,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)\frz-3}うわっ！
+Dialogue: 0,0:00:08.58,0:00:09.92,hero,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}ルールごと――
+Dialogue: 0,0:00:10.00,0:00:11.17,resolve,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}斬るッ！！
+Dialogue: 0,0:00:12.17,0:00:13.33,other,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}私のスキル…『足場』！
+Dialogue: 0,0:00:13.58,0:00:14.67,shout,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)\frz-3}走れ！！
+Dialogue: 0,0:00:16.79,0:00:17.62,shout,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)\frz-3}足場が！
+Dialogue: 0,0:00:17.75,0:00:18.58,resolve,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}跳べっ！
+Dialogue: 0,0:00:19.92,0:00:20.83,other,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}いけぇぇ！
+Dialogue: 0,0:00:21.00,0:00:21.92,resolve,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}うおおおっ！
+Dialogue: 0,0:00:23.17,0:00:24.42,hero,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}…終わった？
+Dialogue: 0,0:00:25.75,0:00:26.67,shout,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)\frz-3}は？？？
+Dialogue: 0,0:00:26.92,0:00:28.00,other,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}二人なら、いける
+Dialogue: 1,0:00:01.00,0:00:03.00,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}残り 10秒
+Dialogue: 1,0:00:03.00,0:00:05.00,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}残り 9秒
+Dialogue: 1,0:00:05.00,0:00:07.00,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}残り 8秒
+Dialogue: 1,0:00:07.00,0:00:09.00,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}残り 7秒
+Dialogue: 1,0:00:09.00,0:00:10.00,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}残り 6秒
+Dialogue: 1,0:00:10.00,0:00:12.17,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}残り --秒
+Dialogue: 2,0:00:10.17,0:00:11.33,skill,,0,0,0,,{\an5\pos(360,540)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}ルール破壊！
+Dialogue: 2,0:00:12.50,0:00:13.50,skill,,0,0,0,,{\an5\pos(360,540)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}スキル発動【足場】
+Dialogue: 1,0:00:25.92,0:00:28.00,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}10000 対 2
+Dialogue: 3,0:00:00.00,0:00:01.67,hook,,0,0,0,,{\an5\pos(360,370)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}もしも「仲間を殺せ」と\N言われたら？
+Dialogue: 1,0:00:01.71,0:00:04.67,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H00FFFFFF&}危険度 Lv.1
+Dialogue: 1,0:00:04.67,0:00:06.67,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H00FFFFFF&}危険度 Lv.10
+Dialogue: 1,0:00:06.67,0:00:10.00,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H00FFFFFF&}危険度 Lv.30
+Dialogue: 1,0:00:10.00,0:00:12.92,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H0040D0FF&}危険度 Lv.50
+Dialogue: 1,0:00:12.92,0:00:16.79,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H0040D0FF&}危険度 Lv.70
+Dialogue: 1,0:00:16.79,0:00:19.83,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H0040D0FF&}危険度 Lv.85
+Dialogue: 1,0:00:19.83,0:00:21.67,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H003030FF&}危険度 Lv.99
+Dialogue: 1,0:00:21.67,0:00:25.50,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H003030FF&}危険度 Lv.100
+Dialogue: 1,0:00:25.50,0:00:28.00,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H00FFFFFF&}危険度 Lv.???
+Dialogue: 3,0:00:26.75,0:00:28.00,next,,0,0,0,,{\an5\pos(360,430)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}▶ つづき：1万人 vs 2人
