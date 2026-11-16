@@ -2,7 +2,7 @@
 make_reel_ep5.py ― 第五話「俺 対 俺」のリール書き出し（frames_E5 + 合成音声/効果音/BGM + 中央寄り字幕 + HUD）
   python make_reel_ep5.py      → isekai_deathgame_ep5.mp4
 """
-import os, subprocess, shutil, tempfile, wave
+import os, re, subprocess, shutil, tempfile, wave
 import numpy as np
 import make_reel as R
 import reel_extras as X
@@ -10,6 +10,7 @@ import reel_extras as X
 HERE = os.path.dirname(os.path.abspath(__file__))
 FPS, SR = 24, R.SR
 NF, HOLD = 672, 0        # cut on the cliffhanger: no title hold (loop / next video)
+PRE0, PRE = 480, 18      # cold open: 0.75 s flash of the blade-shattering climax before frame 1
 DUR = (NF + HOLD) / FPS
 R.DUR = DUR
 R.MIX = np.zeros((R.n_(DUR) + SR, 2))
@@ -141,16 +142,35 @@ def build_subs(path):
         fh.write("Dialogue: 2,%s,%s,skill,,0,0,0,,%s%s\n" % (R.ts(t(JOIN + 2)), R.ts(t(JOIN + 30)), pop % 540, "共鳴！"))
         fh.write("Dialogue: 2,%s,%s,skill,,0,0,0,,%s%s\n" % (R.ts(t(CATCH + 2)), R.ts(t(SKY + 2)), pop % 540, "スキル獲得【二刀流】"))
         X.write(fh, 5, NF)
+        cp = r"{\an5\pos(360,%d)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}"
+        fh.write("Dialogue: 3,%s,%s,next,,0,0,0,,%s%s\n" % (R.ts(t(DISS + 6)), R.ts(t(NF)), cp % 950,
+                                                             "未来の自分に勝てる？\\Nコメントで教えて！"))   # comment prompt
+    sh = PRE / FPS                                    # shift every cue behind the cold open, then caption the teaser
+    def sec(x):
+        h, m, c = x.split(":"); return int(h) * 3600 + int(m) * 60 + float(c)
+    txt = re.sub(r"Dialogue: (\d+),([\d:.]+),([\d:.]+),",
+                 lambda m: "Dialogue: %s,%s,%s," % (m.group(1), R.ts(sec(m.group(2)) + sh), R.ts(sec(m.group(3)) + sh)),
+                 open(path, encoding="utf-8").read())
+    txt += "Dialogue: 3,%s,%s,hook,,0,0,0,,%s%s\n" % (R.ts(0), R.ts(sh), cp % 370, "ラスボスは“未来の俺”")
+    open(path, "w", encoding="utf-8").write(txt)
 
 def main():
     src = os.path.join(HERE, "frames_E5")
     tmp = tempfile.mkdtemp(prefix="reel5_")
-    for k in range(1, NF + HOLD + 1):
-        p = os.path.join(src, "%04d.png" % min(k, NF))
+    order = list(range(PRE0, PRE0 + PRE)) + [min(k, NF) for k in range(1, NF + HOLD + 1)]
+    for k, f in enumerate(order, 1):
+        p = os.path.join(src, "%04d.png" % f)
         assert os.path.exists(p), p
         os.symlink(p, os.path.join(tmp, "%04d.png" % k))
     build_sfx(); build_music(); R.build_voice()
-    out = R.MIX[: R.n_(DUR)]
+    body = R.MIX[: R.n_(DUR)].copy()
+    R.MIX = np.zeros((R.n_(DUR) + SR, 2))             # cold-open sting: clash + shatter, cut hard into the scene
+    add(R.whoosh(PRE / FPS, 150, 5000), 0, 0.9); add(R.clang(0.6, 900), 0.08, 0.8); add(R.boom(1.2), 0.08, 1.0)
+    for k in range(4):
+        add(R.shatter(0.8), 0.1 + k * 0.14, 0.6, 0.8 * np.sin(k * 0.9))
+    pre = R.MIX[: R.n_(PRE / FPS)].copy()
+    pre[-R.n_(0.06):] *= np.linspace(1, 0, R.n_(0.06))[:, None]
+    out = np.concatenate([pre, body])
     out[-R.n_(0.15):] *= np.linspace(1, 0, R.n_(0.15))[:, None]
     out = np.tanh(out * 1.25 / max(1e-9, np.percentile(np.abs(out), 99.9))) * 0.84
     wav = os.path.join(HERE, "ep5_audio.wav")
