@@ -352,7 +352,7 @@ def main():
     if B.FRAMES_ARG and B.FRAMES_ARG is not True:
         frames = [int(x) for x in B.FRAMES_ARG.split(",")]
     elif B.DO_ANIM:
-        frames = [f for f in range(1, N + 1) if not os.path.exists(os.path.join(FRAME_DIR, "%04d.png" % f))]
+        frames = [f for f in range(1, 672 + 1) if not os.path.exists(os.path.join(FRAME_DIR, "%04d.png" % f))]
     import time
     for f in frames:
         t0 = time.time()

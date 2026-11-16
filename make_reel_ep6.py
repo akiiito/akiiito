@@ -5,6 +5,7 @@ make_reel_ep6.py ― 最終話「二人なら」のリール書き出し（frame
 import os, subprocess, shutil, tempfile, wave
 import numpy as np
 import make_reel as R
+import reel_extras as X
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FPS, SR = 24, R.SR
@@ -132,7 +133,7 @@ EXTRA_STYLES = (
     "Style: clear,{f},110,&H0050C820,&H0050C820,&H00103008,&H96000000,-1,0,0,0,100,100,2,0,1,8,3,5,30,30,0,1\n"
     "Style: skill,{f},64,&H00FFF060,&H00FFF060,&H00602000,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1\n")
 def build_subs(path):
-    head = R.ASS_HEAD.replace("\n[Events]", EXTRA_STYLES + "\n[Events]").replace("{f}", R.FONT)
+    head = X.head(R.ASS_HEAD.replace("\n[Events]", EXTRA_STYLES + "\n[Events]").replace("{f}", R.FONT), R.FONT)
     pop = r"{\an5\pos(360,%d)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}"
     with open(path, "w", encoding="utf-8") as fh:
         fh.write(head)
@@ -149,6 +150,7 @@ def build_subs(path):
         fh.write("Dialogue: 2,%s,%s,skill,,0,0,0,,%s%s\n" % (R.ts(t(STAIR0 + 4)), R.ts(t(RUN0 + 4)), pop % 540, "スキル発動【足場】"))
         fh.write("Dialogue: 2,%s,%s,clear,,0,0,0,,%s%s\n" % (R.ts(t(CORE_X + 12)), R.ts(t(FIELD + 14)), pop % 600, "GAME CLEAR"))
         fh.write("Dialogue: 2,%s,%s,skill,,0,0,0,,%s%s\n" % (R.ts(t(SKILL + 2)), R.ts(t(FADE0)), pop % 540, "スキル引き継ぎ：全部"))
+        X.write(fh, 6, NF)
 
 def main():
     src = os.path.join(HERE, "frames_E6")

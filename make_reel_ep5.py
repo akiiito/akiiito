@@ -5,10 +5,11 @@ make_reel_ep5.py ― 第五話「俺 対 俺」のリール書き出し（frames
 import os, subprocess, shutil, tempfile, wave
 import numpy as np
 import make_reel as R
+import reel_extras as X
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FPS, SR = 24, R.SR
-NF, HOLD = 696, 24
+NF, HOLD = 672, 0        # cut on the cliffhanger: no title hold (loop / next video)
 DUR = (NF + HOLD) / FPS
 R.DUR = DUR
 R.MIX = np.zeros((R.n_(DUR) + SR, 2))
@@ -123,7 +124,7 @@ EXTRA_STYLES = (
     "Style: hud,{f},54,&H003C3CFF,&H003C3CFF,&H00100818,&H96000000,-1,0,0,0,100,100,1,0,1,6,2,5,30,30,0,1\n"
     "Style: skill,{f},64,&H00FFF060,&H00FFF060,&H00602000,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1\n")
 def build_subs(path):
-    head = R.ASS_HEAD.replace("\n[Events]", EXTRA_STYLES + "\n[Events]").replace("{f}", R.FONT)
+    head = X.head(R.ASS_HEAD.replace("\n[Events]", EXTRA_STYLES + "\n[Events]").replace("{f}", R.FONT), R.FONT)
     pop = r"{\an5\pos(360,%d)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}"
     with open(path, "w", encoding="utf-8") as fh:
         fh.write(head)
@@ -139,6 +140,7 @@ def build_subs(path):
                 fh.write("Dialogue: 1,%s,%s,hud,,0,0,0,,%s%s\n" % (R.ts(t(f0)), R.ts(t(f1)), pop % 250, label))
         fh.write("Dialogue: 2,%s,%s,skill,,0,0,0,,%s%s\n" % (R.ts(t(JOIN + 2)), R.ts(t(JOIN + 30)), pop % 540, "共鳴！"))
         fh.write("Dialogue: 2,%s,%s,skill,,0,0,0,,%s%s\n" % (R.ts(t(CATCH + 2)), R.ts(t(SKY + 2)), pop % 540, "スキル獲得【二刀流】"))
+        X.write(fh, 5, NF)
 
 def main():
     src = os.path.join(HERE, "frames_E5")
@@ -149,7 +151,7 @@ def main():
         os.symlink(p, os.path.join(tmp, "%04d.png" % k))
     build_sfx(); build_music(); R.build_voice()
     out = R.MIX[: R.n_(DUR)]
-    out[-R.n_(0.6):] *= np.linspace(1, 0, R.n_(0.6))[:, None]
+    out[-R.n_(0.15):] *= np.linspace(1, 0, R.n_(0.15))[:, None]
     out = np.tanh(out * 1.25 / max(1e-9, np.percentile(np.abs(out), 99.9))) * 0.84
     wav = os.path.join(HERE, "ep5_audio.wav")
     with wave.open(wav, "wb") as w:

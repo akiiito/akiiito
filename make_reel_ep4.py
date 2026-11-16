@@ -5,10 +5,11 @@ make_reel_ep4.py ― 第四話「一万対二」のリール書き出し（frame
 import os, subprocess, shutil, tempfile, wave
 import numpy as np
 import make_reel as R
+import reel_extras as X
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FPS, SR = 24, R.SR
-NF, HOLD = 696, 24
+NF, HOLD = 672, 0        # cut on the cliffhanger: no title hold (loop / next video)
 DUR = (NF + HOLD) / FPS
 R.DUR = DUR
 R.MIX = np.zeros((R.n_(DUR) + SR, 2))
@@ -109,7 +110,7 @@ EXTRA_STYLES = (
     "Style: hud,{f},54,&H003C3CFF,&H003C3CFF,&H00100818,&H96000000,-1,0,0,0,100,100,1,0,1,6,2,5,30,30,0,1\n"
     "Style: skill,{f},64,&H00FFF060,&H00FFF060,&H00602000,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1\n")
 def build_subs(path):
-    head = R.ASS_HEAD.replace("\n[Events]", EXTRA_STYLES + "\n[Events]").replace("{f}", R.FONT)
+    head = X.head(R.ASS_HEAD.replace("\n[Events]", EXTRA_STYLES + "\n[Events]").replace("{f}", R.FONT), R.FONT)
     pop = r"{\an5\pos(360,%d)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}"
     with open(path, "w", encoding="utf-8") as fh:
         fh.write(head)
@@ -128,6 +129,7 @@ def build_subs(path):
         fh.write("Dialogue: 2,%s,%s,skill,,0,0,0,,%s%s\n" % (R.ts(t(218)), R.ts(t(246)), pop % 540, "スキル発動【足場】"))
         fh.write("Dialogue: 2,%s,%s,skill,,0,0,0,,%s%s\n" % (R.ts(t(338)), R.ts(t(368)), pop % 540, "合体スキル【天断】"))
         fh.write("Dialogue: 1,%s,%s,hud,,0,0,0,,%s%s\n" % (R.ts(t(REVEAL + 4)), R.ts(t(672)), pop % 250, "残り 1"))
+        X.write(fh, 4, NF)
 
 def main():
     src = os.path.join(HERE, "frames_E4")
@@ -138,7 +140,7 @@ def main():
         os.symlink(p, os.path.join(tmp, "%04d.png" % k))
     build_sfx(); build_music(); R.build_voice()
     out = R.MIX[: R.n_(DUR)]
-    out[-R.n_(0.6):] *= np.linspace(1, 0, R.n_(0.6))[:, None]
+    out[-R.n_(0.15):] *= np.linspace(1, 0, R.n_(0.15))[:, None]
     out = np.tanh(out * 1.25 / max(1e-9, np.percentile(np.abs(out), 99.9))) * 0.84
     wav = os.path.join(HERE, "ep4_audio.wav")
     with wave.open(wav, "wb") as w:
