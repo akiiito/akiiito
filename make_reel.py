@@ -273,6 +273,7 @@ else:
         "narr":  (52, 52, 0.00, 1.05, 1.15),     # 雀松朱司
     }
     VV_SOFT = {}
+VV_BASE = {"hero": 215.0, "girl": 410.0}                    # 地声の高さ (Hz, 実測)
 VV_SOFT_WORDS = ("斬って", "たすけて", "全部あげる", "戦わないで")
 VV_READ = [("勝った", "かった"), ("雷刃", "雷神"), ("待て待て待て", "まて、まて、まて"), ("天断", "テンダン")]
 def vv_text(text, say):
@@ -300,7 +301,19 @@ def vv_synth(src, sid, pitch, spd, inton):
              prePhonemeLength=0.02, postPhonemeLength=0.08, outputSamplingRate=SR, outputStereo=False)
     sr, x = wavfile.read(io.BytesIO(vv_call("/synthesis", {"speaker": sid}, q)))
     return np.asarray(x, dtype=np.float64) / 32768.0, sr, "/".join("".join(m["text"] for m in ap["moras"]) + ("、" if ap.get("pause_mora") else "") for ap in q["accent_phrases"])
+def vv_f0(x, sr):
+    """声の高さの中央値 (Hz)。テンションが変わっても別人に聞こえないかの確認用"""
+    out, w = [], int(sr * 0.04)
+    for i in range(0, len(x) - w, w // 2):
+        s = x[i:i + w] * np.hanning(w)
+        if np.sqrt(np.mean(s ** 2)) < 0.03: continue
+        ac = np.correlate(s, s, "full")[w - 1:]
+        lo, hi = int(sr / 500), int(sr / 70)
+        k = lo + int(np.argmax(ac[lo:hi]))
+        if ac[k] > 0.45 * ac[0]: out.append(sr / k)
+    return float(np.median(out)) if out else 0.0
 def build_voice():
+    import re
     spans = []
     for st, en, text, say, style, who in LINES:
         sid, sid_sh, pitch, spd, inton = VV_CAST[who]
@@ -312,6 +325,24 @@ def build_voice():
                 if style == "resolve": sid = sid_sh
         elif who in VV_SOFT and any(w in text for w in VV_SOFT_WORDS): sid = VV_SOFT[who]
         src = vv_text(text, say)
+        if VV_ENGINE == "aivis" and who in ("champ", "rule", "narr"):
+            src = re.sub(r"[！!]+", "", src) or src
+        if VV_ENGINE == "aivis" and who in VV_BASE:
+            # このモデルは「！」や語尾の「っ」で声の高さが 1 オクターブ近く跳ねて別人に聞こえることがある。
+            # 句読点違いの候補をいくつか合成して高さを測り、地声に対して自然な範囲に一番近いものを採用する。
+            want = VV_BASE[who] * (1.22 if loud else 1.0)
+            noex = re.sub(r"[！!]+", "", src)
+            kanji = re.search(r"[一-龥]", src) is not None
+            strip = re.sub(r"[っッ]+$", "", noex)
+            cands = [src, noex] + ([] if kanji else [re.sub(r"[！!]+", "", say), say]) + ([strip] if len(strip) >= 3 or kanji else [])
+            cands = ["はあ？" if re.fullmatch(r"は[？?]*", c) else c for c in cands]
+            best = None
+            for c in dict.fromkeys(c for c in cands if c):
+                x, sr, _ = vv_synth(c, sid, pitch, spd, inton)
+                err = abs(np.log(max(vv_f0(x, sr), 1.0) / want))
+                if best is None or err < best[0] - 0.03: best = (err, c)
+                if err < 0.1: break
+            src = say = best[1]
         slot = en - st + 0.3
         for _try in range(5):
             x, sr, kana = vv_synth(src, sid, pitch, spd, inton)
@@ -322,6 +353,14 @@ def build_voice():
             elif ln < 0.55 and src != say and len(say) > len(src) and not __import__("re").search(r"[一-龥]", src): src = say               # 一瞬で終わる叫びは伸ばした読みで
             elif ln < 0.55 and spd > 0.8: spd *= 0.82
             else: break
+        f0 = vv_f0(x, sr)
+        if VV_ENGINE == "aivis" and who in VV_BASE and f0 > 0:
+            # それでも地声から離れすぎた行は、少しだけ高さを寄せる（最大 ±18%）
+            want = VV_BASE[who] * (1.22 if loud else 1.0)
+            r = f0 / want
+            if r > 1.12 or r < 0.85:
+                r = float(np.clip(r / (1.08 if r > 1 else 0.9), 0.85, 1.18))
+                x = resample(x, int(len(x) * r)); f0 /= r
         if sr != SR: x = resample(x, int(len(x) * SR / sr))
         x = hp(x, 80)
         x = x * (0.17 / max(np.sqrt(np.mean(x ** 2)), 1e-4))    # そろえた音量に（歪ませない）
@@ -329,7 +368,7 @@ def build_voice():
         x = reverb(fade(x, 0.004, 0.03), VOICE.get(who, (0, 0, 0, 0))[3] * (1.0 if who == "rule" else 0.4))
         add(x, st, VOICE.get(who, (0, 0, 1.2, 0))[2] * (1.5 if loud else 1.3))
         spans.append((st, st + len(x) / SR))
-        print("voice %-5s %5.2fs len %.2fs spd %.2f  %s  [%s]" % (who, st, len(x) / SR, spd, src, kana))
+        print("voice %-5s %5.2fs len %.2fs spd %.2f f0 %3.0fHz  %s  [%s]" % (who, st, len(x) / SR, spd, f0, src, kana))
     return spans
 
 # ---------------------------------------------------------------- subtitles (ASS, centre-weighted)
