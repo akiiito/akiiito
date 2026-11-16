@@ -249,23 +249,38 @@ def reverb(x, amt):
     for d, g in ((0.031, 0.5), (0.047, 0.42), (0.071, 0.36), (0.113, 0.3), (0.19, 0.22), (0.31, 0.15)):
         out[n_(d): n_(d) + len(x)] += x * g * amt * 2
     return out
-# ---------------------------------------------------------------- voice (VOICEVOX, local engine)
-# 無料のニューラル音声合成 VOICEVOX をローカル (127.0.0.1:50021) で動かして使う。
-# 公開時はクレジット表記が必要: VOICEVOX:玄野武宏 / 四国めたん / 青山龍星 / 麒ヶ島宗麟 / 雀松朱司
-VV_URL = os.environ.get("VOICEVOX_URL", "http://127.0.0.1:50021")
-VV_CAST = {   # who: (style id, shout style id, pitchScale, speedScale, intonationScale)
-    "hero":  (11, 40, 0.00, 1.14, 1.30),     # 玄野武宏 (叫び = ツンギレ)
-    "girl":  (2, 2, 0.02, 1.08, 1.35),       # 四国めたん
-    "champ": (13, 13, -0.03, 0.98, 1.15),    # 青山龍星  (未来の俺)
-    "rule":  (53, 53, -0.06, 0.90, 1.10),    # 麒ヶ島宗麟 (ルール)
-    "narr":  (52, 52, 0.00, 1.05, 1.15),     # 雀松朱司
-}
+# ---------------------------------------------------------------- voice (AivisSpeech, local engine)
+# 無料の音声合成 AivisSpeech Engine (Style-Bert-VITS2 系, VOICEVOX 互換 API) をローカル (127.0.0.1:10101) で動かして使う。
+# 公開時はクレジット表記が必要 (ACML 1.0): 澤原 玄二郎・阿井田 茂 (CV: 古山キリヲ) / まお / fumifumi
+# VOICEVOX_URL=http://127.0.0.1:50021 VV_ENGINE=voicevox で VOICEVOX に切り替え可。
+VV_ENGINE = os.environ.get("VV_ENGINE", "aivis")
+VV_URL = os.environ.get("VOICEVOX_URL", "http://127.0.0.1:10101" if VV_ENGINE == "aivis" else "http://127.0.0.1:50021")
+if VV_ENGINE == "aivis":
+    VV_CAST = {   # who: (style id, shout style id, pitchScale, speedScale, intonationScale=感情の強さ)
+        "hero":  (2029042368, 2029042370, 0.00, 1.10, 1.10),   # 澤原 玄二郎 (叫び = close-shout)
+        "girl":  (888753760, 888753760, 0.00, 1.05, 1.10),     # まお
+        "champ": (2029042368, 2029042368, -0.05, 0.92, 0.90),  # 澤原 玄二郎を低く遅く = 未来の俺
+        "rule":  (1310138979, 1310138979, -0.06, 0.90, 1.00),  # 阿井田 茂 Heavy (ルール)
+        "narr":  (606865152, 606865152, 0.00, 1.05, 1.00),     # fumifumi
+    }
+    VV_SOFT = {"girl": 888753765}                              # まお「せつなめ」
+else:
+    VV_CAST = {
+        "hero":  (11, 40, 0.00, 1.14, 1.30),     # 玄野武宏
+        "girl":  (2, 2, 0.02, 1.08, 1.35),       # 四国めたん
+        "champ": (13, 13, -0.03, 0.98, 1.15),    # 青山龍星
+        "rule":  (53, 53, -0.06, 0.90, 1.10),    # 麒ヶ島宗麟
+        "narr":  (52, 52, 0.00, 1.05, 1.15),     # 雀松朱司
+    }
+    VV_SOFT = {}
+VV_SOFT_WORDS = ("斬って", "たすけて", "全部あげる", "戦わないで")
 VV_READ = [("勝った", "かった"), ("雷刃", "雷神"), ("待て待て待て", "まて、まて、まて"), ("天断", "テンダン")]
 def vv_text(text, say):
     """字幕の漢字かな交じり文から読み上げ用テキストを作る（漢字のままの方がアクセントが自然）"""
     import re
     s = text.replace("\\N", "").replace("――", "、").replace("…", "、")
     s = re.sub(r"[『』「」【】“”]", "", s).strip("、 ")
+    s = re.sub(r"、+([！？!?])", r"\1", s)
     if re.fullmatch(r"は[？！?!]*", s or say): return "はあ？"
     if not s: return say
     for a, b in VV_READ: s = s.replace(a, b)
@@ -284,15 +299,18 @@ def vv_synth(src, sid, pitch, spd, inton):
     q.update(speedScale=spd, pitchScale=pitch, intonationScale=inton, volumeScale=1.0,
              prePhonemeLength=0.02, postPhonemeLength=0.08, outputSamplingRate=SR, outputStereo=False)
     sr, x = wavfile.read(io.BytesIO(vv_call("/synthesis", {"speaker": sid}, q)))
-    return np.asarray(x, dtype=np.float64) / 32768.0, sr, q["kana"]
+    return np.asarray(x, dtype=np.float64) / 32768.0, sr, "/".join("".join(m["text"] for m in ap["moras"]) + ("、" if ap.get("pause_mora") else "") for ap in q["accent_phrases"])
 def build_voice():
     spans = []
     for st, en, text, say, style, who in LINES:
         sid, sid_sh, pitch, spd, inton = VV_CAST[who]
         loud = style in ("shout", "resolve") or (who == "girl" and ("！" in text or "！" in say))
         if loud:
-            pitch += 0.03; inton += 0.25
-            if style == "resolve": sid = sid_sh
+            if VV_ENGINE == "aivis": inton += 0.3; sid = sid_sh
+            else:
+                pitch += 0.03; inton += 0.25
+                if style == "resolve": sid = sid_sh
+        elif who in VV_SOFT and any(w in text for w in VV_SOFT_WORDS): sid = VV_SOFT[who]
         src = vv_text(text, say)
         slot = en - st + 0.3
         for _try in range(5):
@@ -300,7 +318,7 @@ def build_voice():
             nz = np.where(np.abs(x) > 0.01)[0]
             x = x[max(nz[0] - 200, 0): nz[-1] + 2400] if len(nz) else x
             ln = len(x) / sr
-            if ln > slot and spd < 1.7: spd = min(1.7, spd * max(1.05, ln / slot))   # セリフ枠に収める
+            if ln > slot and spd < 1.4: spd = min(1.4, spd * max(1.05, ln / slot))   # セリフ枠に収める
             elif ln < 0.55 and src != say and len(say) > len(src) and not __import__("re").search(r"[一-龥]", src): src = say               # 一瞬で終わる叫びは伸ばした読みで
             elif ln < 0.55 and spd > 0.8: spd *= 0.82
             else: break
