@@ -251,19 +251,20 @@ def reverb(x, amt):
     return out
 # ---------------------------------------------------------------- voice (AivisSpeech, local engine)
 # 無料の音声合成 AivisSpeech Engine (Style-Bert-VITS2 系, VOICEVOX 互換 API) をローカル (127.0.0.1:10101) で動かして使う。
-# 公開時はクレジット表記が必要 (ACML 1.0): 澤原 玄二郎・阿井田 茂 (CV: 古山キリヲ) / まお / fumifumi
+# 公開時はクレジット表記が必要 (ACML 1.0): 宗周定昌 / まお / 阿井田 茂 (CV: 古山キリヲ) / fumifumi
 # VOICEVOX_URL=http://127.0.0.1:50021 VV_ENGINE=voicevox で VOICEVOX に切り替え可。
 VV_ENGINE = os.environ.get("VV_ENGINE", "aivis")
 VV_URL = os.environ.get("VOICEVOX_URL", "http://127.0.0.1:10101" if VV_ENGINE == "aivis" else "http://127.0.0.1:50021")
 if VV_ENGINE == "aivis":
     VV_CAST = {   # who: (style id, shout style id, pitchScale, speedScale, intonationScale=感情の強さ)
-        "hero":  (2029042368, 2029042370, 0.00, 1.10, 1.10),   # 澤原 玄二郎 (叫び = close-shout)
+        # 主人公は「穏やかな台詞と叫びで同じ人に聞こえるか」を話者照合モデルで測って一番ぶれなかった声
+        "hero":  (1143949696, 1143949696, 0.00, 1.12, 1.00),   # 宗周定昌
         "girl":  (888753760, 888753760, 0.00, 1.05, 1.10),     # まお
-        "champ": (2029042368, 2029042368, -0.05, 0.92, 0.90),  # 澤原 玄二郎を低く遅く = 未来の俺
+        "champ": (1143949696, 1143949696, -0.04, 0.92, 0.90),  # 宗周定昌を低く遅く = 未来の俺
         "rule":  (1310138979, 1310138979, -0.06, 0.90, 1.00),  # 阿井田 茂 Heavy (ルール)
         "narr":  (606865152, 606865152, 0.00, 1.05, 1.00),     # fumifumi
     }
-    VV_SOFT = {"girl": 888753765}                              # まお「せつなめ」
+    VV_SOFT = {}                                               # スタイルは役ごとに 1 つに固定（変えると別人に聞こえる）
 else:
     VV_CAST = {
         "hero":  (11, 40, 0.00, 1.14, 1.30),     # 玄野武宏
@@ -273,7 +274,7 @@ else:
         "narr":  (52, 52, 0.00, 1.05, 1.15),     # 雀松朱司
     }
     VV_SOFT = {}
-VV_BASE = {"hero": 215.0, "girl": 410.0}                    # 地声の高さ (Hz, 実測)
+VV_BASE = {"girl": 410.0}                    # 地声の高さ (Hz, 実測)
 VV_SOFT_WORDS = ("斬って", "たすけて", "全部あげる", "戦わないで")
 VV_READ = [("勝った", "かった"), ("雷刃", "雷神"), ("待て待て待て", "まて、まて、まて"), ("天断", "テンダン")]
 def vv_text(text, say):
@@ -319,7 +320,7 @@ def build_voice():
         sid, sid_sh, pitch, spd, inton = VV_CAST[who]
         loud = style in ("shout", "resolve") or (who == "girl" and ("！" in text or "！" in say))
         if loud:
-            if VV_ENGINE == "aivis": inton += 0.3; sid = sid_sh
+            if VV_ENGINE == "aivis": inton += 0.4; sid = sid_sh
             else:
                 pitch += 0.03; inton += 0.25
                 if style == "resolve": sid = sid_sh
@@ -354,13 +355,6 @@ def build_voice():
             elif ln < 0.55 and spd > 0.8: spd *= 0.82
             else: break
         f0 = vv_f0(x, sr)
-        if VV_ENGINE == "aivis" and who in VV_BASE and f0 > 0:
-            # それでも地声から離れすぎた行は、少しだけ高さを寄せる（最大 ±18%）
-            want = VV_BASE[who] * (1.22 if loud else 1.0)
-            r = f0 / want
-            if r > 1.12 or r < 0.85:
-                r = float(np.clip(r / (1.08 if r > 1 else 0.9), 0.85, 1.18))
-                x = resample(x, int(len(x) * r)); f0 /= r
         if sr != SR: x = resample(x, int(len(x) * SR / sr))
         x = hp(x, 80)
         x = x * (0.17 / max(np.sqrt(np.mean(x ** 2)), 1e-4))    # そろえた音量に（歪ませない）
