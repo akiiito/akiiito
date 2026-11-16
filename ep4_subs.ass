@@ -1,0 +1,87 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hero,IPAPGothic,66,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,1,0,1,7,3,5,30,30,0,1
+Style: narr,IPAPGothic,62,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,2,0,1,7,3,5,30,30,0,1
+Style: shout,IPAPGothic,78,&H0040E6FF,&H0040E6FF,&H00200818,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: resolve,IPAPGothic,80,&H00FFFFFF,&H00FFFFFF,&H003C14DC,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: other,IPAPGothic,66,&H00FFF0A0,&H00FFF0A0,&H00401000,&H96000000,-1,0,0,0,100,100,1,0,1,7,3,5,30,30,0,1
+Style: foe,IPAPGothic,68,&H00FFFFFF,&H00FFFFFF,&H001010C0,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: hud,IPAPGothic,54,&H003C3CFF,&H003C3CFF,&H00100818,&H96000000,-1,0,0,0,100,100,1,0,1,6,2,5,30,30,0,1
+Style: skill,IPAPGothic,64,&H00FFF060,&H00FFF060,&H00602000,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: hook,IPAPGothic,62,&H0030E8FF,&H0030E8FF,&H00000000,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: lv,IPAPGothic,40,&H00FFFFFF,&H00FFFFFF,&H002020C0,&H96000000,-1,0,0,0,100,100,1,0,1,5,2,5,30,30,0,1
+Style: next,IPAPGothic,50,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,-1,0,0,0,100,100,1,0,1,6,2,5,30,30,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.92,0:00:02.25,shout,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)\frz-3}一万って…マジかよ！
+Dialogue: 0,0:00:02.50,0:00:03.33,other,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}来るよ！
+Dialogue: 0,0:00:03.50,0:00:04.42,resolve,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}おらぁっ！
+Dialogue: 0,0:00:04.96,0:00:05.58,other,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}やぁっ！
+Dialogue: 0,0:00:05.87,0:00:07.00,shout,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)\frz-3}まだ来る！
+Dialogue: 0,0:00:07.67,0:00:09.08,hero,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}キリがない…！
+Dialogue: 0,0:00:09.25,0:00:10.58,other,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}上に逃げる！
+Dialogue: 0,0:00:11.42,0:00:12.83,shout,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)\frz-3}登ってくる！？
+Dialogue: 0,0:00:13.13,0:00:14.75,other,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}私の足場、\N全部あげる！
+Dialogue: 0,0:00:15.33,0:00:16.92,hero,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}まとめて――
+Dialogue: 0,0:00:17.17,0:00:19.25,resolve,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}消えろォォ！！
+Dialogue: 0,0:00:20.17,0:00:21.58,hero,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}…あと、一人？
+Dialogue: 0,0:00:23.25,0:00:24.92,foe,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}強くなったな
+Dialogue: 0,0:00:26.00,0:00:27.50,foe,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}待ってたぞ…“俺”
+Dialogue: 0,0:00:27.75,0:00:28.75,shout,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)\frz-3}…俺！？
+Dialogue: 1,0:00:01.08,0:00:03.75,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}10000 対 2
+Dialogue: 1,0:00:03.75,0:00:04.75,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}撃破 1 / 10000
+Dialogue: 1,0:00:04.75,0:00:05.17,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}撃破 2 / 10000
+Dialogue: 1,0:00:05.17,0:00:05.67,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}撃破 3 / 10000
+Dialogue: 1,0:00:05.67,0:00:06.58,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}撃破 4 / 10000
+Dialogue: 1,0:00:06.58,0:00:07.33,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}撃破 5 / 10000
+Dialogue: 1,0:00:07.33,0:00:17.42,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}撃破 7 / 10000
+Dialogue: 1,0:00:17.42,0:00:17.50,hud,,0,0,0,,{\an5\pos(360,250)}撃破 24 / 10000
+Dialogue: 1,0:00:17.50,0:00:17.58,hud,,0,0,0,,{\an5\pos(360,250)}撃破 76 / 10000
+Dialogue: 1,0:00:17.58,0:00:17.67,hud,,0,0,0,,{\an5\pos(360,250)}撃破 163 / 10000
+Dialogue: 1,0:00:17.67,0:00:17.75,hud,,0,0,0,,{\an5\pos(360,250)}撃破 284 / 10000
+Dialogue: 1,0:00:17.75,0:00:17.83,hud,,0,0,0,,{\an5\pos(360,250)}撃破 440 / 10000
+Dialogue: 1,0:00:17.83,0:00:17.92,hud,,0,0,0,,{\an5\pos(360,250)}撃破 631 / 10000
+Dialogue: 1,0:00:17.92,0:00:18.00,hud,,0,0,0,,{\an5\pos(360,250)}撃破 857 / 10000
+Dialogue: 1,0:00:18.00,0:00:18.08,hud,,0,0,0,,{\an5\pos(360,250)}撃破 1117 / 10000
+Dialogue: 1,0:00:18.08,0:00:18.17,hud,,0,0,0,,{\an5\pos(360,250)}撃破 1412 / 10000
+Dialogue: 1,0:00:18.17,0:00:18.25,hud,,0,0,0,,{\an5\pos(360,250)}撃破 1741 / 10000
+Dialogue: 1,0:00:18.25,0:00:18.33,hud,,0,0,0,,{\an5\pos(360,250)}撃破 2106 / 10000
+Dialogue: 1,0:00:18.33,0:00:18.42,hud,,0,0,0,,{\an5\pos(360,250)}撃破 2505 / 10000
+Dialogue: 1,0:00:18.42,0:00:18.50,hud,,0,0,0,,{\an5\pos(360,250)}撃破 2938 / 10000
+Dialogue: 1,0:00:18.50,0:00:18.58,hud,,0,0,0,,{\an5\pos(360,250)}撃破 3407 / 10000
+Dialogue: 1,0:00:18.58,0:00:18.67,hud,,0,0,0,,{\an5\pos(360,250)}撃破 3910 / 10000
+Dialogue: 1,0:00:18.67,0:00:18.75,hud,,0,0,0,,{\an5\pos(360,250)}撃破 4447 / 10000
+Dialogue: 1,0:00:18.75,0:00:18.83,hud,,0,0,0,,{\an5\pos(360,250)}撃破 5020 / 10000
+Dialogue: 1,0:00:18.83,0:00:18.92,hud,,0,0,0,,{\an5\pos(360,250)}撃破 5627 / 10000
+Dialogue: 1,0:00:18.92,0:00:19.00,hud,,0,0,0,,{\an5\pos(360,250)}撃破 6269 / 10000
+Dialogue: 1,0:00:19.00,0:00:19.08,hud,,0,0,0,,{\an5\pos(360,250)}撃破 6945 / 10000
+Dialogue: 1,0:00:19.08,0:00:19.17,hud,,0,0,0,,{\an5\pos(360,250)}撃破 7657 / 10000
+Dialogue: 1,0:00:19.17,0:00:19.25,hud,,0,0,0,,{\an5\pos(360,250)}撃破 8403 / 10000
+Dialogue: 1,0:00:19.25,0:00:19.33,hud,,0,0,0,,{\an5\pos(360,250)}撃破 9183 / 10000
+Dialogue: 1,0:00:19.33,0:00:19.42,hud,,0,0,0,,{\an5\pos(360,250)}撃破 9999 / 10000
+Dialogue: 1,0:00:19.42,0:00:21.92,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}撃破 9999 / 10000
+Dialogue: 2,0:00:09.83,0:00:11.00,skill,,0,0,0,,{\an5\pos(360,540)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}スキル発動【足場】
+Dialogue: 2,0:00:14.83,0:00:16.08,skill,,0,0,0,,{\an5\pos(360,540)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}合体スキル【天断】
+Dialogue: 1,0:00:26.42,0:00:28.75,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}残り 1
+Dialogue: 3,0:00:00.75,0:00:02.42,hook,,0,0,0,,{\an5\pos(360,370)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}もしも観客1万人が\N全員敵になったら？
+Dialogue: 1,0:00:02.46,0:00:03.75,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H00FFFFFF&}危険度 Lv.1
+Dialogue: 1,0:00:03.75,0:00:05.67,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H00FFFFFF&}危険度 Lv.5
+Dialogue: 1,0:00:05.67,0:00:07.33,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H00FFFFFF&}危険度 Lv.10
+Dialogue: 1,0:00:07.33,0:00:09.33,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H00FFFFFF&}危険度 Lv.20
+Dialogue: 1,0:00:09.33,0:00:11.67,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H00FFFFFF&}危険度 Lv.40
+Dialogue: 1,0:00:11.67,0:00:13.33,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H0040D0FF&}危険度 Lv.60
+Dialogue: 1,0:00:13.33,0:00:16.25,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H0040D0FF&}危険度 Lv.80
+Dialogue: 1,0:00:16.25,0:00:17.42,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H003030FF&}危険度 Lv.99
+Dialogue: 1,0:00:17.42,0:00:26.25,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H003030FF&}危険度 Lv.100
+Dialogue: 1,0:00:26.25,0:00:28.75,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H00FFFFFF&}危険度 Lv.???
+Dialogue: 3,0:00:27.50,0:00:28.75,next,,0,0,0,,{\an5\pos(360,430)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}▶ つづき：最後の敵は…俺？
+Dialogue: 3,0:00:26.83,0:00:28.75,next,,0,0,0,,{\an5\pos(360,950)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}この“俺”の正体は？\Nコメントで予想して！
+Dialogue: 3,0:00:00.00,0:00:00.75,hook,,0,0,0,,{\an5\pos(360,370)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}この後、1万人が消える

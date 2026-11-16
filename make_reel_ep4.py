@@ -25,7 +25,7 @@ R.LINES = [
     (t(4), t(36), "一万って…マジかよ！", "いちまんって、まじかよ！", "shout", "hero"),
     (t(42), t(62), "来るよ！", "くるよ！", "other", "girl"),
     (t(66), t(88), "おらぁっ！", "おらあ！", "resolve", "hero"),
-    (t(101), t(116), "はぁっ！", "はあっ！", "other", "girl"),
+    (t(101), t(116), "やぁっ！", "やああ！", "other", "girl"),
     (t(123), t(150), "まだ来る！", "まだくる！", "shout", "hero"),
     (t(166), t(200), "キリがない…！", "きりがない！", "hero", "hero"),
     (t(204), t(236), "上に逃げる！", "うえに、にげる！", "other", "girl"),
@@ -131,7 +131,7 @@ def build_subs(path):
         fh.write("Dialogue: 2,%s,%s,skill,,0,0,0,,%s%s\n" % (R.ts(t(338)), R.ts(t(368)), pop % 540, "合体スキル【天断】"))
         fh.write("Dialogue: 1,%s,%s,hud,,0,0,0,,%s%s\n" % (R.ts(t(REVEAL + 4)), R.ts(t(672)), pop % 250, "残り 1"))
         X.write(fh, 4, NF)
-        fh.write("Dialogue: 3,%s,%s,next,,0,0,0,,%s%s\n" % (R.ts(t(REVEAL + 14)), R.ts(t(NF - 30)), pop % 430,
+        fh.write("Dialogue: 3,%s,%s,next,,0,0,0,,%s%s\n" % (R.ts(t(REVEAL + 14)), R.ts(t(NF)), pop % 950,
                                                              "この“俺”の正体は？\\Nコメントで予想して！"))   # comment prompt
     sh = PRE / FPS                                    # shift every cue behind the cold open, then caption the teaser
     def bump(m):
@@ -157,7 +157,7 @@ def main():
     R.MIX = np.zeros((R.n_(DUR) + SR, 2))             # cold-open sting: sweep + shatter, cut hard into the gong
     add(R.whoosh(PRE / FPS, 150, 5000), 0, 1.0); add(R.zap(PRE / FPS), 0, 0.7); add(R.boom(1.2), 0, 1.0)
     for k in range(5):
-        add(R.shatter(0.5), k * 0.13, 0.6, 0.8 * np.sin(k * 0.9)); add(R.taiko(), k * 0.13, 0.4)
+        add(R.shatter(0.8), k * 0.13, 0.6, 0.8 * np.sin(k * 0.9)); add(R.taiko(), k * 0.13, 0.4)
     pre = R.MIX[: R.n_(PRE / FPS)].copy()
     pre[-R.n_(0.06):] *= np.linspace(1, 0, R.n_(0.06))[:, None]
     out = np.concatenate([pre, body])
