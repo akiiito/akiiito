@@ -238,7 +238,6 @@ def build_music():
     add(pad([58.3, 82.4, 116.5, 164.8], 2.2, 600, 0.3, 0.8), tD(66), 0.5)
     add(pad([73.4, 110, 146.8, 220], 1.6, 900, 0.3, 1.0), tD(101), 0.3)
 
-# ---------------------------------------------------------------- voice (Open JTalk)
 VOICE = {   # half_tone shift, base speed, gain, reverb
     "hero": (1.0, 1.12, 1.25, 0.0),
     "narr": (-3.0, 0.98, 1.15, 0.15),
@@ -250,27 +249,69 @@ def reverb(x, amt):
     for d, g in ((0.031, 0.5), (0.047, 0.42), (0.071, 0.36), (0.113, 0.3), (0.19, 0.22), (0.31, 0.15)):
         out[n_(d): n_(d) + len(x)] += x * g * amt * 2
     return out
+# ---------------------------------------------------------------- voice (VOICEVOX, local engine)
+# 無料のニューラル音声合成 VOICEVOX をローカル (127.0.0.1:50021) で動かして使う。
+# 公開時はクレジット表記が必要: VOICEVOX:玄野武宏 / 四国めたん / 青山龍星 / 麒ヶ島宗麟 / 雀松朱司
+VV_URL = os.environ.get("VOICEVOX_URL", "http://127.0.0.1:50021")
+VV_CAST = {   # who: (style id, shout style id, pitchScale, speedScale, intonationScale)
+    "hero":  (11, 40, 0.00, 1.14, 1.30),     # 玄野武宏 (叫び = ツンギレ)
+    "girl":  (2, 2, 0.02, 1.08, 1.35),       # 四国めたん
+    "champ": (13, 13, -0.03, 0.98, 1.15),    # 青山龍星  (未来の俺)
+    "rule":  (53, 53, -0.06, 0.90, 1.10),    # 麒ヶ島宗麟 (ルール)
+    "narr":  (52, 52, 0.00, 1.05, 1.15),     # 雀松朱司
+}
+VV_READ = [("勝った", "かった"), ("雷刃", "雷神"), ("待て待て待て", "まて、まて、まて"), ("天断", "テンダン")]
+def vv_text(text, say):
+    """字幕の漢字かな交じり文から読み上げ用テキストを作る（漢字のままの方がアクセントが自然）"""
+    import re
+    s = text.replace("\\N", "").replace("――", "、").replace("…", "、")
+    s = re.sub(r"[『』「」【】“”]", "", s).strip("、 ")
+    if re.fullmatch(r"は[？！?!]*", s or say): return "はあ？"
+    if not s: return say
+    for a, b in VV_READ: s = s.replace(a, b)
+    return s
+def vv_call(path, params, body=None):
+    import json, urllib.request, urllib.parse
+    op = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+    req = urllib.request.Request(VV_URL + path + "?" + urllib.parse.urlencode(params), method="POST",
+                                 data=None if body is None else json.dumps(body).encode(),
+                                 headers={"Content-Type": "application/json"})
+    return op.open(req, timeout=120).read()
+def vv_synth(src, sid, pitch, spd, inton):
+    import json, io
+    from scipy.io import wavfile
+    q = json.loads(vv_call("/audio_query", {"text": src, "speaker": sid}))
+    q.update(speedScale=spd, pitchScale=pitch, intonationScale=inton, volumeScale=1.0,
+             prePhonemeLength=0.02, postPhonemeLength=0.08, outputSamplingRate=SR, outputStereo=False)
+    sr, x = wavfile.read(io.BytesIO(vv_call("/synthesis", {"speaker": sid}, q)))
+    return np.asarray(x, dtype=np.float64) / 32768.0, sr, q["kana"]
 def build_voice():
-    import pyopenjtalk
     spans = []
-    for st, en, _, say, _, who in LINES:
-        ht, spd, gain, rv = VOICE[who]
-        slot = en - st + 0.25
-        for _try in range(4):
-            x, sr = pyopenjtalk.tts(say, speed=spd, half_tone=ht)
-            x = np.asarray(x, dtype=np.float64) / 32768.0
+    for st, en, text, say, style, who in LINES:
+        sid, sid_sh, pitch, spd, inton = VV_CAST[who]
+        loud = style in ("shout", "resolve") or (who == "girl" and ("！" in text or "！" in say))
+        if loud:
+            pitch += 0.03; inton += 0.25
+            if style == "resolve": sid = sid_sh
+        src = vv_text(text, say)
+        slot = en - st + 0.3
+        for _try in range(5):
+            x, sr, kana = vv_synth(src, sid, pitch, spd, inton)
             nz = np.where(np.abs(x) > 0.01)[0]
-            x = x[max(nz[0] - 200, 0): nz[-1] + 2000] if len(nz) else x
+            x = x[max(nz[0] - 200, 0): nz[-1] + 2400] if len(nz) else x
             ln = len(x) / sr
-            if ln > slot: spd *= max(1.06, ln / slot)          # too long for its slot: speak faster
-            elif ln < 0.45 and spd > 0.7: spd *= 0.8           # clipped-sounding one-word shout: slow down
+            if ln > slot and spd < 1.7: spd = min(1.7, spd * max(1.05, ln / slot))   # セリフ枠に収める
+            elif ln < 0.55 and src != say and len(say) > len(src) and not __import__("re").search(r"[一-龥]", src): src = say               # 一瞬で終わる叫びは伸ばした読みで
+            elif ln < 0.55 and spd > 0.8: spd *= 0.82
             else: break
         if sr != SR: x = resample(x, int(len(x) * SR / sr))
-        x = np.tanh(hp(x, 90) * 2.2) / 1.2                    # a bit of drive so it cuts through
-        x = reverb(fade(x, 0.005, 0.03), rv)
-        add(x, st, gain)
+        x = hp(x, 80)
+        x = x * (0.17 / max(np.sqrt(np.mean(x ** 2)), 1e-4))    # そろえた音量に（歪ませない）
+        x = np.tanh(x * 1.15) / 1.15
+        x = reverb(fade(x, 0.004, 0.03), VOICE.get(who, (0, 0, 0, 0))[3] * (1.0 if who == "rule" else 0.4))
+        add(x, st, VOICE.get(who, (0, 0, 1.2, 0))[2] * (1.5 if loud else 1.3))
         spans.append((st, st + len(x) / SR))
-        print("voice %-5s %5.2fs len %.2fs  %s" % (who, st, len(x) / SR, say))
+        print("voice %-5s %5.2fs len %.2fs spd %.2f  %s  [%s]" % (who, st, len(x) / SR, spd, src, kana))
     return spans
 
 # ---------------------------------------------------------------- subtitles (ASS, centre-weighted)
