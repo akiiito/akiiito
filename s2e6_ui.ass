@@ -1,0 +1,48 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hero,IPAPGothic,66,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,1,0,1,7,3,5,30,30,0,1
+Style: narr,IPAPGothic,62,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,2,0,1,7,3,5,30,30,0,1
+Style: shout,IPAPGothic,78,&H0040E6FF,&H0040E6FF,&H00200818,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: resolve,IPAPGothic,80,&H00FFFFFF,&H00FFFFFF,&H003C14DC,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: ui,IPAPGothic,30,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: shape,IPAPGothic,20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: sub,IPAPGothic,54,&H00FFFFFF,&H00FFFFFF,&H00141414,&H96000000,-1,0,0,0,100,100,1,0,1,5,2,5,40,40,0,1
+Style: subm,IPAPGothic,54,&H00FFE8D0,&H00FFE8D0,&H00402010,&H96000000,-1,0,0,0,100,100,1,0,1,5,2,5,40,40,0,1
+Style: subr,IPAPGothic,54,&H00D0F0FF,&H00D0F0FF,&H00102040,&H96000000,-1,0,0,0,100,100,1,0,1,5,2,5,40,40,0,1
+Style: hook,IPAPGothic,52,&H0000E5FF,&H0000E5FF,&H00000000,&HB4000000,-1,0,0,0,100,100,2,0,1,7,3,5,20,20,0,1
+Style: big,IPAPGothic,150,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 8,0:00:00.00,0:00:02.20,hook,,0,0,0,,{\an5\pos(360,420)\fscx70\fscy70\t(0,120,\fscx104\fscy104)\t(120,200,\fscx100\fscy100)}もしも「ありがとう」と言えば\N好きな人が消えるとしたら？
+Dialogue: 8,0:00:02.40,0:00:04.40,ui,,0,0,0,,{\an5\pos(360,560)\fs40\fad(300,200)}翌朝 5:48
+Dialogue: 9,0:00:23.00,0:00:24.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HE0F0FF&\1a&H00&\bord0\shad0\fad(200,900)}m -10 -10 l 730 -10 b 730 -10 730 -10 730 -10 l 730 1290 b 730 1290 730 1290 730 1290 l -10 1290 b -10 1290 -10 1290 -10 1290 l -10 -10 b -10 -10 -10 -10 -10 -10{\p0}
+Dialogue: 4,0:00:26.20,0:00:30.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H30&\bord0\shad0}m -10 -10 l 730 -10 b 730 -10 730 -10 730 -10 l 730 110 b 730 110 730 110 730 110 l -10 110 b -10 110 -10 110 -10 110 l -10 -10 b -10 -10 -10 -10 -10 -10{\p0}
+Dialogue: 4,0:00:26.20,0:00:30.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H30&\bord0\shad0}m -10 1110 l 730 1110 b 730 1110 730 1110 730 1110 l 730 1300 b 730 1300 730 1300 730 1300 l -10 1300 b -10 1300 -10 1300 -10 1300 l -10 1110 b -10 1110 -10 1110 -10 1110{\p0}
+Dialogue: 5,0:00:26.20,0:00:30.80,ui,,0,0,0,,{\an4\pos(28,62)\fs34}‹
+Dialogue: 5,0:00:26.20,0:00:30.80,ui,,0,0,0,,{\an5\pos(360,48)\fs26}11月17日{\N}{\fs22\c&HBBBBBB&}16:42
+Dialogue: 5,0:00:26.20,0:00:30.80,ui,,0,0,0,,{\an5\pos(360,1190)\fs34\c&HDDDDDD&}⇪      ♡      ⓘ      🗑
+Dialogue: 5,0:00:30.80,0:00:31.80,big,,0,0,0,,{\an5\pos(360,330)}23:59
+Dialogue: 5,0:00:31.80,0:00:36.20,big,,0,0,0,,{\an5\pos(360,330)}0:00
+Dialogue: 5,0:00:30.80,0:00:36.20,ui,,0,0,0,,{\an5\pos(360,200)\fs30\c&HCCCCCC&}11月22日 土曜日
+Dialogue: 6,0:00:32.20,0:00:36.20,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H3A3A3A&\1a&H30&\bord0\shad0\fad(120,0)}m 58 470 l 662 470 b 675 470 692 486 692 500 l 692 580 b 692 593 675 610 662 610 l 58 610 b 44 610 28 593 28 580 l 28 500 b 28 486 44 470 58 470{\p0}
+Dialogue: 7,0:00:32.20,0:00:36.20,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HD08A3C&\1a&H00&\bord0\shad0\fad(120,0)}m 66 498 l 94 498 b 100 498 108 505 108 512 l 108 540 b 108 546 100 554 94 554 l 66 554 b 59 554 52 546 52 540 l 52 512 b 52 505 59 498 66 498{\p0}
+Dialogue: 7,0:00:32.20,0:00:36.20,ui,,0,0,0,,{\an7\pos(126,494)\fs26\c&HDDDDDD&\fad(120,0)}トーク  ·  今
+Dialogue: 7,0:00:32.20,0:00:36.20,ui,,0,0,0,,{\an7\pos(126,530)\fs30\fad(120,0)}{\b1}朝倉 湊{\b0}  またね
+Dialogue: 7,0:00:02.60,0:00:04.36,subr,,0,0,0,,{\an5\pos(360,880)\fad(60,120)}ひより…！ よかった…
+Dialogue: 7,0:00:04.60,0:00:07.31,subr,,0,0,0,,{\an5\pos(360,880)\fad(60,120)}朝倉くん…？\Nほんとに、いたんだ
+Dialogue: 7,0:00:07.20,0:00:09.40,subm,,0,0,0,,{\an5\pos(360,880)\fad(60,120)}久しぶり、凛ちゃん
+Dialogue: 7,0:00:09.60,0:00:11.74,subr,,0,0,0,,{\an5\pos(360,880)\fad(60,120)}あの日…私のせいで
+Dialogue: 7,0:00:11.70,0:00:14.90,subm,,0,0,0,,{\an5\pos(360,880)\fad(60,120)}ちがうよ。\N僕が、そうしたかったんだ
+Dialogue: 7,0:00:14.75,0:00:17.35,subr,,0,0,0,,{\an5\pos(360,880)\fad(60,120)}…助けてくれて、\Nありがとう
+Dialogue: 7,0:00:17.10,0:00:19.43,subm,,0,0,0,,{\an5\pos(360,880)\fad(60,120)}…やっと、言ってもらえた
+Dialogue: 7,0:00:19.30,0:00:23.45,subm,,0,0,0,,{\an5\pos(360,880)\fad(60,120)}ひより。写真、\N消さないでくれて、ありがとう
+Dialogue: 7,0:00:23.80,0:00:26.00,sub,,0,0,0,,{\an5\pos(360,880)\fad(60,120)}…行っちゃったんだね
+Dialogue: 7,0:00:27.20,0:00:29.60,sub,,0,0,0,,{\an5\pos(360,880)\fad(60,120)}…やっと、写ってる
