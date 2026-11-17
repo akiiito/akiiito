@@ -29,15 +29,15 @@ R.VOICE.update({"hiyori": (0, 0, 1.15, 0.05), "minato": (0, 0, 1.05, 0.25), "rin
 R.SPK_REF_TEXT[:] = ["今日の放課後、少しだけ話せる", "写真、見せてくれる", "ううん、なんでもない", "また明日ね", "窓の外、きれいだね"]
 R.LINES = [
     (T(0.25), T(1.6), "…きれいだな", "きれいだな", "soft", "hiyori"),
-    (T(2.75), T(4.2), "…それ、撮るの？", "それ、とるの？", "soft", "minato"),
+    (T(2.75), T(4.2), "…その写真、撮るんだ", "そのしゃしん、とるんだ", "soft", "minato"),
     (T(4.4), T(5.9), "あっ、ごめん…！", "あっ、ごめん！", "soft", "hiyori"),
-    (T(6.2), T(7.1), "いいよ、別に", "いいよ、べつに", "soft", "minato"),
+    (T(6.2), T(7.4), "いいよ、撮っても", "いいよ、とっても", "soft", "minato"),
     (T(7.3), T(9.2), "君の写真、好きだから", "きみのしゃしん、すきだから", "soft", "minato"),
     (T(9.5), T(11.2), "じゃあ…撮るね", "じゃあ、とるね", "soft", "hiyori"),
-    (T(12.7), T(13.6), "…うそでしょ", "うそでしょ", "soft", "hiyori"),
+    (T(12.6), T(13.9), "…うそでしょ、なんで", "うそでしょ、なんで", "soft", "hiyori"),
     (T(14.0), T(15.8), "写って…ない…？", "うつって、ない？", "soft", "hiyori"),
-    (T(16.7), T(18.6), "朝倉くん…？", "あさくらくん？", "soft", "hiyori"),
-    (T(28.3), T(31.0), "僕が写ってないの、\\N見たでしょ", "ぼくがうつってないの、みたでしょ", "soft", "minato"),
+    (T(16.7), T(18.6), "朝倉くん…どこ？", "あさくらくん、どこ？", "soft", "hiyori"),
+    (T(27.5), T(30.2), "僕が写ってないの、\\N見たでしょ", "ぼくがうつってないの、みたでしょ", "soft", "minato"),
 ]
 
 # ---------------------------------------------------------------- picture: segments → base video
@@ -228,7 +228,7 @@ def main():
     mp4 = os.path.join(HERE, "kimi_utsuranai_ep1.mp4")
     grade = "eq=contrast=1.04:saturation=0.92,vignette=PI/5,noise=alls=7:allf=t,ass=s2e1_ui.ass"
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", base, "-i", wav, "-vf", grade, "-c:v", "libx264", "-pix_fmt", "yuv420p",
-                    "-crf", "18", "-preset", "slow", "-r", str(FPS), "-c:a", "aac", "-b:a", "192k", "-ar", str(SR),
+                    "-crf", "20", "-maxrate", "6M", "-bufsize", "12M", "-preset", "slow", "-r", str(FPS), "-c:a", "aac", "-b:a", "192k", "-ar", str(SR),
                     "-movflags", "+faststart", "-shortest", mp4], check=True, cwd=HERE)
     shutil.rmtree(tmp)
     print("wrote", mp4, DUR)
