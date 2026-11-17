@@ -6,7 +6,8 @@ import math, random
 import bpy
 from mathutils import Vector
 
-def reset(samples=64, res=(720, 1280)):
+def reset(samples=64, res=(720, 1280), seed=17):
+    random.seed(seed)                                         # 机の配置などを毎回同じにする（途中再開でも絵が飛ばない）
     bpy.ops.wm.read_factory_settings(use_empty=True)
     sc = bpy.context.scene
     sc.render.engine = "CYCLES"
