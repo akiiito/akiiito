@@ -8,7 +8,9 @@ import os, subprocess, sys, tempfile
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONT = "IPAPGothic"
 EP = {1: dict(src="frames_S2E1/C/0001.png", ring=(144, 960, 138), l1="好きな人が", l2="写真に写らない",
-              q="この写真、消す？", badge="第1話")}
+              q="この写真、消す？", badge="第1話"),
+      2: dict(src="frames_S2E2/B/0001.png", ring=(230, 770, 175), tagpos=(420, 760), l1="私にしか", l2="見えない彼",
+              q="この席、誰の？", badge="第2話", tag="…ここに\\Nいたのに")}
 HEAD = """[Script Info]
 ScriptType: v4.00+
 PlayResX: 1080
@@ -30,7 +32,7 @@ def circ(cx, cy, r):
 def make(n):
     e = EP[n]; cx, cy, r = e["ring"]
     ev = [(r"{\an7\pos(0,0)\p1\bord9\3c&H3030FF&\1a&HFF&\shad0}" + circ(cx, cy, r) + r"{\p0}"),
-          (r"{\an4\pos(%d,%d)\fs70\c&H3030FF&\frz8}…いる？" % (cx + r - 20, cy - r - 30)),
+          (r"{\an4\pos(%d,%d)\fs70\c&H3030FF&\frz8}%s" % (e.get("tagpos", (cx + r - 20, cy - r - 30)) + (e.get("tag", "…いる？"),))),
           (r"{\an5\pos(540,330)}%s" % e["l1"]),
           (r"{\an5\pos(540,470)\fs140\c&H3030FF&}%s" % e["l2"]),
           (r"{\an5\pos(540,1560)\fs100}%s" % e["q"]),

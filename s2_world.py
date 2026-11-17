@@ -80,7 +80,8 @@ def cyl(name, loc, r, h, m, rot=(0, 0, 0), verts=24):
     return o
 
 # ---------------------------------------------------------------- classroom
-def classroom(sun_elev=14.0, sun_az=-35.0, sun_col=(1.0, 0.55, 0.28), haze=0.006):
+def classroom(sun_elev=14.0, sun_az=-35.0, sun_col=(1.0, 0.55, 0.28), haze=0.006,
+              sky=((1.0, 0.42, 0.16), (0.95, 0.55, 0.42), (0.12, 0.1, 0.28)), sky_str=2.5, sun_str=14.0, fill=10):
     W, D, H = 8.0, 9.0, 3.0                                   # x: windows at -W/2, y: front(board) at +D/2
     M = dict(
         floor=mat("floor", (0.32, 0.2, 0.11), 0.45, noise=(3.0, 0.25, (1, 8, 1))),
@@ -141,18 +142,18 @@ def classroom(sun_elev=14.0, sun_az=-35.0, sun_col=(1.0, 0.55, 0.28), haze=0.006
     # 夕日は窓の外（-x 側）の低い位置から室内へ差し込む。sun_az は窓に対する左右の振り
     e, az = math.radians(sun_elev), math.radians(sun_az)
     so.location = (-10, 0, 3); aim(so, (-10 + math.cos(e) * math.cos(az), math.cos(e) * math.sin(az), 3 - math.sin(e)))
-    sun.energy = 14.0
+    sun.energy = sun_str
     w = bpy.data.worlds.new("w"); bpy.context.scene.world = w; w.use_nodes = True
     nt = w.node_tree
     co = nt.nodes.new("ShaderNodeTexCoord"); sep = nt.nodes.new("ShaderNodeSeparateXYZ")
     ramp = nt.nodes.new("ShaderNodeValToRGB"); el = ramp.color_ramp.elements
-    el[0].position, el[0].color = 0.0, (1.0, 0.42, 0.16, 1)          # 地平線：オレンジ
-    el[1].position, el[1].color = 0.55, (0.12, 0.1, 0.28, 1)         # 上空：藍色
-    mid = el.new(0.12); mid.color = (0.95, 0.55, 0.42, 1)
+    el[0].position, el[0].color = 0.0, sky[0] + (1,)                 # 地平線
+    el[1].position, el[1].color = 0.55, sky[2] + (1,)                # 上空
+    mid = el.new(0.12); mid.color = sky[1] + (1,)
     nt.links.new(co.outputs["Generated"], sep.inputs[0])
     mp = nt.nodes.new("ShaderNodeMapRange"); mp.inputs["From Min"].default_value = 0.5; mp.inputs["From Max"].default_value = 1.0
     nt.links.new(sep.outputs["Z"], mp.inputs["Value"]); nt.links.new(mp.outputs["Result"], ramp.inputs["Fac"])
-    bg = nt.nodes["Background"]; bg.inputs["Strength"].default_value = 2.5
+    bg = nt.nodes["Background"]; bg.inputs["Strength"].default_value = sky_str
     nt.links.new(ramp.outputs["Color"], bg.inputs["Color"])
     # 窓の外：校庭と遠くの街並み（逆光のシルエット）
     town = mat("town", (0.18, 0.15, 0.2), 0.9); leaf = mat("leaf", (0.06, 0.09, 0.05), 0.9, noise=(8.0, 0.4)); grd = mat("ground", (0.35, 0.28, 0.2), 0.95)
@@ -174,7 +175,7 @@ def classroom(sun_elev=14.0, sun_az=-35.0, sun_col=(1.0, 0.55, 0.28), haze=0.006
     pv.inputs["Density"].default_value = haze; pv.inputs["Anisotropy"].default_value = 0.6
     nt.links.new(pv.outputs[0], o.inputs["Volume"]); v.data.materials.append(vm)
     # soft bounce fill inside the room
-    fl = bpy.data.lights.new("fill", "AREA"); fl.energy = 10; fl.size = 4; fl.color = (1.0, 0.8, 0.65)
+    fl = bpy.data.lights.new("fill", "AREA"); fl.energy = fill; fl.size = 4; fl.color = (1.0, 0.8, 0.65)
     fo = bpy.data.objects.new("fill", fl); bpy.context.collection.objects.link(fo); fo.location = (1.5, -1, H - 0.2)
     return dict(W=W, D=D, H=H, M=M, sun=so)
 
@@ -236,6 +237,10 @@ def person(name, loc, height=1.7, female=False, shirt=(0.9, 0.9, 0.88), bottom=(
     bpy.ops.mesh.primitive_uv_sphere_add(radius=0.108 * s, location=(0, -0.01 * s, 1.655 * s)); hr = bpy.context.object
     hr.scale = (0.97, 1.02, 1.08); hm = hair_mat(name, hair); hr.data.materials.append(hm); bpy.ops.object.shade_smooth(); hr.parent = o
     strands(hr, s, 0.012)                                  # 毛束の凹凸
+    # 後頭部〜えり足（後ろ姿で地肌が見えないように）
+    bpy.ops.mesh.primitive_uv_sphere_add(radius=0.104 * s, location=(0, -0.022 * s, 1.6 * s)); np = bpy.context.object
+    np.scale = (0.97, 0.92, 1.08); np.data.materials.append(hm); bpy.ops.object.shade_smooth(); np.parent = o
+    strands(np, s, 0.01)
     # 前髪（顔の上半分にかかる）
     bpy.ops.mesh.primitive_uv_sphere_add(radius=0.11 * s, location=(0, 0.02 * s, 1.675 * s)); fr = bpy.context.object
     fr.scale = (0.98, 1.0, 0.62); fr.data.materials.append(hm); bpy.ops.object.shade_smooth(); fr.parent = o
@@ -319,3 +324,46 @@ def handheld(c, f, amp=0.006, rot_amp=0.004, seed=0):
     """一人称の手持ちの揺れ（ゆっくりしたノイズ）"""
     r = lambda k, sp: (math.sin(f * sp + k * 1.7 + seed) + 0.5 * math.sin(f * sp * 2.3 + k * 4.1 + seed)) / 1.5
     return (amp * r(1, 0.07), amp * r(2, 0.05), amp * 0.6 * r(3, 0.06)), (rot_amp * r(4, 0.06), rot_amp * 0.6 * r(5, 0.045), rot_amp * r(6, 0.05))
+
+# ---------------------------------------------------------------- 机の上の白い花瓶（亡くなった生徒の席の印）
+def vase(loc, seed=3):
+    rnd = random.Random(seed)
+    cer = mat("vase", (0.9, 0.9, 0.88), 0.15, spec=0.6)
+    prof = [(0.0, 0.0), (0.035, 0.0), (0.045, 0.02), (0.055, 0.06), (0.056, 0.09), (0.048, 0.13), (0.03, 0.17),
+            (0.022, 0.2), (0.024, 0.215), (0.03, 0.225), (0.026, 0.228), (0.019, 0.215), (0.017, 0.12)]   # 外側→口→内側
+    N = 40; vs = []; fs = []
+    for r, z in prof:
+        for i in range(N):
+            a = i / N * 2 * math.pi; vs.append((r * math.cos(a), r * math.sin(a), z))
+    for j in range(len(prof) - 1):
+        for i in range(N):
+            a, b = j * N + i, j * N + (i + 1) % N
+            fs.append((a, b, b + N, a + N))
+    me = bpy.data.meshes.new("vase"); me.from_pydata(vs, [], fs)
+    v = bpy.data.objects.new("vase", me); bpy.context.collection.objects.link(v); v.location = loc
+    bpy.context.view_layer.objects.active = v; v.select_set(True)
+    v.modifiers.new("sub", "SUBSURF").levels = 1
+    v.data.materials.append(cer); bpy.ops.object.shade_smooth()
+    stem = mat("stem", (0.12, 0.25, 0.08), 0.6); petal = mat("petal", (0.95, 0.95, 0.92), 0.5, sss=0.4)
+    leafm = mat("vleaf", (0.1, 0.22, 0.06), 0.5)
+    top = loc[2] + 0.2
+    for k in range(7):
+        a = k / 7 * 2 * math.pi + rnd.uniform(-0.3, 0.3); tilt = rnd.uniform(0.2, 0.5); h = rnd.uniform(0.12, 0.22)
+        hx, hy, hz = loc[0] + math.cos(a) * math.sin(tilt) * h, loc[1] + math.sin(a) * math.sin(tilt) * h, top + math.cos(tilt) * h
+        c = cyl("stem", ((loc[0] + hx) / 2, (loc[1] + hy) / 2, (top - 0.05 + hz) / 2), 0.0035, h + 0.05, stem, verts=6)
+        from mathutils import Vector
+        c.rotation_euler = Vector((hx - loc[0], hy - loc[1], hz - top + 0.05)).to_track_quat('Z', 'Y').to_euler()
+        for ring, (rr_, nn, up) in enumerate(((0.02, 16, 0.0), (0.014, 12, 0.006), (0.008, 8, 0.011))):   # 白い菊：細い花びらを三重に
+            for j in range(nn):
+                b = j / nn * 2 * math.pi + ring * 0.2
+                bpy.ops.mesh.primitive_uv_sphere_add(segments=8, ring_count=6, radius=rr_,
+                                                     location=(hx + math.cos(b) * rr_, hy + math.sin(b) * rr_, hz + up))
+                pe = bpy.context.object; pe.scale = (1.0, 0.22, 0.18); pe.rotation_euler = (0, -0.35 - ring * 0.35, b)
+                pe.data.materials.append(petal)
+        if k % 2 == 0:
+            bpy.ops.mesh.primitive_plane_add(size=0.06, location=(hx * 0.4 + loc[0] * 0.6, hy * 0.4 + loc[1] * 0.6, top + 0.06))
+            lf = bpy.context.object; lf.scale = (1.0, 0.35, 1); lf.rotation_euler = (rnd.uniform(-0.6, 0.6), 0.3, a); lf.data.materials.append(leafm)
+    return v
+
+MORNING = dict(sun_elev=32.0, sun_az=25.0, sun_col=(1.0, 0.93, 0.84), haze=0.004,
+               sky=((0.92, 0.95, 1.0), (0.75, 0.84, 0.97), (0.28, 0.48, 0.85)), sky_str=1.6, sun_str=9.0, fill=12)
