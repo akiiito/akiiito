@@ -15,11 +15,12 @@ SHOT = arg("--shot", "R1"); SAMPLES = int(arg("--samples", "64")); TEST = "--tes
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "frames_S2E6", SHOT if not TEST else "test_" + SHOT)
 os.makedirs(OUT, exist_ok=True)
 
+if os.path.exists(os.path.join(OUT, "0001.png")) and not TEST: sys.exit(0)
 sc = W.reset(SAMPLES)
 st = W.stairwell(haze=0.014, sun_str=22.0, sun_elev=7.0)
 bpy.data.lights["sun"].color = (1.0, 0.72, 0.5)                        # 夜明けの色
 mi = W.person("minato", (1.0, 4.55, 1.8), 1.74, rot=90, shirt=(0.86, 0.87, 0.86), bottom=(0.05, 0.06, 0.1), hair=(0.025, 0.02, 0.018))
-W.person("rin", (0.05, 4.2, 1.8), 1.6, female=True, rot=-80, shirt=(0.9, 0.9, 0.9), bottom=(0.1, 0.12, 0.22), hair=(0.04, 0.03, 0.025))
+W.person("rin", (0.05, 4.2, 1.8), 1.6, female=True, rot=-80, shirt=(0.9, 0.9, 0.9), bottom=(0.1, 0.12, 0.22), hair=(0.04, 0.03, 0.025), skirt_r=0.21)
 if SHOT == "R2":
     for p in [mi] + list(mi.children_recursive):
         p.hide_render = True

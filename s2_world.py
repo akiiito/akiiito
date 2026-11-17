@@ -201,7 +201,7 @@ def desk(xy, M, rot=0.0):
 
 # ---------------------------------------------------------------- people (skin-modifier skeleton → smooth body)
 def person(name, loc, height=1.7, female=False, shirt=(0.9, 0.9, 0.88), bottom=(0.06, 0.07, 0.12), hair=(0.03, 0.025, 0.02),
-           skin=(0.8, 0.6, 0.48), long_hair=False, rot=0.0, reach=False):
+           skin=(0.8, 0.6, 0.48), long_hair=False, rot=0.0, reach=False, skirt_r=0.3):
     s = height / 1.7
     J = {  # joint name: (x, y, z, radius)
         "pelvis": (0, 0, 0.95, 0.15), "spine": (0, 0, 1.15, 0.14), "chest": (0, 0, 1.33, 0.16), "neck": (0, 0, 1.5, 0.055),
@@ -212,7 +212,7 @@ def person(name, loc, height=1.7, female=False, shirt=(0.9, 0.9, 0.88), bottom=(
         "hipR": (-0.09, 0, 0.9, 0.08), "knR": (-0.1, 0.01, 0.5, 0.06), "anR": (-0.1, 0, 0.08, 0.045), "toR": (-0.1, 0.12, 0.03, 0.04),
     }
     if reach:                                              # 右手をこちらへ差し出す
-        J["elR"] = (-0.21, 0.24, 1.3, 0.045); J["haR"] = (-0.19, 0.5, 1.31, 0.04)
+        J["elR"] = (-0.2, 0.27, 1.22, 0.045); J["haR"] = (-0.15, 0.55, 1.13, 0.04)
     if female:
         J["pelvis"] = (0, 0, 0.95, 0.16); J["chest"] = (0, 0, 1.33, 0.145); J["neck"] = (0, 0, 1.5, 0.045)
     E = [("pelvis", "spine"), ("spine", "chest"), ("chest", "neck"), ("neck", "head"), ("head", "crown"),
@@ -248,13 +248,13 @@ def person(name, loc, height=1.7, female=False, shirt=(0.9, 0.9, 0.88), bottom=(
     fr.scale = (0.98, 1.0, 0.62); fr.data.materials.append(hm); bpy.ops.object.shade_smooth(); fr.parent = o
     strands(fr, s, 0.01)
     for side in (-1, 1):                                  # hands
-        hp = (-0.19, 0.53, 1.31) if (reach and side == -1) else (0.25 * side, 0.04, 0.9)
+        hp = (-0.15, 0.58, 1.12) if (reach and side == -1) else (0.25 * side, 0.04, 0.9)
         bpy.ops.mesh.primitive_uv_sphere_add(radius=0.04 * s, location=(hp[0] * s, hp[1] * s, hp[2] * s)); h = bpy.context.object
         h.scale = (0.7, 1.0, 1.3); h.data.materials.append(sm); bpy.ops.object.shade_smooth(); h.parent = o
     lower = bpy.data.objects.new(name + "_low", None)
     # trousers / skirt shell
     if female:
-        bpy.ops.mesh.primitive_cone_add(vertices=48, radius1=0.3 * s, radius2=0.16 * s, depth=0.42 * s, location=(0, 0, 0.8 * s))
+        bpy.ops.mesh.primitive_cone_add(vertices=48, radius1=skirt_r * s, radius2=0.16 * s, depth=0.42 * s, location=(0, 0, 0.8 * s))
         sk_ = bpy.context.object; sk_.data.materials.append(mat(name + "_skirt", bottom, 0.85)); sk_.parent = o
         bpy.ops.object.shade_smooth()
     else:

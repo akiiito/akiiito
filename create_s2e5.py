@@ -16,6 +16,7 @@ SHOT = arg("--shot", "U1"); SAMPLES = int(arg("--samples", "64")); TEST = "--tes
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "frames_S2E5", SHOT if not TEST else "test_" + SHOT)
 os.makedirs(OUT, exist_ok=True)
 
+if os.path.exists(os.path.join(OUT, "0001.png")) and not TEST: sys.exit(0)
 sc = W.reset(SAMPLES)
 st = W.stairwell(haze=0.018, sun_str=1.6, sun_elev=22.0, night=True)
 W.box("upper_floor", (-0.85, -0.45, 3.6 - 0.1), (1.7, 1.55, 0.2), st["M"]["step"])       # 上の階の床
@@ -26,7 +27,7 @@ if SHOT == "V":
         p.hide_render = True
 cam = W.camera((-0.55, 4.55, 3.15), (-0.85, 0.3, 4.3), lens=30, fstop=2.0)
 torch = W.flashlight(cam, energy=45.0, spread=26.0); torch.rotation_euler = (math.radians(-14), math.radians(3), 0)   # 光は足元の段へ
-focus = (TOP[0] - 0.19, TOP[1] + 0.53, TOP[2] + 1.31) if SHOT == "U2" else (TOP[0], TOP[1], TOP[2] + 1.0)
+focus = (TOP[0] - 0.15, TOP[1] + 0.58, TOP[2] + 1.12) if SHOT == "U2" else (TOP[0], TOP[1], TOP[2] + 1.0)
 cam.data.dof.focus_distance = (Vector(cam.location) - Vector(focus)).length
 sc.render.filepath = os.path.join(OUT, "0001.png")
 t = time.time(); bpy.ops.render.render(write_still=True); print("frame 1 %.1fs" % (time.time() - t), flush=True)
