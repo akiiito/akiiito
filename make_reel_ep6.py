@@ -37,7 +37,7 @@ R.LINES = [
     (t(336), t(370), "届けぇぇ！！", "とどけえええ！", "resolve", "hero"),
     (t(384), t(420), "壊せば、\\Nお前たちも消えるぞ", "こわせば、おまえたちも、きえるぞ", "foe", "rule"),
     (t(424), t(453), "二人なら、いける", "ふたりなら、いける", "resolve", "hero"),
-    (t(455), t(468), "うん！", "うん！", "other", "girl"),
+    (t(455), t(468), "行こう！", "いこう！", "other", "girl"),
     (t(538), t(566), "…生きてる？", "いきてる？", "hero", "hero"),
     (t(570), t(604), "ここが、ゲームの外", "ここが、げーむのそと", "other", "girl"),
     (t(636), t(658), "…マジ？", "まじ？", "shout", "hero"),
@@ -153,7 +153,7 @@ def build_subs(path):
         fh.write("Dialogue: 2,%s,%s,skill,,0,0,0,,%s%s\n" % (R.ts(t(SKILL + 2)), R.ts(t(FADE0)), pop % 540, "スキル引き継ぎ：全部"))
         X.write(fh, 6, NF)
         cp = r"{\an5\pos(360,%d)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}"
-        fh.write("Dialogue: 3,%s,%s,next,,0,0,0,,%s%s\n" % (R.ts(t(FADE0)), R.ts(t(NF + HOLD)), cp % 950,
+        fh.write("Dialogue: 3,%s,%s,next,,0,0,0,,%s%s\n" % (R.ts(t(FADE0)), R.ts(t(NF + HOLD)), cp % 1060,
                                                              "あなたなら、それでも壊す？\\Nコメントで教えて！"))   # comment prompt
     sh = PRE / FPS                                    # shift every cue behind the cold open; a single hook over it
     def sec(x):
@@ -162,7 +162,7 @@ def build_subs(path):
                  lambda m: "Dialogue: %s,%s,%s," % (m.group(1), R.ts(sec(m.group(2)) + sh), R.ts(sec(m.group(3)) + sh)),
                  open(path, encoding="utf-8").read())
     txt = "".join(l for l in txt.splitlines(True) if ",hook," not in l)
-    big = r"{\an5\pos(360,%d)\fs50\fscx60\fscy60\t(0,100,\fscx110\fscy110)\t(100,180,\fscx100\fscy100)}"
+    big = r"{\an5\pos(360,%d)\fs56\fscx60\fscy60\t(0,100,\fscx110\fscy110)\t(100,180,\fscx100\fscy100)}"
     txt += "Dialogue: 3,%s,%s,hook,,0,0,0,,%s%s\n" % (R.ts(0), R.ts(sh + 0.25), big % 420, X.EP[6]["hook"])
     open(path, "w", encoding="utf-8").write(txt)
 

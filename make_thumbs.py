@@ -15,7 +15,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 FONT = "IPAPGothic"
 EP = {
     # 未来の俺（赤・そのまま）を上、色を変えて左右反転した「今の俺」を下に置く
-    6: dict(frame=380, crop="720:640:0:170", top="生き残る", bot="壊す", hook="あなたならどっち？", badge="最終話"),
+    # 1枚絵：主人公の顔のアップ＋究極の選択
+    6: dict(frame=430, crop="540:960:20:200", single=True, l1="壊せば", l2="自分も消える", a="壊す", b="生きる",
+            hook="あなたならどっち？", badge="最終話"),
     5: dict(frame=590, crop="720:640:0:170", top="未来の俺", bot="今の俺", hook="勝てば次のラスボス", badge="第5話"),
 }
 HEAD = """[Script Info]
@@ -37,8 +39,21 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 # 上下の境目に走るギザギザの稲妻（ASS ベクター描画）
 BOLT = r"{\an7\pos(0,0)\p1}m 0 940 l 180 900 l 300 975 l 470 905 l 600 985 l 760 910 l 900 980 l 1080 925 l 1080 960 l 900 1015 l 760 945 l 600 1020 l 470 940 l 300 1010 l 180 935 l 0 975{\p0}"
 
+def make_single(n, e, src):
+    ev = [("lab", r"{\an5\pos(540,330)\fs110}%s" % e["l1"]),
+          ("hook", r"{\an5\pos(540,480)\fs150\c&H004040FF&\frz-3}%s" % e["l2"]),
+          ("vs", r"{\an5\pos(540,1420)\fs130\frz0}{\c&H004040FF&}%s{\c&H0000E5FF&} VS {\c&H00FFC040&}%s" % (e["a"], e["b"])),
+          ("hook", r"{\an5\pos(540,1790)\fs110}%s" % e["hook"]),
+          ("badge", r"{\an7\pos(36,60)} %s " % e["badge"])]
+    fc = "[0]crop=%s,scale=1080:1920:flags=lanczos,eq=contrast=1.12:saturation=1.35,vignette=PI/4" % e["crop"]
+    return ev, fc
+
 def make(n):
     e = EP[n]
+    if e.get("single"):
+        src = os.path.join(HERE, "frames_E%d" % n, "%04d.png" % e["frame"])
+        ev, fc = make_single(n, e, src)
+        return render(n, ev, fc, src)
     src = os.path.join(HERE, "frames_E%d" % n, "%04d.png" % e["frame"])
     assert os.path.exists(src), src
     ev = [("bolt", BOLT),
@@ -47,6 +62,13 @@ def make(n):
           ("vs", r"{\an5\pos(540,955)\frz8}VS"),
           ("hook", r"{\an5\pos(540,1790)\fs110}%s" % e["hook"]),
           ("badge", r"{\an7\pos(36,60)} %s " % e["badge"])]
+    fc = ("[0]crop=%s,scale=1080:960:flags=lanczos,eq=contrast=1.12:saturation=1.35,split[a][b];"
+          "[a]vignette=PI/5[top];"
+          "[b]hflip,colorchannelmixer=rr=0:rb=1:br=1:bb=0,eq=brightness=-0.03,vignette=PI/5[bot];"   # 赤⇔青を入れ替え（紫の背景はそのまま）
+          "[top][bot]vstack" % e["crop"])
+    return render(n, ev, fc, src)
+
+def render(n, ev, fc, src):
     tmp = tempfile.mkdtemp()
     ass = os.path.join(tmp, "t.ass")
     with open(ass, "w", encoding="utf-8") as fh:
@@ -54,10 +76,7 @@ def make(n):
         for st, txt in ev:
             fh.write("Dialogue: 0,0:00:00.00,0:00:01.00,%s,,0,0,0,,%s\n" % (st, txt))
     out = os.path.join(HERE, "thumb_ep%d.png" % n)
-    fc = ("[0]crop=%s,scale=1080:960:flags=lanczos,eq=contrast=1.12:saturation=1.35,split[a][b];"
-          "[a]vignette=PI/5[top];"
-          "[b]hflip,colorchannelmixer=rr=0:rb=1:br=1:bb=0,eq=brightness=-0.03,vignette=PI/5[bot];"   # 赤⇔青を入れ替え（紫の背景はそのまま）
-          "[top][bot]vstack,ass=%s" % (e["crop"], ass))
+    fc = fc + ",ass=%s" % ass
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", src, "-filter_complex", fc, "-frames:v", "1", out], check=True)
     print("wrote", out)
 
