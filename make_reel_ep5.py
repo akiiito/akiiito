@@ -144,7 +144,7 @@ def build_subs(path):
         X.write(fh, 5, NF + HOLD)
         cp = r"{\an5\pos(360,%d)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}"
         fh.write("Dialogue: 3,%s,%s,next,,0,0,0,,%s%s\n" % (R.ts(t(DISS + 6)), R.ts(t(NF + HOLD)), cp % 950,
-                                                             "未来の自分に勝てる？\\Nコメントで教えて！"))   # comment prompt
+                                                             "あなたなら、それでも勝つ？\\Nコメントで教えて！"))   # comment prompt
     sh = PRE / FPS                                    # shift every cue behind the cold open, then caption the teaser
     def sec(x):
         h, m, c = x.split(":"); return int(h) * 3600 + int(m) * 60 + float(c)
@@ -152,7 +152,7 @@ def build_subs(path):
                  lambda m: "Dialogue: %s,%s,%s," % (m.group(1), R.ts(sec(m.group(2)) + sh), R.ts(sec(m.group(3)) + sh)),
                  open(path, encoding="utf-8").read())
     txt = "".join(l for l in txt.splitlines(True) if ",hook," not in l)   # one hook only: shown over the whole cold open
-    big = r"{\an5\pos(360,%d)\fs56\fscx60\fscy60\t(0,100,\fscx110\fscy110)\t(100,180,\fscx100\fscy100)}"
+    big = r"{\an5\pos(360,%d)\fs50\fscx60\fscy60\t(0,100,\fscx110\fscy110)\t(100,180,\fscx100\fscy100)}"
     txt += "Dialogue: 3,%s,%s,hook,,0,0,0,,%s%s\n" % (R.ts(0), R.ts(sh + 0.25), big % 420, X.EP[5]["hook"])
     open(path, "w", encoding="utf-8").write(txt)
 

@@ -21,24 +21,24 @@ Style: next,IPAPGothic,50,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,-1,0,0,0,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 0,0:00:02.08,0:00:04.40,foe,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}お前の技は、\N全部知ってる
-Dialogue: 0,0:00:04.25,0:00:05.31,shout,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)\frz-3}速っ！
-Dialogue: 0,0:00:05.83,0:00:07.27,hero,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}動きが同じ…！？
-Dialogue: 0,0:00:07.12,0:00:08.68,resolve,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}なら雷刃で！
-Dialogue: 0,0:00:08.53,0:00:10.04,foe,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}それも俺の技だ
-Dialogue: 0,0:00:09.89,0:00:11.03,other,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}これなら！
-Dialogue: 0,0:00:10.88,0:00:11.74,other,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}うそっ！
-Dialogue: 0,0:00:11.59,0:00:14.13,foe,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}優勝者は、\N次のラスボスになる
-Dialogue: 0,0:00:13.98,0:00:15.98,foe,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}あいつを…\N守れなかった
-Dialogue: 0,0:00:15.83,0:00:17.33,foe,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}ここで終われ
-Dialogue: 0,0:00:17.11,0:00:18.11,shout,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)\frz-3}重っ…！
-Dialogue: 0,0:00:18.08,0:00:19.27,hero,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}折れる…！
-Dialogue: 0,0:00:19.12,0:00:20.88,other,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}一人で戦わないで！
-Dialogue: 0,0:00:20.73,0:00:22.80,resolve,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}俺は、一人じゃない！
-Dialogue: 0,0:00:22.65,0:00:23.85,resolve,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}うおおおっ！！
-Dialogue: 0,0:00:24.08,0:00:26.02,foe,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}…そうか。二人なら
-Dialogue: 0,0:00:25.87,0:00:28.37,foe,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}核は、あの眼の奥だ。\N行け
-Dialogue: 0,0:00:29.33,0:00:31.00,resolve,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}全部、終わらせる
+Dialogue: 0,0:00:02.08,0:00:04.34,foe,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}お前の技は、\N全部知ってる
+Dialogue: 0,0:00:04.19,0:00:05.24,shout,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)\frz-3}速っ！
+Dialogue: 0,0:00:05.83,0:00:07.26,hero,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}動きが同じ…！？
+Dialogue: 0,0:00:07.11,0:00:08.59,resolve,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}なら雷刃で！
+Dialogue: 0,0:00:08.44,0:00:09.98,foe,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}それも俺の技だ
+Dialogue: 0,0:00:09.83,0:00:10.93,other,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}これなら！
+Dialogue: 0,0:00:10.78,0:00:11.67,other,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}うそっ！
+Dialogue: 0,0:00:11.52,0:00:13.98,foe,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}優勝者は、\N次のラスボスになる
+Dialogue: 0,0:00:13.83,0:00:15.81,foe,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}あいつを…\N守れなかった
+Dialogue: 0,0:00:15.66,0:00:17.16,foe,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}ここで終われ
+Dialogue: 0,0:00:16.92,0:00:17.99,shout,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)\frz-3}重っ…！
+Dialogue: 0,0:00:18.08,0:00:19.21,hero,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}折れる…！
+Dialogue: 0,0:00:19.06,0:00:20.76,other,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}一人で戦わないで！
+Dialogue: 0,0:00:20.61,0:00:22.61,resolve,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}俺は、一人じゃない！
+Dialogue: 0,0:00:22.46,0:00:23.63,resolve,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}うおおおっ！！
+Dialogue: 0,0:00:24.08,0:00:26.07,foe,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}…そうか。二人なら
+Dialogue: 0,0:00:25.92,0:00:28.41,foe,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}核は、あの眼の奥だ。\N行け
+Dialogue: 0,0:00:29.33,0:00:31.07,resolve,,0,0,0,,{\an5\pos(360,790)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}全部、終わらせる
 Dialogue: 1,0:00:03.92,0:00:06.33,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}一致率 100%
 Dialogue: 1,0:00:17.00,0:00:17.42,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}剣の耐久 80%
 Dialogue: 1,0:00:17.42,0:00:18.00,hud,,0,0,0,,{\an5\pos(360,250)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}剣の耐久 55%
@@ -57,5 +57,5 @@ Dialogue: 1,0:00:20.17,0:00:21.92,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(
 Dialogue: 1,0:00:21.92,0:00:29.17,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H003030FF&}危険度 Lv.100
 Dialogue: 1,0:00:29.17,0:00:31.50,lv,,0,0,0,,{\an5\pos(360,176)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}{\c&H00FFFFFF&}危険度 Lv.MAX
 Dialogue: 3,0:00:30.25,0:00:31.50,next,,0,0,0,,{\an5\pos(360,430)\fscx60\fscy60\t(0,80,\fscx110\fscy110)\t(80,150,\fscx100\fscy100)\fad(0,120)}▶ 次回 最終話
-Dialogue: 3,0:00:27.75,0:00:31.50,next,,0,0,0,,{\an5\pos(360,950)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}未来の自分に勝てる？\Nコメントで教えて！
-Dialogue: 3,0:00:00.00,0:00:02.25,hook,,0,0,0,,{\an5\pos(360,420)\fs56\fscx60\fscy60\t(0,100,\fscx110\fscy110)\t(100,180,\fscx100\fscy100)}もしもラスボスが\N“未来の自分”だったら？
+Dialogue: 3,0:00:27.75,0:00:31.50,next,,0,0,0,,{\an5\pos(360,950)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}あなたなら、それでも勝つ？\Nコメントで教えて！
+Dialogue: 3,0:00:00.00,0:00:02.25,hook,,0,0,0,,{\an5\pos(360,420)\fs50\fscx60\fscy60\t(0,100,\fscx110\fscy110)\t(100,180,\fscx100\fscy100)}もしも「勝てばお前がラスボス」\Nと言われたら？
