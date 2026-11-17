@@ -154,7 +154,7 @@ def build_subs(path):
         X.write(fh, 6, NF)
         cp = r"{\an5\pos(360,%d)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}"
         fh.write("Dialogue: 3,%s,%s,next,,0,0,0,,%s%s\n" % (R.ts(t(FADE0)), R.ts(t(NF + HOLD)), cp % 950,
-                                                             "続編、見たい？\\Nコメントで教えて！"))   # comment prompt
+                                                             "あなたなら、それでも壊す？\\Nコメントで教えて！"))   # comment prompt
     sh = PRE / FPS                                    # shift every cue behind the cold open; a single hook over it
     def sec(x):
         h, m, c = x.split(":"); return int(h) * 3600 + int(m) * 60 + float(c)
