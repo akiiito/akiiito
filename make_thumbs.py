@@ -15,6 +15,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 FONT = "IPAPGothic"
 EP = {
     # 未来の俺（赤・そのまま）を上、色を変えて左右反転した「今の俺」を下に置く
+    6: dict(frame=380, crop="720:640:0:170", top="生き残る", bot="壊す", hook="あなたならどっち？", badge="最終話"),
     5: dict(frame=590, crop="720:640:0:170", top="未来の俺", bot="今の俺", hook="勝つのはどっち？", badge="第5話"),
 }
 HEAD = """[Script Info]
