@@ -53,5 +53,5 @@ def make(n):
     print("wrote", out)
 
 if __name__ == "__main__":
-    for a in sys.argv[1:] or ["4", "5"]:
+    for a in sys.argv[1:] or ["5", "6"]:
         make(int(a))
