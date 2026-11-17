@@ -10,7 +10,7 @@ import reel_extras as X
 HERE = os.path.dirname(os.path.abspath(__file__))
 FPS, SR = 24, R.SR
 NF, HOLD = 672, 0        # cut on the cliffhanger: no title hold (loop / next video)
-PRE0, PRE = 480, 18      # cold open: 0.75 s flash of the blade-shattering climax before frame 1
+PRE0, PRE = 478, 48      # cold open: 2 s half-speed look at the blade-shattering climax, hook readable throughout
 DUR = (NF + HOLD) / FPS
 R.DUR = DUR
 R.MIX = np.zeros((R.n_(DUR) + SR, 2))
@@ -151,13 +151,15 @@ def build_subs(path):
     txt = re.sub(r"Dialogue: (\d+),([\d:.]+),([\d:.]+),",
                  lambda m: "Dialogue: %s,%s,%s," % (m.group(1), R.ts(sec(m.group(2)) + sh), R.ts(sec(m.group(3)) + sh)),
                  open(path, encoding="utf-8").read())
-    txt += "Dialogue: 3,%s,%s,hook,,0,0,0,,%s%s\n" % (R.ts(0), R.ts(sh), cp % 370, "ラスボスは“未来の俺”")
+    txt = "".join(l for l in txt.splitlines(True) if ",hook," not in l)   # one hook only: shown over the whole cold open
+    big = r"{\an5\pos(360,%d)\fs56\fscx60\fscy60\t(0,100,\fscx110\fscy110)\t(100,180,\fscx100\fscy100)}"
+    txt += "Dialogue: 3,%s,%s,hook,,0,0,0,,%s%s\n" % (R.ts(0), R.ts(sh + 0.25), big % 420, X.EP[5]["hook"])
     open(path, "w", encoding="utf-8").write(txt)
 
 def main():
     src = os.path.join(HERE, "frames_E5")
     tmp = tempfile.mkdtemp(prefix="reel5_")
-    order = list(range(PRE0, PRE0 + PRE)) + [min(k, NF) for k in range(1, NF + HOLD + 1)]
+    order = [PRE0 + k // 2 for k in range(PRE)] + [min(k, NF) for k in range(1, NF + HOLD + 1)]
     for k, f in enumerate(order, 1):
         p = os.path.join(src, "%04d.png" % f)
         assert os.path.exists(p), p
@@ -165,9 +167,9 @@ def main():
     build_sfx(); build_music(); R.build_voice()
     body = R.MIX[: R.n_(DUR)].copy()
     R.MIX = np.zeros((R.n_(DUR) + SR, 2))             # cold-open sting: clash + shatter, cut hard into the scene
-    add(R.whoosh(PRE / FPS, 150, 5000), 0, 0.9); add(R.clang(0.6, 900), 0.08, 0.8); add(R.boom(1.2), 0.08, 1.0)
+    add(R.riser(PRE / FPS), 0, 0.5); add(R.whoosh(0.5, 150, 5000), 0, 0.9); add(R.clang(0.6, 900), 0.08, 0.8); add(R.boom(1.6), 0.08, 1.0)
     for k in range(4):
-        add(R.shatter(0.8), 0.1 + k * 0.14, 0.6, 0.8 * np.sin(k * 0.9))
+        add(R.shatter(0.9), 0.1 + k * 0.4, 0.6, 0.8 * np.sin(k * 0.9))
     pre = R.MIX[: R.n_(PRE / FPS)].copy()
     pre[-R.n_(0.06):] *= np.linspace(1, 0, R.n_(0.06))[:, None]
     out = np.concatenate([pre, body])
