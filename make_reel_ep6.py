@@ -2,7 +2,7 @@
 make_reel_ep6.py ― 最終話「二人なら」のリール書き出し（frames_E6 + 合成音声/効果音/BGM + 中央寄り字幕 + HUD）
   python make_reel_ep6.py      → isekai_deathgame_ep6.mp4
 """
-import os, subprocess, shutil, tempfile, wave
+import os, re, subprocess, shutil, tempfile, wave
 import numpy as np
 import make_reel as R
 import reel_extras as X
@@ -10,6 +10,7 @@ import reel_extras as X
 HERE = os.path.dirname(os.path.abspath(__file__))
 FPS, SR = 24, R.SR
 NF, HOLD = 696, 24
+PRE0, PRE = 348, 48      # cold open: 2 s half-speed look at the final thrust, one hook caption throughout
 DUR = (NF + HOLD) / FPS
 R.DUR = DUR
 R.MIX = np.zeros((R.n_(DUR) + SR, 2))
@@ -151,16 +152,37 @@ def build_subs(path):
         fh.write("Dialogue: 2,%s,%s,clear,,0,0,0,,%s%s\n" % (R.ts(t(CORE_X + 12)), R.ts(t(FIELD + 14)), pop % 600, "GAME CLEAR"))
         fh.write("Dialogue: 2,%s,%s,skill,,0,0,0,,%s%s\n" % (R.ts(t(SKILL + 2)), R.ts(t(FADE0)), pop % 540, "スキル引き継ぎ：全部"))
         X.write(fh, 6, NF)
+        cp = r"{\an5\pos(360,%d)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}"
+        fh.write("Dialogue: 3,%s,%s,next,,0,0,0,,%s%s\n" % (R.ts(t(FADE0)), R.ts(t(NF + HOLD)), cp % 950,
+                                                             "続編、見たい？\\Nコメントで教えて！"))   # comment prompt
+    sh = PRE / FPS                                    # shift every cue behind the cold open; a single hook over it
+    def sec(x):
+        h, m, c = x.split(":"); return int(h) * 3600 + int(m) * 60 + float(c)
+    txt = re.sub(r"Dialogue: (\d+),([\d:.]+),([\d:.]+),",
+                 lambda m: "Dialogue: %s,%s,%s," % (m.group(1), R.ts(sec(m.group(2)) + sh), R.ts(sec(m.group(3)) + sh)),
+                 open(path, encoding="utf-8").read())
+    txt = "".join(l for l in txt.splitlines(True) if ",hook," not in l)
+    big = r"{\an5\pos(360,%d)\fs50\fscx60\fscy60\t(0,100,\fscx110\fscy110)\t(100,180,\fscx100\fscy100)}"
+    txt += "Dialogue: 3,%s,%s,hook,,0,0,0,,%s%s\n" % (R.ts(0), R.ts(sh + 0.25), big % 420, X.EP[6]["hook"])
+    open(path, "w", encoding="utf-8").write(txt)
 
 def main():
     src = os.path.join(HERE, "frames_E6")
     tmp = tempfile.mkdtemp(prefix="reel6_")
-    for k in range(1, NF + HOLD + 1):
-        p = os.path.join(src, "%04d.png" % min(k, NF))
+    order = [PRE0 + k // 2 for k in range(PRE)] + [min(k, NF) for k in range(1, NF + HOLD + 1)]
+    for k, f in enumerate(order, 1):
+        p = os.path.join(src, "%04d.png" % f)
         assert os.path.exists(p), p
         os.symlink(p, os.path.join(tmp, "%04d.png" % k))
     build_sfx(); build_music(); R.build_voice()
-    out = R.MIX[: R.n_(DUR)]
+    body = R.MIX[: R.n_(DUR)].copy()
+    R.MIX = np.zeros((R.n_(DUR) + SR, 2))             # cold-open sting: rising charge + impact, cut hard into the scene
+    add(R.riser(PRE / FPS), 0, 0.5); add(R.zap(1.0), 0, 0.8); add(R.boom(1.6), 0.08, 1.0)
+    for k in range(4):
+        add(R.shatter(0.9), 0.1 + k * 0.4, 0.6, 0.8 * np.sin(k * 0.9))
+    pre = R.MIX[: R.n_(PRE / FPS)].copy()
+    pre[-R.n_(0.06):] *= np.linspace(1, 0, R.n_(0.06))[:, None]
+    out = np.concatenate([pre, body])
     out[-R.n_(0.6):] *= np.linspace(1, 0, R.n_(0.6))[:, None]
     out = np.tanh(out * 1.25 / max(1e-9, np.percentile(np.abs(out), 99.9))) * 0.84
     wav = os.path.join(HERE, "ep6_audio.wav")
