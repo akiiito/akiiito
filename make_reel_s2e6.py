@@ -125,8 +125,6 @@ def build_ui(path):
     S(T(30.0), l1, rr(52, 498, 108, 554, 14), "&HD08A3C&", "&H00&", 7, r"\fad(120,0)")
     E(T(30.0), l1, "ui", r"{\an7\pos(126,494)\fs26\c&HDDDDDD&\fad(120,0)}トーク  ·  今", 7)
     E(T(30.0), l1, "ui", r"{\an7\pos(126,530)\fs30\fad(120,0)}{\b1}朝倉 湊{\b0}  またね", 7)
-    E(T(31.2), T(END), "hook", r"{\an5\pos(360,860)\fs46\fad(200,0)}あなたなら、「ありがとう」って言う？\Nコメントで教えて！", 8)
-    E(T(32.0), T(END), "ui", r"{\an5\pos(360,980)\fs32\fad(200,0)\c&HDDDDDD&}『君は写真に写らない』 完", 8)
     for st, en, text, _, _, who in R.LINES:
         E(st, en, {"minato": "subm", "rin": "subr"}.get(who, "sub"), r"{\an5\pos(360,%d)\fad(60,120)}%s" % (880, text), 7)
     head = R.ASS_HEAD.replace("{f}", R.FONT).replace("\n[Events]", STY.replace("{f}", R.FONT) + "\n[Events]")
@@ -171,6 +169,11 @@ def main():
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", base, "-i", wav, "-vf", grade, "-c:v", "libx264", "-pix_fmt", "yuv420p",
                     "-crf", "20", "-maxrate", "6M", "-bufsize", "12M", "-preset", "slow", "-r", str(FPS), "-c:a", "aac", "-b:a", "192k", "-ar", str(SR),
                     "-movflags", "+faststart", "-t", "%.3f" % DUR, mp4], check=True, cwd=HERE)
+    # コメント誘導：絵文字2択のカード（最後のコマを1.5秒のばす）
+    tmpmp4 = mp4.replace(".mp4", "_nocard.mp4"); os.replace(mp4, tmpmp4)
+    subprocess.run(["python3", os.path.join(HERE, "s2_endcard.py"), tmpmp4, mp4, "%.2f" % (PRE + 33.4 - PRE),
+                    "あなたなら、\\N「ありがとう」って言う？", "🙏", "それでも言う", "🤐", "言わない", "『君は写真に写らない』 完"], check=True)
+    os.remove(tmpmp4)
     shutil.rmtree(tmp)
     print("wrote", mp4, DUR)
 

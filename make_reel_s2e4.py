@@ -164,8 +164,6 @@ def build_ui(path):
     # 時刻と場所
     E(T(NPLAY), T(NPLAY + 2.4), "ui", r"{\an7\pos(30,60)\fs30\bord2\3c&H000000&\fad(200,300)}0:41  旧校舎", 8)
     # 終わり
-    E(T(30.6), T(END), "hook", r"{\an5\pos(360,1010)\fs46\fad(200,0)}あなたなら、どっちを選ぶ？\Nコメントで教えて！", 8)
-    E(T(31.6), T(END), "ui", r"{\an5\pos(360,1120)\fs34\fad(200,0)\c&HDDDDDD&\bord2\3c&H000000&}▶ 第5話「一緒に来て」", 8)
     for st, en, text, _, _, who in R.LINES:
         E(st, en, {"minato": "subm", "rin": "subr"}.get(who, "sub"), r"{\an5\pos(360,%d)\fad(60,120)}%s" % (880 if T(LOCK) < st < T(BLACK2) else 1000, text), 7)
     head = R.ASS_HEAD.replace("{f}", R.FONT).replace("\n[Events]", STY.replace("{f}", R.FONT) + "\n[Events]")
@@ -221,6 +219,11 @@ def main():
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", base, "-i", wav, "-vf", grade, "-c:v", "libx264", "-pix_fmt", "yuv420p",
                     "-crf", "20", "-maxrate", "6M", "-bufsize", "12M", "-preset", "slow", "-r", str(FPS), "-c:a", "aac", "-b:a", "192k", "-ar", str(SR),
                     "-movflags", "+faststart", "-t", "%.3f" % DUR, mp4], check=True, cwd=HERE)
+    # コメント誘導：絵文字2択のカード（最後のコマを1.5秒のばす）
+    tmpmp4 = mp4.replace(".mp4", "_nocard.mp4"); os.replace(mp4, tmpmp4)
+    subprocess.run(["python3", os.path.join(HERE, "s2_endcard.py"), tmpmp4, mp4, "%.2f" % (PRE + 32.8 - PRE),
+                    "親友か、好きな人か。\\Nあなたなら、どっち？", "🔦", "親友", "💘", "好きな人", "▶ 第5話「一緒に来て」"], check=True)
+    os.remove(tmpmp4)
     shutil.rmtree(tmp)
     print("wrote", mp4, DUR)
 

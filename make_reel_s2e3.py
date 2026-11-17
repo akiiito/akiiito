@@ -152,8 +152,6 @@ def build_ui(path):
     S(h0, h1, rr(80, 1192, 600, 1252, 30), "&H33302C&")
     E(h0, h1, "ui", r"{\an4\pos(104,1222)\fs26\c&H888888&}メッセージを入力")
     # 終わり：コメント誘導と「つづく」
-    E(T(30.6), T(END), "hook", r"{\an5\pos(360,990)\fs46\fad(200,0)}あなたなら、親友に話す？\N（話せば、彼は消える）\Nコメントで教えて！", 8)
-    E(T(31.6), T(END), "ui", r"{\an5\pos(360,1128)\fs34\fad(200,0)\c&HDDDDDD&}▶ 第4話「未読」", 8)
     # spoken lines
     for st, en, text, _, _, who in R.LINES:
         E(st, en, {"minato": "subm", "rin": "subr"}.get(who, "sub"), r"{\an5\pos(360,%d)\fad(60,120)}%s" % (1020 if en > T(CHAT) else 820, text), 7)
@@ -213,6 +211,11 @@ def main():
                     "-map", "[o]", "-map", "1:a", "-c:v", "libx264", "-pix_fmt", "yuv420p",
                     "-crf", "20", "-maxrate", "6M", "-bufsize", "12M", "-preset", "slow", "-r", str(FPS), "-c:a", "aac", "-b:a", "192k", "-ar", str(SR),
                     "-movflags", "+faststart", "-t", "%.3f" % DUR, mp4], check=True, cwd=HERE)
+    # コメント誘導：絵文字2択のカード（最後のコマを1.5秒のばす）
+    tmpmp4 = mp4.replace(".mp4", "_nocard.mp4"); os.replace(mp4, tmpmp4)
+    subprocess.run(["python3", os.path.join(HERE, "s2_endcard.py"), tmpmp4, mp4, "%.2f" % (PRE + 32.8 - PRE),
+                    "あなたなら、親友に話す？\\N（話せば、彼は消える）", "🤐", "言わない", "🗣️", "言う", "▶ 第4話「未読」"], check=True)
+    os.remove(tmpmp4)
     shutil.rmtree(tmp)
     print("wrote", mp4, DUR)
 
