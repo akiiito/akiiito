@@ -154,17 +154,17 @@ def classroom(sun_elev=14.0, sun_az=-35.0, sun_col=(1.0, 0.55, 0.28), haze=0.006
     bg = nt.nodes["Background"]; bg.inputs["Strength"].default_value = 2.5
     nt.links.new(ramp.outputs["Color"], bg.inputs["Color"])
     # 窓の外：校庭と遠くの街並み（逆光のシルエット）
-    town = mat("town", (0.18, 0.15, 0.2), 0.9); grd = mat("ground", (0.35, 0.28, 0.2), 0.95)
-    box("yard", (-40, 0, -4.2), (70, 120, 0.2), grd)
+    town = mat("town", (0.18, 0.15, 0.2), 0.9); leaf = mat("leaf", (0.06, 0.09, 0.05), 0.9, noise=(8.0, 0.4)); grd = mat("ground", (0.35, 0.28, 0.2), 0.95)
+    box("yard", (-60, 0, -4.2), (110, 240, 0.2), grd)
     rnd = random.Random(7)
     for k in range(60):
         hgt = rnd.uniform(3, 18) if rnd.random() < 0.8 else rnd.uniform(18, 35)
-        box("bld%d" % k, (rnd.uniform(-75, -45), rnd.uniform(-60, 60), -4 + hgt / 2), (rnd.uniform(4, 10), rnd.uniform(4, 12), hgt), town)
+        box("bld%d" % k, (rnd.uniform(-170, -90), rnd.uniform(-120, 120), -4 + hgt / 2), (rnd.uniform(5, 14), rnd.uniform(5, 14), hgt * 0.8), town)
     for k in range(14):                                   # 校庭の木
-        x, y = rnd.uniform(-30, -12), rnd.uniform(-25, 25)
+        x, y = rnd.uniform(-45, -25), rnd.uniform(-30, 30)
         cyl("trunk", (x, y, -2.8), 0.2, 2.6, town, verts=8)
-        bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=2, radius=rnd.uniform(1.6, 2.6), location=(x, y, -0.6)); t_ = bpy.context.object
-        t_.data.materials.append(town)
+        bpy.ops.mesh.primitive_ico_sphere_add(subdivisions=2, radius=rnd.uniform(1.2, 1.9), location=(x, y, -1.4)); t_ = bpy.context.object
+        t_.data.materials.append(leaf)
     # dusty air → god rays
     bpy.ops.mesh.primitive_cube_add(location=(0, 0, H / 2)); v = bpy.context.object; v.name = "air"
     v.scale = (W / 2 - 0.02, D / 2 - 0.02, H / 2 - 0.02)
