@@ -383,7 +383,7 @@ def sky_world(sky, strength):
     bg = nt.nodes["Background"]; bg.inputs["Strength"].default_value = strength
     nt.links.new(ramp.outputs["Color"], bg.inputs["Color"])
 
-def stairwell(haze=0.012, sun_elev=9.0, sun_str=16.0):
+def stairwell(haze=0.012, sun_elev=9.0, sun_str=16.0, night=False):
     """U字階段。1階の床 z=0、踊り場 z=1.8（y=3.4〜5.0）、踊り場の奥の壁 y=5.0 に大きな窓。
     上り1本目は x=0.1〜1.6 を +y へ、2本目は x=-1.6〜-0.1 を -y へ上る。"""
     M = dict(
@@ -431,10 +431,14 @@ def stairwell(haze=0.012, sun_elev=9.0, sun_str=16.0):
         rot=(-math.atan2(1.8, n * run), 0, 0))
     r = cyl("rail1", (0.12, 3.4 - n * run / 2, 0.9 + 0.9), 0.03, math.hypot(n * run, 1.8) + 0.2, M["rail"], rot=(math.pi / 2 - math.atan2(1.8, n * run), 0, 0), verts=12)
     # 夕日（窓の外 +y 側から低く）
-    sun = bpy.data.lights.new("sun", "SUN"); sun.energy = sun_str; sun.color = (1.0, 0.5, 0.24); sun.angle = math.radians(0.6)
+    sun = bpy.data.lights.new("sun", "SUN"); sun.energy = sun_str; sun.color = (1.0, 0.5, 0.24) if not night else (0.55, 0.68, 1.0)
+    sun.angle = math.radians(0.6)
     so = bpy.data.objects.new("sun", sun); bpy.context.collection.objects.link(so)
     e = math.radians(sun_elev); so.location = (0, 20, 8); aim(so, (0.25, 20 - math.cos(e), 8 - math.sin(e) - 0.0))
-    sky_world(((1.0, 0.42, 0.16), (0.95, 0.55, 0.42), (0.12, 0.1, 0.28)), 0.9)
+    if night:
+        sky_world(((0.05, 0.07, 0.14), (0.03, 0.045, 0.1), (0.005, 0.008, 0.02)), 0.5)
+    else:
+        sky_world(((1.0, 0.42, 0.16), (0.95, 0.55, 0.42), (0.12, 0.1, 0.28)), 0.9)
     # 窓の外の遠景（逆光の街）
     town = mat("town", (0.16, 0.13, 0.18), 0.9); rnd = random.Random(11)
     for k in range(30):
@@ -447,6 +451,26 @@ def stairwell(haze=0.012, sun_elev=9.0, sun_str=16.0):
     o = nt.nodes.new("ShaderNodeOutputMaterial"); pv = nt.nodes.new("ShaderNodeVolumePrincipled")
     pv.inputs["Density"].default_value = haze; pv.inputs["Anisotropy"].default_value = 0.6
     nt.links.new(pv.outputs[0], o.inputs["Volume"]); v.data.materials.append(vm)
-    fl = bpy.data.lights.new("fill", "AREA"); fl.energy = 3; fl.size = 2; fl.color = (1.0, 0.75, 0.6)
+    fl = bpy.data.lights.new("fill", "AREA"); fl.energy = 3 if not night else 0.0; fl.size = 2; fl.color = (1.0, 0.75, 0.6)
     fo = bpy.data.objects.new("fill", fl); bpy.context.collection.objects.link(fo); fo.location = (0.8, -0.8, 3.2)
     return dict(M=M, landing_z=1.8, window=(0, wy, (wz0 + wz1) / 2))
+
+def flashlight(cam, energy=40.0, spread=28.0):
+    """カメラ（手）に付けた懐中電灯"""
+    sp = bpy.data.lights.new("torch", "SPOT"); sp.energy = energy; sp.spot_size = math.radians(spread); sp.spot_blend = 0.6
+    sp.color = (1.0, 0.92, 0.8); sp.shadow_soft_size = 0.02
+    so = bpy.data.objects.new("torch", sp); bpy.context.collection.objects.link(so)
+    so.parent = cam; so.location = (0.12, -0.15, 0.05); so.rotation_euler = (math.radians(-3), math.radians(4), 0)
+    return so
+
+def phone(loc, rot_z=0.0, glow=4.0):
+    """床に落ちたスマホ（画面が光る）。画面の向きは +z"""
+    body = mat("phone", (0.02, 0.02, 0.025), 0.25, 0.3)
+    p = box("phone", (0, 0, 0.004), (0.075, 0.155, 0.008), body, bevel=0.003)      # box() は原点に焼き込むので原点で作って動かす
+    scr = mat("screen", (0.0, 0.0, 0.0), 0.1, emit=(0.75, 0.82, 1.0), estr=glow)
+    s_ = box("screen", (0, 0, 0.0085), (0.068, 0.146, 0.001), scr)
+    for o in (p, s_):
+        o.rotation_euler = (0, 0, math.radians(rot_z)); o.location = loc
+    gl = bpy.data.lights.new("phoneglow", "POINT"); gl.energy = 0.6; gl.color = (0.7, 0.8, 1.0); gl.shadow_soft_size = 0.05
+    go = bpy.data.objects.new("phoneglow", gl); bpy.context.collection.objects.link(go); go.location = (loc[0], loc[1], loc[2] + 0.06)
+    return p
