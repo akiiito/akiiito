@@ -367,3 +367,86 @@ def vase(loc, seed=3):
 
 MORNING = dict(sun_elev=32.0, sun_az=25.0, sun_col=(1.0, 0.93, 0.84), haze=0.004,
                sky=((0.92, 0.95, 1.0), (0.75, 0.84, 0.97), (0.28, 0.48, 0.85)), sky_str=1.6, sun_str=9.0, fill=12)
+
+# ---------------------------------------------------------------- 旧校舎の階段と踊り場（夕方。踊り場の大きな窓から西日）
+def sky_world(sky, strength):
+    w = bpy.data.worlds.new("w"); bpy.context.scene.world = w; w.use_nodes = True
+    nt = w.node_tree
+    co = nt.nodes.new("ShaderNodeTexCoord"); sep = nt.nodes.new("ShaderNodeSeparateXYZ")
+    ramp = nt.nodes.new("ShaderNodeValToRGB"); el = ramp.color_ramp.elements
+    el[0].position, el[0].color = 0.0, sky[0] + (1,)
+    el[1].position, el[1].color = 0.55, sky[2] + (1,)
+    mid = el.new(0.12); mid.color = sky[1] + (1,)
+    nt.links.new(co.outputs["Generated"], sep.inputs[0])
+    mp = nt.nodes.new("ShaderNodeMapRange"); mp.inputs["From Min"].default_value = 0.5; mp.inputs["From Max"].default_value = 1.0
+    nt.links.new(sep.outputs["Z"], mp.inputs["Value"]); nt.links.new(mp.outputs["Result"], ramp.inputs["Fac"])
+    bg = nt.nodes["Background"]; bg.inputs["Strength"].default_value = strength
+    nt.links.new(ramp.outputs["Color"], bg.inputs["Color"])
+
+def stairwell(haze=0.012, sun_elev=9.0, sun_str=16.0):
+    """U字階段。1階の床 z=0、踊り場 z=1.8（y=3.4〜5.0）、踊り場の奥の壁 y=5.0 に大きな窓。
+    上り1本目は x=0.1〜1.6 を +y へ、2本目は x=-1.6〜-0.1 を -y へ上る。"""
+    M = dict(
+        wall=mat("swall", (0.72, 0.72, 0.66), 0.85, noise=(5.0, 0.12)),
+        dado=mat("dado", (0.32, 0.4, 0.36), 0.6, noise=(9.0, 0.15)),              # 古い校舎の腰壁（くすんだ緑）
+        step=mat("step", (0.42, 0.4, 0.37), 0.55, noise=(14.0, 0.3)),             # 人造石の段
+        nose=mat("nose", (0.25, 0.25, 0.24), 0.4, 0.6),
+        rail=mat("rail", (0.3, 0.2, 0.12), 0.35),
+        frame=mat("sframe", (0.5, 0.52, 0.5), 0.4, 0.7),
+        ceil=mat("sceil", (0.8, 0.8, 0.77), 0.9),
+        glass=glass())
+    X0, X1, Y0, Y1, H = -1.7, 1.7, -1.2, 5.0, 5.4
+    box("floor", (0, (Y0 + Y1) / 2 - 1, -0.05), (X1 - X0, Y1 - Y0 + 2, 0.1), M["step"])
+    box("ceil", (0, (Y0 + Y1) / 2, H), (X1 - X0, Y1 - Y0, 0.1), M["ceil"])
+    for sx in (X0 - 0.05, X1 + 0.05):
+        box("wall", (sx, (Y0 + Y1) / 2, H / 2), (0.1, Y1 - Y0 + 2, H), M["wall"])
+        box("dado", (sx + (0.06 if sx < 0 else -0.06), (Y0 + Y1) / 2, 0.55), (0.02, Y1 - Y0 + 2, 1.1), M["dado"])
+    # 踊り場の奥の壁と窓（大きな窓 2.0 x 1.9、下端 z=2.6）
+    wy = Y1 + 0.05; wz0, wz1, wx = 2.6, 4.5, 1.0
+    box("back_lo", (0, wy, wz0 / 2), (X1 - X0, 0.12, wz0), M["wall"])
+    box("back_hi", (0, wy, (wz1 + H) / 2), (X1 - X0, 0.12, H - wz1), M["wall"])
+    box("back_l", ((X0 - wx) / 2, wy, (wz0 + wz1) / 2), (-wx - X0, 0.12, wz1 - wz0), M["wall"])
+    box("back_r", ((X1 + wx) / 2, wy, (wz0 + wz1) / 2), (X1 - wx, 0.12, wz1 - wz0), M["wall"])
+    box("pane", (0, wy, (wz0 + wz1) / 2), (2 * wx, 0.02, wz1 - wz0), M["glass"])
+    for x in (-wx, 0, wx):
+        box("mull", (x, wy - 0.03, (wz0 + wz1) / 2), (0.05, 0.06, wz1 - wz0), M["frame"])
+    for z in (wz0, (wz0 + wz1) / 2, wz1):
+        box("tran", (0, wy - 0.03, z), (2 * wx, 0.06, 0.05), M["frame"])
+    box("dado_b", (0, wy - 0.07, 1.8 + 0.55), (X1 - X0, 0.02, 1.1), M["dado"])
+    # 踊り場
+    box("landing", (0, 4.2, 1.8 - 0.1), (X1 - X0, 1.6, 0.2), M["step"])
+    # 1本目（+y へ上る）・2本目（-y へ上る）
+    n, rise, run = 11, 1.8 / 11, 0.28
+    for k in range(n):
+        y = 3.4 - (n - k) * run
+        z = (k + 1) * rise
+        box("st1_%d" % k, (0.85, y + run / 2, z / 2), (1.5, run, z), M["step"])
+        box("ns1_%d" % k, (0.85, y + run - 0.01, z - 0.01), (1.5, 0.03, 0.03), M["nose"])
+        z2 = 1.8 + (k + 1) * rise; y2 = 3.4 - (k + 1) * run
+        box("st2_%d" % k, (-0.85, y2 + run / 2, z2 - rise / 2 - 0.1), (1.5, run, rise + 0.2), M["step"])
+    box("st2_slab", (-0.85, 3.4 - n * run / 2, 1.8 + 0.9 - 0.35), (1.5, n * run, 0.12), M["step"],
+        rot=(math.atan2(1.8, n * run), 0, 0))
+    # 中央の腰壁と木の手すり
+    box("mid_wall", (0, 3.4 - n * run / 2, 1.8), (0.16, n * run, 1.0), M["dado"],
+        rot=(-math.atan2(1.8, n * run), 0, 0))
+    r = cyl("rail1", (0.12, 3.4 - n * run / 2, 0.9 + 0.9), 0.03, math.hypot(n * run, 1.8) + 0.2, M["rail"], rot=(math.pi / 2 - math.atan2(1.8, n * run), 0, 0), verts=12)
+    # 夕日（窓の外 +y 側から低く）
+    sun = bpy.data.lights.new("sun", "SUN"); sun.energy = sun_str; sun.color = (1.0, 0.5, 0.24); sun.angle = math.radians(0.6)
+    so = bpy.data.objects.new("sun", sun); bpy.context.collection.objects.link(so)
+    e = math.radians(sun_elev); so.location = (0, 20, 8); aim(so, (0.25, 20 - math.cos(e), 8 - math.sin(e) - 0.0))
+    sky_world(((1.0, 0.42, 0.16), (0.95, 0.55, 0.42), (0.12, 0.1, 0.28)), 0.9)
+    # 窓の外の遠景（逆光の街）
+    town = mat("town", (0.16, 0.13, 0.18), 0.9); rnd = random.Random(11)
+    for k in range(30):
+        hgt = rnd.uniform(3, 20)
+        box("bld%d" % k, (rnd.uniform(-60, 60), rnd.uniform(70, 140), -6 + hgt / 2), (rnd.uniform(5, 14), rnd.uniform(5, 14), hgt), town)
+    # ほこりの舞う空気
+    bpy.ops.mesh.primitive_cube_add(location=(0, (Y0 + Y1) / 2, H / 2)); v = bpy.context.object; v.name = "air"
+    v.scale = ((X1 - X0) / 2 - 0.02, (Y1 - Y0) / 2 - 0.02, H / 2 - 0.02)
+    vm = bpy.data.materials.new("air"); vm.use_nodes = True; nt = vm.node_tree; nt.nodes.clear()
+    o = nt.nodes.new("ShaderNodeOutputMaterial"); pv = nt.nodes.new("ShaderNodeVolumePrincipled")
+    pv.inputs["Density"].default_value = haze; pv.inputs["Anisotropy"].default_value = 0.6
+    nt.links.new(pv.outputs[0], o.inputs["Volume"]); v.data.materials.append(vm)
+    fl = bpy.data.lights.new("fill", "AREA"); fl.energy = 3; fl.size = 2; fl.color = (1.0, 0.75, 0.6)
+    fo = bpy.data.objects.new("fill", fl); bpy.context.collection.objects.link(fo); fo.location = (0.8, -0.8, 3.2)
+    return dict(M=M, landing_z=1.8, window=(0, wy, (wz0 + wz1) / 2))

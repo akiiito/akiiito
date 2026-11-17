@@ -10,7 +10,9 @@ FONT = "IPAPGothic"
 EP = {1: dict(src="frames_S2E1/C/0001.png", ring=(144, 960, 138), l1="好きな人が", l2="写真に写らない",
               q="この写真、消す？", badge="第1話"),
       2: dict(src="frames_S2E2/B/0001.png", ring=(230, 770, 175), tagpos=(420, 760), l1="私にしか", l2="見えない彼",
-              q="この席、誰の？", badge="第2話", tag="…ここに\\Nいたのに")}
+              q="この席、誰の？", badge="第2話", tag="…ここに\\Nいたのに"),
+      3: dict(src="frames_S2E3/S/0048.png", ring=(600, 1020, 230), tagpos=(640, 700), l1="親友には", l2="言わないで",
+              q="あなたなら、言う？", badge="第3話", tag="去年\\N死んでる")}
 HEAD = """[Script Info]
 ScriptType: v4.00+
 PlayResX: 1080
