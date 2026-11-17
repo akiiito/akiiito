@@ -152,8 +152,8 @@ def build_ui(path):
     S(h0, h1, rr(80, 1192, 600, 1252, 30), "&H33302C&")
     E(h0, h1, "ui", r"{\an4\pos(104,1222)\fs26\c&H888888&}メッセージを入力")
     # 終わり：コメント誘導と「つづく」
-    E(T(30.6), T(END), "hook", r"{\an5\pos(360,1010)\fs46\fad(200,0)}あなたなら、親友に話す？\N（話せば、彼は消える）\Nコメントで教えて！", 8)
-    E(T(31.6), T(END), "ui", r"{\an5\pos(360,1170)\fs34\fad(200,0)\c&HDDDDDD&}▶ 第4話「未読」", 8)
+    E(T(30.6), T(END), "hook", r"{\an5\pos(360,990)\fs46\fad(200,0)}あなたなら、親友に話す？\N（話せば、彼は消える）\Nコメントで教えて！", 8)
+    E(T(31.6), T(END), "ui", r"{\an5\pos(360,1128)\fs34\fad(200,0)\c&HDDDDDD&}▶ 第4話「未読」", 8)
     # spoken lines
     for st, en, text, _, _, who in R.LINES:
         E(st, en, {"minato": "subm", "rin": "subr"}.get(who, "sub"), r"{\an5\pos(360,%d)\fad(60,120)}%s" % (1020 if en > T(CHAT) else 820, text), 7)
@@ -205,7 +205,7 @@ def main():
     mp4 = os.path.join(HERE, "kimi_utsuranai_ep3.mp4")
     photo = os.path.join(tmp, "photo.png")                       # 記事の写真：誰もいない階段（報道写真らしく少し色を抜く）
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", os.path.join(FR, "E", "0001.png"), "-vf",
-                    "crop=720:284:0:420,scale=556:220,eq=saturation=0.55:contrast=1.05,unsharp=5:5:0.4", photo], check=True)
+                    "crop=720:284:0:800,scale=556:220,eq=saturation=0.55:contrast=1.05,unsharp=5:5:0.4", photo], check=True)
     fc = ("[0]eq=contrast=1.04:saturation=0.92,vignette=PI/5,noise=alls=7:allf=t,ass=s2e3_ui.ass[v];"
           "[2]format=rgba,fade=t=in:st=0:d=0.08:alpha=1[p];"
           "[v][p]overlay=x=96:y=466:enable='between(t,%.2f,%.2f)'[o]" % (T(CARD), T(END) + 1))
