@@ -336,12 +336,20 @@ def spk_ref(who):
         es = [spk_emb(*vv_synth(t, sid, pitch, spd, inton)[:2]) for t in SPK_REF_TEXT]
         c = np.mean(es, 0); _spk[who] = c / np.linalg.norm(c)
     return _spk[who]
+def trim_voice(x, sr):
+    """無音の頭と尻を落とす。尻は包絡が最大の2%を切った後も200ms残し、弱く消えていく語尾を切らない"""
+    env = np.convolve(np.abs(x), np.ones(int(sr * 0.02)) / int(sr * 0.02), mode="same")
+    nz = np.where(env > env.max() * 0.02)[0]
+    if not len(nz): return x
+    return x[max(nz[0] - int(sr * 0.02), 0): min(len(x), nz[-1] + int(sr * 0.2))]
+
 def build_voice():
     import re
     spans, sims = [], []
     check = VV_ENGINE == "aivis" and os.path.exists(SPK_MODEL)
     if not check: print("WARNING: speaker-consistency check is OFF (model not found: %s)" % SPK_MODEL)
-    for st, en, text, say, style, who in LINES:
+    last_end = -1.0
+    for li, (st, en, text, say, style, who) in enumerate(LINES):
         sid, sid_sh, pitch, spd, inton = VV_CAST[who]
         loud = style in ("shout", "resolve") or (who == "girl" and ("！" in text or "！" in say))
         if loud:
@@ -371,8 +379,7 @@ def build_voice():
         slot = en - st + 0.3
         for _try in range(5):
             x, sr, kana = vv_synth(src, sid, pitch, spd, inton)
-            nz = np.where(np.abs(x) > 0.01)[0]
-            x = x[max(nz[0] - 200, 0): nz[-1] + 2400] if len(nz) else x
+            x = trim_voice(x, sr)
             ln = len(x) / sr
             if ln > slot and spd < 1.4: spd = min(1.4, spd * max(1.05, ln / slot))   # セリフ枠に収める
             elif ln < 0.55 and src != say and len(say) > len(src) and not __import__("re").search(r"[一-龥]", src): src = say               # 一瞬で終わる叫びは伸ばした読みで
@@ -382,8 +389,7 @@ def build_voice():
         for _take in range(4):                      # スコアが低い行は録り直して一番良いテイクを使う
             if not check or sim >= 0.55: break
             x2, sr2, _ = vv_synth(src, sid, pitch, spd, inton)
-            nz = np.where(np.abs(x2) > 0.01)[0]
-            x2 = x2[max(nz[0] - 200, 0): nz[-1] + 2400] if len(nz) else x2
+            x2 = trim_voice(x2, sr2)
             sim2 = float(spk_emb(x2, sr2) @ spk_ref(who))
             if sim2 > sim and len(x2) / sr2 <= max(slot, len(x) / sr): x, sr, sim = x2, sr2, sim2
         f0 = vv_f0(x, sr)
@@ -392,9 +398,15 @@ def build_voice():
         x = hp(x, 80)
         x = x * (0.17 / max(np.sqrt(np.mean(x ** 2)), 1e-4))    # そろえた音量に（歪ませない）
         x = np.tanh(x * 1.15) / 1.15
-        x = reverb(fade(x, 0.004, 0.03), VOICE.get(who, (0, 0, 0, 0))[3] * (1.0 if who == "rule" else 0.4))
+        dry = len(x) / SR
+        x = reverb(fade(x, 0.004, 0.12), VOICE.get(who, (0, 0, 0, 0))[3] * (1.0 if who == "rule" else 0.4))
+        if st < last_end + 0.1:                     # 前のセリフに重ねない（語尾が潰れる）：言い終わるまで待ってから話す
+            print("voice shift %.2fs -> %.2fs  %s" % (st, last_end + 0.1, src)); st = last_end + 0.1
+        LINES[li] = (st, max(en - LINES[li][0] + st, st + dry + 0.25), text, say, style, who)   # 字幕も声に合わせる
+        last_end = st + dry
         add(x, st, VOICE.get(who, (0, 0, 1.2, 0))[2] * (1.5 if loud else 1.3))
-        spans.append((st, st + len(x) / SR))
+        spans.append((st, st + dry))
+        x = x[: int(dry * SR)]
         print("voice %-5s %5.2fs len %.2fs spd %.2f f0 %3.0fHz same-voice %.2f  %s  [%s]" % (who, st, len(x) / SR, spd, f0, sim, src, kana))
     if check:
         for who in sorted(set(w for _, w, _ in sims)):

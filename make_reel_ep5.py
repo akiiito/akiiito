@@ -9,7 +9,7 @@ import reel_extras as X
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FPS, SR = 24, R.SR
-NF, HOLD = 672, 0        # cut on the cliffhanger: no title hold (loop / next video)
+NF, HOLD = 672, 36       # cut on the cliffhanger: no title hold (loop / next video)
 PRE0, PRE = 478, 48      # cold open: 2 s half-speed look at the blade-shattering climax, hook readable throughout
 DUR = (NF + HOLD) / FPS
 R.DUR = DUR
@@ -30,9 +30,9 @@ R.LINES = [
     (t(152), t(172), "それも俺の技だ", "それもおれのわざだ", "foe", "champ"),
     (t(174), t(198), "これなら！", "これなら！", "other", "girl"),
     (t(205), t(217), "うそっ！", "うそっ！", "other", "girl"),
-    (t(219), t(262), "優勝者は、次の\\N“最後の一人”になる", "ゆうしょうしゃは、つぎの、さいごのひとりになる", "foe", "champ"),
-    (t(266), t(302), "俺は…あいつを\\N守れなかった", "おれは、あいつを、まもれなかった", "foe", "champ"),
-    (t(308), t(344), "だから、ここで終われ", "だから、ここでおわれ", "foe", "champ"),
+    (t(219), t(262), "優勝者は、\\N次のラスボスになる", "ゆうしょうしゃは、つぎのらすぼすになる", "foe", "champ"),
+    (t(266), t(302), "あいつを…\\N守れなかった", "あいつを、まもれなかった", "foe", "champ"),
+    (t(308), t(344), "ここで終われ", "ここでおわれ", "foe", "champ"),
     (t(358), t(382), "重っ…！", "おもっ！", "shout", "hero"),
     (t(386), t(403), "折れる…！", "おれる！", "hero", "hero"),
     (t(406), t(435), "一人で戦わないで！", "ひとりで、たたかわないで！", "other", "girl"),
@@ -141,9 +141,9 @@ def build_subs(path):
                 fh.write("Dialogue: 1,%s,%s,hud,,0,0,0,,%s%s\n" % (R.ts(t(f0)), R.ts(t(f1)), pop % 250, label))
         fh.write("Dialogue: 2,%s,%s,skill,,0,0,0,,%s%s\n" % (R.ts(t(JOIN + 2)), R.ts(t(JOIN + 30)), pop % 540, "共鳴！"))
         fh.write("Dialogue: 2,%s,%s,skill,,0,0,0,,%s%s\n" % (R.ts(t(CATCH + 2)), R.ts(t(SKY + 2)), pop % 540, "スキル獲得【二刀流】"))
-        X.write(fh, 5, NF)
+        X.write(fh, 5, NF + HOLD)
         cp = r"{\an5\pos(360,%d)\fscx70\fscy70\t(0,90,\fscx112\fscy112)\t(90,170,\fscx100\fscy100)\fad(0,80)}"
-        fh.write("Dialogue: 3,%s,%s,next,,0,0,0,,%s%s\n" % (R.ts(t(DISS + 6)), R.ts(t(NF)), cp % 950,
+        fh.write("Dialogue: 3,%s,%s,next,,0,0,0,,%s%s\n" % (R.ts(t(DISS + 6)), R.ts(t(NF + HOLD)), cp % 950,
                                                              "未来の自分に勝てる？\\Nコメントで教えて！"))   # comment prompt
     sh = PRE / FPS                                    # shift every cue behind the cold open, then caption the teaser
     def sec(x):
@@ -173,7 +173,7 @@ def main():
     pre = R.MIX[: R.n_(PRE / FPS)].copy()
     pre[-R.n_(0.06):] *= np.linspace(1, 0, R.n_(0.06))[:, None]
     out = np.concatenate([pre, body])
-    out[-R.n_(0.15):] *= np.linspace(1, 0, R.n_(0.15))[:, None]
+    out[-R.n_(0.6):] *= np.linspace(1, 0, R.n_(0.6))[:, None]
     out = np.tanh(out * 1.25 / max(1e-9, np.percentile(np.abs(out), 99.9))) * 0.84
     wav = os.path.join(HERE, "ep5_audio.wav")
     with wave.open(wav, "wb") as w:
