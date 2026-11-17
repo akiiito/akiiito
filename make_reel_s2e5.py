@@ -101,7 +101,7 @@ def build_ui(path):
     def S(t0, t1, draw, col="&HFFFFFF&", alpha="&H00&", layer=4, extra=""):
         E(t0, t1, "shape", r"{\an7\pos(0,0)\p1\1c%s\1a%s\bord0\shad0%s}%s{\p0}" % (col, alpha, extra, draw), layer)
     E(0, PRE, "hook", r"{\an5\pos(360,420)\fscx70\fscy70\t(0,120,\fscx104\fscy104)\t(120,200,\fscx100\fscy100)}"
-                      r"もしも好きな人に\N「一緒に来て」\Nと言われたら？", 8)
+                      r"もしも好きな人に\N「こっち側に来て」\Nと言われたら？", 8)
     E(T(0), T(2.4), "ui", r"{\an7\pos(30,60)\fs30\bord2\3c&H000000&\fad(200,300)}0:44  旧校舎 踊り場", 8)
     # --- カメラ越し（湊は写らない）
     c0, c1 = T(CAMV), T(TELL)

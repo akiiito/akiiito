@@ -128,7 +128,7 @@ def build_ui(path):
     def S(t0, t1, draw, col="&HFFFFFF&", alpha="&H00&", layer=4, extra=""):
         E(t0, t1, "shape", r"{\an7\pos(0,0)\p1\1c%s\1a%s\bord0\shad0%s}%s{\p0}" % (col, alpha, extra, draw), layer)
     E(0, PRE, "hook", r"{\an5\pos(360,330)\fs46\fscx70\fscy70\t(0,120,\fscx104\fscy104)\t(120,200,\fscx100\fscy100)}"
-                      r"もしも\N「親友を探すなら、\N彼とはもう会えない」\Nと言われたら？", 8)
+                      r"もしも\N「親友か、好きな人か」\N一人しか選べないとしたら？", 8)
     # --- 昼：凛とのトーク。ひよりの送ったメッセージに既読がつかない
     h0, h1 = T(CHAT1), T(SEAT)
     S(h0, h1, rr(-10, -10, 730, 1300, 0), "&H14100E&", "&H00&", 3)
@@ -164,7 +164,7 @@ def build_ui(path):
     # 時刻と場所
     E(T(NPLAY), T(NPLAY + 2.4), "ui", r"{\an7\pos(30,60)\fs30\bord2\3c&H000000&\fad(200,300)}0:41  旧校舎", 8)
     # 終わり
-    E(T(30.6), T(END), "hook", r"{\an5\pos(360,1010)\fs46\fad(200,0)}あなたなら、探しに行く？\Nコメントで教えて！", 8)
+    E(T(30.6), T(END), "hook", r"{\an5\pos(360,1010)\fs46\fad(200,0)}あなたなら、どっちを選ぶ？\Nコメントで教えて！", 8)
     E(T(31.6), T(END), "ui", r"{\an5\pos(360,1120)\fs34\fad(200,0)\c&HDDDDDD&\bord2\3c&H000000&}▶ 第5話「一緒に来て」", 8)
     for st, en, text, _, _, who in R.LINES:
         E(st, en, {"minato": "subm", "rin": "subr"}.get(who, "sub"), r"{\an5\pos(360,%d)\fad(60,120)}%s" % (880 if T(LOCK) < st < T(BLACK2) else 1000, text), 7)

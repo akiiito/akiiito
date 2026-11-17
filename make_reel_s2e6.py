@@ -105,7 +105,7 @@ def build_ui(path):
     def S(t0, t1, draw, col="&HFFFFFF&", alpha="&H00&", layer=4, extra=""):
         E(t0, t1, "shape", r"{\an7\pos(0,0)\p1\1c%s\1a%s\bord0\shad0%s}%s{\p0}" % (col, alpha, extra, draw), layer)
     E(0, PRE, "hook", r"{\an5\pos(360,420)\fscx70\fscy70\t(0,120,\fscx104\fscy104)\t(120,200,\fscx100\fscy100)}"
-                      r"もしも\N「その一言で、彼が消える」\Nと言われたら？", 8)
+                      r"もしも「ありがとう」と言えば\N好きな人が消えるとしたら？", 8)
     E(T(0.2), T(DAWN), "ui", r"{\an5\pos(360,560)\fs40\fad(300,200)}翌朝 5:48", 8)
     # 消える瞬間：白い光
     S(T(GONE - 0.2), T(GONE + 1.2), rr(-10, -10, 730, 1290, 0), "&HE0F0FF&", "&H00&", 9, r"\fad(200,900)")
@@ -125,7 +125,7 @@ def build_ui(path):
     S(T(30.0), l1, rr(52, 498, 108, 554, 14), "&HD08A3C&", "&H00&", 7, r"\fad(120,0)")
     E(T(30.0), l1, "ui", r"{\an7\pos(126,494)\fs26\c&HDDDDDD&\fad(120,0)}トーク  ·  今", 7)
     E(T(30.0), l1, "ui", r"{\an7\pos(126,530)\fs30\fad(120,0)}{\b1}朝倉 湊{\b0}  またね", 7)
-    E(T(31.2), T(END), "hook", r"{\an5\pos(360,860)\fs46\fad(200,0)}泣いた？ 怖かった？\Nコメントで教えて！", 8)
+    E(T(31.2), T(END), "hook", r"{\an5\pos(360,860)\fs46\fad(200,0)}あなたなら、「ありがとう」って言う？\Nコメントで教えて！", 8)
     E(T(32.0), T(END), "ui", r"{\an5\pos(360,980)\fs32\fad(200,0)\c&HDDDDDD&}『君は写真に写らない』 完", 8)
     for st, en, text, _, _, who in R.LINES:
         E(st, en, {"minato": "subm", "rin": "subr"}.get(who, "sub"), r"{\an5\pos(360,%d)\fad(60,120)}%s" % (880, text), 7)
