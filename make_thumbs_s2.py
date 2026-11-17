@@ -12,7 +12,9 @@ EP = {1: dict(src="frames_S2E1/C/0001.png", ring=(144, 960, 138), l1="好きな�
       2: dict(src="frames_S2E2/B/0001.png", ring=(230, 770, 175), tagpos=(420, 760), l1="私にしか", l2="見えない彼",
               q="この席、誰の？", badge="第2話", tag="…ここに\\Nいたのに"),
       3: dict(src="frames_S2E3/S/0048.png", ring=(596, 850, 210), tagpos=(780, 640), l1="親友に話したら", l2="彼が消える",
-              q="あなたなら、話す？", badge="第3話", tag="去年\\N死んでる")}
+              q="あなたなら、話す？", badge="第3話", tag="去年\\N死んでる"),
+      4: dict(src="frames_S2E4/P/cover.png", ring=(560, 1090, 250), tagpos=(700, 780), l1="親友か", l2="好きな人か",
+              q="一人しか選べない", badge="第4話", tag="既読\\Nつかない")}
 HEAD = """[Script Info]
 ScriptType: v4.00+
 PlayResX: 1080
