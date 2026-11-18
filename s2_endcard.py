@@ -46,7 +46,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         "Dialogue: 1,%s,%s,box,,0,0,0,,{\\an7\\pos(0,0)\\p1\\1c&HFFFFFF&\\1a&HD8&\\bord3\\3c&HFFFFFF&\\3a&H40&\\fad(200,0)}%s{\\p0}" % (a, b, rr(380, 470, 660, 830, 36)),
         "Dialogue: 2,%s,%s,l,,0,0,0,,{\\an5\\pos(200,760)\\fad(200,0)}%s" % (a, b, la),
         "Dialogue: 2,%s,%s,l,,0,0,0,,{\\an5\\pos(520,760)\\fad(200,0)}%s" % (a, b, lb),
-        "Dialogue: 2,%s,%s,s,,0,0,0,,{\\an5\\pos(360,920)\\fad(200,0)\\t(0,500,\\fscx106\\fscy106)\\t(500,1000,\\fscx100\\fscy100)\\t(1000,1500,\\fscx106\\fscy106)\\t(1500,2000,\\fscx100\\fscy100)}絵文字ひとつでコメントしてね" % (a, b),
+        "Dialogue: 2,%s,%s,s,,0,0,0,,{\\an5\\pos(360,920)\\fad(200,0)\\t(0,500,\\fscx106\\fscy106)\\t(500,1000,\\fscx100\\fscy100)\\t(1000,1500,\\fscx106\\fscy106)\\t(1500,2000,\\fscx100\\fscy100)}%s" % (a, b, os.environ.get("ENDCARD_HINT", "絵文字ひとつでコメントしてね")),
         "Dialogue: 2,%s,%s,s,,0,0,0,,{\\an5\\pos(360,1060)\\fs30\\c&HCCCCCC&\\fad(200,0)}%s" % (a, b, nxt),
     ]
     open(path, "w", encoding="utf-8").write(head + "\n".join(ev) + "\n")

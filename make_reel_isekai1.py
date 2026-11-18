@@ -133,7 +133,8 @@ def main():
                     "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-preset", "slow", "-maxrate", "6M", "-bufsize", "12M",
                     "-c:a", "aac", "-b:a", "192k", "-ar", str(SR), "-t", "%.3f" % DUR, raw], check=True, cwd=HERE)
     subprocess.run(["python3", os.path.join(HERE, "s2_endcard.py"), raw, mp4, "%.2f" % (END - 0.5),
-                    "あなたなら、どうする？", "🌕", "もう一度止める", "🏃", "逃げる", "▶ パート2「残り2分」"], check=True)
+                    "次の行動は、あなたが決めて", "🌕", "もう一度止める", "🏃", "逃げる", "▶ 多かった方が パート2になる", "2.8"],
+                   check=True, env=dict(os.environ, ENDCARD_HINT="コメントの多い方で 物語が分かれる"))
     shutil.rmtree(tmp)
     print("wrote", mp4)
 
