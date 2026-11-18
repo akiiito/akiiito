@@ -1,0 +1,45 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hero,IPAPGothic,66,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,1,0,1,7,3,5,30,30,0,1
+Style: narr,IPAPGothic,62,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,2,0,1,7,3,5,30,30,0,1
+Style: shout,IPAPGothic,78,&H0040E6FF,&H0040E6FF,&H00200818,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: resolve,IPAPGothic,80,&H00FFFFFF,&H00FFFFFF,&H003C14DC,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: shape,IPAPGothic,20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: mei,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H008A3CE8,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1
+Style: yota,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H00306A9A,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1
+Style: hook,IPAPGothic,58,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,7,0,5,20,20,0,1
+Style: card,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,0,0,5,20,20,0,1
+Style: count,IPAPGothic,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,8,0,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 6,0:00:00.00,0:00:31.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H101010&\1a&H50&\bord0\shad0}m 302 40 l 418 40 b 423 40 430 46 430 52 l 430 72 b 430 77 423 84 418 84 l 302 84 b 296 84 290 77 290 72 l 290 52 b 290 46 296 40 302 40{\p0}
+Dialogue: 7,0:00:00.00,0:00:31.00,card,,0,0,0,,{\an5\pos(360,62)\fs28\c&H4090FF&}パート2
+Dialogue: 8,0:00:00.00,0:00:03.30,hook,,0,0,0,,{\an5\pos(360,300)\fs46\fad(0,150)}{\c&H40D0FF&}POV：{\c&HFFFFFF&}好きな人が\N{\c&H4040FF&}7日後に転校{\c&HFFFFFF&}する
+Dialogue: 8,0:00:00.10,0:00:03.30,count,,0,0,0,,{\an5\pos(360,480)\fs120\c&H4040FF&\3c&HFFFFFF&\bord7\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)\fad(0,150)}残り6日
+Dialogue: 6,0:00:14.60,0:00:18.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF4F0FF&\1a&H10&\bord0\shad0\fad(150,100)\fscx90\fscy90\t(0,150,\fscx100\fscy100)}m 80 150 l 640 150 b 653 150 670 166 670 180 l 670 440 b 670 453 653 470 640 470 l 80 470 b 66 470 50 453 50 440 l 50 180 b 50 166 66 150 80 150{\p0}
+Dialogue: 7,0:00:14.60,0:00:18.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H9B5CF0&\1a&H00&\bord0\shad0\fad(150,100)}m 80 150 l 640 150 b 653 150 670 166 670 180 l 670 200 b 670 213 653 230 640 230 l 80 230 b 66 230 50 213 50 200 l 50 180 b 50 166 66 150 80 150{\p0}
+Dialogue: 8,0:00:14.60,0:00:18.00,card,,0,0,0,,{\an5\pos(360,190)\fs34\fad(150,100)}作戦2｜恋の心理学
+Dialogue: 8,0:00:14.60,0:00:18.00,card,,0,0,0,,{\an5\pos(360,300)\fs60\c&H6A2BD0&\fad(150,100)}単純接触効果
+Dialogue: 8,0:00:14.60,0:00:18.00,card,,0,0,0,,{\an5\pos(360,385)\fs30\c&H303030&\fad(150,100)}会う回数が多い人ほど\N好きになりやすい
+Dialogue: 8,0:00:21.30,0:00:22.30,count,,0,0,0,,{\an5\pos(360,330)\fs90\c&HFFFFFF&\3c&H8A5CFF&\bord6\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)\frz-6}毎日！？
+Dialogue: 8,0:00:30.10,0:00:31.00,count,,0,0,0,,{\an5\pos(360,470)\fs110\c&H4040FF&\3c&HFFFFFF&\bord7\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}残り5日
+Dialogue: 8,0:00:30.30,0:00:31.00,count,,0,0,0,,{\an5\pos(360,600)\fs40\c&HFFFFFF&\fad(200,0)}― パート3へつづく ―
+Dialogue: 9,0:00:00.50,0:00:02.60,mei,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}（屋上に…いた！）
+Dialogue: 9,0:00:03.60,0:00:06.60,yota,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}…この景色も、\Nあと6日か
+Dialogue: 9,0:00:06.80,0:00:08.60,mei,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}ようたくーん！
+Dialogue: 9,0:00:09.40,0:00:12.00,yota,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}おっ。…で、\N昨日の続きは？
+Dialogue: 9,0:00:12.20,0:00:14.91,mei,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}えっと…それは、\Nまだ秘密！
+Dialogue: 9,0:00:14.76,0:00:18.27,mei,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}（作戦2！会う回数を\N増やせば…きっと！）
+Dialogue: 9,0:00:18.12,0:00:21.59,mei,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}そのかわり…\N毎日、ここで会お？
+Dialogue: 9,0:00:21.44,0:00:23.45,yota,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}…え、毎日って\N毎日？
+Dialogue: 9,0:00:23.30,0:00:24.90,mei,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}…だめ、かな？
+Dialogue: 9,0:00:24.90,0:00:27.90,yota,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}…いいよ。残りの日、\N全部な
+Dialogue: 9,0:00:28.10,0:00:30.26,mei,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}（…それ、反則でしょ）
