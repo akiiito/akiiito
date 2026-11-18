@@ -11,8 +11,8 @@ from pov_lines import PART1
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FPS, SR = 24, R.SR
-FR = os.path.join(HERE, "frames_POV1")
-END = 26.0                       # 絵の長さ（このあと絵文字2択カードが1.5秒つく）
+FR = os.path.join(HERE, "frames_POV1R")
+END = 29.0                       # 絵の長さ（このあと絵文字2択カードが1.5秒つく）
 DUR = END
 R.DUR = DUR
 R.MIX = np.zeros((R.n_(DUR) + SR, 2))
@@ -52,17 +52,17 @@ def build_ui(path):
     E(0, 3.6, "hook", r"{\an5\pos(360,330)\fscx70\fscy70\t(0,120,\fscx104\fscy104)\t(120,200,\fscx100\fscy100)}"
                       r"{\c&H40D0FF&}POV：{\c&HFFFFFF&}好きな人が\N{\c&H4040FF&}7日後に転校{\c&HFFFFFF&}する", 8)
     pop = r"\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)"
-    E(9.9, 11.0, "count", r"{\an5\pos(360,420)\fs40\c&HFFFFFF&\fad(0,150)}好きな人に会えるのは", 8)
-    E(10.0, 11.0, "count", r"{\an5\pos(360,520)\fs120\c&H4040FF&\3c&HFFFFFF&\bord7%s\fad(0,150)}残り7日" % pop, 8)
-    c0, c1 = 11.0, 14.5                                              # 雑学カード
+    E(12.3, 13.4, "count", r"{\an5\pos(360,420)\fs40\c&HFFFFFF&\fad(0,150)}好きな人に会えるのは", 8)
+    E(12.4, 13.4, "count", r"{\an5\pos(360,520)\fs120\c&H4040FF&\3c&HFFFFFF&\bord7%s\fad(0,150)}残り7日" % pop, 8)
+    c0, c1 = 13.4, 17.0                                              # 雑学カード
     S(c0, c1, rr(50, 150, 670, 470, 30), "&HF4F0FF&", "&H10&", 6, r"\fad(150,100)\fscx90\fscy90\t(0,150,\fscx100\fscy100)")
     S(c0, c1, rr(50, 150, 670, 230, 30), "&H9B5CF0&", "&H00&", 7, r"\fad(150,100)")
     E(c0, c1, "card", r"{\an5\pos(360,190)\fs34\fad(150,100)}作戦1｜恋の心理学", 8)
     E(c0, c1, "card", r"{\an5\pos(360,300)\fs54\c&H6A2BD0&\fad(150,100)}ツァイガルニク効果", 8)
     E(c0, c1, "card", r"{\an5\pos(360,385)\fs30\c&H303030&\fad(150,100)}途中で終わった話ほど\N気になって頭から離れない", 8)
-    E(19.0, 19.8, "count", r"{\an5\pos(360,330)\fs90\c&HFFFFFF&\3c&H8A5CFF&\bord6%s\frz-6}ストップ！" % pop, 8)
-    E(24.6, END, "count", r"{\an5\pos(360,470)\fs110\c&H4040FF&\3c&HFFFFFF&\bord7%s}残り6日" % pop, 8)
-    E(24.9, END, "count", r"{\an5\pos(360,600)\fs40\c&HFFFFFF&\fad(200,0)}― パート2へつづく ―", 8)
+    E(20.4, 21.2, "count", r"{\an5\pos(360,330)\fs90\c&HFFFFFF&\3c&H8A5CFF&\bord6%s\frz-6}ストップ！" % pop, 8)
+    E(27.2, END, "count", r"{\an5\pos(360,470)\fs110\c&H4040FF&\3c&HFFFFFF&\bord7%s}残り6日" % pop, 8)
+    E(27.5, END, "count", r"{\an5\pos(360,600)\fs40\c&HFFFFFF&\fad(200,0)}― パート2へつづく ―", 8)
     for st, en, text, _, _, who in R.LINES:
         E(st, en, who, r"{\an5\pos(360,1000)\fad(60,100)}%s" % text, 9)
     head = R.ASS_HEAD.replace("{f}", R.FONT).replace("\n[Events]", STY.replace("{f}", R.FONT) + "\n[Events]")
@@ -71,7 +71,7 @@ def build_ui(path):
 def build_sfx():
     # しっとりしたピアノ風（Am-F-C-G、70BPM）。転校を聞いた瞬間は無音にする
     beat = 60 / 70; chords = [(220.0, 261.6, 329.6), (174.6, 220.0, 261.6), (261.6, 329.6, 392.0), (196.0, 246.9, 293.7)]
-    t = 4.4; bar = 0
+    t = 3.8; bar = 0
     def note(f, sec=1.6):
         tt = R.tt(sec); return (np.sin(2 * np.pi * f * tt) + 0.25 * np.sin(4 * np.pi * f * tt) + 0.08 * np.sin(6 * np.pi * f * tt)) * np.exp(-tt / 0.7)
     while t < DUR - 1.0:
@@ -79,18 +79,18 @@ def build_sfx():
         add(R.lp(note(ch[0] / 2, 3.0), 900), t, 0.16)
         for i, f in enumerate((ch[0], ch[1], ch[2], ch[1])):
             if t + i * beat < DUR - 0.8:
-                add(note(f), t + i * beat, 0.07 if 14.6 <= t < 24.4 else 0.09, 0.25 * (-1) ** i)
+                add(note(f), t + i * beat, 0.07 if 17.2 <= t < 27.0 else 0.09, 0.25 * (-1) ** i)
         t += 4 * beat; bar += 1
     add(R.fade(R.crowd(DUR, 300, 1500, 1.4), 0.4, 0.4), 0, 0.03, 0.3)              # 教室のざわめき
-    for k in range(7):                                                            # 足音（POVで歩く）
-        add(R.lp(R.boom(0.15), 400), 0.2 + k * 0.48, 0.12)
-    add(R.boom(1.2), 10.0, 0.45)                                                   # 残り7日
-    add(R.chime([1046.5, 1318.5, 1568.0], 0.06, 0.8), 11.0, 0.25)
-    add(R.chime([1318.5, 987.8], 0.04, 0.4), 19.0, 0.2)                          # ストップ
-    hb = R.heartbeat(); t0 = 19.8
-    while t0 < 24.4:
+    for k in range(8):                                                            # 足音（POVで歩く）
+        add(R.lp(R.boom(0.15), 400), 0.2 + k * 0.42, 0.14)
+    add(R.boom(1.2), 12.4, 0.45)                                                   # 残り7日
+    add(R.chime([1046.5, 1318.5, 1568.0], 0.06, 0.8), 13.4, 0.25)
+    add(R.chime([1318.5, 987.8], 0.04, 0.4), 20.4, 0.2)                          # ストップ
+    hb = R.heartbeat(); t0 = 21.2
+    while t0 < 27.0:
         add(hb, t0, 0.4); t0 += 0.45
-    add(R.boom(1.4), 24.6, 0.4)                                                   # 残り6日
+    add(R.boom(1.4), 27.2, 0.4)                                                   # 残り6日
 
 def main():
     if "--voice" in sys.argv:
@@ -111,7 +111,7 @@ def main():
     ass = os.path.join(HERE, "pov1_ui.ass"); build_ui(ass)
     mp4 = os.path.join(HERE, "pov_tenkou_part1.mp4"); raw = os.path.join(tmp, "raw.mp4")
     # 12fps の絵を24fpsに（2コマ打ち）＋少し魚眼っぽく＋周辺減光
-    grade = "fps=24,lenscorrection=k1=0.12:k2=0.03,crop=700:1244,scale=720:1280,vignette=PI/5,eq=contrast=1.04:saturation=1.08,ass=pov1_ui.ass"
+    grade = "fps=24,lenscorrection=k1=0.12:k2=0.03,crop=700:1244,scale=720:1280,vignette=PI/5,eq=contrast=1.06:saturation=1.1:brightness=0.03:gamma=1.08,ass=pov1_ui.ass"
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", "12", "-i", os.path.join(FR, "%04d.png"), "-i", wav, "-vf", grade,
                     "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-preset", "slow", "-maxrate", "6M", "-bufsize", "12M",
                     "-c:a", "aac", "-b:a", "192k", "-ar", str(SR), "-t", "%.3f" % DUR, raw], check=True, cwd=HERE)
