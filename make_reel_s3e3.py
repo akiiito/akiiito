@@ -125,7 +125,7 @@ def build_ui(path):
     # 名前を呼んだ回数
     calls = [T(8.4), T(10.8), T(13.0), T(13.9), T(14.2), T(14.45), T(14.7), T(14.9), T(15.1), T(15.3), T(15.5), T(15.65)]
     for k, c in enumerate(calls):
-        e = calls[k + 1] if k + 1 < len(calls) else T(18.3)
+        e = calls[k + 1] if k + 1 < len(calls) else T(16.4)
         pop = r"\fscx60\fscy60\t(0,90,\fscx112\fscy112)\t(90,160,\fscx100\fscy100)"
         E(c, e, "count", r"{\an5\pos(360,200)\fs64%s}ようたくん ×%d" % (pop, k + 1), 8)
     rnd = random.Random(7)
