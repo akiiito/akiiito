@@ -68,8 +68,9 @@ def build_ui(path):
         n = min(END, t + 0.1); sec, mode = world_clock(t + 0.05)
         col = {"run": "&H4040FF&", "stop": "&HFFD070&", "fast": "&H2020FF&"}[mode]
         blink = mode == "fast" and int(t * 6) % 2 == 0
-        E(t, n, "card", r"{\an5\pos(600,166)\fs48\c%s%s}%s%s" % (col, r"\alpha&H60&" if blink else "", mmss(sec), "  ⏸" if mode == "stop" else ""), 7)
+        E(t, n, "card", r"{\an5\pos(600,166)\fs48\c%s%s}%s%s" % (col, r"\alpha&H60&" if blink else "", mmss(sec), "" ), 7)
         t = n
+    E(21.0, 23.6, "card", r"{\an5\pos(600,214)\fs24\c&HFFE0A0&\3c&H000000&\bord3}停止中", 7)
     E(7.8, 8.8, "count", r"{\an5\pos(360,360)\fs86\c&HFFFFFF&\3c&H2020D0&\bord6%s\frz6}危ない！" % pop, 8)
     c0, c1 = 10.3, 13.6                                              # チート能力カード
     S(c0, c1, rr(50, 230, 670, 540, 30), "&H2A1A10&", "&H20&", 6, r"\fad(150,100)\fscx90\fscy90\t(0,150,\fscx100\fscy100)")
