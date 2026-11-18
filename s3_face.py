@@ -42,10 +42,13 @@ COMBO = {  # 表情名: (目, 口, 照れ)
     "base": ("base", "base", False), "talk": ("base", "talk", False), "blink": ("blink", "base", False),
     "smile": ("smile", "smile", False), "smiletalk": ("smile", "talk", False), "shock": ("shock", "shock", False),
     "shockc": ("shock", "base", False), "blush": ("base", "base", True), "blushtalk": ("base", "talk", True),
-    "blushsmile": ("smile", "smile", True)}
+    "blushsmile": ("smile", "smile", True),
+    # 第5話：ツン顔（半目・つり眉・への字）と、しょんぼり顔（ハの字眉・への字）
+    "cold": ("half", "flat", False, "angry"), "coldtalk": ("half", "talk", False, "angry"),
+    "sad": ("base", "frown", False, "sad"), "sadtalk": ("base", "talk", False, "sad"), "sadblink": ("blink", "frown", False, "sad")}
 
 def face(path, iris, expr="base", girl=True):
-    eyes, mouth, blush = COMBO[expr]
+    eyes, mouth, blush, brow = (COMBO[expr] + ("arc",))[:4]
     im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     lash = (40, 26, 30) if girl else (45, 32, 28)
     s = 1.3 if girl else 1.08
@@ -70,18 +73,30 @@ def face(path, iris, expr="base", girl=True):
             eye(d, cx, ey, iris, s, happy=True, lash=lash)
         else:
             eye(d, cx, ey, iris, s, wide=(eyes == "shock"), lash=lash)
-            if sleepy and eyes != "shock":                       # 眠そうなまぶた
+            if eyes == "half":                                   # ツンの半目（上まつげごと消してまぶたの線）
+                d.rectangle([cx - 140 * s / 1.3, ey - 180, cx + 140 * s / 1.3, ey - 45], fill=(0, 0, 0, 0))
+                d.line([cx - 125 * s / 1.3, ey - 45, cx + 125 * s / 1.3, ey - 45], fill=lash, width=20)
+            elif sleepy and eyes != "shock":                     # 眠そうなまぶた
                 d.rectangle([cx - 100, ey - 140, cx + 100, ey - 48], fill=(0, 0, 0, 0))
                 d.line([cx - 92, ey - 48, cx + 92, ey - 48], fill=lash, width=16)
         # 眉
         by = ey - int((150 if eyes == "shock" else 130) * s)
-        d.arc([cx - 70 * s, by, cx + 70 * s, by + 60 * s], 200 if side < 0 else 200, 340, fill=lash, width=8)
+        if brow == "arc":
+            d.arc([cx - 70 * s, by, cx + 70 * s, by + 60 * s], 200 if side < 0 else 200, 340, fill=lash, width=8)
+        else:
+            ix, ox = cx - side * 70 * s, cx + side * 70 * s           # 眉頭（顔の中心側）と眉尻
+            iy, oy = (by + 55 * s, by + 12 * s) if brow == "angry" else (by + 2 * s, by + 45 * s)
+            d.line([ix, iy, ox, oy], fill=lash, width=11)
     # 口
     mx, my = 512, 600
     if mouth in ("talk", "shock"):
         r = 34 if mouth == "talk" else 46
         d.ellipse([mx - r * 0.9, my - r * 0.55, mx + r * 0.9, my + r * 0.75], fill=(150, 50, 60, 255), outline=(60, 20, 25, 255), width=5)
         d.ellipse([mx - r * 0.5, my + r * 0.15, mx + r * 0.5, my + r * 0.7], fill=(235, 120, 130, 255))
+    elif mouth == "frown":
+        d.arc([mx - 34, my - 4, mx + 34, my + 40], 205, 335, fill=(60, 20, 25, 255), width=7)
+    elif mouth == "flat":
+        d.line([mx - 26, my, mx + 26, my + 4], fill=(60, 20, 25, 255), width=7)
     elif mouth == "smile":
         d.arc([mx - 40, my - 30, mx + 40, my + 20], 20, 160, fill=(60, 20, 25, 255), width=7)
     else:
