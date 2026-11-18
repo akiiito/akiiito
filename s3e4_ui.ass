@@ -1,0 +1,47 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hero,IPAPGothic,66,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,1,0,1,7,3,5,30,30,0,1
+Style: narr,IPAPGothic,62,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,2,0,1,7,3,5,30,30,0,1
+Style: shout,IPAPGothic,78,&H0040E6FF,&H0040E6FF,&H00200818,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: resolve,IPAPGothic,80,&H00FFFFFF,&H00FFFFFF,&H003C14DC,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: shape,IPAPGothic,20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: mei,IPAPGothic,46,&H00FFFFFF,&H00FFFFFF,&H008A3CE8,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1
+Style: yota,IPAPGothic,46,&H00FFFFFF,&H00FFFFFF,&H00306A9A,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1
+Style: hook,IPAPGothic,56,&H0000E5FF,&H0000E5FF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,7,0,5,20,20,0,1
+Style: card,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,0,0,5,20,20,0,1
+Style: count,IPAPGothic,84,&H0033E0FF,&H0033E0FF,&H00300C88,&H00000000,-1,1,0,0,100,100,2,0,1,8,0,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 8,0:00:00.00,0:00:02.20,hook,,0,0,0,,{\an5\pos(360,300)\fscx70\fscy70\t(0,120,\fscx104\fscy104)\t(120,200,\fscx100\fscy100)}もしも好きな人のしぐさを\N全部まねしたら…？
+Dialogue: 6,0:00:06.40,0:00:10.20,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF4F0FF&\1a&H10&\bord0\shad0\fad(150,100)\fscx90\fscy90\t(0,150,\fscx100\fscy100)}m 80 150 l 640 150 b 653 150 670 166 670 180 l 670 440 b 670 453 653 470 640 470 l 80 470 b 66 470 50 453 50 440 l 50 180 b 50 166 66 150 80 150{\p0}
+Dialogue: 7,0:00:06.40,0:00:10.20,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H9B5CF0&\1a&H00&\bord0\shad0\fad(150,100)}m 80 150 l 640 150 b 653 150 670 166 670 180 l 670 200 b 670 213 653 230 640 230 l 80 230 b 66 230 50 213 50 200 l 50 180 b 50 166 66 150 80 150{\p0}
+Dialogue: 8,0:00:06.40,0:00:10.20,card,,0,0,0,,{\an5\pos(360,190)\fs34\fad(150,100)}恋の心理学 No.4
+Dialogue: 8,0:00:06.40,0:00:10.20,card,,0,0,0,,{\an5\pos(360,300)\fs66\c&H6A2BD0&\fad(150,100)}ミラーリング
+Dialogue: 8,0:00:06.40,0:00:10.20,card,,0,0,0,,{\an5\pos(360,385)\fs30\c&H303030&\fad(150,100)}しぐさや話し方を真似されると\N“この人、自分に似てる”と好きになる
+Dialogue: 8,0:00:10.20,0:00:12.80,card,,0,0,0,,{\an7\pos(30,60)\fs28\bord3\3c&H000000&\fad(150,200)}放課後の教室・窓ぎわ
+Dialogue: 8,0:00:13.00,0:00:15.20,count,,0,0,0,,{\an5\pos(540,300)\fs70\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)\frz-8}マネ！
+Dialogue: 8,0:00:15.30,0:00:17.80,count,,0,0,0,,{\an5\pos(540,300)\fs70\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)\frz8}マネ！
+Dialogue: 8,0:00:17.90,0:00:19.20,count,,0,0,0,,{\an5\pos(220,250)\fs90\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)\frz-6}まるっ！？
+Dialogue: 8,0:00:20.45,0:00:21.60,count,,0,0,0,,{\an5\pos(540,280)\fs80\c&HFFFFFF&\3c&H2020E0&\bord6\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)\frz10}つい…
+Dialogue: 8,0:00:30.60,0:00:31.20,count,,0,0,0,,{\an5\pos(360,250)\fs96\c&H8A5CFF&\3c&HFFFFFF&\bord6\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}キュン
+Dialogue: 6,0:00:31.20,0:00:37.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HE8FFF6&\1a&H10&\bord0\shad0\fad(150,0)}m 80 150 l 640 150 b 653 150 670 166 670 180 l 670 390 b 670 403 653 420 640 420 l 80 420 b 66 420 50 403 50 390 l 50 180 b 50 166 66 150 80 150{\p0}
+Dialogue: 7,0:00:31.20,0:00:37.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H50B060&\1a&H00&\bord0\shad0\fad(150,0)}m 80 150 l 640 150 b 653 150 670 166 670 180 l 670 190 b 670 203 653 220 640 220 l 80 220 b 66 220 50 203 50 190 l 50 180 b 50 166 66 150 80 150{\p0}
+Dialogue: 8,0:00:31.20,0:00:37.40,card,,0,0,0,,{\an5\pos(360,185)\fs32\fad(150,0)}ホントの使い方
+Dialogue: 8,0:00:31.20,0:00:37.40,card,,0,0,0,,{\an5\pos(360,280)\fs34\c&H205020&\fad(150,0)}まねるのは少しだけ、数秒おくれて
+Dialogue: 8,0:00:31.20,0:00:37.40,card,,0,0,0,,{\an5\pos(360,350)\fs34\c&H205020&\fad(150,0)}全部まねると、バレて逆効果
+Dialogue: 9,0:00:02.40,0:00:06.42,mei,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}データによると、しぐさを真似すると\N親近感がわくの！
+Dialogue: 9,0:00:06.50,0:00:10.55,mei,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}だから、彼の動きを\N全部まねすれば…完璧！
+Dialogue: 9,0:00:10.80,0:00:12.60,mei,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}（あごに手…よし！）
+Dialogue: 9,0:00:15.50,0:00:17.50,mei,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}（頭に手…よし！）
+Dialogue: 9,0:00:21.80,0:00:24.40,yota,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}…やっぱり。\N全部まねしてるでしょ
+Dialogue: 9,0:00:24.80,0:00:27.60,mei,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}こ、これは\N心理学の実験で…！
+Dialogue: 9,0:00:28.00,0:00:30.40,yota,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}…でも、ちょっと\Nうれしいかも
+Dialogue: 9,0:00:31.40,0:00:35.77,mei,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}※まねは少しだけ、さりげなく！\N全部まねるとバレちゃうよ
