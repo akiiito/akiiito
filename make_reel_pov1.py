@@ -111,7 +111,7 @@ def main():
     ass = os.path.join(HERE, "pov1_ui.ass"); build_ui(ass)
     mp4 = os.path.join(HERE, "pov_tenkou_part1.mp4"); raw = os.path.join(tmp, "raw.mp4")
     # 12fps の絵を24fpsに（2コマ打ち）＋少し魚眼っぽく＋周辺減光
-    grade = "fps=24,lenscorrection=k1=0.12:k2=0.03,crop=700:1244,scale=720:1280,vignette=PI/5,eq=contrast=1.06:saturation=1.1:brightness=0.03:gamma=1.08,ass=pov1_ui.ass"
+    grade = "fps=24,gblur=sigma=5:enable='between(t,8.1,9.3)',gblur=sigma=2:enable='between(t,7.7,8.1)+between(t,9.3,9.7)',lenscorrection=k1=0.12:k2=0.03,crop=700:1244,scale=720:1280,vignette=PI/5,eq=contrast=1.06:saturation=1.1:brightness=0.03:gamma=1.08,ass=pov1_ui.ass"
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", "12", "-i", os.path.join(FR, "%04d.png"), "-i", wav, "-vf", grade,
                     "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-preset", "slow", "-maxrate", "6M", "-bufsize", "12M",
                     "-c:a", "aac", "-b:a", "192k", "-ar", str(SR), "-t", "%.3f" % DUR, raw], check=True, cwd=HERE)
