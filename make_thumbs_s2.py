@@ -18,7 +18,9 @@ EP = {1: dict(src="frames_S2E1/C/0001.png", ring=(144, 960, 138), l1="好きな�
       5: dict(src="frames_S2E5/U2/0001.png", ring=(470, 790, 200), tagpos=(690, 960), l1="好きな人に", l2="こっち側に来て",
               q="あなたなら、行く？", badge="第5話", tag="君にしか\\N頼めない"),
       6: dict(src="frames_S2E1/A/0072.png", ring=(555, 900, 190), tagpos=(760, 1110), l1="最後の写真に", l2="初めて写った",
-              q="「ありがとう」言える？", badge="最終話", tag="やっと…")}
+              q="「ありがとう」言える？", badge="最終話", tag="やっと…"),
+      31: dict(src="frames_S3E1/MC_blushsmile.png", ring=(-500, -500, 1), tagpos=(640, 1180), l1="好きな人と1日", l2="20回会ったら",
+              q="恋の心理学 No.1", badge="第1話", tag="バレてた…", out="thumb_koi_ep1.png")}
 HEAD = """[Script Info]
 ScriptType: v4.00+
 PlayResX: 1080
@@ -50,7 +52,7 @@ def make(n):
         fh.write(HEAD.replace("{f}", FONT))
         for i, txt in enumerate(ev):
             fh.write("Dialogue: %d,0:00:00.00,0:00:01.00,%s,,0,0,0,,%s\n" % (i, "badge" if i == 5 else "t", txt))
-    out = os.path.join(HERE, "thumb_s2e%d.png" % n)
+    out = os.path.join(HERE, e.get("out", "thumb_s2e%d.png" % n))
     fc = ("[0]scale=1080:1920:flags=lanczos,eq=contrast=1.08:saturation=1.1:brightness=-0.03,"
           "vignette=PI/4,noise=alls=6,ass=%s" % ass)
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", os.path.join(HERE, e["src"]),

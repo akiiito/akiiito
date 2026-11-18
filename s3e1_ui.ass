@@ -1,0 +1,63 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hero,IPAPGothic,66,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,1,0,1,7,3,5,30,30,0,1
+Style: narr,IPAPGothic,62,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,2,0,1,7,3,5,30,30,0,1
+Style: shout,IPAPGothic,78,&H0040E6FF,&H0040E6FF,&H00200818,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: resolve,IPAPGothic,80,&H00FFFFFF,&H00FFFFFF,&H003C14DC,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: shape,IPAPGothic,20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: mei,IPAPGothic,46,&H00FFFFFF,&H00FFFFFF,&H008A3CE8,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1
+Style: yota,IPAPGothic,46,&H00FFFFFF,&H00FFFFFF,&H00306A9A,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1
+Style: hook,IPAPGothic,56,&H0000E5FF,&H0000E5FF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,7,0,5,20,20,0,1
+Style: card,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,0,0,5,20,20,0,1
+Style: count,IPAPGothic,84,&H0033E0FF,&H0033E0FF,&H00300C88,&H00000000,-1,1,0,0,100,100,2,0,1,8,0,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 8,0:00:00.00,0:00:02.20,hook,,0,0,0,,{\an5\pos(360,300)\fscx70\fscy70\t(0,120,\fscx104\fscy104)\t(120,200,\fscx100\fscy100)}もしも好きな人と\N1日20回会ったら…？
+Dialogue: 6,0:00:06.60,0:00:10.60,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF4F0FF&\1a&H10&\bord0\shad0\fad(150,100)\fscx90\fscy90\t(0,150,\fscx100\fscy100)}m 80 150 l 640 150 b 653 150 670 166 670 180 l 670 440 b 670 453 653 470 640 470 l 80 470 b 66 470 50 453 50 440 l 50 180 b 50 166 66 150 80 150{\p0}
+Dialogue: 7,0:00:06.60,0:00:10.60,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H9B5CF0&\1a&H00&\bord0\shad0\fad(150,100)}m 80 150 l 640 150 b 653 150 670 166 670 180 l 670 200 b 670 213 653 230 640 230 l 80 230 b 66 230 50 213 50 200 l 50 180 b 50 166 66 150 80 150{\p0}
+Dialogue: 8,0:00:06.60,0:00:10.60,card,,0,0,0,,{\an5\pos(360,190)\fs34\fad(150,100)}恋の心理学 No.1
+Dialogue: 8,0:00:06.60,0:00:10.60,card,,0,0,0,,{\an5\pos(360,300)\fs62\c&H6A2BD0&\fad(150,100)}単純接触効果
+Dialogue: 8,0:00:06.60,0:00:10.60,card,,0,0,0,,{\an5\pos(360,350)\fs28\c&H6A2BD0&\fad(150,100)}（ザイオンス効果）
+Dialogue: 8,0:00:06.60,0:00:10.60,card,,0,0,0,,{\an5\pos(360,415)\fs32\c&H303030&\fad(150,100)}会う回数が増えるほど、好感度が上がる
+Dialogue: 8,0:00:10.60,0:00:12.40,count,,0,0,0,,{\an5\pos(360,250)\fscx40\fscy40\t(0,140,\fscx115\fscy115)\t(140,240,\fscx100\fscy100)\frz-6}1回目
+Dialogue: 8,0:00:12.40,0:00:14.20,count,,0,0,0,,{\an5\pos(360,250)\fscx40\fscy40\t(0,140,\fscx115\fscy115)\t(140,240,\fscx100\fscy100)\frz-6}7回目
+Dialogue: 8,0:00:14.20,0:00:16.00,count,,0,0,0,,{\an5\pos(360,250)\fscx40\fscy40\t(0,140,\fscx115\fscy115)\t(140,240,\fscx100\fscy100)\frz-6}13回目
+Dialogue: 8,0:00:16.00,0:00:17.80,count,,0,0,0,,{\an5\pos(360,250)\fscx40\fscy40\t(0,140,\fscx115\fscy115)\t(140,240,\fscx100\fscy100)\frz-6}20回目！
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m 780 640 l 1260 600 l 1260 680{\p0}
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m 754 899 l 1219 1115 l 1192 1190{\p0}
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m 681 1128 l 1075 1573 l 1023 1634{\p0}
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m 570 1298 l 844 1919 l 775 1959{\p0}
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m 432 1388 l 555 2110 l 476 2124{\p0}
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m 287 1388 l 243 2124 l 164 2110{\p0}
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m 150 1298 l -55 1959 l -124 1919{\p0}
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m 38 1128 l -303 1634 l -355 1573{\p0}
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m -34 899 l -472 1190 l -499 1115{\p0}
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m -59 640 l -539 680 l -540 600{\p0}
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m -34 380 l -499 164 l -472 89{\p0}
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m 38 151 l -355 -293 l -303 -354{\p0}
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m 149 -18 l -124 -638 l -55 -678{\p0}
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m 287 -108 l 164 -830 l 242 -844{\p0}
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m 432 -108 l 476 -844 l 555 -830{\p0}
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m 569 -18 l 775 -679 l 844 -639{\p0}
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m 681 151 l 1023 -355 l 1075 -293{\p0}
+Dialogue: 6,0:00:21.80,0:00:22.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H40&\bord0\shad0\fad(0,300)}m 754 379 l 1191 89 l 1219 164{\p0}
+Dialogue: 6,0:00:31.80,0:00:37.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HE8FFF6&\1a&H10&\bord0\shad0\fad(150,0)}m 80 150 l 640 150 b 653 150 670 166 670 180 l 670 390 b 670 403 653 420 640 420 l 80 420 b 66 420 50 403 50 390 l 50 180 b 50 166 66 150 80 150{\p0}
+Dialogue: 7,0:00:31.80,0:00:37.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H50B060&\1a&H00&\bord0\shad0\fad(150,0)}m 80 150 l 640 150 b 653 150 670 166 670 180 l 670 190 b 670 203 653 220 640 220 l 80 220 b 66 220 50 203 50 190 l 50 180 b 50 166 66 150 80 150{\p0}
+Dialogue: 8,0:00:31.80,0:00:37.40,card,,0,0,0,,{\an5\pos(360,185)\fs32\fad(150,0)}ホントの使い方
+Dialogue: 8,0:00:31.80,0:00:37.40,card,,0,0,0,,{\an5\pos(360,280)\fs36\c&H205020&\fad(150,0)}第一印象が悪いと、逆効果
+Dialogue: 8,0:00:31.80,0:00:37.40,card,,0,0,0,,{\an5\pos(360,350)\fs36\c&H205020&\fad(150,0)}“自然な回数”がいちばん効く
+Dialogue: 9,0:00:02.40,0:00:06.20,mei,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}データによると、人は\N会うほど好きになるの！
+Dialogue: 9,0:00:06.80,0:00:10.73,mei,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}つまり…陽太くんの前を\N1日20回通れば！
+Dialogue: 9,0:00:18.00,0:00:21.60,yota,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}…小鳥遊さん。\N今日、20回目だよね
+Dialogue: 9,0:00:22.00,0:00:24.40,mei,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}か、数えてたの！？
+Dialogue: 9,0:00:24.80,0:00:28.00,yota,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}…でも、いないと\Nなんか気になる
+Dialogue: 9,0:00:28.40,0:00:31.60,mei,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}り、理論上…\N完璧…！
+Dialogue: 9,0:00:32.00,0:00:36.01,mei,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}※ただし、第一印象が悪いと\N逆効果だから注意ね！

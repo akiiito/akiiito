@@ -151,7 +151,7 @@ def girl(name, loc, rot=0.0, hair=(0.16, 0.12, 0.18), face="mei", ponytail=True,
     cap = sph(name + "_hair", (0, -0.03, hc[2] + 0.02), 0.134, (0.97, 0.97, 1.0), hm, root)
     for k in range(7):                                                # 前髪
         a = math.radians(-48 + k * 16); x = math.sin(a) * 0.1; y = 0.1 * math.cos(a) * 0.95
-        cone(name + "_bang", (x * 0.95, y + 0.012, hc[2] + 0.045), 0.032, 0.004, 0.13,
+        cone(name + "_bang", (x * 0.92, y + 0.012, hc[2] + 0.028), 0.03, 0.004, 0.12,
              (math.radians(180 - 18), math.radians(-a * 0.5 / 1.0 * 57.3 / 57.3) * 0.5, -a * 0.3), hm, root, 10)
     for side in (-1, 1):                                              # もみあげの長い髪
         cone(name + "_side", (0.105 * side, 0.03, hc[2] - 0.07), 0.028, 0.004, 0.2, (math.radians(185), math.radians(-6 * side), 0), hm, root, 10)
