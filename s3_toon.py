@@ -96,7 +96,8 @@ def girl(name, loc, rot=0.0, hair=(0.16, 0.12, 0.18), face="mei", ponytail=True,
     hm = toon(name + "_hair", hair, tuple(c * 0.55 for c in hair))
     # 上半身（ブレザー）と腕
     ha = {"down": ((0.17, 0.02, 1.0), (0.2, 0.05, 0.8)), "chin": ((0.17, 0.18, 1.08), (0.06, 0.12, 1.27)),
-          "wave": ((0.3, 0.06, 1.28), (0.42, 0.1, 1.45))}[arm_pose]
+          "wave": ((0.3, 0.06, 1.28), (0.42, 0.1, 1.45)),
+          "cling": ((0.2, 0.12, 1.08), (0.12, 0.24, 1.02))}[arm_pose]
     J = {"pelvis": (0, 0, 0.86, 0.12), "spine": (0, 0, 1.0, 0.105), "chest": (0, 0, 1.15, 0.12), "neck": (0, 0, 1.3, 0.04),
          "shL": (0.15, 0, 1.24, 0.05), "elL": (0.17, 0.02, 1.02, 0.036), "haL": (0.19, 0.05, 0.82, 0.03),
          "shR": (-0.15, 0, 1.24, 0.05), "elR": (-ha[0][0], ha[0][1], ha[0][2], 0.036), "haR": (-ha[1][0], ha[1][1], ha[1][2], 0.03)}
@@ -229,3 +230,52 @@ def outlines(thickness=2.2):
 
 def set_expr(tex, who, expr):
     tex.image = bpy.data.images.load(os.path.join(ASSET, "face_%s_%s.png" % (who, expr)), check_existing=True)
+
+def haunted(room=None):
+    """文化祭のお化け屋敷：暗幕で仕切った教室、赤と緑の照明、もや"""
+    import s2_world as W2
+    room = W2.classroom(sun_elev=10.0, sun_str=0.0, sky_str=0.015, fill=0, haze=0.03,
+                        sky=((0.02, 0.02, 0.04), (0.02, 0.02, 0.04), (0.01, 0.01, 0.02)))
+    black = W2.mat("drape", (0.012, 0.01, 0.014), 0.95, noise=(3.0, 0.4))
+    for x in (-1.0, 1.0):                                              # 暗幕の通路（y 方向）
+        bpy.ops.mesh.primitive_plane_add(size=1, location=(x, 0, 1.4))
+        p = bpy.context.object; p.scale = (1, 8.4, 2.8); p.rotation_euler = (0, math.radians(90), 0)
+        bpy.ops.object.transform_apply(scale=True, rotation=True)
+        bpy.ops.object.mode_set(mode="EDIT"); bpy.ops.mesh.subdivide(number_cuts=40); bpy.ops.object.mode_set(mode="OBJECT")
+        for v in p.data.vertices: v.co.x += 0.05 * math.sin(v.co.y * 14.0)
+        p.data.materials.append(black); bpy.ops.object.shade_smooth()
+    W2.box("drape_back", (0, 4.2, 1.4), (2.0, 0.05, 2.8), black)
+    W2.box("drape_top", (0, 0, 2.8), (2.2, 8.6, 0.05), black)
+    cb = W2.mat("cardboard", (0.45, 0.33, 0.2), 0.8, noise=(10.0, 0.3))
+    for k, (x, y) in enumerate(((-0.75, 1.5), (0.7, 2.6), (-0.7, 3.4))):   # 段ボールの墓石
+        W2.box("tomb%d" % k, (x, y, 0.35), (0.35, 0.08, 0.7), cb, bevel=0.03)
+    for col, loc, e in (((1.0, 0.08, 0.08), (0.8, 1.0, 2.5), 60.0), ((0.1, 1.0, 0.35), (-0.8, 3.0, 2.4), 40.0),
+                        ((0.4, 0.4, 1.0), (0.0, -1.5, 2.6), 15.0)):
+        l = bpy.data.lights.new("hl", "SPOT"); l.energy = e; l.color = col; l.spot_size = math.radians(70); l.spot_blend = 0.8
+        lo = bpy.data.objects.new("hl", l); bpy.context.collection.objects.link(lo); lo.location = loc
+        W2.aim(lo, (loc[0] * 0.3, loc[1] - 0.5, 0.8))
+    return room
+
+def ghost(name, loc, rot=0.0):
+    """白い布をかぶったおばけ（手作り）"""
+    root = bpy.data.objects.new(name, None); bpy.context.collection.objects.link(root); link(root)
+    cloth = toon(name + "_cloth", (0.95, 0.95, 0.97), (0.62, 0.64, 0.78))
+    sph(name + "_head", (0, 0, 1.55), 0.2, (1, 1, 1.05), cloth, root)
+    bpy.ops.mesh.primitive_cone_add(vertices=48, radius1=0.42, radius2=0.18, depth=1.2, location=(0, 0, 0.95), end_fill_type="NOTHING")
+    c = bpy.context.object
+    for v in c.data.vertices:
+        a = math.atan2(v.co.y, v.co.x)
+        if v.co.z < -0.5: v.co.z += 0.08 * math.sin(a * 7)
+    c.data.materials.append(cloth); bpy.ops.object.shade_smooth(); c.parent = root; link(c)
+    for side in (-1, 1):                                               # 両手を前に
+        cone(name + "_arm", (0.22 * side, 0.25, 1.25), 0.07, 0.04, 0.5, (math.radians(-80), 0, 0), cloth, root, 16)
+    bpy.ops.mesh.primitive_plane_add(size=1, location=(0, 0.2, 1.53), rotation=(math.radians(90), 0, 0))
+    fp = bpy.context.object; fp.scale = (0.32, 0.24, 1); bpy.ops.object.transform_apply(scale=True, location=False, rotation=False)
+    bpy.ops.object.mode_set(mode="EDIT"); bpy.ops.mesh.subdivide(number_cuts=12); bpy.ops.object.mode_set(mode="OBJECT")
+    hd = [o for o in root.children if o.name.startswith(name + "_head")][0]
+    sw = fp.modifiers.new("wrap", "SHRINKWRAP"); sw.target = hd; sw.wrap_method = "PROJECT"; sw.use_negative_direction = True
+    sw.use_project_y = True; sw.offset = 0.002
+    fm, _ = decal_mat(name + "_face", os.path.join(ASSET, "face_ghost_base.png"))
+    fp.data.materials.append(fm); fp.parent = root; link(fp, decals_collection()); fp.visible_shadow = False
+    root.location = loc; root.rotation_euler = (0, 0, math.radians(rot))
+    return root

@@ -94,3 +94,16 @@ if __name__ == "__main__":
         face(os.path.join(out, "face_mei_%s.png" % e), ((70, 30, 50), (210, 110, 120)), e, girl=True)
         face(os.path.join(out, "face_yota_%s.png" % e), ((60, 40, 25), (170, 120, 70)), e, girl=False)
     print("ok")
+
+def ghost_face(path):
+    """お化け屋敷のおばけ（段ボールと布の手作り感）の顔"""
+    im = Image.new("RGBA", (W, H), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
+    for cx in (360, 664):
+        d.ellipse([cx - 90, 220, cx + 90, 470], fill=(15, 10, 20, 255))
+        d.ellipse([cx - 40, 270, cx - 5, 320], fill=(255, 255, 255, 255))
+    d.ellipse([400, 500, 624, 720], fill=(15, 10, 20, 255))
+    d.ellipse([450, 600, 574, 710], fill=(200, 40, 60, 255))
+    im.save(path)
+
+if __name__ == "__main__":
+    ghost_face(os.path.join(HERE, "s3_assets", "face_ghost_base.png"))
