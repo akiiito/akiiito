@@ -26,7 +26,9 @@ EP = {1: dict(src="frames_S2E1/C/0001.png", ring=(144, 960, 138), l1="好きな�
       33: dict(src="frames_S3E3/TW_blushsmile_smile.png", ring=(-500, -500, 1), tagpos=(330, 1150), l1="好きな人を下の", l2="名前で呼んだら",
               q="恋の心理学 No.3", badge="第3話", tag="…めい", out="thumb_koi_ep3.png"),
       34: dict(src="frames_S3E4/MR_banzai_banzai_blush_smile.png", ring=(-500, -500, 1), tagpos=(330, 1250), l1="好きな人の", l2="しぐさを全部",
-              q="恋の心理学 No.4", badge="第4話", tag="つい…", out="thumb_koi_ep4.png")}
+              q="恋の心理学 No.4", badge="第4話", tag="つい…", out="thumb_koi_ep4.png"),
+      35: dict(src="frames_S3E5/TW_cold_sad.png", ring=(-500, -500, 1), tagpos=(330, 1250), l1="好きな人に", l2="わざと冷たく",
+              q="恋の心理学 No.5", badge="第5話", tag="俺、何か\\Nした？", out="thumb_koi_ep5.png")}
 HEAD = """[Script Info]
 ScriptType: v4.00+
 PlayResX: 1080
