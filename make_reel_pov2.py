@@ -12,7 +12,7 @@ from pov_lines import PART2
 HERE = os.path.dirname(os.path.abspath(__file__))
 FPS, SR = 24, R.SR
 FR = os.path.join(HERE, "frames_POV2")
-END = 27.0                       # 絵の長さ（このあと絵文字2択カードが1.5秒つく）
+END = 31.0                       # 絵の長さ（このあと絵文字2択カードが1.5秒つく）
 DUR = END
 R.DUR = DUR
 R.MIX = np.zeros((R.n_(DUR) + SR, 2))
@@ -52,15 +52,15 @@ def build_ui(path):
     pop = r"\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)"
     E(0, 3.3, "hook", r"{\an5\pos(360,300)\fs46\fad(0,150)}{\c&H40D0FF&}POV：{\c&HFFFFFF&}好きな人が\N{\c&H4040FF&}7日後に転校{\c&HFFFFFF&}する", 8)
     E(0.1, 3.3, "count", r"{\an5\pos(360,480)\fs120\c&H4040FF&\3c&HFFFFFF&\bord7%s\fad(0,150)}残り6日" % pop, 8)
-    c0, c1 = 9.2, 12.8                                               # 雑学カード
+    c0, c1 = 14.6, 18.0                                               # 雑学カード
     S(c0, c1, rr(50, 150, 670, 470, 30), "&HF4F0FF&", "&H10&", 6, r"\fad(150,100)\fscx90\fscy90\t(0,150,\fscx100\fscy100)")
     S(c0, c1, rr(50, 150, 670, 230, 30), "&H9B5CF0&", "&H00&", 7, r"\fad(150,100)")
     E(c0, c1, "card", r"{\an5\pos(360,190)\fs34\fad(150,100)}作戦2｜恋の心理学", 8)
     E(c0, c1, "card", r"{\an5\pos(360,300)\fs60\c&H6A2BD0&\fad(150,100)}単純接触効果", 8)
     E(c0, c1, "card", r"{\an5\pos(360,385)\fs30\c&H303030&\fad(150,100)}会う回数が多い人ほど\N好きになりやすい", 8)
-    E(15.4, 16.4, "count", r"{\an5\pos(360,330)\fs90\c&HFFFFFF&\3c&H8A5CFF&\bord6%s\frz-6}毎日！？" % pop, 8)
-    E(25.0, END, "count", r"{\an5\pos(360,470)\fs110\c&H4040FF&\3c&HFFFFFF&\bord7%s}残り5日" % pop, 8)
-    E(25.3, END, "count", r"{\an5\pos(360,600)\fs40\c&HFFFFFF&\fad(200,0)}― パート3へつづく ―", 8)
+    E(21.3, 22.3, "count", r"{\an5\pos(360,330)\fs90\c&HFFFFFF&\3c&H8A5CFF&\bord6%s\frz-6}毎日！？" % pop, 8)
+    E(30.1, END, "count", r"{\an5\pos(360,470)\fs110\c&H4040FF&\3c&HFFFFFF&\bord7%s}残り5日" % pop, 8)
+    E(30.3, END, "count", r"{\an5\pos(360,600)\fs40\c&HFFFFFF&\fad(200,0)}― パート3へつづく ―", 8)
     for st, en, text, _, _, who in R.LINES:
         E(st, en, who, r"{\an5\pos(360,1000)\fad(60,100)}%s" % text, 9)
     head = R.ASS_HEAD.replace("{f}", R.FONT).replace("\n[Events]", STY.replace("{f}", R.FONT) + "\n[Events]")
@@ -69,24 +69,27 @@ def build_ui(path):
 def build_sfx():
     # しっとりしたピアノ風（Am-F-C-G、70BPM）。転校を聞いた瞬間は無音にする
     beat = 60 / 70; chords = [(220.0, 261.6, 329.6), (174.6, 220.0, 261.6), (261.6, 329.6, 392.0), (196.0, 246.9, 293.7)]
-    t = 3.4; bar = 0
+    t = 0.6; bar = 0
     def note(f, sec=1.6):
         tt = R.tt(sec); return (np.sin(2 * np.pi * f * tt) + 0.25 * np.sin(4 * np.pi * f * tt) + 0.08 * np.sin(6 * np.pi * f * tt)) * np.exp(-tt / 0.7)
     while t < DUR - 1.0:
-        ch = chords[bar % 4]
+        ch = chords[bar % 4] if t < 24.4 else [c * 2 for c in ((261.6, 329.6, 392.0), (196.0, 246.9, 293.7), (220.0, 261.6, 329.6), (174.6, 220.0, 261.6))[bar % 4]]
         add(R.lp(note(ch[0] / 2, 3.0), 900), t, 0.16)
         for i, f in enumerate((ch[0], ch[1], ch[2], ch[1])):
             if t + i * beat < DUR - 0.8:
-                add(note(f), t + i * beat, 0.07 if 12.6 <= t < 24.8 else 0.09, 0.25 * (-1) ** i)
+                add(note(f), t + i * beat, 0.06 if 14.6 <= t < 24.9 else 0.09, 0.25 * (-1) ** i)
         t += 4 * beat; bar += 1
     add(R.fade(R.crowd(DUR, 300, 1500, 1.4), 0.4, 0.4), 0, 0.03, 0.3)              # 教室のざわめき
-    add(R.chime([880.0, 1174.7], 0.04, 0.5), 3.1, 0.18)                          # 振り向く
-    add(R.chime([1046.5, 1318.5, 1568.0], 0.06, 0.8), 9.2, 0.25)                 # 作戦2
-    add(R.chime([1318.5, 987.8], 0.04, 0.4), 15.4, 0.2)                          # 毎日！？
-    hb = R.heartbeat(); t0 = 17.2
-    while t0 < 24.8:
+    for k in range(6):                                                            # 駆け寄る足音
+        add(R.lp(R.boom(0.12), 500), 0.65 + k * 0.42, 0.16)
+    add(R.whoosh(0.6), 0.05, 0.25)                                                # 扉が開く
+    add(R.chime([880.0, 1174.7], 0.04, 0.5), 7.3, 0.18)                          # 振り向く
+    add(R.chime([1046.5, 1318.5, 1568.0], 0.06, 0.8), 14.6, 0.25)                # 作戦2
+    add(R.chime([1318.5, 987.8], 0.04, 0.4), 21.3, 0.2)                          # 毎日！？
+    hb = R.heartbeat(); t0 = 23.1
+    while t0 < 30.0:
         add(hb, t0, 0.4); t0 += 0.45
-    add(R.boom(1.4), 25.0, 0.4)                                                   # 残り5日
+    add(R.boom(1.4), 30.1, 0.4)                                                   # 残り5日
 
 def main():
     if "--voice" in sys.argv:
