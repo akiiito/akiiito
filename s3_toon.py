@@ -83,7 +83,7 @@ def skin_body(name, J, E, mats, parent):
     o.data.materials.append(mats); bpy.context.view_layer.objects.active = o; bpy.ops.object.shade_smooth()
     o.parent = parent; link(o); return o
 
-def girl(name, loc, rot=0.0, hair=(0.16, 0.12, 0.18), face="mei", ponytail=True, expr="base", arm_pose="down"):
+def girl(name, loc, rot=0.0, hair=(0.16, 0.12, 0.18), face="mei", ponytail=True, expr="base", arm_pose="down", arms=None):
     """アニメ調の女子高生（身長およそ1.58m、頭はやや大きめ）。顔は face_<face>_<expr>.png を貼る"""
     root = bpy.data.objects.new(name, None); bpy.context.collection.objects.link(root); link(root)
     skin = toon(name + "_skin", (1.0, 0.91, 0.86), (0.96, 0.78, 0.74))
@@ -101,6 +101,9 @@ def girl(name, loc, rot=0.0, hair=(0.16, 0.12, 0.18), face="mei", ponytail=True,
     J = {"pelvis": (0, 0, 0.86, 0.12), "spine": (0, 0, 1.0, 0.105), "chest": (0, 0, 1.15, 0.12), "neck": (0, 0, 1.3, 0.04),
          "shL": (0.15, 0, 1.24, 0.05), "elL": (0.17, 0.02, 1.02, 0.036), "haL": (0.19, 0.05, 0.82, 0.03),
          "shR": (-0.15, 0, 1.24, 0.05), "elR": (-ha[0][0], ha[0][1], ha[0][2], 0.036), "haR": (-ha[1][0], ha[1][1], ha[1][2], 0.03)}
+    hands = {"L": (0.19, 0.05, 0.8), "R": (-ha[1][0], ha[1][1], ha[1][2] - 0.02)}
+    for sd, (el, hn) in (arms or {}).items():                           # 腕を自由に曲げる（ひじ・手の位置）
+        J["el" + sd] = tuple(el) + (0.036,); J["ha" + sd] = tuple(hn) + (0.03,); hands[sd] = (hn[0], hn[1], hn[2] - 0.02)
     E = [("pelvis", "spine"), ("spine", "chest"), ("chest", "neck"), ("chest", "shL"), ("shL", "elL"), ("elL", "haL"),
          ("chest", "shR"), ("shR", "elR"), ("elR", "haR")]
     skin_body(name + "_body", J, E, navy, root)
@@ -109,7 +112,7 @@ def girl(name, loc, rot=0.0, hair=(0.16, 0.12, 0.18), face="mei", ponytail=True,
     cone(name + "_ribbonL", (0.022, 0.105, 1.21), 0.02, 0.0, 0.04, (0, math.radians(90), 0), red, root, 3)
     cone(name + "_ribbonR", (-0.022, 0.105, 1.21), 0.02, 0.0, 0.04, (0, math.radians(-90), 0), red, root, 3)
     for side in (-1, 1):                                                 # 手（腕の先）
-        p = (0.19, 0.05, 0.8) if side > 0 else (-ha[1][0], ha[1][1], ha[1][2] - 0.02)
+        p = hands["L" if side > 0 else "R"]
         sph(name + "_hand", p, 0.032, (0.8, 1, 1.2), skin, root, 16)
     # プリーツスカート（半径を波打たせる）
     bpy.ops.mesh.primitive_cone_add(vertices=96, radius1=0.25, radius2=0.13, depth=0.3, location=(0, 0, 0.74), end_fill_type="NOTHING")
@@ -163,7 +166,7 @@ def girl(name, loc, rot=0.0, hair=(0.16, 0.12, 0.18), face="mei", ponytail=True,
     root.location = loc; root.rotation_euler = (0, 0, math.radians(rot))
     return root, tex
 
-def boy(name, loc, rot=0.0, hair=(0.5, 0.34, 0.24), face="yota", expr="base"):
+def boy(name, loc, rot=0.0, hair=(0.5, 0.34, 0.24), face="yota", expr="base", arms=None):
     root = bpy.data.objects.new(name, None); bpy.context.collection.objects.link(root); link(root)
     skin = toon(name + "_skin", (1.0, 0.9, 0.83), (0.95, 0.76, 0.7))
     navy = toon(name + "_blazer", (0.2, 0.23, 0.4), (0.13, 0.14, 0.28))
@@ -178,10 +181,13 @@ def boy(name, loc, rot=0.0, hair=(0.5, 0.34, 0.24), face="yota", expr="base"):
     E = [("pelvis", "spine"), ("spine", "chest"), ("chest", "neck"), ("chest", "shL"), ("shL", "elL"), ("elL", "haL"),
          ("chest", "shR"), ("shR", "elR"), ("elR", "haR"), ("pelvis", "hipL"), ("hipL", "knL"), ("knL", "anL"),
          ("pelvis", "hipR"), ("hipR", "knR"), ("knR", "anR")]
+    hands = {1: (0.22, 0.05, 0.86), -1: (-0.22, 0.05, 0.86)}
+    for sd, (el, hn) in (arms or {}).items():                           # 腕を自由に曲げる
+        J["el" + sd] = tuple(el) + (0.04,); J["ha" + sd] = tuple(hn) + (0.033,); hands[1 if sd == "L" else -1] = (hn[0], hn[1], hn[2] - 0.02)
     b = skin_body(name + "_body", J, E, navy, root)
     for side in (-1, 1):
         W.cyl(name + "_legs", (0.085 * side, 0, 0.47), 0.068, 0.86, pants).parent = root
-        sph(name + "_hand", (0.22 * side, 0.05, 0.86), 0.036, (0.8, 1, 1.2), skin, root, 16)
+        sph(name + "_hand", hands[side], 0.036, (0.8, 1, 1.2), skin, root, 16)
         W.box(name + "_shoe", (0.09 * side, 0.04, 0.035), (0.1, 0.24, 0.07), toon(name + "_shoe", (0.2, 0.16, 0.14)), bevel=0.02).parent = root
     cone(name + "_collar", (0, 0.07, 1.37), 0.065, 0.0, 0.11, (math.radians(-100), 0, 0), shirt, root, 3)
     for o in list(root.children):
