@@ -32,7 +32,7 @@ EP = {1: dict(src="frames_S2E1/C/0001.png", ring=(144, 960, 138), l1="好きな�
       36: dict(src="frames_S3E6/GV2_shockc_base.png", ring=(-500, -500, 1), tagpos=(780, 1250), l1="クッキーの", l2="お返しが…",
               q="恋の心理学 No.6", badge="第6話", tag="でかっ！？", out="thumb_koi_ep6.png"),
       37: dict(src="thumb_src_pov1.png", ring=(-500, -500, 1), tagpos=(720, 1180), l1="POV：好きな人が", l2="7日後に転校",
-              q="あと7日で、どうする？", badge="パート1", tag="明日まで\\N待つ", out="thumb_pov_part1.png")}
+              q="なんで言ってくれないの", badge="パート1", tag="さみしく\\Nなるだろ", out="thumb_pov_part1.png")}
 HEAD = """[Script Info]
 ScriptType: v4.00+
 PlayResX: 1080
