@@ -58,7 +58,7 @@ def build_ui(path):
     pop = r"\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)"
     S(0, END, rr(290, 40, 430, 84, 12), "&H101010&", "&H50&", 6)
     E(0, END, "card", r"{\an5\pos(360,62)\fs28\c&H4090FF&}パート1", 7)
-    E(0, 3.2, "hook", r"{\an5\pos(360,250)\fs44\fad(0,150)}{\c&H40D0FF&}POV：{\c&HFFFFFF&}全部がブロックの世界で目覚めたら\N{\c&H4040FF&}夜まで残り3分", 8)
+    E(0, 3.2, "hook", r"{\an5\pos(360,235)\fs46\fad(0,150)}{\c&H40D0FF&}POV：{\c&HFFFFFF&}全部がブロックの\N世界で目覚めたら、{\c&H4040FF&}夜まで3分", 8)
     S(0.15, 3.4, rr(70, 352, 650, 420, 20), "&H1A1A1A&", "&H30&", 6, r"\fad(120,200)\fscx80\t(0,150,\fscx100)")
     S(0.15, 3.4, rr(70, 352, 86, 420, 6), "&H30C0FF&", "&H00&", 7, r"\fad(120,200)")
     E(0.15, 3.4, "card", r"{\an5\pos(368,386)\fs32\fad(120,200)}この物語は、{\c&H30C0FF&}あなたのコメント{\c&HFFFFFF&}で進む", 8)
@@ -140,7 +140,7 @@ def main():
                     "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-preset", "slow", "-maxrate", "6M", "-bufsize", "12M",
                     "-af", "loudnorm=I=-14:TP=-1.0:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", str(SR), "-t", "%.3f" % DUR, raw], check=True, cwd=HERE)
     subprocess.run(["python3", os.path.join(HERE, "s2_endcard.py"), raw, mp4, "%.2f" % (END - 0.5),
-                    "次の行動は、あなたが決めて", "🏠", "穴を掘って隠れる", "🔥", "たいまつで迎え撃つ", "▶ 多かった方が パート2になる", "2.8"],
+                    "次の行動は、あなたが決めて", "🏠", "穴に隠れる", "🔥", "迎え撃つ", "▶ 多かった方が パート2になる", "2.8"],
                    check=True, env=dict(os.environ, ENDCARD_HINT="コメントの多い方で 物語が分かれる"))
     # 選択画面のあいだもBGMが鳴るように、音を全長版に差しかえる
     fin = os.path.join(tmp, "fin.mp4"); shutil.move(mp4, fin)
