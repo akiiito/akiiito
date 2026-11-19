@@ -360,7 +360,7 @@ def cam_state(t):
         if k >= 1: look = Vector((0, -6, 1.2))
     if HIT1 + 0.05 <= t < DOWN1[1] + 1.2:
         f = ease((t - HIT1) / 0.45)
-        pos = base.lerp(Vector((0.2, 2.2, 0.32)), f)
+        pos = base.lerp(Vector((1.9, -0.7, 0.32)), f)
         look = pos + Vector((0.6, 1.0, 3.0)).lerp(Vector((0.8, 4, 1.2)), ease((t - 14.0) / 2.0))
         roll = 1.1 * f * (1 - ease((t - 15.5) / 1.5)) + 0.15
         if t >= 16.3: look = look.lerp(rk_face, ease((t - 16.3) / 0.8))                       # 倒れたままルカを見上げる
@@ -497,7 +497,7 @@ def place(t):
     talking = any(st <= t <= en - 0.05 for st, en in RSPANS); flap = talking and (int(t * FPS) % 3 != 2)
     if t < HIT1 + 1: e = "talk" if flap else "shockc"
     elif t < WALL0: e = "talk" if flap else "shock"
-    elif t < BOSS0: e = "smiletalk" if flap else ("shock" if t < 28.4 else "smile")
+    elif t < BOSS0: e = ("talk" if flap else "shock") if t < 28.6 else ("smiletalk" if flap else "smile")
     elif t < DAWN: e = ("tearsadtalk" if flap else "tearsad") if HIT2 < t < 50 else ("talk" if flap else "shockc")
     elif t < SHADOW: e = "tearsmiletalk" if flap else "tearsmile"
     else: e = "talk" if flap else "shockc"

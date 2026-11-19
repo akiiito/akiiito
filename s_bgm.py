@@ -169,3 +169,45 @@ def disaster(add, DUR, s_quake=5.2, s_wave=29.2, s_end=55.2, tail=0.0):
         if t > DUR + tail - 0.5: break
         add(pad([nf(n) for n in ch], 3.0, 1000), t, 0.15); add(piano(nf(lo), 3.0, 0.8), t, 0.16)
         for j, n in enumerate(ch): add(piano(nf(n) * 2, 2.2, 0.5), t + 0.25 + j * 0.3, 0.08)
+
+def block_part2(add, DUR, hit1=11.9, cast=20.0, boss=35.6, hit2=42.3, count0=48.0, dawn=58.0, shadow=62.4, tail=0.0):
+    """ブロック世界パート2：緊張の刻み → 被弾で無音に近く → バトル → ボス → 絶望 → 最後の10秒で盛り上げ → 夜明け（長調）→ 消えない影"""
+    prog = [("D3", ("D4", "F4", "A4")), ("A#2", ("A#3", "D4", "F4")), ("G2", ("G3", "A#3", "D4")), ("A2", ("A3", "C#4", "E4"))]
+    def ostinato(t0, t1, bpm, g, drums=False, lead=False):
+        beat = 60 / bpm; t = t0; k = 0
+        mel = ["D5", "F5", "A5", "F5", "A#4", "D5", "F5", "D5", "G4", "A#4", "D5", "A#4", "A4", "C#5", "E5", "A5"]
+        while t < t1:
+            lo, ch = prog[(k // 8) % 4]
+            add(strings([nf(ch[k % 3]) / 2], beat * 0.9, 1800, 0.01, 0.08), t, 0.13 * g, 0.3 * (-1) ** k)
+            if k % 8 == 0:
+                add(pad([nf(lo) * 2, nf(ch[0]), nf(ch[2])], beat * 8.2, 800), t, 0.11 * g)
+                add(piano(nf(lo) / 2, 2.0, 1.0), t, 0.15 * g)
+            if drums:
+                if k % 2 == 0: add(R.kick(100, 42, 0.3, 0.08), t, 0.3 * g)
+                if k % 4 == 2: add(R.snare(), t, 0.16 * g)
+                add(R.hp(R.noise(0.04), 7000) * R.dec(0.04, 0.01), t + beat / 2, 0.05 * g)
+            if lead and k % 2 == 0: add(chip(nf(mel[(k // 2) % 16]), beat * 1.6, 0.3), t, 0.06 * g, 0.2)
+            t += beat; k += 1
+    ostinato(0.05, hit1 - 0.1, 132, 1.0)                                                   # ① 囲まれて、あたふた
+    add(pad([nf("D3"), nf("A3"), nf("D4")], cast - hit1, 500), hit1 + 0.4, 0.10)            # ② 被弾：低いうなりだけ
+    for j, n in enumerate(["A4", "F4", "D4"]): add(piano(nf(n), 2.4, 0.6), hit1 + 2.5 + j * 1.6, 0.08)
+    add(R.riser(cast + 3.2 - (cast - 1.0)), cast - 1.0, 0.10)
+    ostinato(cast + 3.2, boss - 0.2, 150, 1.0, drums=True, lead=True)                      # ③ 反撃のバトル
+    for k in range(int((hit2 - boss) / 0.857)):                                             # ④ ボス：太鼓
+        add(R.taiko(), boss + 0.4 + k * 0.857, 0.35)
+    add(pad([nf("D2"), nf("A2"), nf("D3")], hit2 - boss, 400), boss, 0.14)
+    add(pad([nf("D3"), nf("F3"), nf("A3")], count0 - hit2, 600), hit2 + 0.5, 0.11)          # ⑤ 絶望
+    for j, n in enumerate(["D5", "C5", "A#4", "A4"]): add(piano(nf(n), 2.0, 0.6), hit2 + 1.0 + j * 1.2, 0.08)
+    ostinato(count0, dawn - 0.4, 160, 1.15, drums=True)                                    # ⑥ 最後の10秒
+    add(R.riser(dawn - count0 - 0.4), count0, 0.14)
+    beat = 60 / 90; t = dawn; k = 0                                                         # ⑦ 夜明け：長調
+    maj = [("D3", ("D4", "F#4", "A4")), ("A2", ("A3", "C#4", "E4")), ("B2", ("B3", "D4", "F#4")), ("G2", ("G3", "B3", "D4"))]
+    while t < shadow - 0.2:
+        lo, ch = maj[(k // 4) % 4]
+        if k % 4 == 0:
+            add(pad([nf(lo) * 2] + [nf(c) for c in ch], beat * 4.2, 1400), t, 0.13)
+            add(piano(nf(lo), 2.4, 0.9), t, 0.14)
+        add(piano(nf(ch[k % 3]) * 2, 1.4, 0.6), t, 0.07, 0.25 * (-1) ** k)
+        t += beat; k += 1
+    add(pad([nf("D3"), nf("F3"), nf("G#3")], DUR + tail - shadow, 500), shadow, 0.13)       # ⑧ 消えない影（不協和）
+    for j in range(4): add(music_box(nf(["A5", "G#5", "F5", "D5"][j]), 1.6), shadow + 0.4 + j * 0.7, 0.06)
