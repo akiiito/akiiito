@@ -120,3 +120,34 @@ def block_part1(add, DUR, s_build=15.6, s_night=19.2, tail=0.0):
             add(pad([nf(lo) * 2, nf(ch[0]), nf(ch[2])], beat * 8.2, 800), t, 0.12)
             add(piano(nf(lo) / 2, 2.0, 1.0), t, 0.16)
         t += beat; k += 1
+
+def lofi_drums(add, t0, t1, bpm=84, gain=1.0):
+    beat = 60 / bpm; t = t0; k = 0
+    while t < t1:
+        if k % 4 in (0, 2): add(R.lp(R.kick(80, 45, 0.35, 0.09), 900), t, 0.22 * gain)
+        if k % 4 in (1, 3): add(R.hp(R.noise(0.12), 1500) * R.dec(0.12, 0.04), t, 0.07 * gain)
+        add(R.hp(R.noise(0.05), 6000) * R.dec(0.05, 0.012), t + beat / 2, 0.035 * gain)
+        t += beat; k += 1
+
+def ai_matsuro(add, DUR, s_tense=28.0, s_calm=37.0, s_hope=41.1, tail=0.0):
+    """ローファイ（作業用BGM風）→ 3年目の事件で緊張 → 5年目で前向きに"""
+    beat = 60 / 84; bar = beat * 4
+    prog = [("F", ("A3", "C4", "E4", "G4")), ("E", ("G#3", "B3", "D4", "E4")), ("Am", ("A3", "C4", "E4", "G4")), ("C", ("G3", "C4", "E4", "B4"))]
+    def chords(t0, t1, gain, prog_):
+        t = t0; i = 0
+        while t < t1 - 0.3:
+            c, notes = prog_[i % len(prog_)]; lo = CH[c][0] if c in CH else "A2"
+            add(piano(nf(lo), 3.0, 0.8), t, 0.16 * gain)
+            for j, n in enumerate(notes): add(piano(nf(n), 2.6, 0.6), t + j * 0.06, 0.07 * gain, 0.2 * (j - 1.5))
+            add(pad([nf(n) for n in notes[:3]], bar + 0.6, 900), t, 0.06 * gain)
+            t += bar; i += 1
+    chords(0.0, s_tense, 2.2, prog); lofi_drums(add, 0.0, s_tense - 0.2, gain=2.0)
+    # 事件：低い持続音と刻み
+    add(pad([nf("D3"), nf("F3"), nf("G#3")], s_calm - s_tense + 0.6, 600), s_tense, 0.16)
+    t = s_tense
+    while t < s_calm:
+        add(strings([nf("D3")], 0.18, 1500, 0.005, 0.05), t, 0.12); t += 60 / 140
+    # 立ち直り（明るい進行）
+    hope = [("F", ("F3", "A3", "C4", "E4")), ("G", ("G3", "B3", "D4", "G4")), ("Em", ("E3", "G3", "B3", "D4")), ("Am", ("A3", "C4", "E4", "G4"))]
+    add(pad([nf("A3"), nf("C4"), nf("E4")], s_hope - s_calm + 0.6, 800), s_calm, 0.1)
+    chords(s_hope, DUR + tail, 2.4, hope); lofi_drums(add, s_hope + bar, DUR + tail - 0.6, gain=2.0)
