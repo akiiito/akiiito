@@ -36,7 +36,9 @@ EP = {1: dict(src="frames_S2E1/C/0001.png", ring=(144, 960, 138), l1="好きな�
       38: dict(src="thumb_src_pov2.png", ring=(-500, -500, 1), tagpos=(700, 1180), l1="POV：好きな人と", l2="あと6日",
               q="毎日ここで会お？", badge="パート2", tag="残りの日、\\N全部な", out="thumb_pov_part2.png"),
       39: dict(src="thumb_src_isk1.png", ring=(-500, -500, 1), tagpos=(640, 1150), l1="異世界に召喚されたら", l2="残り3分",
-              q="月、止められる？", badge="パート1", tag="時間停止\\Nチート", out="thumb_isekai_part1.png")}
+              q="月、止められる？", badge="パート1", tag="時間停止\\Nチート", out="thumb_isekai_part1.png"),
+      40: dict(src="thumb_src_hana1.png", ring=(-500, -500, 1), tagpos=(640, 1150), l1="昔飼っていた犬が", l2="待っていた",
+              q="…会いたかった", badge="パート1", tag="散歩、\\N雨の日も", out="thumb_hana_part1.png")}
 HEAD = """[Script Info]
 ScriptType: v4.00+
 PlayResX: 1080

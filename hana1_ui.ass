@@ -1,0 +1,47 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hero,IPAPGothic,66,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,1,0,1,7,3,5,30,30,0,1
+Style: narr,IPAPGothic,62,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,2,0,1,7,3,5,30,30,0,1
+Style: shout,IPAPGothic,78,&H0040E6FF,&H0040E6FF,&H00200818,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: resolve,IPAPGothic,80,&H00FFFFFF,&H00FFFFFF,&H003C14DC,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: shape,IPAPGothic,20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: hana,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H008A3CE8,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1
+Style: me,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H00306A9A,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1
+Style: hook,IPAPGothic,58,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,7,0,5,20,20,0,1
+Style: card,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,0,0,5,20,20,0,1
+Style: count,IPAPGothic,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,8,0,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 6,0:00:00.00,0:00:28.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H101010&\1a&H50&\bord0\shad0}m 302 40 l 418 40 b 423 40 430 46 430 52 l 430 72 b 430 77 423 84 418 84 l 302 84 b 296 84 290 77 290 72 l 290 52 b 290 46 296 40 302 40{\p0}
+Dialogue: 7,0:00:00.00,0:00:28.00,card,,0,0,0,,{\an5\pos(360,62)\fs28\c&H4090FF&}パート1
+Dialogue: 8,0:00:00.00,0:00:03.20,hook,,0,0,0,,{\an5\pos(360,250)\fs46\fad(0,150)}{\c&H40D0FF&}POV：{\c&HFFFFFF&}異世界で目を覚ましたら\N昔飼っていた{\c&H5080FF&}犬{\c&HFFFFFF&}が待っていた
+Dialogue: 6,0:00:00.15,0:00:03.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H1A1A1A&\1a&H30&\bord0\shad0\fad(120,200)\fscx80\t(0,150,\fscx100)}m 90 352 l 630 352 b 639 352 650 363 650 372 l 650 400 b 650 409 639 420 630 420 l 90 420 b 81 420 70 409 70 400 l 70 372 b 70 363 81 352 90 352{\p0}
+Dialogue: 7,0:00:00.15,0:00:03.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H30C0FF&\1a&H00&\bord0\shad0\fad(120,200)}m 76 352 l 80 352 b 82 352 86 355 86 358 l 86 414 b 86 416 82 420 80 420 l 76 420 b 73 420 70 416 70 414 l 70 358 b 70 355 73 352 76 352{\p0}
+Dialogue: 8,0:00:00.15,0:00:03.40,card,,0,0,0,,{\an5\pos(368,386)\fs32\fad(120,200)}この物語は、{\c&H30C0FF&}あなたのコメント{\c&HFFFFFF&}で進む
+Dialogue: 8,0:00:05.90,0:00:06.90,count,,0,0,0,,{\an5\pos(360,330)\fs84\c&H2020C0&\3c&H000000&\bord6\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)\frz-4}グルルル…
+Dialogue: 6,0:00:26.30,0:00:28.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H101010&\1a&H60&\bord0\shad0\fad(200,0)}m 494 104 l 686 104 b 692 104 700 111 700 118 l 700 182 b 700 188 692 196 686 196 l 494 196 b 487 196 480 188 480 182 l 480 118 b 480 111 487 104 494 104{\p0}
+Dialogue: 7,0:00:26.30,0:00:28.00,card,,0,0,0,,{\an5\pos(590,124)\fs22\c&HD0D0FF&\fad(200,0)}ハナが消えるまで
+Dialogue: 7,0:00:26.30,0:00:28.00,card,,0,0,0,,{\an5\pos(590,166)\fs46\c&H4040FF&\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}残り 7日
+Dialogue: 6,0:00:26.40,0:00:28.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF4F0FF&\1a&H10&\bord0\shad0\fad(150,100)\fscx90\fscy90\t(0,150,\fscx100\fscy100)}m 80 240 l 640 240 b 653 240 670 256 670 270 l 670 490 b 670 503 653 520 640 520 l 80 520 b 66 520 50 503 50 490 l 50 270 b 50 256 66 240 80 240{\p0}
+Dialogue: 7,0:00:26.40,0:00:28.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H9B5CF0&\1a&H00&\bord0\shad0\fad(150,100)}m 80 240 l 640 240 b 653 240 670 256 670 270 l 670 290 b 670 303 653 320 640 320 l 80 320 b 66 320 50 303 50 290 l 50 270 b 50 256 66 240 80 240{\p0}
+Dialogue: 8,0:00:26.40,0:00:28.00,card,,0,0,0,,{\an5\pos(360,280)\fs34\fad(150,100)}この世界のルール
+Dialogue: 8,0:00:26.40,0:00:28.00,card,,0,0,0,,{\an5\pos(360,385)\fs40\c&H6A2BD0&\fad(150,100)}強く想われた魂だけが
+Dialogue: 8,0:00:26.40,0:00:28.00,card,,0,0,0,,{\an5\pos(360,460)\fs40\c&H303030&\fad(150,100)}7日間だけ、人の姿になれる
+Dialogue: 8,0:00:27.10,0:00:28.00,count,,0,0,0,,{\an5\pos(360,600)\fs40\c&HFFFFFF&\fad(200,0)}― パート2へつづく ―
+Dialogue: 9,0:00:00.20,0:00:03.40,hana,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}…やっと来た。\Nずっと、待ってたんだよ
+Dialogue: 9,0:00:03.25,0:00:06.36,me,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}（誰だ…？でも、\Nなんだか懐かしい…）
+Dialogue: 9,0:00:06.80,0:00:08.40,hana,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}走って！こっち！
+Dialogue: 9,0:00:09.60,0:00:12.20,me,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}（この手…\Nあったかい…）
+Dialogue: 9,0:00:13.20,0:00:16.12,me,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}ハァ…ハァ…\N君は、いったい…
+Dialogue: 9,0:00:15.97,0:00:20.00,hana,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}…散歩、毎日つれてって\Nくれたよね。雨の日も
+Dialogue: 9,0:00:19.85,0:00:22.15,me,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}そのリボン…\Nまさか…ハナ…？
+Dialogue: 9,0:00:22.10,0:00:24.50,hana,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}うん。…会いたかった
+Dialogue: 9,0:00:24.90,0:00:26.60,me,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}…ハナ、手が…
