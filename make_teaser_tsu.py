@@ -13,6 +13,7 @@ GOAL = 59.2                     # 「最初の判断」が出る瞬間
 T0 = float(sys.argv[2]) if len(sys.argv) > 2 else 57.0      # 予告に使う本編の区間（残り3→2）
 LABEL = sys.argv[3] if len(sys.argv) > 3 else "◀◀ 40分前"
 MODE = sys.argv[4] if len(sys.argv) > 4 else "tsu"          # blk: 字幕隠しの帯なし・「夜明けまで」
+PREFIX = sys.argv[5] if len(sys.argv) > 5 else ("夜明けまで あと" if MODE == "blk" else "結末まで あと")
 TL = 1.6                        # 予告の長さ
 RW = 0.45                       # 巻き戻しの長さ
 SR = R.SR
@@ -23,7 +24,7 @@ def ass(path):
     head = R.ASS_HEAD.replace("{f}", R.FONT).replace("\n[Events]", st.replace("{f}", R.FONT) + "\n[Events]")
     pop = r"\fscx50\fscy50\t(0,120,\fscx115\fscy115)\t(120,220,\fscx100\fscy100)"
     ev = [r"Dialogue: 8,%s,%s,sub,,0,0,0,,{\an7\pos(0,0)\p1\1c&H101010&\1a&H00&\bord0\shad0}m 0 520 l 720 520 l 720 740 l 0 740{\p0}" % (R.ts(0), R.ts(TL + RW)),
-          r"Dialogue: 9,%s,%s,sub,,0,0,0,,{\an5\pos(360,560)\bord5\3c&H000000&}%s" % (R.ts(0), R.ts(TL), "夜明けまで あと" if MODE == "blk" else "結末まで あと"),
+          r"Dialogue: 9,%s,%s,sub,,0,0,0,,{\an5\pos(360,560)\bord5\3c&H000000&}%s" % (R.ts(0), R.ts(TL), PREFIX),
           r"Dialogue: 9,%s,%s,big,,0,0,0,,{\an5\pos(360,660)\c&H4040FF&%s}3秒" % (R.ts(0), R.ts(1.0), pop),
           r"Dialogue: 9,%s,%s,big,,0,0,0,,{\an5\pos(360,660)\c&H4040FF&%s}2秒" % (R.ts(1.0), R.ts(TL), pop),
           r"Dialogue: 9,%s,%s,big,,0,0,0,,{\an5\pos(360,640)\fs80\c&HFFFFFF&\3c&H000000&\bord6}%s" % (R.ts(TL), R.ts(TL + RW), LABEL)]

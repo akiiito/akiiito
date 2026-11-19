@@ -211,3 +211,36 @@ def block_part2(add, DUR, hit1=11.9, cast=20.0, boss=35.6, hit2=42.3, count0=48.
         t += beat; k += 1
     add(pad([nf("D3"), nf("F3"), nf("G#3")], DUR + tail - shadow, 500), shadow, 0.13)       # ⑧ 消えない影（不協和）
     for j in range(4): add(music_box(nf(["A5", "G#5", "F5", "D5"][j]), 1.6), shadow + 0.4 + j * 0.7, 0.06)
+
+def block_part3(add, DUR, crack=10.4, black=20.4, reveal=33.0, eclipse=41.5, count0=50.0, blaze=56.4, dark=60.0, tail=0.0):
+    """ブロック世界パート3：静かな朝（不穏）→ 割れて人の形 → 影化の発覚（低いうなり＋ピアノ）→ 正体（弦の悲しい和音）
+       → 日食（太鼓）→ 最後の10秒で盛り上げ → 完全な闇（音が消えてオルゴールだけ）"""
+    beat = 60 / 76; t = 0.05; k = 0                                                       # ① 朝：ニ短調のピアノ（ゆっくり）
+    prog = [("D3", ("D4", "F4", "A4")), ("A#2", ("A#3", "D4", "F4")), ("G2", ("G3", "A#3", "D4")), ("A2", ("A3", "C#4", "E4"))]
+    while t < crack - 0.3:
+        lo, ch = prog[(k // 4) % 4]
+        if k % 4 == 0:
+            add(pad([nf(lo) * 2] + [nf(c) for c in ch], beat * 4.2, 900), t, 0.10); add(piano(nf(lo), 2.4, 0.8), t, 0.12)
+        add(piano(nf(ch[k % 3]) * 2, 1.4, 0.5), t, 0.06, 0.25 * (-1) ** k)
+        t += beat; k += 1
+    add(pad([nf("D2"), nf("G#2"), nf("D3")], black - crack, 500), crack + 0.3, 0.13)      # ② 人の形：不協和のうなり
+    for j in range(5): add(music_box(nf(["D6", "C#6", "A5", "G#5", "D5"][j]), 1.8), crack + 2.0 + j * 1.2, 0.05)
+    add(pad([nf("D3"), nf("F3"), nf("A3")], reveal - black, 600), black + 0.6, 0.12)        # ③ 影化：低い弦＋ピアノ
+    for j, n in enumerate(["A4", "G4", "F4", "E4", "D4", "C#4", "D4"]): add(piano(nf(n), 2.4, 0.6), black + 1.4 + j * 1.6, 0.08)
+    add(strings([nf("A#2"), nf("D3"), nf("F3"), nf("A#3")], 4.4, 1200, 1.0, 1.2), reveal, 0.14)   # ④ 正体：悲しい和音
+    add(strings([nf("G2"), nf("A#2"), nf("D3"), nf("G3")], 4.4, 1200, 1.0, 1.2), reveal + 4.2, 0.14)
+    for j, n in enumerate(["D5", "A4", "A#4", "G4", "A4"]): add(piano(nf(n), 2.0, 0.7), reveal + 0.4 + j * 1.5, 0.08)
+    for i in range(int((count0 - eclipse) / 0.79)):                                           # ⑤ 日食：太鼓
+        add(R.taiko(), eclipse + 0.5 + i * 0.79, 0.3 + 0.03 * (i % 4 == 0))
+    add(pad([nf("D2"), nf("A2"), nf("D3")], count0 - eclipse, 400), eclipse, 0.14)
+    b = 60 / 160; t = count0; k = 0                                                         # ⑥ 最後の10秒：速い刻み
+    while t < dark - 0.3:
+        lo, ch = prog[(k // 8) % 4]
+        add(strings([nf(ch[k % 3]) / 2], b * 0.9, 1800, 0.01, 0.08), t, 0.14, 0.3 * (-1) ** k)
+        if k % 2 == 0: add(R.kick(100, 42, 0.3, 0.08), t, 0.3 * (1.3 if t > blaze else 1.0))
+        if k % 4 == 2: add(R.snare(), t, 0.16)
+        if k % 8 == 0: add(pad([nf(lo) * 2, nf(ch[0]), nf(ch[2])], b * 8.2, 800), t, 0.12)
+        t += b; k += 1
+    add(R.riser(dark - count0 - 0.3), count0, 0.15)
+    add(pad([nf("D3"), nf("G#3"), nf("C4")], DUR + tail - dark, 500), dark + 0.8, 0.10)     # ⑦ 完全な闇
+    for j in range(4): add(music_box(nf(["A5", "G#5", "F5", "D5"][j]), 1.8), dark + 1.2 + j * 0.8, 0.06)
