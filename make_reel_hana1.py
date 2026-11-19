@@ -8,6 +8,7 @@ import os, sys, json, math, subprocess, shutil, tempfile, wave
 import numpy as np
 import make_reel as R
 import s_sfx as X
+import s_bgm as B
 MEID = int(os.environ.get("MEID", "1368642336"))
 from hana_lines import PART1 as LINES0
 
@@ -16,6 +17,7 @@ FPS, SR = 24, R.SR
 FR = os.path.join(HERE, "frames_HANA1")
 END = 28.0                       # 絵の長さ（このあと絵文字2択カードが1.5秒つく）
 DUR = END
+TAIL = 2.8                       # 絵文字2択カード（END-0.5 から 2.8 秒）のぶん、BGMをのばす
 R.DUR = DUR
 R.MIX = np.zeros((R.n_(DUR) + SR, 2))
 add = R.add
@@ -76,10 +78,7 @@ def pluck(f, sec=1.4, decay=0.5):
     tt = R.tt(sec); return (np.sin(2 * np.pi * f * tt) + 0.3 * np.sin(4 * np.pi * f * tt)) * np.exp(-tt / decay)
 
 def build_sfx():
-    # 0〜5.8秒：オルゴール（やさしい再会）
-    mel = [784.0, 659.3, 523.3, 659.3, 784.0, 1046.5, 987.8, 784.0, 880.0, 784.0, 659.3, 587.3]
-    for i, f in enumerate(mel):
-        if 0.3 + i * 0.45 < 5.7: add(pluck(f, 1.2, 0.35), 0.3 + i * 0.45, 0.07, 0.3 * (-1) ** i)
+    B.hana_part1(add, DUR, tail=TAIL)                                                             # BGM（最初から最後まで）
     # 魔物のうなり声
     tt = R.tt(1.6); growl = R.lp(R.noise(1.6), 160) * (0.6 + 0.4 * np.sin(2 * np.pi * 22 * tt)) * np.minimum(1, tt * 4) * np.exp(-tt / 1.0)
     add(growl, 5.85, 1.4)
@@ -89,14 +88,6 @@ def build_sfx():
         add(R.taiko(), t, 0.42); t += 0.33
     for k in range(17): add(R.step(), 7.4 + k * 0.33, 0.35)
     wind = R.lp(R.noise(6.0), 900) * np.sin(np.pi * R.tt(6.0) / 6.0); add(wind, 7.0, 0.12)
-    # 15.9〜：思い出のピアノ（Am-F-C-G、ゆっくり）
-    chords = [(220.0, 261.6, 329.6), (174.6, 220.0, 261.6), (261.6, 329.6, 392.0), (196.0, 246.9, 293.7)]
-    t = 15.9; bar = 0; beat = 60 / 66
-    while t < DUR - 0.6:
-        ch = chords[bar % 4]; add(R.lp(pluck(ch[0] / 2, 3.0, 1.0), 900), t, 0.14)
-        for i, f in enumerate((ch[0], ch[1], ch[2], ch[1])):
-            if t + i * beat < DUR - 0.6: add(pluck(f, 1.8, 0.8), t + i * beat, 0.08, 0.25 * (-1) ** i)
-        t += 4 * beat; bar += 1
     # ---- 大きな効果音（バズ要素：場面の切り替わりをはっきり耳で分からせる）
     X.hit(add, 0.05, 0.55, 0)                                                         # 0秒：見出しと同時に「ドン」
     add(X.stinger(), 0.1, 0.18)
@@ -109,7 +100,7 @@ def build_sfx():
     add(R.chime([1568.0, 1760.0, 2093.0, 2349.3, 2637.0], 0.08, 1.4), 24.6, 0.22)      # 光の粒
     X.hit(add, 26.3, 1.2, 1.0); add(X.braam(2.6, 49.0), 26.3, 0.55)                    # 残り7日
     hb = R.heartbeat(); t0 = 26.6
-    while t0 < DUR - 0.4: add(hb, t0, 0.65); t0 += 0.55
+    while t0 < DUR + TAIL - 0.8: add(hb, t0, 0.65 if t0 < DUR else 0.4); t0 += 0.55
 
 def main():
     if "--voice" in sys.argv:
@@ -119,11 +110,12 @@ def main():
         print("wrote", VOICE_NPY, LINES_JSON); return
     R.LINES = [tuple(l) for l in json.load(open(LINES_JSON, encoding="utf-8"))]
     voice = np.load(VOICE_NPY)
+    voice = np.concatenate([voice, np.zeros((max(0, R.n_(DUR + TAIL + 1) - len(voice)), 2))])
     R.MIX = np.zeros_like(voice); build_sfx()
     R.MIX = voice + X.duck(R.MIX, voice)
     tmp = tempfile.mkdtemp(prefix="hana1_")
-    out = R.MIX[: R.n_(DUR)].copy()
-    out[-R.n_(0.3):] *= np.linspace(1, 0, R.n_(0.3))[:, None]
+    out = R.MIX[: R.n_(DUR + TAIL)].copy()
+    out[-R.n_(0.8):] *= np.linspace(1, 0, R.n_(0.8))[:, None]
     out = np.tanh(out * 1.1 / max(1e-9, np.percentile(np.abs(out), 99.9))) * 0.8
     wav = os.path.join(HERE, "hana1_audio.wav")
     with wave.open(wav, "wb") as w:
@@ -138,6 +130,10 @@ def main():
     subprocess.run(["python3", os.path.join(HERE, "s2_endcard.py"), raw, mp4, "%.2f" % (END - 0.5),
                     "次の行動は、あなたが決めて", "🐾", "救う方法を探す", "🌸", "7日間そばにいる", "▶ 多かった方が パート2になる", "2.8"],
                    check=True, env=dict(os.environ, ENDCARD_HINT="コメントの多い方で 物語が分かれる"))
+    # 選択画面のあいだもBGMが鳴るように、音を全長版に差しかえる
+    fin = os.path.join(tmp, "fin.mp4"); shutil.move(mp4, fin)
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", fin, "-i", wav, "-map", "0:v", "-map", "1:a", "-c:v", "copy",
+                    "-af", "loudnorm=I=-14:TP=-1.0:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", str(SR), "-shortest", "-movflags", "+faststart", mp4], check=True)
     shutil.rmtree(tmp)
     print("wrote", mp4)
 

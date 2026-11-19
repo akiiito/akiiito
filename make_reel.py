@@ -79,6 +79,7 @@ def sweep(f0, f1, sec, curve=1.0):
 MIX = np.zeros((n_(DUR) + SR, 2))
 def add(sig, t, gain=1.0, pan=0.0):
     i = n_(max(t, 0))
+    if i >= len(MIX): return
     sig = sig[: len(MIX) - i]
     l, r = np.cos((pan + 1) * np.pi / 4), np.sin((pan + 1) * np.pi / 4)
     MIX[i:i + len(sig), 0] += sig * gain * l * 1.414

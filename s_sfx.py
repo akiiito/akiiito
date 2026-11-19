@@ -45,7 +45,7 @@ def hit(add, t, big=1.0, pre=0.9):
     if pre > 0: add(swell(pre), t - pre, 0.55 * big)
     add(impact(), t, 0.95 * big)
 
-def duck(sfx, voice, depth_db=14.0, hold=0.12, release=0.35):
+def duck(sfx, voice, depth_db=11.0, hold=0.12, release=0.35):
     """声が鳴っている間だけ効果音・音楽を下げる（サイドチェイン）。セリフの合間の効果音は大きいまま"""
     from scipy.ndimage import maximum_filter1d, uniform_filter1d
     env = np.abs(voice).max(axis=1) if voice.ndim == 2 else np.abs(voice)
