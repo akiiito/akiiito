@@ -151,3 +151,21 @@ def ai_matsuro(add, DUR, s_tense=28.0, s_calm=37.0, s_hope=41.1, tail=0.0):
     hope = [("F", ("F3", "A3", "C4", "E4")), ("G", ("G3", "B3", "D4", "G4")), ("Em", ("E3", "G3", "B3", "D4")), ("Am", ("A3", "C4", "E4", "G4"))]
     add(pad([nf("A3"), nf("C4"), nf("E4")], s_hope - s_calm + 0.6, 800), s_calm, 0.1)
     chords(s_hope, DUR + tail, 2.4, hope); lofi_drums(add, s_hope + bar, DUR + tail - 0.6, gain=2.0)
+
+def disaster(add, DUR, s_quake=5.2, s_wave=29.2, s_end=55.2, tail=0.0):
+    """災害もの：揺れの前は静か → 低い鼓動のような刻み → 波で厚く → 最後は静かな祈りの和音"""
+    add(pad([nf("A2"), nf("E3")], s_quake + 0.5, 500), 0.0, 0.10)
+    beat = 60 / 120; t = s_quake + 2.6; k = 0
+    while t < s_end - 0.3:
+        dense = 1.0 if t < s_wave else 1.6
+        add(strings([nf("A2") * (2 if k % 2 else 1)], beat * 0.8, 1400, 0.005, 0.05), t, 0.10 * dense, 0.25 * (-1) ** k)
+        if k % 8 == 0:
+            add(pad([nf("A2"), nf("C3"), nf("E3"), nf("F3") if (k // 8) % 2 else nf("G3")], beat * 8.4, 700), t, 0.12 * dense)
+            add(piano(nf("A1"), 2.5, 1.0), t, 0.18)
+        t += beat; k += 1
+    # 祈りの和音（F → C → G → Am）
+    for i, c in enumerate(["F", "C", "G", "Am"]):
+        lo, ch = CH[c]; t = s_end + i * 2.2
+        if t > DUR + tail - 0.5: break
+        add(pad([nf(n) for n in ch], 3.0, 1000), t, 0.15); add(piano(nf(lo), 3.0, 0.8), t, 0.16)
+        for j, n in enumerate(ch): add(piano(nf(n) * 2, 2.2, 0.5), t + 0.25 + j * 0.3, 0.08)
