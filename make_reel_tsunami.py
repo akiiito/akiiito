@@ -14,7 +14,7 @@ from tsunami_lines import LINES as LINES0
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FPS, SR = 24, R.SR
-FR = os.path.join(HERE, "frames_TSU1")
+FR = os.path.join(HERE, "frames_TSU2")
 END = 63.0                       # 絵の長さ（このあと絵文字2択カードが1.5秒つく）
 DUR = END
 TAIL = 2.8                       # 絵文字2択カード（END-0.5 から 2.8 秒）のぶん、BGMをのばす
@@ -133,7 +133,7 @@ def main():
     ass = os.path.join(HERE, "tsu1_ui.ass"); build_ui(ass)
     mp4 = os.path.join(HERE, "tsunami_sa.mp4"); raw = os.path.join(tmp, "raw.mp4")
     # 12fps の絵を24fpsに（2コマ打ち）＋少し魚眼っぽく＋周辺減光
-    grade = "[0][1]vstack,fps=24,eq=contrast=1.06:saturation=1.15,vignette=PI/6,ass=tsu1_ui.ass[v]"
+    grade = "[0][1]vstack,fps=24,eq=contrast=1.12:saturation=1.12:gamma=0.95,unsharp=5:5:0.4,vignette=PI/6,noise=alls=3:allf=t,ass=tsu1_ui.ass[v]"
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", "8", "-i", os.path.join(FR, "A_%04d.png"), "-framerate", "8", "-i", os.path.join(FR, "B_%04d.png"),
                     "-i", wav, "-filter_complex", grade, "-map", "[v]", "-map", "2:a",
                     "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-preset", "slow", "-maxrate", "6M", "-bufsize", "12M",
