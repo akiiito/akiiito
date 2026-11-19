@@ -1,0 +1,70 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hero,IPAPGothic,66,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,1,0,1,7,3,5,30,30,0,1
+Style: narr,IPAPGothic,62,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,2,0,1,7,3,5,30,30,0,1
+Style: shout,IPAPGothic,78,&H0040E6FF,&H0040E6FF,&H00200818,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: resolve,IPAPGothic,80,&H00FFFFFF,&H00FFFFFF,&H003C14DC,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: shape,IPAPGothic,20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: nar,IPAPGothic,40,&H00FFFFFF,&H00FFFFFF,&H008A3CE8,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1
+Style: yotaA,IPAPGothic,40,&H00FFFFFF,&H00FFFFFF,&H00306A9A,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1
+Style: yotaB,IPAPGothic,40,&H00FFFFFF,&H00FFFFFF,&H00306A9A,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1
+Style: hook,IPAPGothic,58,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,7,0,5,20,20,0,1
+Style: card,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,0,0,5,20,20,0,1
+Style: count,IPAPGothic,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,8,0,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 6,0:00:00.00,0:01:04.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HD08030&\1a&H10&\bord0\shad0}m 30 16 l 182 16 b 188 16 196 23 196 30 l 196 52 b 196 58 188 66 182 66 l 30 66 b 23 66 16 58 16 52 l 16 30 b 16 23 23 16 30 16{\p0}
+Dialogue: 7,0:00:00.00,0:01:04.00,card,,0,0,0,,{\an5\pos(106,41)\fs30}AIを使う
+Dialogue: 6,0:00:00.00,0:01:04.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H3080E0&\1a&H10&\bord0\shad0}m 30 696 l 182 696 b 188 696 196 703 196 710 l 196 732 b 196 738 188 746 182 746 l 30 746 b 23 746 16 738 16 732 l 16 710 b 16 703 23 696 30 696{\p0}
+Dialogue: 7,0:00:00.00,0:01:04.00,card,,0,0,0,,{\an5\pos(106,721)\fs30}使わない
+Dialogue: 6,0:00:00.00,0:01:04.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H101010&\1a&H18&\bord0\shad0}m 0 596 l 720 596 l 720 684 l 0 684{\p0}
+Dialogue: 8,0:00:00.00,0:00:05.26,hook,,0,0,0,,{\an5\pos(360,640)\fs40}{\c&HFFD080&}AIを使う人{\c&HFFFFFF&}と{\c&H60B0FF&}使わない人{\c&HFFFFFF&}\N5年後の{\c&H4040FF&}末路
+Dialogue: 8,0:00:05.30,0:00:08.81,nar,,0,0,0,,{\an5\pos(360,640)\fs34\fad(80,100)}1年目。\Nメールを10通、書く。
+Dialogue: 8,0:00:09.60,0:00:14.40,nar,,0,0,0,,{\an5\pos(360,640)\fs34\fad(80,100)}使う人は、5分。\N使わない人は、1時間。
+Dialogue: 8,0:00:14.70,0:00:17.71,nar,,0,0,0,,{\an5\pos(360,640)\fs34\fad(80,100)}使う人は、定時で\N帰れるようになった。
+Dialogue: 8,0:00:18.20,0:00:23.53,nar,,0,0,0,,{\an5\pos(360,640)\fs34\fad(80,100)}2年目。浮いた時間で、使う人は\N新しいことを学び始めた。
+Dialogue: 8,0:00:23.70,0:00:27.68,nar,,0,0,0,,{\an5\pos(360,640)\fs34\fad(80,100)}使わない人は、同じ作業を\N毎日くり返していた。
+Dialogue: 8,0:00:28.00,0:00:30.57,nar,,0,0,0,,{\an5\pos(360,640)\fs34\fad(80,100)}3年目。\N事件が起きる。
+Dialogue: 9,0:00:31.00,0:00:33.60,yotaA,,0,0,0,,{\an5\pos(360,520)\fad(60,100)}この数字…\Nどこから出てきたの？
+Dialogue: 9,0:00:33.90,0:00:36.73,yotaB,,0,0,0,,{\an5\pos(360,1160)\fad(60,100)}いつも確認が丁寧で、\N助かるよ
+Dialogue: 8,0:00:37.00,0:00:40.80,nar,,0,0,0,,{\an5\pos(360,640)\fs34\fad(80,100)}AIは、もっともらしい間違いを\Nすることがある。
+Dialogue: 8,0:00:41.10,0:00:44.09,nar,,0,0,0,,{\an5\pos(360,640)\fs34\fad(80,100)}そして…運命の、5年目。
+Dialogue: 8,0:00:44.10,0:00:49.34,nar,,0,0,0,,{\an5\pos(360,640)\fs34\fad(80,100)}失敗から学んだ人は、AIに下書きさせて\N自分で確かめるようになった。
+Dialogue: 8,0:00:49.20,0:00:55.35,nar,,0,0,0,,{\an5\pos(360,640)\fs34\fad(80,100)}使わなかった人も、AIを使い始めた。\N確かめる力を、武器にして。
+Dialogue: 8,0:00:55.80,0:01:03.16,nar,,0,0,0,,{\an5\pos(360,640)\fs34\fad(80,100)}末路を分けたのは、AIを使うかどうか\Nじゃない。何を頼み、どう確かめるか、だった。
+Dialogue: 6,0:00:00.00,0:00:05.30,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H202020&\1a&H30&\bord0\shad0}m 554 16 l 690 16 b 696 16 704 23 704 30 l 704 52 b 704 58 696 66 690 66 l 554 66 b 547 66 540 58 540 52 l 540 30 b 540 23 547 16 554 16{\p0}
+Dialogue: 7,0:00:00.00,0:00:05.30,card,,0,0,0,,{\an5\pos(622,41)\fs30\c&H40D0FF&\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}2026
+Dialogue: 6,0:00:05.30,0:00:18.20,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H202020&\1a&H30&\bord0\shad0}m 554 16 l 690 16 b 696 16 704 23 704 30 l 704 52 b 704 58 696 66 690 66 l 554 66 b 547 66 540 58 540 52 l 540 30 b 540 23 547 16 554 16{\p0}
+Dialogue: 7,0:00:05.30,0:00:18.20,card,,0,0,0,,{\an5\pos(622,41)\fs30\c&H40D0FF&\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}1年目
+Dialogue: 6,0:00:18.20,0:00:28.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H202020&\1a&H30&\bord0\shad0}m 554 16 l 690 16 b 696 16 704 23 704 30 l 704 52 b 704 58 696 66 690 66 l 554 66 b 547 66 540 58 540 52 l 540 30 b 540 23 547 16 554 16{\p0}
+Dialogue: 7,0:00:18.20,0:00:28.00,card,,0,0,0,,{\an5\pos(622,41)\fs30\c&H40D0FF&\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}2年目
+Dialogue: 6,0:00:28.00,0:00:41.10,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H202020&\1a&H30&\bord0\shad0}m 554 16 l 690 16 b 696 16 704 23 704 30 l 704 52 b 704 58 696 66 690 66 l 554 66 b 547 66 540 58 540 52 l 540 30 b 540 23 547 16 554 16{\p0}
+Dialogue: 7,0:00:28.00,0:00:41.10,card,,0,0,0,,{\an5\pos(622,41)\fs30\c&H40D0FF&\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}3年目
+Dialogue: 6,0:00:41.10,0:01:04.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H202020&\1a&H30&\bord0\shad0}m 554 16 l 690 16 b 696 16 704 23 704 30 l 704 52 b 704 58 696 66 690 66 l 554 66 b 547 66 540 58 540 52 l 540 30 b 540 23 547 16 554 16{\p0}
+Dialogue: 7,0:00:41.10,0:01:04.00,card,,0,0,0,,{\an5\pos(622,41)\fs30\c&H40D0FF&\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}5年目
+Dialogue: 8,0:00:09.60,0:00:14.40,count,,0,0,0,,{\an5\pos(360,470)\fs56\c&H60FF80&\3c&H000000&\bord5\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}5分で完了
+Dialogue: 8,0:00:11.20,0:00:14.40,count,,0,0,0,,{\an5\pos(360,1110)\fs56\c&H5050FF&\3c&H000000&\bord5\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}1時間…
+Dialogue: 8,0:00:14.70,0:00:17.71,count,,0,0,0,,{\an5\pos(360,470)\fs56\c&H60D0FF&\3c&H000000&\bord5\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}18:00 定時退社
+Dialogue: 8,0:00:14.70,0:00:17.71,count,,0,0,0,,{\an5\pos(360,1110)\fs56\c&H5050FF&\3c&H000000&\bord5\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}22:30 まだ残業
+Dialogue: 8,0:00:19.70,0:00:27.68,count,,0,0,0,,{\an5\pos(360,470)\fs56\c&H60FF80&\3c&H000000&\bord5\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}スキル ＋1
+Dialogue: 8,0:00:23.70,0:00:27.68,count,,0,0,0,,{\an5\pos(360,1110)\fs56\c&HC0C0C0&\3c&H000000&\bord5\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}同じ作業 ×365日
+Dialogue: 8,0:00:28.40,0:00:37.00,count,,0,0,0,,{\an5\pos(360,180)\fs60\c&H3030FF&\3c&H000000&\bord5\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}！ミス発覚
+Dialogue: 8,0:00:33.90,0:00:37.00,count,,0,0,0,,{\an5\pos(360,830)\fs60\c&H60FF80&\3c&H000000&\bord5\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}信頼 ↑
+Dialogue: 8,0:00:44.60,0:00:49.34,count,,0,0,0,,{\an5\pos(360,470)\fs56\c&H60FF80&\3c&H000000&\bord5\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}AIの下書き＋自分で確認
+Dialogue: 8,0:00:49.70,0:00:55.35,count,,0,0,0,,{\an5\pos(360,1110)\fs56\c&H60FF80&\3c&H000000&\bord5\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}確かめる力 × AI
+Dialogue: 7,0:00:37.00,0:00:41.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF4F0FF&\1a&H10&\bord0\shad0\fad(150,100)\fscx90\fscy90\t(0,150,\fscx100\fscy100)}m 68 150 l 652 150 b 664 150 680 165 680 178 l 680 412 b 680 424 664 440 652 440 l 68 440 b 55 440 40 424 40 412 l 40 178 b 40 165 55 150 68 150{\p0}
+Dialogue: 8,0:00:37.00,0:00:41.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H9B5CF0&\1a&H00&\bord0\shad0\fad(150,100)}m 68 150 l 652 150 b 664 150 680 165 680 178 l 680 194 b 680 206 664 222 652 222 l 68 222 b 55 222 40 206 40 194 l 40 178 b 40 165 55 150 68 150{\p0}
+Dialogue: 9,0:00:37.00,0:00:41.00,card,,0,0,0,,{\an5\pos(360,186)\fs32\fad(150,100)}豆知識
+Dialogue: 9,0:00:37.00,0:00:41.00,card,,0,0,0,,{\an5\pos(360,290)\fs30\c&H303030&\fad(150,100)}AIの“もっともらしい間違い”は
+Dialogue: 9,0:00:37.00,0:00:41.00,card,,0,0,0,,{\an5\pos(360,360)\fs44\c&H6A2BD0&\fad(150,100)}ハルシネーション（幻覚）
+Dialogue: 9,0:00:37.00,0:00:41.00,card,,0,0,0,,{\an5\pos(360,412)\fs26\c&H303030&\fad(150,100)}と呼ばれる
+Dialogue: 9,0:00:59.20,0:01:04.00,count,,0,0,0,,{\an5\pos(360,300)\fs50\c&HFFFFFF&\3c&H000000&\bord5\fad(300,0)}末路を分けたのは
+Dialogue: 9,0:00:59.60,0:01:04.00,count,,0,0,0,,{\an5\pos(360,960)\fs52\c&H40D0FF&\3c&H000000&\bord6\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)}何を頼み、どう確かめるか

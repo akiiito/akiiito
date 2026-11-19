@@ -40,7 +40,9 @@ EP = {1: dict(src="frames_S2E1/C/0001.png", ring=(144, 960, 138), l1="好きな�
       40: dict(src="thumb_src_hana1.png", ring=(-500, -500, 1), tagpos=(640, 1150), l1="昔飼っていた犬が", l2="待っていた",
               q="…会いたかった", badge="パート1", tag="散歩、\\N雨の日も", out="thumb_hana_part1.png"),
       41: dict(src="thumb_src_blk1.png", ring=(-500, -500, 1), tagpos=(600, 1150), l1="ブロックの世界で", l2="夜まで3分",
-              q="生き残れる？", badge="パート1", tag="影ブロック\\N×48", out="thumb_block_part1.png")}
+              q="生き残れる？", badge="パート1", tag="影ブロック\\N×48", out="thumb_block_part1.png"),
+      42: dict(src="thumb_src_ai1.png", ring=(-500, -500, 1), tagpos=(600, 1060), l1="AIを使う人と使わない人", l2="5年後の末路",
+              q="あなたはどっち？", badge="1話完結", tag="3年目に\\N事件", out="thumb_ai_matsuro.png")}
 HEAD = """[Script Info]
 ScriptType: v4.00+
 PlayResX: 1080
