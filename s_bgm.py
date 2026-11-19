@@ -86,3 +86,37 @@ def hana_part1(add, DUR, s_fight=5.85, s_run=6.9, s_stop=13.0, s_memory=15.9, s_
             add(pad([nf(n) for n in ch], tail / 2 + 1.0, 1000), t, 0.16)
             add(piano(nf(lo), 2.5, 0.8), t, 0.18)
             for j, n in enumerate(ch): add(piano(nf(n) * 2, 1.8, 0.5), t + 0.2 + j * 0.22, 0.08)
+
+def chip(f, sec=0.22, duty=0.3, vel=1.0):
+    """ブロック世界らしいピコピコ音（矩形波）"""
+    t = R.tt(sec)
+    s = np.where((f * t) % 1.0 < duty, 1.0, -1.0)
+    return R.lp(s, 3500) * np.exp(-t / (sec * 0.6)) * vel * np.minimum(1, t / 0.003)
+
+def block_part1(add, DUR, s_build=15.6, s_night=19.2, tail=0.0):
+    # ① 冒険（0〜15.6）：明るいピコピコ＋ピアノ（C-G-Am-F、テンポ 120）
+    beat = 0.5; prog = ["C", "G", "Am", "F"]
+    lead = ["E5", "G5", "C6", "G5", "D5", "G5", "B5", "G5", "C5", "E5", "A5", "E5", "F5", "A5", "C6", "A5"]
+    t = 0.05; k = 0
+    while t < s_build - 0.2:
+        c = prog[(k // 8) % 4]; lo, ch = CH[c]
+        if k % 8 == 0:
+            add(pad([nf(n) for n in ch], beat * 8 + 0.6, 1200), t, 0.10)
+        if k % 2 == 0: add(piano(nf(lo), 1.2, 0.8), t, 0.14)
+        add(chip(nf(lead[k % 16]), 0.24, 0.3), t, 0.07, 0.25 * (-1) ** k)
+        if k % 4 == 2: add(chip(nf(ch[2]) * 2, 0.12, 0.5), t + beat / 2, 0.04, -0.3)
+        t += beat; k += 1
+    # ② 日が沈む（15.6〜19.2）：音が減って、長い和音だけ
+    add(pad([nf("A3"), nf("C4"), nf("E4")], s_night - s_build + 1.0, 800), s_build, 0.12)
+    for j, n in enumerate(["E5", "C5", "A4"]):
+        add(piano(nf(n), 2.0, 0.7), s_build + 0.3 + j * 0.9, 0.10)
+    # ③ 夜・影ブロック（19.2〜）：低い刻み（Dm-Bb-Gm-A、テンポ 140）
+    beat = 60 / 140; t = s_night; k = 0
+    prog = [("D3", ("D4", "F4", "A4")), ("A#2", ("A#3", "D4", "F4")), ("G2", ("G3", "A#3", "D4")), ("A2", ("A3", "C#4", "E4"))]
+    while t < DUR + tail - 0.6:
+        lo, ch = prog[(k // 8) % 4]
+        add(strings([nf(ch[k % 3]) / 2], beat * 0.9, 1800, 0.01, 0.08), t, 0.13, 0.3 * (-1) ** k)
+        if k % 8 == 0:
+            add(pad([nf(lo) * 2, nf(ch[0]), nf(ch[2])], beat * 8.2, 800), t, 0.12)
+            add(piano(nf(lo) / 2, 2.0, 1.0), t, 0.16)
+        t += beat; k += 1
