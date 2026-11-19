@@ -66,7 +66,7 @@ def build_ui(path):
     # 上中央：結末までのカウントダウン＋上端の進行バー（「短いし最後まで見よう」と思わせる）
     goal = T(12) + 4.0
     n = int(math.ceil(goal))
-    for k in range(n):
+    for k in range(max(0, n - 10), n):              # 最後の10秒だけ（冒頭の予告と対応）
         a = k; b = min(k + 1, goal); left = int(math.ceil(goal - k))
         col = "&H40D0FF&" if left > 10 else "&H4040FF&"
         S(a, b, rr(236, 16, 500, 66, 14), "&H101010&", "&H30&", 6)
@@ -154,6 +154,8 @@ def main():
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", fin, "-i", wav, "-map", "0:v", "-map", "1:a", "-c:v", "copy",
                     "-af", "loudnorm=I=-14:TP=-1.0:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", str(SR), "-shortest", "-movflags", "+faststart", mp4], check=True)
     shutil.rmtree(tmp)
+    # 冒頭に「結末まで あと3秒」の予告＋巻き戻しをつける
+    subprocess.run([sys.executable, os.path.join(HERE, "make_teaser_tsu.py"), mp4], check=True, cwd=HERE)
     print("wrote", mp4)
 
 if __name__ == "__main__":
