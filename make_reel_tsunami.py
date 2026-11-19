@@ -4,7 +4,7 @@ make_reel_tsunami.py ― 『POV：津波警報が出た時、すぐ逃げる人�
   2) create_tsu1.py で絵（12fps）
   3) 引数なしで 絵＋声＋効果音＋字幕＋HUD（残り時間）＋絵文字2択 → tsunami_sa.mp4
 """
-import os, sys, json, math, subprocess, shutil, tempfile, wave
+import math, os, sys, json, math, subprocess, shutil, tempfile, wave
 import numpy as np
 import make_reel as R
 import s_sfx as X
@@ -63,6 +63,15 @@ def build_ui(path):
     for i, (st, en, text, _, _, who) in enumerate(R.LINES):
         if who == "nar" and i > 0: E(st, en, "nar", r"{\an5\pos(360,640)\fs32\fad(80,100)}%s" % text, 8)
         elif who == "yotaB": E(st, en, "yotaB", r"{\an5\pos(360,1160)\fad(60,100)}%s" % text, 9)
+    # 上中央：結末までのカウントダウン＋上端の進行バー（「短いし最後まで見よう」と思わせる）
+    goal = T(12) + 4.0
+    n = int(math.ceil(goal))
+    for k in range(n):
+        a = k; b = min(k + 1, goal); left = int(math.ceil(goal - k))
+        col = "&H40D0FF&" if left > 10 else "&H4040FF&"
+        S(a, b, rr(236, 16, 500, 66, 14), "&H101010&", "&H30&", 6)
+        E(a, b, "card", r"{\an5\pos(368,41)\fs28}結末まで {\c%s}%d秒" % (col, left), 7)
+    S(0, goal, "m 0 0 l 720 0 l 720 7 l 0 7", "&H40D0FF&", "&H00&", 8, r"\clip(0,0,0,7)\t(0,%d,\clip(0,0,720,7))" % int(goal * 1000))
     # 右上：地震からの時間
     clock = [(0, T(1), "14:00"), (T(1), T(2), "地震発生"), (T(2), T(6), "3分後"), (T(6), T(9), "15分後"), (T(9), T(11), "20分後"), (T(11), END, "40分後")]
     for a, b, c in clock:
