@@ -244,3 +244,43 @@ def block_part3(add, DUR, crack=10.4, black=20.4, reveal=33.0, eclipse=41.5, cou
     add(R.riser(dark - count0 - 0.3), count0, 0.15)
     add(pad([nf("D3"), nf("G#3"), nf("C4")], DUR + tail - dark, 500), dark + 0.8, 0.10)     # ⑦ 完全な闇
     for j in range(4): add(music_box(nf(["A5", "G#5", "F5", "D5"][j]), 1.8), dark + 1.2 + j * 0.8, 0.06)
+
+def block_part4(add, DUR, burst=3.6, full=12.0, grab=17.4, glow=19.2, sun=29.0, vessel=33.8, dis=44.6, tower=51.0, tip=58.4, tail=0.0):
+    """ブロック世界パート4：暴走（速い刻み）→ 影化100%（音が抜けて不協和）→ ルカが手を握る（あたたかいニ長調の弦）
+       → 日食が明ける（全部の弦）→ 光の器（ピアノ）→ 消える（悲しい和音）→ 塔（低い太鼓）→ 指先（オルゴールだけ）"""
+    add(pad([nf("D2"), nf("A2"), nf("D3")], burst + 0.2, 400), 0.0, 0.14)                   # ① 闇の中：低いうなり＋加速する太鼓
+    for i in range(6): add(R.taiko(), 0.4 + i * 0.5, 0.22 + 0.03 * i)
+    add(R.riser(burst - 0.2), 0.0, 0.14)
+    prog = [("D3", ("D4", "F4", "A4")), ("A#2", ("A#3", "D4", "F4")), ("C3", ("C4", "E4", "G4")), ("A2", ("A3", "C#4", "E4"))]
+    b = 60 / 160; t = burst; k = 0                                                          # ② 暴走：速い刻み
+    while t < full - 0.2:
+        lo, ch = prog[(k // 8) % 4]
+        add(strings([nf(ch[k % 3]) / 2], b * 0.9, 1800, 0.01, 0.08), t, 0.14, 0.3 * (-1) ** k)
+        if k % 2 == 0: add(R.kick(100, 42, 0.3, 0.08), t, 0.3)
+        if k % 4 == 2: add(R.snare(), t, 0.16)
+        if k % 8 == 0: add(pad([nf(lo) * 2, nf(ch[0]), nf(ch[2])], b * 8.2, 800), t, 0.12)
+        t += b; k += 1
+    add(pad([nf("D2"), nf("G#2"), nf("D3"), nf("D#3")], grab - full, 500), full, 0.14)      # ③ 100%：不協和
+    for j in range(4): add(music_box(nf(["D6", "C#6", "G#5", "D5"][j]), 1.8) * 0.8, full + 1.0 + j * 1.1, 0.05)
+    hope = [("D3", ("D4", "F#4", "A4")), ("A2", ("A3", "C#4", "E4")), ("B2", ("B3", "D4", "F#4")), ("G2", ("G3", "B3", "D4"))]
+    beat = 60 / 72; t = grab + 0.2; k = 0                                                   # ④ 手を握る：あたたかい弦
+    while t < vessel - 0.3:
+        lo, ch = hope[(k // 4) % 4]
+        if k % 4 == 0:
+            g = 0.10 if t < sun else 0.15
+            add(strings([nf(lo), nf(ch[0]), nf(ch[1]), nf(ch[2])], beat * 4.3, 1000 if t < sun else 1800, 0.8, 1.0), t, g)
+            add(piano(nf(lo), 2.6, 0.8), t, 0.1)
+        add(piano(nf(ch[k % 3]) * 2, 1.6, 0.5), t, 0.06, 0.25 * (-1) ** k)
+        t += beat; k += 1
+    mel = ["F#5", "E5", "D5", "A4", "B4", "A4", "D5", "E5"]                                 # ⑤ 日食が明ける：旋律
+    for j, n in enumerate(mel): add(piano(nf(n), 2.2, 0.8), sun + 0.3 + j * beat, 0.09)
+    add(strings([nf("B2"), nf("D3"), nf("F#3"), nf("B3")], 5.0, 1100, 1.0, 1.4), vessel, 0.12)   # ⑥ 光の器：短調へ
+    add(strings([nf("G2"), nf("B2"), nf("D3"), nf("G3")], 5.0, 1100, 1.0, 1.4), vessel + 5.0, 0.12)
+    add(strings([nf("E2"), nf("G2"), nf("B2"), nf("E3")], dis - vessel - 9.6 + 2.0, 1000, 1.0, 1.4), vessel + 10.0, 0.12)
+    for j, n in enumerate(["B4", "A4", "F#4", "G4", "F#4", "E4", "D4"]): add(piano(nf(n), 2.0, 0.7), vessel + 0.4 + j * 1.5, 0.08)
+    add(strings([nf("B2"), nf("D3"), nf("F#3"), nf("A3")], tower - dis + 0.4, 900, 1.5, 1.5), dis, 0.14)   # ⑦ 消える
+    for j, n in enumerate(["F#5", "D5", "B4", "A4", "F#4"]): add(music_box(nf(n), 2.0), dis + 0.8 + j * 1.0, 0.05)
+    add(pad([nf("D2"), nf("A2"), nf("C3")], tip - tower + 0.2, 400), tower, 0.15)            # ⑧ 塔：低い太鼓
+    for i in range(int((tip - tower - 0.6) / 0.79)): add(R.taiko(), tower + 0.6 + i * 0.79, 0.26)
+    add(pad([nf("D3"), nf("G#3"), nf("C4")], DUR + tail - tip, 500), tip + 1.4, 0.09)        # ⑨ 指先：オルゴールだけ
+    for j in range(4): add(music_box(nf(["A5", "G#5", "F5", "D5"][j]) * (1 + 0.004 * j), 1.8), tip + 1.6 + j * 0.8, 0.06)
