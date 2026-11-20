@@ -344,6 +344,7 @@ def trim_voice(x, sr):
     if not len(nz): return x
     return x[max(nz[0] - int(sr * 0.02), 0): min(len(x), nz[-1] + int(sr * 0.2))]
 
+RETAKE_MIN, RETAKES = 0.55, 4
 def build_voice():
     import re
     spans, sims = [], []
@@ -387,8 +388,8 @@ def build_voice():
             elif ln < 0.55 and spd > 0.8: spd *= 0.82
             else: break
         sim = float(spk_emb(x, sr) @ spk_ref(who)) if check else 0.0
-        for _take in range(4):                      # スコアが低い行は録り直して一番良いテイクを使う
-            if not check or sim >= 0.55: break
+        for _take in range(RETAKES):                # スコアが低い行は録り直して一番良いテイクを使う
+            if not check or sim >= RETAKE_MIN: break
             x2, sr2, _ = vv_synth(src, sid, pitch, spd, inton)
             x2 = trim_voice(x2, sr2)
             sim2 = float(spk_emb(x2, sr2) @ spk_ref(who))

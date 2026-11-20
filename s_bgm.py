@@ -284,3 +284,36 @@ def block_part4(add, DUR, burst=3.6, full=12.0, grab=17.4, glow=19.2, sun=29.0, 
     for i in range(int((tip - tower - 0.6) / 0.79)): add(R.taiko(), tower + 0.6 + i * 0.79, 0.26)
     add(pad([nf("D3"), nf("G#3"), nf("C4")], DUR + tail - tip, 500), tip + 1.4, 0.09)        # ⑨ 指先：オルゴールだけ
     for j in range(4): add(music_box(nf(["A5", "G#5", "F5", "D5"][j]) * (1 + 0.004 * j), 1.8), tip + 1.6 + j * 0.8, 0.06)
+
+def block_hikari(add, DUR, grab=8.2, glow=9.0, wave=14.6, tip=24.6, hide=29.0, fin=31.8, tail=0.0):
+    """単体回『触れたら影になる』：張りつめた低音＋心音 → 手を握る（あたたかい弦がそっと）
+       → 光の波（全部の弦と旋律がひらく）→ 指先（音が引いてオルゴール）→ 最後の一文（短調の和音）"""
+    add(pad([nf("D2"), nf("A2"), nf("D#3")], grab + 0.4, 450), 0.0, 0.13)                     # ① 来るな：不協和の低音
+    for j in range(3): add(music_box(nf(["D6", "C#6", "A5"][j]), 1.8) * 0.7, 0.6 + j * 2.4, 0.04)
+    hope = [("D3", ("D4", "F#4", "A4")), ("A2", ("A3", "C#4", "E4")), ("B2", ("B3", "D4", "F#4")), ("G2", ("G3", "B3", "D4"))]
+    beat = 60 / 76; t = grab; k = 0                                                           # ② 手を握る：弦がそっと
+    while t < wave - 0.2:
+        lo, ch = hope[(k // 4) % 4]
+        if k % 4 == 0:
+            add(strings([nf(lo), nf(ch[0]), nf(ch[1]), nf(ch[2])], beat * 4.3, 900, 1.0, 1.0), t, 0.09)
+            add(piano(nf(lo), 2.6, 0.7), t, 0.08)
+        add(piano(nf(ch[k % 3]) * 2, 1.6, 0.45), t, 0.05, 0.25 * (-1) ** k)
+        t += beat; k += 1
+    add(R.riser(1.2), wave - 1.2, 0.12)
+    t = wave; k = 0                                                                           # ③ 光の波：全部ひらく
+    while t < tip - 0.3:
+        lo, ch = hope[(k // 4) % 4]
+        if k % 4 == 0:
+            add(strings([nf(lo) / 2, nf(lo), nf(ch[0]), nf(ch[1]), nf(ch[2]), nf(ch[0]) * 2], beat * 4.4, 2200, 0.3, 1.2), t, 0.15)
+            add(piano(nf(lo), 2.8, 1.0), t, 0.1)
+            add(R.lp(R.kick(70, 38, 0.6, 0.1), 300), t, 0.22)
+        add(piano(nf(ch[k % 3]) * 2, 1.6, 0.6), t, 0.06, 0.3 * (-1) ** k)
+        t += beat; k += 1
+    mel = ["F#5", "A5", "B5", "A5", "F#5", "E5", "D5", "E5", "F#5", "D5", "A4", "B4"]
+    for j, n in enumerate(mel): add(piano(nf(n), 2.2, 0.85), wave + 0.4 + j * beat, 0.09)
+    add(strings([nf("B2"), nf("D3"), nf("F#3"), nf("B3")], hide - tip + 0.4, 900, 1.2, 1.2), tip, 0.1)     # ④ 指先：短調へ
+    for j, n in enumerate(["B5", "A5", "F#5", "D5"]): add(music_box(nf(n), 2.0), tip + 0.8 + j * 1.0, 0.05)
+    add(strings([nf("G2"), nf("B2"), nf("D3"), nf("F#3")], fin - hide + 0.6, 1000, 1.0, 1.2), hide, 0.1)  # ⑤ なんでもない：Gmaj7
+    for j, n in enumerate(["D5", "B4", "F#4"]): add(piano(nf(n), 2.4, 0.6), hide + 0.4 + j * 0.9, 0.07)
+    add(pad([nf("E2"), nf("B2"), nf("D3"), nf("G3")], DUR + tail - fin, 600), fin, 0.12)     # ⑥ 最後の一文
+    for j in range(4): add(music_box(nf(["G5", "F#5", "D5", "B4"][j]) * (1 + 0.003 * j), 2.0), fin + 0.3 + j * 0.75, 0.055)
