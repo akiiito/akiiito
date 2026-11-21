@@ -317,3 +317,45 @@ def block_hikari(add, DUR, grab=8.2, glow=9.0, wave=14.6, tip=24.6, hide=29.0, f
     for j, n in enumerate(["D5", "B4", "F#4"]): add(piano(nf(n), 2.4, 0.6), hide + 0.4 + j * 0.9, 0.07)
     add(pad([nf("E2"), nf("B2"), nf("D3"), nf("G3")], DUR + tail - fin, 600), fin, 0.12)     # ⑥ 最後の一文
     for j in range(4): add(music_box(nf(["G5", "F#5", "D5", "B4"][j]) * (1 + 0.003 * j), 2.0), fin + 0.3 + j * 0.75, 0.055)
+
+def toki_ep1(add, DUR, stopt=12.3, report=17.0, flash=21.4, stamp=27.2, dawn=28.4, tail=0.0):
+    """「その罪、時効にさせない」第1話：暗い工場（時計の秒針＋短調）→ 時が止まる（無音→鐘→裁きの低音）
+       → 記者のフラッシュ（打ちこみで一気に）→ 有罪の判（特大の一撃）→ 夜明け（あたたかい長調）"""
+    beat = 60 / 72
+    add(pad([nf("A1"), nf("E2"), nf("C3")], stopt + 0.2, 380), 0.0, 0.14)                    # ① 暗い工場
+    t = 0.0; k = 0
+    while t < stopt - 0.05:                                                                  # 秒針
+        add(R.lp(R.noise(0.03), 5000) * R.dec(0.03, 0.006) * (1.0 if k % 2 else 0.7), t, 0.16, 0.2 * (-1) ** k); t += 0.5; k += 1
+    for j, n in enumerate(["E5", "C5", "B4", "A4", "G#4", "A4"]): add(music_box(nf(n), 1.9) * 0.8, 0.5 + j * 1.3, 0.045)
+    add(strings([nf("D2"), nf("F2"), nf("G#2"), nf("B2")], stopt - 9.7, 700, 1.5, 0.3), 9.8, 0.12)      # 代わりはいくらでも：減和音
+    add(pad([nf("D1"), nf("A1"), nf("D2")], flash - stopt, 300), stopt + 0.25, 0.16)        # ② 時が止まる：低い持続音
+    for b in (stopt + 0.2, report - 0.2):
+        bell = sum(np.sin(2 * np.pi * nf("D3") * m_ * R.tt(4.0)) * R.dec(4.0, 1.6 / (1 + i)) / (1 + i) for i, m_ in enumerate((1, 2.76, 5.4, 8.9)))
+        add(bell * 0.6, b, 0.2)
+    t = stopt + 2.0; k = 0
+    while t < flash - 0.4:                                                                   # 裁きの鼓動（少しずつ速く）
+        add(R.lp(R.kick(65, 35, 0.5, 0.12), 260), t, 0.25 + 0.1 * (t > report))
+        t += beat * (2 if t < report else 1); k += 1
+    add(strings([nf("D3"), nf("F3"), nf("A3"), nf("D4")], flash - report, 1200, 1.2, 0.3), report, 0.1)
+    add(R.riser(1.4), flash - 1.4, 0.16)
+    prog = [("E2", ("E3", "G3", "B3")), ("C2", ("C3", "E3", "G3")), ("D2", ("D3", "F#3", "A3")), ("B1", ("B2", "D#3", "F#3"))]
+    b2 = 60 / 120; t = flash; k = 0                                                          # ③ 暴かれる：打ちこみ
+    while t < stamp - 0.3:
+        lo, ch = prog[(k // 4) % 4]
+        if k % 4 == 0: add(strings([nf(lo), nf(ch[0]), nf(ch[1]), nf(ch[2]), nf(ch[0]) * 2], b2 * 4.2, 2400, 0.05, 0.4), t, 0.13)
+        add(R.lp(R.kick(90, 40, 0.3, 0.08), 400), t, 0.26)
+        if k % 2: add(R.lp(R.noise(0.12), 6000) * R.dec(0.12, 0.03), t, 0.1)
+        t += b2; k += 1
+    for j, n in enumerate(["B4", "E5", "G5", "F#5", "E5", "D5", "E5", "B4"]): add(piano(nf(n), 1.4, 0.9), flash + 0.1 + j * b2, 0.06)
+    add(R.boom(3.0), stamp, 0.5)                                                             # ④ 有罪
+    add(strings([nf("E2"), nf("B2"), nf("E3"), nf("G3")], dawn - stamp + 0.5, 900, 0.02, 0.6), stamp, 0.1)
+    warm = [("C3", ("C4", "E4", "G4")), ("G2", ("G3", "B3", "D4")), ("A2", ("A3", "C4", "E4")), ("F2", ("F3", "A3", "C4"))]
+    t = dawn; k = 0                                                                          # ⑤ 夜明け
+    while t < DUR + tail - 0.2:
+        lo, ch = warm[(k // 4) % 4]
+        if k % 4 == 0:
+            add(strings([nf(lo), nf(ch[0]), nf(ch[1]), nf(ch[2])], beat * 4.4, 1300, 1.0, 1.2), t, 0.1)
+            add(piano(nf(lo), 2.6, 0.7), t, 0.07)
+        add(piano(nf(ch[k % 3]) * 2, 1.6, 0.45), t, 0.045, 0.25 * (-1) ** k)
+        t += beat; k += 1
+    for j, n in enumerate(["E5", "G5", "C6", "B5", "G5", "A5"]): add(music_box(nf(n), 2.0), dawn + 0.6 + j * 1.0, 0.05)

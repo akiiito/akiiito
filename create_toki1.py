@@ -200,12 +200,17 @@ for k, (x, hc) in enumerate(((-2.3, (0.12, 0.09, 0.08)), (2.3, (0.45, 0.28, 0.14
     H.upgrade(g, "w%d" % k, [m for o in g.children if o.name.startswith("w%d_hair" % k) for m in o.data.materials][0], seed=7 + k)
     others.append((g, gt))
 # 筆と、光る唇（夜光塗料）
+LIPM = E("lipglow", (0.4, 1.0, 0.35), 2.5)
+def seg(name, p0, p1, r, m, parent):
+    p0, p1 = Vector(p0), Vector(p1); d = p1 - p0
+    o = cyl(name, (0, 0, 0), r, d.length, m, verts=12); o.parent = parent
+    o.location = (p0 + p1) / 2; o.rotation_euler = d.to_track_quat("Z", "Y").to_euler(); return o
 def brush_for(root):
-    b = cyl(root.name + "_brush", (0, 0, 0), 0.006, 0.17, P("brushw", (0.5, 0.35, 0.2), 0.5)); b.parent = root
-    b.location = (0.035, 0.155, 1.3); b.rotation_euler = (math.radians(-25), math.radians(-30), 0)
-    tip = cyl(root.name + "_tip", (0, 0, 0), 0.0045, 0.03, GREEN); tip.parent = root; tip.location = (0.012, 0.19, 1.37); tip.rotation_euler = b.rotation_euler
-    lip = bpy.ops.mesh.primitive_uv_sphere_add(radius=0.012, location=(0, 0, 0)); lo = bpy.context.object; lo.name = root.name + "_lip"
-    lo.data.materials.append(GREEN); lo.parent = root; lo.location = (0.0, 0.13, 1.385); lo.scale = (1.6, 0.35, 0.6)
+    hand = Vector((-0.065, 0.16, 1.24)); tipp = Vector((-0.012, 0.168, 1.378))
+    b = seg(root.name + "_brush", hand + (hand - tipp) * 0.25, tipp + (hand - tipp) * 0.12, 0.0055, P("brushw", (0.5, 0.35, 0.2), 0.5), root)
+    tip = seg(root.name + "_tip", tipp + (hand - tipp) * 0.12, tipp, 0.004, GREEN, root)
+    bpy.ops.mesh.primitive_uv_sphere_add(radius=0.01, location=(0, 0, 0)); lo = bpy.context.object; lo.name = root.name + "_lip"
+    lo.data.materials.append(LIPM); lo.parent = root; lo.location = (0.0, 0.137, 1.392); lo.scale = (1.5, 0.3, 0.45)
     gl = bpy.data.lights.new(root.name + "_lipl", "POINT"); gl.color = (0.4, 1.0, 0.35); gl.shadow_soft_size = 0.02
     glo = bpy.data.objects.new(root.name + "_lipl", gl); bpy.context.collection.objects.link(glo); glo.parent = root; glo.location = (0.0, 0.2, 1.38)
     return b, tip, lo, gl
@@ -337,6 +342,8 @@ def shot(t):
         v = [float(x) for x in arg("--camover", "").split(",")]; pos = Vector(v[0:3]); look = Vector(v[3:6]); lens = v[6]
     return pos, look, lens, fs, i
 
+def side_of(pos, look):
+    d = (look - pos); return Vector((d.y, -d.x, 0)).normalized()
 def talking(who, t):
     return any(l[0] <= t <= l[1] - 0.05 for l in LINES if l[5] == who)
 def flap(t): return int(t * 12) % 3 != 2
@@ -424,8 +431,8 @@ def place(t):
         o.scale = (g["s"] * (1 - ease((k - 0.9) / 0.25)),) * 3
     # 補助光（ショットごと）
     pos, look, lens, fs, si = shot(t)
-    keyo.location = pos + Vector((-0.6, 0.2, 0.5)); keyo.rotation_euler = (look - keyo.location).to_track_quat("-Z", "Y").to_euler()
-    key.energy = 14.0; key.color = Vector((0.7, 0.75, 1.0)).lerp(Vector((1.0, 0.82, 0.65)), dn)[:]
+    keyo.location = pos + side_of(pos, look) * -1.1 + Vector((0, 0, 0.6)); keyo.rotation_euler = (look - keyo.location).to_track_quat("-Z", "Y").to_euler()
+    key.energy = 9.0; key.color = Vector((0.7, 0.75, 1.0)).lerp(Vector((1.0, 0.82, 0.65)), dn)[:]
     rimo.location = look + (look - pos).normalized() * 1.0 + Vector((0.4, 0, 0.5)); rimo.rotation_euler = (look - rimo.location).to_track_quat("-Z", "Y").to_euler()
     rim.energy = 30.0 * (1 - dn) + (25.0 if si in (5, 9) else 0.0); rim.color = (0.55, 0.7, 1.0) if si not in (5, 9) else (1.0, 0.75, 0.4)
     bossl.energy = 60.0 * (1 - dn)

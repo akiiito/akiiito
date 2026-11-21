@@ -1,0 +1,48 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hero,IPAPGothic,66,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,1,0,1,7,3,5,30,30,0,1
+Style: narr,IPAPGothic,62,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,2,0,1,7,3,5,30,30,0,1
+Style: shout,IPAPGothic,78,&H0040E6FF,&H0040E6FF,&H00200818,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: resolve,IPAPGothic,80,&H00FFFFFF,&H00FFFFFF,&H003C14DC,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: shape,IPAPGothic,20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: hana,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H00306A30,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1
+Style: boss,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H00303030,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1
+Style: toki,IPAPGothic,44,&H0080E8FF,&H0080E8FF,&H00102040,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1
+Style: hook,IPAPGothic,58,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,7,0,5,20,20,0,1
+Style: card,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,0,0,5,20,20,0,1
+Style: count,IPAPGothic,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,8,0,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 8,0:00:00.00,0:00:02.90,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H60&\bord0\shad0\fad(0,200)}m 0 100 l 720 100 l 720 410 l 0 410{\p0}
+Dialogue: 10,0:00:00.00,0:00:02.90,hook,,0,0,0,,{\an5\pos(360,195)\fs76\bord7\fscx150\fscy150\t(0,140,\fscx100\fscy100)\fad(0,200)}{\c&H70FF60&}光る絵の具{\c&HFFFFFF&}を、
+Dialogue: 10,0:00:00.00,0:00:02.90,hook,,0,0,0,,{\an5\pos(360,310)\fs76\bord7\fscx150\fscy150\t(0,140,\fscx100\fscy100)\fad(0,200)}舐めて塗れと言われた
+Dialogue: 10,0:00:00.30,0:00:02.90,card,,0,0,0,,{\an5\pos(360,445)\fs28\c&HDDDDDD&\bord3\3c&H000000&\fad(150,200)}実話をもとにしたフィクション
+Dialogue: 10,0:00:06.80,0:00:08.40,count,,0,0,0,,{\an5\pos(360,330)\fs56\bord5\3c&H000000&\fad(200,250)}――数年後
+Dialogue: 9,0:00:12.60,0:00:21.40,card,,0,0,0,,{\an5\pos(360,120)\fs34\c&H80D8FF&\bord3\3c&H000000&\fad(250,150)}― 裁きの時間 ―
+Dialogue: 10,0:00:13.00,0:00:15.40,card,,0,0,0,,{\an4\pos(46,560)\fs30\c&HDDDDDD&\bord3\3c&H000000&\fad(200,200)}時の裁判官
+Dialogue: 10,0:00:13.00,0:00:15.40,count,,0,0,0,,{\an4\pos(40,620)\fs72\c&H80E0FF&\bord6\3c&H102030&\fad(200,200)\fscx150\fscy150\t(0,140,\fscx100\fscy100)}トキモリ
+Dialogue: 11,0:00:27.20,0:00:28.90,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H2020D0&\1a&H10&\bord0\shad0\org(360,555)\frz-12\fscx260\fscy260\t(0,110,\fscx100\fscy100)\fad(0,300)}m 200 470 l 520 470 l 520 640 l 200 640 l 200 470 m 214 484 l 214 626 l 506 626 l 506 484 l 214 484{\p0}
+Dialogue: 12,0:00:27.20,0:00:28.90,count,,0,0,0,,{\an5\pos(360,555)\fs120\c&H2020D0&\bord0\shad0\frz-12\fscx260\fscy260\t(0,110,\fscx100\fscy100)\fad(0,300)}有罪
+Dialogue: 3,0:00:31.00,0:00:35.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H70&\bord0\shad0\fad(500,0)}m 0 0 l 720 0 l 720 1280 l 0 1280{\p0}
+Dialogue: 11,0:00:31.10,0:00:35.00,card,,0,0,0,,{\an5\pos(360,300)\fs34\c&H80E0FF&\bord3\3c&H000000&\fad(300,0)}実際にあった話
+Dialogue: 11,0:00:31.20,0:00:35.00,card,,0,0,0,,{\an5\pos(360,420)\fs33\bord3\3c&H000000&\fad(300,0)}1917年〜 アメリカの時計工場では、\N筆先を唇で整えて\N夜光塗料（ラジウム）を塗っていた
+Dialogue: 11,0:00:31.90,0:00:35.00,card,,0,0,0,,{\an5\pos(360,590)\fs33\bord3\3c&H000000&\fad(300,0)}あごの骨が崩れる病が相次ぎ、\N1928年、彼女たちは自ら裁判を起こし\N会社と和解した
+Dialogue: 12,0:00:33.00,0:00:35.00,card,,0,0,0,,{\an5\pos(360,790)\fs40\c&H80E0FF&\bord4\3c&H000000&\fad(200,0)}次に裁いてほしい“歴史の闇”、\Nコメントで教えて
+Dialogue: 12,0:00:00.00,0:00:35.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60D0FF&\1a&H00&\bord0\shad0\clip(0,0,0,6)\t(0,35000,\clip(0,0,720,6))}m 0 0 l 720 0 l 720 6 l 0 6{\p0}
+Dialogue: 9,0:00:00.30,0:00:03.27,hana,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}筆先は、\N唇でとがらせるの
+Dialogue: 9,0:00:03.20,0:00:06.13,boss,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}ラジウムは体にいい。\Nどんどん舐めろ
+Dialogue: 9,0:00:06.80,0:00:10.32,hana,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}歯が…抜けたの。\Nあごが、痛い…
+Dialogue: 9,0:00:10.17,0:00:12.42,boss,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}気のせいだ。\N代わりはいくらでもいる
+Dialogue: 9,0:00:13.00,0:00:15.44,toki,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}――その嘘、\Nここで止める
+Dialogue: 9,0:00:15.60,0:00:20.00,toki,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}危ないと、知ってたのね。\N報告書に全部書いてある
+Dialogue: 9,0:00:19.90,0:00:21.61,boss,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}な、なぜそれを…！
+Dialogue: 9,0:00:24.60,0:00:27.30,toki,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}その罪、\N時効にさせない
+Dialogue: 9,0:00:28.80,0:00:30.60,hana,,0,0,0,,{\an5\pos(360,1010)\fad(60,100)}…ありがとう
