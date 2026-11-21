@@ -64,7 +64,7 @@ def build_ui(path):
     E(FACT + 0.1, END, "card", r"{\an5\pos(360,300)\fs34\c&H80E0FF&\bord3\3c&H000000&\fad(300,0)}実際にあった話", 11)
     E(FACT + 0.2, END, "card", r"{\an5\pos(360,420)\fs33\bord3\3c&H000000&\fad(300,0)}1917年〜 アメリカの時計工場では、\N筆先を唇で整えて\N夜光塗料（ラジウム）を塗っていた", 11)
     E(FACT + 0.9, END, "card", r"{\an5\pos(360,590)\fs33\bord3\3c&H000000&\fad(300,0)}あごの骨が崩れる病が相次ぎ、\N1928年、彼女たちは自ら裁判を起こし\N会社と和解した", 11)
-    E(END - 2.0, END, "card", r"{\an5\pos(360,790)\fs40\c&H80E0FF&\bord4\3c&H000000&\fad(200,0)}次に裁いてほしい“歴史の闇”、\Nコメントで教えて", 12)
+    E(END - 2.0, END, "card", r"{\an5\pos(360,790)\fs40\c&H80E0FF&\bord4\3c&H000000&\fad(200,0)}面白かったら\Nコメント・フォローで応援してね！", 12)
     S(0, END, "m 0 0 l 720 0 l 720 6 l 0 6", "&H60D0FF&", "&H00&", 12, r"\clip(0,0,0,6)\t(0,%d,\clip(0,0,720,6))" % int(END * 1000))
     for st_, en, text, _, _, who in R.LINES:
         if st_ >= FACT: continue
