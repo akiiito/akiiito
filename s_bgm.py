@@ -359,3 +359,46 @@ def toki_ep1(add, DUR, stopt=12.3, report=17.0, flash=21.4, stamp=27.2, dawn=28.
         add(piano(nf(ch[k % 3]) * 2, 1.6, 0.45), t, 0.045, 0.25 * (-1) ** k)
         t += beat; k += 1
     for j, n in enumerate(["E5", "G5", "C6", "B5", "G5", "A5"]): add(music_box(nf(n), 2.0), dawn + 0.6 + j * 1.0, 0.05)
+
+def toki_ep2(add, DUR, stopt=11.6, dash=14.8, resume=22.0, stamp=27.2, dawn=28.4, tail=0.0):
+    """第2話：暗い工場（短調・秒針）→ 時が止まる（鐘＋低音）→ 成敗（速い打ちこみ）→ 金貨の雨（明るい長調）→ 有罪 → 夜明け"""
+    beat = 60 / 72
+    add(pad([nf("A1"), nf("E2"), nf("C3")], stopt + 0.2, 380), 0.0, 0.14)
+    t = 0.0; k = 0
+    while t < stopt - 0.05:
+        add(R.lp(R.noise(0.03), 5000) * R.dec(0.03, 0.006) * (1.0 if k % 2 else 0.7), t, 0.16, 0.2 * (-1) ** k); t += 0.5; k += 1
+    for j, n in enumerate(["E5", "C5", "B4", "A4", "G#4", "A4"]): add(music_box(nf(n), 1.9) * 0.8, 0.5 + j * 1.3, 0.045)
+    add(strings([nf("D2"), nf("F2"), nf("G#2"), nf("B2")], stopt - 8.9, 700, 1.5, 0.3), 9.0, 0.12)
+    add(pad([nf("D1"), nf("A1"), nf("D2")], dash - stopt, 300), stopt + 0.25, 0.16)
+    bell = sum(np.sin(2 * np.pi * nf("D3") * m_ * R.tt(4.0)) * R.dec(4.0, 1.6 / (1 + i)) / (1 + i) for i, m_ in enumerate((1, 2.76, 5.4, 8.9)))
+    add(bell * 0.6, stopt + 0.2, 0.2)
+    t = stopt + 1.6
+    while t < dash - 0.3: add(R.lp(R.kick(65, 35, 0.5, 0.12), 260), t, 0.25); t += beat
+    add(R.riser(0.8), dash - 0.8, 0.14)
+    prog = [("D2", ("D3", "F3", "A3")), ("A#1", ("A#2", "D3", "F3")), ("C2", ("C3", "E3", "G3")), ("A1", ("A2", "C#3", "E3"))]
+    b2 = 60 / 150; t = dash; k = 0                                                           # 成敗：速い打ちこみ
+    while t < resume - 0.2:
+        lo, ch = prog[(k // 4) % 4]
+        if k % 4 == 0: add(strings([nf(lo), nf(ch[0]), nf(ch[1]), nf(ch[2]), nf(ch[0]) * 2], b2 * 4.2, 2600, 0.03, 0.3), t, 0.12)
+        add(R.lp(R.kick(95, 40, 0.28, 0.07), 450), t, 0.3)
+        add(R.lp(R.noise(0.08), 7000) * R.dec(0.08, 0.02), t + b2 / 2, 0.1)
+        if k % 2: add(R.lp(R.noise(0.15), 5000) * R.dec(0.15, 0.05), t, 0.14)
+        t += b2; k += 1
+    for j, n in enumerate(["D5", "F5", "A5", "G5", "F5", "E5", "D5", "C#5", "D5", "A4", "D5", "F5", "E5", "D5", "C#5", "A4", "D5", "E5"]):
+        add(piano(nf(n), 0.9, 0.9), dash + j * b2, 0.05)
+    warm = [("C3", ("C4", "E4", "G4")), ("G2", ("G3", "B3", "D4")), ("A2", ("A3", "C4", "E4")), ("F2", ("F3", "A3", "C4"))]
+    t = resume; k = 0                                                                        # 金貨：明るく
+    while t < stamp - 0.3:
+        lo, ch = warm[(k // 4) % 4]
+        if k % 4 == 0: add(strings([nf(lo), nf(ch[0]), nf(ch[1]), nf(ch[2])], beat * 4.3, 1600, 0.3, 0.8), t, 0.11); add(piano(nf(lo), 2.4, 0.8), t, 0.07)
+        add(piano(nf(ch[k % 3]) * 2, 1.4, 0.55), t, 0.05, 0.25 * (-1) ** k)
+        t += beat / 2; k += 1
+    add(R.boom(3.0), stamp, 0.5)
+    add(strings([nf("C2"), nf("G2"), nf("C3"), nf("E3")], dawn - stamp + 0.5, 900, 0.02, 0.6), stamp, 0.1)
+    t = dawn; k = 0
+    while t < DUR + tail - 0.2:
+        lo, ch = warm[(k // 4) % 4]
+        if k % 4 == 0: add(strings([nf(lo), nf(ch[0]), nf(ch[1]), nf(ch[2])], beat * 4.4, 1300, 1.0, 1.2), t, 0.1); add(piano(nf(lo), 2.6, 0.7), t, 0.07)
+        add(piano(nf(ch[k % 3]) * 2, 1.6, 0.45), t, 0.045, 0.25 * (-1) ** k)
+        t += beat; k += 1
+    for j, n in enumerate(["E5", "G5", "C6", "B5", "G5", "A5"]): add(music_box(nf(n), 2.0), dawn + 0.6 + j * 1.0, 0.05)
