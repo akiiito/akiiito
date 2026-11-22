@@ -31,10 +31,10 @@ VOICE_NPY = os.path.join(HERE, "toki1_voice.npy"); LINES_JSON = os.path.join(HER
 
 STY = (
     "Style: shape,{f},20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1\n"
-    "Style: hana,{f},44,&H00FFFFFF,&H00FFFFFF,&H00306A30,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1\n"
-    "Style: boss,{f},44,&H00FFFFFF,&H00FFFFFF,&H00303030,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1\n"
-    "Style: toki,{f},44,&H0080E8FF,&H0080E8FF,&H00102040,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1\n"
-    "Style: hook,{f},58,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,7,0,5,20,20,0,1\n"
+    "Style: hana,{f},70,&H00FFFFFF,&H00FFFFFF,&H00306A30,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1\n"
+    "Style: boss,{f},70,&H00FFFFFF,&H00FFFFFF,&H00303030,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1\n"
+    "Style: toki,{f},70,&H0080E8FF,&H0080E8FF,&H00102040,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1\n"
+    "Style: hook,{f},70,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,7,0,5,20,20,0,1\n"
     "Style: card,{f},44,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,0,0,5,20,20,0,1\n"
     "Style: count,{f},84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,8,0,5,0,0,0,1\n")
 
@@ -68,7 +68,7 @@ def build_ui(path):
     S(0, END, "m 0 0 l 720 0 l 720 6 l 0 6", "&H60D0FF&", "&H00&", 12, r"\clip(0,0,0,6)\t(0,%d,\clip(0,0,720,6))" % int(END * 1000))
     for st_, en, text, _, _, who in R.LINES:
         if st_ >= FACT: continue
-        E(st_, min(en, FACT), who, r"{\an5\pos(360,1010)\fad(60,100)}%s" % text, 9)
+        E(st_, min(en, FACT), who, r"{\an5\pos(360,1000)\fad(60,100)}%s" % text, 9)
     head = R.ASS_HEAD.replace("{f}", R.FONT).replace("\n[Events]", STY.replace("{f}", R.FONT) + "\n[Events]")
     open(path, "w", encoding="utf-8").write(head + "\n".join(ev) + "\n")
 
