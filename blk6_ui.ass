@@ -24,9 +24,9 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 8,0:00:00.00,0:00:02.90,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H60&\bord0\shad0\fad(0,200)}m 0 90 l 720 90 l 720 320 l 0 320{\p0}
 Dialogue: 10,0:00:00.00,0:00:02.90,hook,,0,0,0,,{\an5\pos(360,165)\fs54\bord7\fscx125\fscy125\t(0,140,\fscx100\fscy100)\fad(0,200)}触れたら、{\c&H4040FF&}影{\c&HFFFFFF&}になる世界。
 Dialogue: 10,0:00:00.20,0:00:02.90,hook,,0,0,0,,{\an5\pos(360,262)\fs76\c&H3030FF&\3c&H000000&\bord8\fscx125\fscy125\t(0,140,\fscx100\fscy100)\fad(0,200)}最終話
-Dialogue: 6,0:00:00.00,0:00:30.10,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H100810&\1a&H40&\bord0\shad0\fad(0,300)}m 30 18 l 338 18 b 344 18 352 25 352 32 l 352 54 b 352 60 344 68 338 68 l 30 68 b 23 68 16 60 16 54 l 16 32 b 16 25 23 18 30 18{\p0}
-Dialogue: 8,0:00:00.00,0:00:30.10,card,,0,0,0,,{\an4\pos(28,43)\fs24\c&HFF80D0&\fad(0,300)}影化
-Dialogue: 6,0:00:00.00,0:00:30.10,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H302030&\1a&H00&\bord0\shad0\fad(0,300)}m 96 30 l 330 30 l 330 56 l 96 56{\p0}
+Dialogue: 6,0:00:00.00,0:00:33.68,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H100810&\1a&H40&\bord0\shad0\fad(0,300)}m 30 18 l 338 18 b 344 18 352 25 352 32 l 352 54 b 352 60 344 68 338 68 l 30 68 b 23 68 16 60 16 54 l 16 32 b 16 25 23 18 30 18{\p0}
+Dialogue: 8,0:00:00.00,0:00:33.68,card,,0,0,0,,{\an4\pos(28,43)\fs24\c&HFF80D0&\fad(0,300)}影化
+Dialogue: 6,0:00:00.00,0:00:33.68,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H302030&\1a&H00&\bord0\shad0\fad(0,300)}m 96 30 l 330 30 l 330 56 l 96 56{\p0}
 Dialogue: 7,0:00:00.00,0:00:00.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 177 30 l 177 56 l 96 56{\p0}
 Dialogue: 9,0:00:00.00,0:00:00.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}35%
 Dialogue: 7,0:00:00.08,0:00:00.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 177 30 l 177 56 l 96 56{\p0}
@@ -487,82 +487,82 @@ Dialogue: 7,0:00:19.00,0:00:19.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a
 Dialogue: 9,0:00:19.00,0:00:19.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
 Dialogue: 7,0:00:19.08,0:00:19.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
 Dialogue: 9,0:00:19.08,0:00:19.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
-Dialogue: 7,0:00:19.17,0:00:19.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:19.17,0:00:19.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:19.25,0:00:19.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:19.25,0:00:19.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:19.33,0:00:19.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:19.33,0:00:19.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:19.42,0:00:19.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:19.42,0:00:19.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:19.50,0:00:19.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:19.50,0:00:19.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:19.58,0:00:19.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:19.58,0:00:19.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:19.67,0:00:19.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:19.67,0:00:19.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:19.75,0:00:19.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:19.75,0:00:19.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:19.83,0:00:19.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:19.83,0:00:19.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:19.92,0:00:20.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:19.92,0:00:20.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:20.00,0:00:20.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:20.00,0:00:20.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:20.08,0:00:20.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:20.08,0:00:20.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:20.17,0:00:20.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:20.17,0:00:20.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:20.25,0:00:20.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:20.25,0:00:20.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:20.33,0:00:20.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:20.33,0:00:20.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:20.42,0:00:20.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:20.42,0:00:20.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:20.50,0:00:20.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:20.50,0:00:20.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:20.58,0:00:20.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:20.58,0:00:20.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:20.67,0:00:20.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:20.67,0:00:20.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:20.75,0:00:20.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:20.75,0:00:20.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:20.83,0:00:20.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:20.83,0:00:20.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:20.92,0:00:21.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:20.92,0:00:21.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:21.00,0:00:21.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:21.00,0:00:21.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:21.08,0:00:21.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:21.08,0:00:21.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:21.17,0:00:21.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:21.17,0:00:21.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:21.25,0:00:21.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:21.25,0:00:21.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:21.33,0:00:21.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:21.33,0:00:21.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:21.42,0:00:21.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:21.42,0:00:21.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:21.50,0:00:21.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:21.50,0:00:21.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:21.58,0:00:21.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:21.58,0:00:21.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:21.67,0:00:21.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:21.67,0:00:21.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:21.75,0:00:21.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:21.75,0:00:21.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:21.83,0:00:21.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:21.83,0:00:21.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:21.92,0:00:22.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:21.92,0:00:22.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:22.00,0:00:22.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:22.00,0:00:22.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:22.08,0:00:22.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:22.08,0:00:22.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:22.17,0:00:22.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:22.17,0:00:22.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
-Dialogue: 7,0:00:22.25,0:00:22.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
-Dialogue: 9,0:00:22.25,0:00:22.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:19.17,0:00:19.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:19.17,0:00:19.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:19.25,0:00:19.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:19.25,0:00:19.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:19.33,0:00:19.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:19.33,0:00:19.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:19.42,0:00:19.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:19.42,0:00:19.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:19.50,0:00:19.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:19.50,0:00:19.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:19.58,0:00:19.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:19.58,0:00:19.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:19.67,0:00:19.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:19.67,0:00:19.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:19.75,0:00:19.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:19.75,0:00:19.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:19.83,0:00:19.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:19.83,0:00:19.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:19.92,0:00:20.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:19.92,0:00:20.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:20.00,0:00:20.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:20.00,0:00:20.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:20.08,0:00:20.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:20.08,0:00:20.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:20.17,0:00:20.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:20.17,0:00:20.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:20.25,0:00:20.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:20.25,0:00:20.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:20.33,0:00:20.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:20.33,0:00:20.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:20.42,0:00:20.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:20.42,0:00:20.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:20.50,0:00:20.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:20.50,0:00:20.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:20.58,0:00:20.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:20.58,0:00:20.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:20.67,0:00:20.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:20.67,0:00:20.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:20.75,0:00:20.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:20.75,0:00:20.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:20.83,0:00:20.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:20.83,0:00:20.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:20.92,0:00:21.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:20.92,0:00:21.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:21.00,0:00:21.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:21.00,0:00:21.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:21.08,0:00:21.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:21.08,0:00:21.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:21.17,0:00:21.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:21.17,0:00:21.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:21.25,0:00:21.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:21.25,0:00:21.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:21.33,0:00:21.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:21.33,0:00:21.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:21.42,0:00:21.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:21.42,0:00:21.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:21.50,0:00:21.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:21.50,0:00:21.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:21.58,0:00:21.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:21.58,0:00:21.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:21.67,0:00:21.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:21.67,0:00:21.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:21.75,0:00:21.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:21.75,0:00:21.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:21.83,0:00:21.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:21.83,0:00:21.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:21.92,0:00:22.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:21.92,0:00:22.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:22.00,0:00:22.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:22.00,0:00:22.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:22.08,0:00:22.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:22.08,0:00:22.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:22.17,0:00:22.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:22.17,0:00:22.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:22.25,0:00:22.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:22.25,0:00:22.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
 Dialogue: 7,0:00:22.33,0:00:22.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
 Dialogue: 9,0:00:22.33,0:00:22.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
 Dialogue: 7,0:00:22.42,0:00:22.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
@@ -573,209 +573,295 @@ Dialogue: 7,0:00:22.58,0:00:22.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a
 Dialogue: 9,0:00:22.58,0:00:22.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
 Dialogue: 7,0:00:22.67,0:00:22.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
 Dialogue: 9,0:00:22.67,0:00:22.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
-Dialogue: 7,0:00:22.75,0:00:22.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
-Dialogue: 9,0:00:22.75,0:00:22.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
-Dialogue: 7,0:00:22.83,0:00:22.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
-Dialogue: 9,0:00:22.83,0:00:22.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
-Dialogue: 7,0:00:22.92,0:00:23.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
-Dialogue: 9,0:00:22.92,0:00:23.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
-Dialogue: 7,0:00:23.00,0:00:23.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
-Dialogue: 9,0:00:23.00,0:00:23.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
-Dialogue: 7,0:00:23.08,0:00:23.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
-Dialogue: 9,0:00:23.08,0:00:23.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
-Dialogue: 7,0:00:23.17,0:00:23.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
-Dialogue: 9,0:00:23.17,0:00:23.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
-Dialogue: 7,0:00:23.25,0:00:23.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
-Dialogue: 9,0:00:23.25,0:00:23.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
-Dialogue: 7,0:00:23.33,0:00:23.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
-Dialogue: 9,0:00:23.33,0:00:23.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
-Dialogue: 7,0:00:23.42,0:00:23.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
-Dialogue: 9,0:00:23.42,0:00:23.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
-Dialogue: 7,0:00:23.50,0:00:23.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 305 30 l 305 56 l 96 56{\p0}
-Dialogue: 9,0:00:23.50,0:00:23.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
-Dialogue: 7,0:00:23.58,0:00:23.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 305 30 l 305 56 l 96 56{\p0}
-Dialogue: 9,0:00:23.58,0:00:23.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}89%
-Dialogue: 7,0:00:23.67,0:00:23.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 304 30 l 304 56 l 96 56{\p0}
-Dialogue: 9,0:00:23.67,0:00:23.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}89%
-Dialogue: 7,0:00:23.75,0:00:23.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 303 30 l 303 56 l 96 56{\p0}
-Dialogue: 9,0:00:23.75,0:00:23.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}89%
-Dialogue: 7,0:00:23.83,0:00:23.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 302 30 l 302 56 l 96 56{\p0}
-Dialogue: 9,0:00:23.83,0:00:23.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}88%
-Dialogue: 7,0:00:23.92,0:00:24.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 300 30 l 300 56 l 96 56{\p0}
-Dialogue: 9,0:00:23.92,0:00:24.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}87%
-Dialogue: 7,0:00:24.00,0:00:24.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 299 30 l 299 56 l 96 56{\p0}
-Dialogue: 9,0:00:24.00,0:00:24.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}87%
-Dialogue: 7,0:00:24.08,0:00:24.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 297 30 l 297 56 l 96 56{\p0}
-Dialogue: 9,0:00:24.08,0:00:24.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}86%
-Dialogue: 7,0:00:24.17,0:00:24.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 295 30 l 295 56 l 96 56{\p0}
-Dialogue: 9,0:00:24.17,0:00:24.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}85%
-Dialogue: 7,0:00:24.25,0:00:24.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 293 30 l 293 56 l 96 56{\p0}
-Dialogue: 9,0:00:24.25,0:00:24.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}84%
-Dialogue: 7,0:00:24.33,0:00:24.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 290 30 l 290 56 l 96 56{\p0}
-Dialogue: 9,0:00:24.33,0:00:24.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}83%
-Dialogue: 7,0:00:24.42,0:00:24.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 288 30 l 288 56 l 96 56{\p0}
-Dialogue: 9,0:00:24.42,0:00:24.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}82%
-Dialogue: 7,0:00:24.50,0:00:24.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 285 30 l 285 56 l 96 56{\p0}
-Dialogue: 9,0:00:24.50,0:00:24.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}81%
-Dialogue: 7,0:00:24.58,0:00:24.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 283 30 l 283 56 l 96 56{\p0}
-Dialogue: 9,0:00:24.58,0:00:24.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}80%
-Dialogue: 7,0:00:24.67,0:00:24.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 280 30 l 280 56 l 96 56{\p0}
-Dialogue: 9,0:00:24.67,0:00:24.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}79%
-Dialogue: 7,0:00:24.75,0:00:24.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 277 30 l 277 56 l 96 56{\p0}
-Dialogue: 9,0:00:24.75,0:00:24.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}78%
-Dialogue: 7,0:00:24.83,0:00:24.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 274 30 l 274 56 l 96 56{\p0}
-Dialogue: 9,0:00:24.83,0:00:24.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}76%
-Dialogue: 7,0:00:24.92,0:00:25.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 271 30 l 271 56 l 96 56{\p0}
-Dialogue: 9,0:00:24.92,0:00:25.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}75%
-Dialogue: 7,0:00:25.00,0:00:25.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 267 30 l 267 56 l 96 56{\p0}
-Dialogue: 9,0:00:25.00,0:00:25.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}73%
-Dialogue: 7,0:00:25.08,0:00:25.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 264 30 l 264 56 l 96 56{\p0}
-Dialogue: 9,0:00:25.08,0:00:25.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}72%
-Dialogue: 7,0:00:25.17,0:00:25.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 260 30 l 260 56 l 96 56{\p0}
-Dialogue: 9,0:00:25.17,0:00:25.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}70%
-Dialogue: 7,0:00:25.25,0:00:25.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 257 30 l 257 56 l 96 56{\p0}
-Dialogue: 9,0:00:25.25,0:00:25.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}69%
-Dialogue: 7,0:00:25.33,0:00:25.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 253 30 l 253 56 l 96 56{\p0}
-Dialogue: 9,0:00:25.33,0:00:25.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}67%
-Dialogue: 7,0:00:25.42,0:00:25.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 249 30 l 249 56 l 96 56{\p0}
-Dialogue: 9,0:00:25.42,0:00:25.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}66%
-Dialogue: 7,0:00:25.50,0:00:25.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 245 30 l 245 56 l 96 56{\p0}
-Dialogue: 9,0:00:25.50,0:00:25.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}64%
-Dialogue: 7,0:00:25.58,0:00:25.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 242 30 l 242 56 l 96 56{\p0}
-Dialogue: 9,0:00:25.58,0:00:25.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}62%
-Dialogue: 7,0:00:25.67,0:00:25.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 238 30 l 238 56 l 96 56{\p0}
-Dialogue: 9,0:00:25.67,0:00:25.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}61%
-Dialogue: 7,0:00:25.75,0:00:25.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 234 30 l 234 56 l 96 56{\p0}
-Dialogue: 9,0:00:25.75,0:00:25.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}59%
-Dialogue: 7,0:00:25.83,0:00:25.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 230 30 l 230 56 l 96 56{\p0}
-Dialogue: 9,0:00:25.83,0:00:25.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}57%
-Dialogue: 7,0:00:25.92,0:00:26.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 226 30 l 226 56 l 96 56{\p0}
-Dialogue: 9,0:00:25.92,0:00:26.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}56%
-Dialogue: 7,0:00:26.00,0:00:26.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 222 30 l 222 56 l 96 56{\p0}
-Dialogue: 9,0:00:26.00,0:00:26.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}54%
-Dialogue: 7,0:00:26.08,0:00:26.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 217 30 l 217 56 l 96 56{\p0}
-Dialogue: 9,0:00:26.08,0:00:26.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}52%
-Dialogue: 7,0:00:26.17,0:00:26.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 213 30 l 213 56 l 96 56{\p0}
-Dialogue: 9,0:00:26.17,0:00:26.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}50%
-Dialogue: 7,0:00:26.25,0:00:26.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 209 30 l 209 56 l 96 56{\p0}
-Dialogue: 9,0:00:26.25,0:00:26.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}49%
-Dialogue: 7,0:00:26.33,0:00:26.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 205 30 l 205 56 l 96 56{\p0}
-Dialogue: 9,0:00:26.33,0:00:26.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}47%
-Dialogue: 7,0:00:26.42,0:00:26.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 201 30 l 201 56 l 96 56{\p0}
-Dialogue: 9,0:00:26.42,0:00:26.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}45%
-Dialogue: 7,0:00:26.50,0:00:26.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 197 30 l 197 56 l 96 56{\p0}
-Dialogue: 9,0:00:26.50,0:00:26.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}43%
-Dialogue: 7,0:00:26.58,0:00:26.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 193 30 l 193 56 l 96 56{\p0}
-Dialogue: 9,0:00:26.58,0:00:26.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}41%
-Dialogue: 7,0:00:26.67,0:00:26.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 189 30 l 189 56 l 96 56{\p0}
-Dialogue: 9,0:00:26.67,0:00:26.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}40%
-Dialogue: 7,0:00:26.75,0:00:26.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 184 30 l 184 56 l 96 56{\p0}
-Dialogue: 9,0:00:26.75,0:00:26.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}38%
-Dialogue: 7,0:00:26.83,0:00:26.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 180 30 l 180 56 l 96 56{\p0}
-Dialogue: 9,0:00:26.83,0:00:26.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}36%
-Dialogue: 7,0:00:26.92,0:00:27.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 176 30 l 176 56 l 96 56{\p0}
-Dialogue: 9,0:00:26.92,0:00:27.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}35%
-Dialogue: 7,0:00:27.00,0:00:27.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 172 30 l 172 56 l 96 56{\p0}
-Dialogue: 9,0:00:27.00,0:00:27.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}33%
-Dialogue: 7,0:00:27.08,0:00:27.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 169 30 l 169 56 l 96 56{\p0}
-Dialogue: 9,0:00:27.08,0:00:27.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}31%
-Dialogue: 7,0:00:27.17,0:00:27.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 165 30 l 165 56 l 96 56{\p0}
-Dialogue: 9,0:00:27.17,0:00:27.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}30%
-Dialogue: 7,0:00:27.25,0:00:27.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 161 30 l 161 56 l 96 56{\p0}
-Dialogue: 9,0:00:27.25,0:00:27.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}28%
-Dialogue: 7,0:00:27.33,0:00:27.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 157 30 l 157 56 l 96 56{\p0}
-Dialogue: 9,0:00:27.33,0:00:27.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}26%
-Dialogue: 7,0:00:27.42,0:00:27.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 154 30 l 154 56 l 96 56{\p0}
-Dialogue: 9,0:00:27.42,0:00:27.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}25%
-Dialogue: 7,0:00:27.50,0:00:27.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 150 30 l 150 56 l 96 56{\p0}
-Dialogue: 9,0:00:27.50,0:00:27.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}23%
-Dialogue: 7,0:00:27.58,0:00:27.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 147 30 l 147 56 l 96 56{\p0}
-Dialogue: 9,0:00:27.58,0:00:27.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}22%
-Dialogue: 7,0:00:27.67,0:00:27.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 143 30 l 143 56 l 96 56{\p0}
-Dialogue: 9,0:00:27.67,0:00:27.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}20%
-Dialogue: 7,0:00:27.75,0:00:27.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 140 30 l 140 56 l 96 56{\p0}
-Dialogue: 9,0:00:27.75,0:00:27.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}19%
-Dialogue: 7,0:00:27.83,0:00:27.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 137 30 l 137 56 l 96 56{\p0}
-Dialogue: 9,0:00:27.83,0:00:27.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}18%
-Dialogue: 7,0:00:27.92,0:00:28.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 134 30 l 134 56 l 96 56{\p0}
-Dialogue: 9,0:00:27.92,0:00:28.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}16%
-Dialogue: 7,0:00:28.00,0:00:28.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 131 30 l 131 56 l 96 56{\p0}
-Dialogue: 9,0:00:28.00,0:00:28.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}15%
-Dialogue: 7,0:00:28.08,0:00:28.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 128 30 l 128 56 l 96 56{\p0}
-Dialogue: 9,0:00:28.08,0:00:28.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}14%
-Dialogue: 7,0:00:28.17,0:00:28.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 126 30 l 126 56 l 96 56{\p0}
-Dialogue: 9,0:00:28.17,0:00:28.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}13%
-Dialogue: 7,0:00:28.25,0:00:28.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 123 30 l 123 56 l 96 56{\p0}
-Dialogue: 9,0:00:28.25,0:00:28.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}12%
-Dialogue: 7,0:00:28.33,0:00:28.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 121 30 l 121 56 l 96 56{\p0}
-Dialogue: 9,0:00:28.33,0:00:28.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}11%
-Dialogue: 7,0:00:28.42,0:00:28.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 119 30 l 119 56 l 96 56{\p0}
-Dialogue: 9,0:00:28.42,0:00:28.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}10%
-Dialogue: 7,0:00:28.50,0:00:28.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 117 30 l 117 56 l 96 56{\p0}
-Dialogue: 9,0:00:28.50,0:00:28.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}9%
-Dialogue: 7,0:00:28.58,0:00:28.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 115 30 l 115 56 l 96 56{\p0}
-Dialogue: 9,0:00:28.58,0:00:28.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}8%
-Dialogue: 7,0:00:28.67,0:00:28.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 113 30 l 113 56 l 96 56{\p0}
-Dialogue: 9,0:00:28.67,0:00:28.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}8%
-Dialogue: 7,0:00:28.75,0:00:28.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 112 30 l 112 56 l 96 56{\p0}
-Dialogue: 9,0:00:28.75,0:00:28.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}7%
-Dialogue: 7,0:00:28.83,0:00:28.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 111 30 l 111 56 l 96 56{\p0}
-Dialogue: 9,0:00:28.83,0:00:28.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}6%
-Dialogue: 7,0:00:28.92,0:00:29.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 110 30 l 110 56 l 96 56{\p0}
-Dialogue: 9,0:00:28.92,0:00:29.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}6%
-Dialogue: 7,0:00:29.00,0:00:29.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 109 30 l 109 56 l 96 56{\p0}
-Dialogue: 9,0:00:29.00,0:00:29.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}6%
-Dialogue: 7,0:00:29.08,0:00:29.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 108 30 l 108 56 l 96 56{\p0}
-Dialogue: 9,0:00:29.08,0:00:29.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
-Dialogue: 7,0:00:29.17,0:00:29.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
-Dialogue: 9,0:00:29.17,0:00:29.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
-Dialogue: 7,0:00:29.25,0:00:29.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
-Dialogue: 9,0:00:29.25,0:00:29.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
-Dialogue: 7,0:00:29.33,0:00:29.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
-Dialogue: 9,0:00:29.33,0:00:29.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
-Dialogue: 7,0:00:29.42,0:00:29.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
-Dialogue: 9,0:00:29.42,0:00:29.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
-Dialogue: 7,0:00:29.50,0:00:29.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
-Dialogue: 9,0:00:29.50,0:00:29.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
-Dialogue: 7,0:00:29.58,0:00:29.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
-Dialogue: 9,0:00:29.58,0:00:29.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
-Dialogue: 7,0:00:29.67,0:00:29.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
-Dialogue: 9,0:00:29.67,0:00:29.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
-Dialogue: 7,0:00:29.75,0:00:29.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
-Dialogue: 9,0:00:29.75,0:00:29.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
-Dialogue: 7,0:00:29.83,0:00:29.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
-Dialogue: 9,0:00:29.83,0:00:29.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
-Dialogue: 7,0:00:29.92,0:00:30.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
-Dialogue: 9,0:00:29.92,0:00:30.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
-Dialogue: 7,0:00:30.00,0:00:30.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
-Dialogue: 9,0:00:30.00,0:00:30.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
-Dialogue: 7,0:00:30.08,0:00:30.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
-Dialogue: 9,0:00:30.08,0:00:30.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
+Dialogue: 7,0:00:22.75,0:00:22.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:22.75,0:00:22.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:22.83,0:00:22.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:22.83,0:00:22.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:22.92,0:00:23.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:22.92,0:00:23.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:23.00,0:00:23.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:23.00,0:00:23.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:23.08,0:00:23.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:23.08,0:00:23.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:23.17,0:00:23.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:23.17,0:00:23.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:23.25,0:00:23.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:23.25,0:00:23.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:23.33,0:00:23.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:23.33,0:00:23.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:23.42,0:00:23.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:23.42,0:00:23.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:23.50,0:00:23.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:23.50,0:00:23.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:23.58,0:00:23.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:23.58,0:00:23.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:23.67,0:00:23.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:23.67,0:00:23.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:23.75,0:00:23.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:23.75,0:00:23.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:23.83,0:00:23.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:23.83,0:00:23.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:23.92,0:00:24.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:23.92,0:00:24.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:24.00,0:00:24.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:24.00,0:00:24.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:24.08,0:00:24.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:24.08,0:00:24.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:24.17,0:00:24.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:24.17,0:00:24.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:24.25,0:00:24.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:24.25,0:00:24.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:24.33,0:00:24.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:24.33,0:00:24.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:24.42,0:00:24.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:24.42,0:00:24.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:24.50,0:00:24.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:24.50,0:00:24.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:24.58,0:00:24.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:24.58,0:00:24.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:24.67,0:00:24.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:24.67,0:00:24.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:24.75,0:00:24.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:24.75,0:00:24.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:24.83,0:00:24.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:24.83,0:00:24.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:24.92,0:00:25.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:24.92,0:00:25.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:25.00,0:00:25.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:25.00,0:00:25.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:25.08,0:00:25.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:25.08,0:00:25.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:25.17,0:00:25.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:25.17,0:00:25.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:25.25,0:00:25.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:25.25,0:00:25.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:25.33,0:00:25.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:25.33,0:00:25.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:25.42,0:00:25.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:25.42,0:00:25.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:25.50,0:00:25.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:25.50,0:00:25.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:25.58,0:00:25.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:25.58,0:00:25.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:25.67,0:00:25.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HFFFFFF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:25.67,0:00:25.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:25.75,0:00:25.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:25.75,0:00:25.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:25.83,0:00:25.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 327 30 l 327 56 l 96 56{\p0}
+Dialogue: 9,0:00:25.83,0:00:25.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}99%
+Dialogue: 7,0:00:25.92,0:00:26.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:25.92,0:00:26.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:26.00,0:00:26.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:26.00,0:00:26.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:26.08,0:00:26.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:26.08,0:00:26.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:26.17,0:00:26.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:26.17,0:00:26.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:26.25,0:00:26.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:26.25,0:00:26.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:26.33,0:00:26.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:26.33,0:00:26.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:26.42,0:00:26.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:26.42,0:00:26.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:26.50,0:00:26.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:26.50,0:00:26.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:26.58,0:00:26.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:26.58,0:00:26.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:26.67,0:00:26.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:26.67,0:00:26.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:26.75,0:00:26.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:26.75,0:00:26.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:26.83,0:00:26.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:26.83,0:00:26.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:26.92,0:00:27.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:26.92,0:00:27.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:27.00,0:00:27.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 306 30 l 306 56 l 96 56{\p0}
+Dialogue: 9,0:00:27.00,0:00:27.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:27.08,0:00:27.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 305 30 l 305 56 l 96 56{\p0}
+Dialogue: 9,0:00:27.08,0:00:27.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}90%
+Dialogue: 7,0:00:27.17,0:00:27.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 305 30 l 305 56 l 96 56{\p0}
+Dialogue: 9,0:00:27.17,0:00:27.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}89%
+Dialogue: 7,0:00:27.25,0:00:27.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 304 30 l 304 56 l 96 56{\p0}
+Dialogue: 9,0:00:27.25,0:00:27.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}89%
+Dialogue: 7,0:00:27.33,0:00:27.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 303 30 l 303 56 l 96 56{\p0}
+Dialogue: 9,0:00:27.33,0:00:27.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}89%
+Dialogue: 7,0:00:27.42,0:00:27.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 302 30 l 302 56 l 96 56{\p0}
+Dialogue: 9,0:00:27.42,0:00:27.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}88%
+Dialogue: 7,0:00:27.50,0:00:27.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 300 30 l 300 56 l 96 56{\p0}
+Dialogue: 9,0:00:27.50,0:00:27.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}87%
+Dialogue: 7,0:00:27.58,0:00:27.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 299 30 l 299 56 l 96 56{\p0}
+Dialogue: 9,0:00:27.58,0:00:27.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}87%
+Dialogue: 7,0:00:27.67,0:00:27.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 297 30 l 297 56 l 96 56{\p0}
+Dialogue: 9,0:00:27.67,0:00:27.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}86%
+Dialogue: 7,0:00:27.75,0:00:27.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 295 30 l 295 56 l 96 56{\p0}
+Dialogue: 9,0:00:27.75,0:00:27.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}85%
+Dialogue: 7,0:00:27.83,0:00:27.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 293 30 l 293 56 l 96 56{\p0}
+Dialogue: 9,0:00:27.83,0:00:27.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}84%
+Dialogue: 7,0:00:27.92,0:00:28.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 290 30 l 290 56 l 96 56{\p0}
+Dialogue: 9,0:00:27.92,0:00:28.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}83%
+Dialogue: 7,0:00:28.00,0:00:28.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 288 30 l 288 56 l 96 56{\p0}
+Dialogue: 9,0:00:28.00,0:00:28.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}82%
+Dialogue: 7,0:00:28.08,0:00:28.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H6020FF&\1a&H00&\bord0\shad0}m 96 30 l 285 30 l 285 56 l 96 56{\p0}
+Dialogue: 9,0:00:28.08,0:00:28.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}81%
+Dialogue: 7,0:00:28.17,0:00:28.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 283 30 l 283 56 l 96 56{\p0}
+Dialogue: 9,0:00:28.17,0:00:28.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}80%
+Dialogue: 7,0:00:28.25,0:00:28.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 280 30 l 280 56 l 96 56{\p0}
+Dialogue: 9,0:00:28.25,0:00:28.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}79%
+Dialogue: 7,0:00:28.33,0:00:28.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 277 30 l 277 56 l 96 56{\p0}
+Dialogue: 9,0:00:28.33,0:00:28.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}78%
+Dialogue: 7,0:00:28.42,0:00:28.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 274 30 l 274 56 l 96 56{\p0}
+Dialogue: 9,0:00:28.42,0:00:28.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}76%
+Dialogue: 7,0:00:28.50,0:00:28.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 271 30 l 271 56 l 96 56{\p0}
+Dialogue: 9,0:00:28.50,0:00:28.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}75%
+Dialogue: 7,0:00:28.58,0:00:28.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 267 30 l 267 56 l 96 56{\p0}
+Dialogue: 9,0:00:28.58,0:00:28.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}73%
+Dialogue: 7,0:00:28.67,0:00:28.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 264 30 l 264 56 l 96 56{\p0}
+Dialogue: 9,0:00:28.67,0:00:28.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}72%
+Dialogue: 7,0:00:28.75,0:00:28.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 260 30 l 260 56 l 96 56{\p0}
+Dialogue: 9,0:00:28.75,0:00:28.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}70%
+Dialogue: 7,0:00:28.83,0:00:28.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 257 30 l 257 56 l 96 56{\p0}
+Dialogue: 9,0:00:28.83,0:00:28.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}69%
+Dialogue: 7,0:00:28.92,0:00:29.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 253 30 l 253 56 l 96 56{\p0}
+Dialogue: 9,0:00:28.92,0:00:29.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}67%
+Dialogue: 7,0:00:29.00,0:00:29.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 249 30 l 249 56 l 96 56{\p0}
+Dialogue: 9,0:00:29.00,0:00:29.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}66%
+Dialogue: 7,0:00:29.08,0:00:29.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 245 30 l 245 56 l 96 56{\p0}
+Dialogue: 9,0:00:29.08,0:00:29.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}64%
+Dialogue: 7,0:00:29.17,0:00:29.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 242 30 l 242 56 l 96 56{\p0}
+Dialogue: 9,0:00:29.17,0:00:29.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}62%
+Dialogue: 7,0:00:29.25,0:00:29.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 238 30 l 238 56 l 96 56{\p0}
+Dialogue: 9,0:00:29.25,0:00:29.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}61%
+Dialogue: 7,0:00:29.33,0:00:29.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 234 30 l 234 56 l 96 56{\p0}
+Dialogue: 9,0:00:29.33,0:00:29.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}59%
+Dialogue: 7,0:00:29.42,0:00:29.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 230 30 l 230 56 l 96 56{\p0}
+Dialogue: 9,0:00:29.42,0:00:29.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}57%
+Dialogue: 7,0:00:29.50,0:00:29.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 226 30 l 226 56 l 96 56{\p0}
+Dialogue: 9,0:00:29.50,0:00:29.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}56%
+Dialogue: 7,0:00:29.58,0:00:29.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 222 30 l 222 56 l 96 56{\p0}
+Dialogue: 9,0:00:29.58,0:00:29.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}54%
+Dialogue: 7,0:00:29.67,0:00:29.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 217 30 l 217 56 l 96 56{\p0}
+Dialogue: 9,0:00:29.67,0:00:29.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}52%
+Dialogue: 7,0:00:29.75,0:00:29.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 213 30 l 213 56 l 96 56{\p0}
+Dialogue: 9,0:00:29.75,0:00:29.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}50%
+Dialogue: 7,0:00:29.83,0:00:29.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 209 30 l 209 56 l 96 56{\p0}
+Dialogue: 9,0:00:29.83,0:00:29.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}49%
+Dialogue: 7,0:00:29.92,0:00:30.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 205 30 l 205 56 l 96 56{\p0}
+Dialogue: 9,0:00:29.92,0:00:30.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}47%
+Dialogue: 7,0:00:30.00,0:00:30.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 201 30 l 201 56 l 96 56{\p0}
+Dialogue: 9,0:00:30.00,0:00:30.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}45%
+Dialogue: 7,0:00:30.08,0:00:30.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 197 30 l 197 56 l 96 56{\p0}
+Dialogue: 9,0:00:30.08,0:00:30.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}43%
+Dialogue: 7,0:00:30.17,0:00:30.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H70C0FF&\1a&H00&\bord0\shad0}m 96 30 l 193 30 l 193 56 l 96 56{\p0}
+Dialogue: 9,0:00:30.17,0:00:30.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}41%
+Dialogue: 7,0:00:30.25,0:00:30.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 189 30 l 189 56 l 96 56{\p0}
+Dialogue: 9,0:00:30.25,0:00:30.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}40%
+Dialogue: 7,0:00:30.33,0:00:30.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 184 30 l 184 56 l 96 56{\p0}
+Dialogue: 9,0:00:30.33,0:00:30.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}38%
+Dialogue: 7,0:00:30.42,0:00:30.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 180 30 l 180 56 l 96 56{\p0}
+Dialogue: 9,0:00:30.42,0:00:30.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}36%
+Dialogue: 7,0:00:30.50,0:00:30.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 176 30 l 176 56 l 96 56{\p0}
+Dialogue: 9,0:00:30.50,0:00:30.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}35%
+Dialogue: 7,0:00:30.58,0:00:30.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 172 30 l 172 56 l 96 56{\p0}
+Dialogue: 9,0:00:30.58,0:00:30.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}33%
+Dialogue: 7,0:00:30.67,0:00:30.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 169 30 l 169 56 l 96 56{\p0}
+Dialogue: 9,0:00:30.67,0:00:30.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}31%
+Dialogue: 7,0:00:30.75,0:00:30.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 165 30 l 165 56 l 96 56{\p0}
+Dialogue: 9,0:00:30.75,0:00:30.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}30%
+Dialogue: 7,0:00:30.83,0:00:30.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 161 30 l 161 56 l 96 56{\p0}
+Dialogue: 9,0:00:30.83,0:00:30.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}28%
+Dialogue: 7,0:00:30.92,0:00:31.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 157 30 l 157 56 l 96 56{\p0}
+Dialogue: 9,0:00:30.92,0:00:31.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}26%
+Dialogue: 7,0:00:31.00,0:00:31.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 154 30 l 154 56 l 96 56{\p0}
+Dialogue: 9,0:00:31.00,0:00:31.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}25%
+Dialogue: 7,0:00:31.08,0:00:31.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 150 30 l 150 56 l 96 56{\p0}
+Dialogue: 9,0:00:31.08,0:00:31.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}23%
+Dialogue: 7,0:00:31.17,0:00:31.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 147 30 l 147 56 l 96 56{\p0}
+Dialogue: 9,0:00:31.17,0:00:31.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}22%
+Dialogue: 7,0:00:31.25,0:00:31.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 143 30 l 143 56 l 96 56{\p0}
+Dialogue: 9,0:00:31.25,0:00:31.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}20%
+Dialogue: 7,0:00:31.33,0:00:31.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 140 30 l 140 56 l 96 56{\p0}
+Dialogue: 9,0:00:31.33,0:00:31.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}19%
+Dialogue: 7,0:00:31.42,0:00:31.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 137 30 l 137 56 l 96 56{\p0}
+Dialogue: 9,0:00:31.42,0:00:31.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}18%
+Dialogue: 7,0:00:31.50,0:00:31.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 134 30 l 134 56 l 96 56{\p0}
+Dialogue: 9,0:00:31.50,0:00:31.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}16%
+Dialogue: 7,0:00:31.58,0:00:31.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 131 30 l 131 56 l 96 56{\p0}
+Dialogue: 9,0:00:31.58,0:00:31.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}15%
+Dialogue: 7,0:00:31.67,0:00:31.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 128 30 l 128 56 l 96 56{\p0}
+Dialogue: 9,0:00:31.67,0:00:31.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}14%
+Dialogue: 7,0:00:31.75,0:00:31.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 126 30 l 126 56 l 96 56{\p0}
+Dialogue: 9,0:00:31.75,0:00:31.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}13%
+Dialogue: 7,0:00:31.83,0:00:31.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 123 30 l 123 56 l 96 56{\p0}
+Dialogue: 9,0:00:31.83,0:00:31.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}12%
+Dialogue: 7,0:00:31.92,0:00:32.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 121 30 l 121 56 l 96 56{\p0}
+Dialogue: 9,0:00:31.92,0:00:32.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}11%
+Dialogue: 7,0:00:32.00,0:00:32.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 119 30 l 119 56 l 96 56{\p0}
+Dialogue: 9,0:00:32.00,0:00:32.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}10%
+Dialogue: 7,0:00:32.08,0:00:32.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 117 30 l 117 56 l 96 56{\p0}
+Dialogue: 9,0:00:32.08,0:00:32.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}9%
+Dialogue: 7,0:00:32.17,0:00:32.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 115 30 l 115 56 l 96 56{\p0}
+Dialogue: 9,0:00:32.17,0:00:32.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}8%
+Dialogue: 7,0:00:32.25,0:00:32.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 113 30 l 113 56 l 96 56{\p0}
+Dialogue: 9,0:00:32.25,0:00:32.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}8%
+Dialogue: 7,0:00:32.33,0:00:32.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 112 30 l 112 56 l 96 56{\p0}
+Dialogue: 9,0:00:32.33,0:00:32.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}7%
+Dialogue: 7,0:00:32.42,0:00:32.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 111 30 l 111 56 l 96 56{\p0}
+Dialogue: 9,0:00:32.42,0:00:32.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}6%
+Dialogue: 7,0:00:32.50,0:00:32.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 110 30 l 110 56 l 96 56{\p0}
+Dialogue: 9,0:00:32.50,0:00:32.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}6%
+Dialogue: 7,0:00:32.58,0:00:32.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 109 30 l 109 56 l 96 56{\p0}
+Dialogue: 9,0:00:32.58,0:00:32.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}6%
+Dialogue: 7,0:00:32.67,0:00:32.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 108 30 l 108 56 l 96 56{\p0}
+Dialogue: 9,0:00:32.67,0:00:32.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
+Dialogue: 7,0:00:32.75,0:00:32.83,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
+Dialogue: 9,0:00:32.75,0:00:32.83,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
+Dialogue: 7,0:00:32.83,0:00:32.92,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
+Dialogue: 9,0:00:32.83,0:00:32.92,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
+Dialogue: 7,0:00:32.92,0:00:33.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
+Dialogue: 9,0:00:32.92,0:00:33.00,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
+Dialogue: 7,0:00:33.00,0:00:33.08,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
+Dialogue: 9,0:00:33.00,0:00:33.08,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
+Dialogue: 7,0:00:33.08,0:00:33.17,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
+Dialogue: 9,0:00:33.08,0:00:33.17,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
+Dialogue: 7,0:00:33.17,0:00:33.25,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
+Dialogue: 9,0:00:33.17,0:00:33.25,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
+Dialogue: 7,0:00:33.25,0:00:33.33,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
+Dialogue: 9,0:00:33.25,0:00:33.33,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
+Dialogue: 7,0:00:33.33,0:00:33.42,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
+Dialogue: 9,0:00:33.33,0:00:33.42,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
+Dialogue: 7,0:00:33.42,0:00:33.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
+Dialogue: 9,0:00:33.42,0:00:33.50,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
+Dialogue: 7,0:00:33.50,0:00:33.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
+Dialogue: 9,0:00:33.50,0:00:33.58,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
+Dialogue: 7,0:00:33.58,0:00:33.67,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
+Dialogue: 9,0:00:33.58,0:00:33.67,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
+Dialogue: 7,0:00:33.67,0:00:33.75,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60E0FF&\1a&H00&\bord0\shad0}m 96 30 l 107 30 l 107 56 l 96 56{\p0}
+Dialogue: 9,0:00:33.67,0:00:33.75,card,,0,0,0,,{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}5%
 Dialogue: 13,0:00:08.25,0:00:09.55,count,,0,0,0,,{\an5\pos(360,435)\fs40\c&HDDDDDD&\bord4\3c&H000000&\fscx180\fscy180\t(0,120,\fscx100\fscy100)\t(1050,1300,\alpha&HFF&)}構築――
 Dialogue: 13,0:00:08.25,0:00:09.55,count,,0,0,0,,{\an5\pos(360,520)\fs110\c&HFFE0A0&\3c&H000000&\bord11\shad0\fscx180\fscy180\t(0,120,\fscx100\fscy100)\t(1050,1300,\alpha&HFF&)}千本柱
-Dialogue: 13,0:00:11.55,0:00:12.85,count,,0,0,0,,{\an5\pos(360,435)\fs40\c&HDDDDDD&\bord4\3c&H000000&\fscx180\fscy180\t(0,120,\fscx100\fscy100)\t(1050,1300,\alpha&HFF&)}構築――
-Dialogue: 13,0:00:11.55,0:00:12.85,count,,0,0,0,,{\an5\pos(360,520)\fs110\c&HFFE0A0&\3c&H000000&\bord11\shad0\fscx180\fscy180\t(0,120,\fscx100\fscy100)\t(1050,1300,\alpha&HFF&)}大剣
-Dialogue: 13,0:00:21.45,0:00:22.95,count,,0,0,0,,{\an5\pos(360,385)\fs40\c&HDDDDDD&\bord4\3c&H000000&\fscx180\fscy180\t(0,120,\fscx100\fscy100)\t(1250,1500,\alpha&HFF&)}光影合一――
-Dialogue: 13,0:00:21.45,0:00:22.95,count,,0,0,0,,{\an5\pos(360,470)\fs110\c&H40C8FF&\3c&H000000&\bord11\shad0\fscx180\fscy180\t(0,120,\fscx100\fscy100)\t(1250,1500,\alpha&HFF&)}天穿つ拳
-Dialogue: 14,0:00:08.90,0:00:09.65,count,,0,0,0,,{\an5\pos(380,300)\fs100\c&H30D0FF&\3c&H101010&\bord9\shad0\frz-8\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(550,750,\fscx110\fscy110\alpha&HFF&)}ズドドドッ！
-Dialogue: 14,0:00:10.50,0:00:11.40,count,,0,0,0,,{\an5\pos(360,760)\fs120\c&H2040FF&\3c&H101010&\bord9\shad0\frz6\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(700,900,\fscx110\fscy110\alpha&HFF&)}ドゴォン！！
-Dialogue: 14,0:00:12.80,0:00:13.60,count,,0,0,0,,{\an5\pos(470,330)\fs130\c&HFFFFFF&\3c&H101010&\bord9\shad0\frz-14\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(600,800,\fscx110\fscy110\alpha&HFF&)}ザンッ！
-Dialogue: 14,0:00:17.40,0:00:18.00,count,,0,0,0,,{\an5\pos(250,260)\fs90\c&H40E0FF&\3c&H101010&\bord9\shad0\frz8\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(400,600,\fscx110\fscy110\alpha&HFF&)}パァンッ！
-Dialogue: 14,0:00:22.30,0:00:23.50,count,,0,0,0,,{\an5\pos(360,330)\fs120\c&H2040FF&\3c&H101010&\bord9\shad0\frz-6\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(1000,1200,\fscx110\fscy110\alpha&HFF&)}ドォォォン！！！
-Dialogue: 9,0:00:19.10,0:00:22.30,card,,0,0,0,,{\an5\pos(360,140)\fs36\c&H40C8FF&\bord3\3c&H000000&\fad(300,200)}― 光と影が、反転する ―
-Dialogue: 3,0:00:34.40,0:00:38.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&HA0&\bord0\shad0\fad(600,0)}m 0 0 l 720 0 l 720 1280 l 0 1280{\p0}
-Dialogue: 11,0:00:34.60,0:00:38.00,count,,0,0,0,,{\an5\pos(360,480)\fs52\c&HFFFFFF&\3c&H000000&\bord5\fad(500,0)}触れたら、影になる世界
-Dialogue: 11,0:00:35.30,0:00:38.00,count,,0,0,0,,{\an5\pos(360,590)\fs76\c&HB0E8FF&\3c&H203040&\bord6\fad(500,0)}― 完 ―
-Dialogue: 12,0:00:35.80,0:00:38.00,card,,0,0,0,,{\an5\pos(360,760)\fs40\c&H80E0FF&\bord4\3c&H000000&\fad(200,0)}面白かったら\Nコメント・フォローで応援してね！
-Dialogue: 12,0:00:00.00,0:00:38.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60D0FF&\1a&H00&\bord0\shad0\clip(0,0,0,6)\t(0,38000,\clip(0,0,720,6))}m 0 0 l 720 0 l 720 6 l 0 6{\p0}
+Dialogue: 13,0:00:13.15,0:00:14.45,count,,0,0,0,,{\an5\pos(360,435)\fs40\c&HDDDDDD&\bord4\3c&H000000&\fscx180\fscy180\t(0,120,\fscx100\fscy100)\t(1050,1300,\alpha&HFF&)}構築――
+Dialogue: 13,0:00:13.15,0:00:14.45,count,,0,0,0,,{\an5\pos(360,520)\fs110\c&HFFE0A0&\3c&H000000&\bord11\shad0\fscx180\fscy180\t(0,120,\fscx100\fscy100)\t(1050,1300,\alpha&HFF&)}大剣
+Dialogue: 13,0:00:25.03,0:00:26.53,count,,0,0,0,,{\an5\pos(360,385)\fs40\c&HDDDDDD&\bord4\3c&H000000&\fscx180\fscy180\t(0,120,\fscx100\fscy100)\t(1250,1500,\alpha&HFF&)}光影合一――
+Dialogue: 13,0:00:25.03,0:00:26.53,count,,0,0,0,,{\an5\pos(360,470)\fs110\c&H40C8FF&\3c&H000000&\bord11\shad0\fscx180\fscy180\t(0,120,\fscx100\fscy100)\t(1250,1500,\alpha&HFF&)}天穿つ拳
+Dialogue: 14,0:00:09.64,0:00:10.39,count,,0,0,0,,{\an5\pos(380,300)\fs100\c&H30D0FF&\3c&H101010&\bord9\shad0\frz-8\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(550,750,\fscx110\fscy110\alpha&HFF&)}ズドドドッ！
+Dialogue: 14,0:00:12.10,0:00:13.00,count,,0,0,0,,{\an5\pos(360,760)\fs120\c&H2040FF&\3c&H101010&\bord9\shad0\frz6\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(700,900,\fscx110\fscy110\alpha&HFF&)}ドゴォン！！
+Dialogue: 14,0:00:15.25,0:00:16.05,count,,0,0,0,,{\an5\pos(470,330)\fs130\c&HFFFFFF&\3c&H101010&\bord9\shad0\frz-14\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(600,800,\fscx110\fscy110\alpha&HFF&)}ザンッ！
+Dialogue: 14,0:00:20.98,0:00:21.58,count,,0,0,0,,{\an5\pos(250,260)\fs90\c&H40E0FF&\3c&H101010&\bord9\shad0\frz8\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(400,600,\fscx110\fscy110\alpha&HFF&)}パァンッ！
+Dialogue: 14,0:00:25.88,0:00:27.08,count,,0,0,0,,{\an5\pos(360,330)\fs120\c&H2040FF&\3c&H101010&\bord9\shad0\frz-6\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(1000,1200,\fscx110\fscy110\alpha&HFF&)}ドォォォン！！！
+Dialogue: 9,0:00:22.68,0:00:25.88,card,,0,0,0,,{\an5\pos(360,140)\fs36\c&H40C8FF&\bord3\3c&H000000&\fad(300,200)}― 光と影が、反転する ―
+Dialogue: 3,0:00:37.98,0:00:41.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&HA0&\bord0\shad0\fad(600,0)}m 0 0 l 720 0 l 720 1280 l 0 1280{\p0}
+Dialogue: 11,0:00:38.18,0:00:41.58,count,,0,0,0,,{\an5\pos(360,480)\fs52\c&HFFFFFF&\3c&H000000&\bord5\fad(500,0)}触れたら、影になる世界
+Dialogue: 11,0:00:38.88,0:00:41.58,count,,0,0,0,,{\an5\pos(360,590)\fs76\c&HB0E8FF&\3c&H203040&\bord6\fad(500,0)}― 完 ―
+Dialogue: 12,0:00:39.38,0:00:41.58,card,,0,0,0,,{\an5\pos(360,760)\fs40\c&H80E0FF&\bord4\3c&H000000&\fad(200,0)}面白かったら\Nコメント・フォローで応援してね！
+Dialogue: 12,0:00:00.00,0:00:41.58,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60D0FF&\1a&H00&\bord0\shad0\clip(0,0,0,6)\t(0,41583,\clip(0,0,720,6))}m 0 0 l 720 0 l 720 6 l 0 6{\p0}
 Dialogue: 9,0:00:00.30,0:00:02.60,ruka,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}来ちゃダメ！\N影になっちゃう！
-Dialogue: 9,0:00:03.00,0:00:06.30,giant,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}その力を使えば、\Nお前も影になる
-Dialogue: 9,0:00:06.15,0:00:08.35,me,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}…上等だ。\Nやってやる
-Dialogue: 9,0:00:08.20,0:00:10.52,me,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}構築――千本柱！
-Dialogue: 9,0:00:11.50,0:00:13.15,me,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}構築・大剣！
-Dialogue: 9,0:00:14.80,0:00:16.60,ruka,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}…一緒に、行こう
-Dialogue: 9,0:00:19.10,0:00:21.72,me,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}光も影も、\N全部ぶつける！
-Dialogue: 9,0:00:21.57,0:00:23.22,me,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}天穿つ拳！
-Dialogue: 9,0:00:25.00,0:00:27.60,giant,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}…ありがとう。\N止めてくれて
-Dialogue: 9,0:00:30.40,0:00:31.80,ruka,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}…おかえり
-Dialogue: 9,0:00:32.20,0:00:33.60,me,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}ただいま
+Dialogue: 9,0:00:03.00,0:00:06.24,giant,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}その力を使えば、\Nお前も影になる
+Dialogue: 9,0:00:06.09,0:00:08.31,me,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}…上等だ。\Nやってやる
+Dialogue: 9,0:00:08.16,0:00:11.44,me,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}構築――千本柱！
+Dialogue: 9,0:00:13.10,0:00:15.08,me,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}構築・大剣！
+Dialogue: 9,0:00:18.38,0:00:20.18,ruka,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}…一緒に、行こう
+Dialogue: 9,0:00:22.68,0:00:25.24,me,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}光も影も、\N全部ぶつける！
+Dialogue: 9,0:00:25.09,0:00:26.74,me,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}天穿つ拳！
+Dialogue: 9,0:00:28.58,0:00:31.27,giant,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}…ありがとう。\N止めてくれて
+Dialogue: 9,0:00:33.98,0:00:35.38,ruka,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}…おかえり
+Dialogue: 9,0:00:35.78,0:00:37.18,me,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}ただいま
