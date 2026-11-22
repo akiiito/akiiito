@@ -1,0 +1,57 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hero,IPAPGothic,66,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,1,0,1,7,3,5,30,30,0,1
+Style: narr,IPAPGothic,62,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,2,0,1,7,3,5,30,30,0,1
+Style: shout,IPAPGothic,78,&H0040E6FF,&H0040E6FF,&H00200818,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: resolve,IPAPGothic,80,&H00FFFFFF,&H00FFFFFF,&H003C14DC,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: shape,IPAPGothic,20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: hana,IPAPGothic,70,&H00FFFFFF,&H00FFFFFF,&H00306A30,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1
+Style: boss,IPAPGothic,70,&H00FFFFFF,&H00FFFFFF,&H00303030,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1
+Style: toki,IPAPGothic,70,&H0080E8FF,&H0080E8FF,&H00102040,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: mio,IPAPGothic,70,&H00FFFFFF,&H00FFFFFF,&H00704030,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: doc,IPAPGothic,70,&H00FFFFFF,&H00FFFFFF,&H00303030,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: hook,IPAPGothic,70,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,7,0,5,20,20,0,1
+Style: card,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,0,0,5,20,20,0,1
+Style: count,IPAPGothic,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,8,0,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 8,0:00:00.00,0:00:02.90,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H60&\bord0\shad0\fad(0,200)}m 0 100 l 720 100 l 720 410 l 0 410{\p0}
+Dialogue: 10,0:00:00.00,0:00:02.90,hook,,0,0,0,,{\an5\pos(360,195)\fs60\bord7\fscx150\fscy150\t(0,140,\fscx100\fscy100)\fad(0,200)}目の奥から、{\c&H4040FF&}アイスピック{\c&HFFFFFF&}で
+Dialogue: 10,0:00:00.00,0:00:02.90,hook,,0,0,0,,{\an5\pos(360,310)\fs60\bord7\fscx150\fscy150\t(0,140,\fscx100\fscy100)\fad(0,200)}脳を削られた人たちがいた
+Dialogue: 10,0:00:00.30,0:00:02.90,card,,0,0,0,,{\an5\pos(360,445)\fs28\c&HDDDDDD&\bord3\3c&H000000&\fad(150,200)}実話をもとにしたフィクション
+Dialogue: 9,0:00:10.90,0:00:24.60,card,,0,0,0,,{\an5\pos(360,120)\fs34\c&H80D8FF&\bord3\3c&H000000&\fad(250,150)}― 裁きの時間 ―
+Dialogue: 10,0:00:11.70,0:00:13.90,card,,0,0,0,,{\an4\pos(46,560)\fs30\c&HDDDDDD&\bord3\3c&H000000&\fad(200,200)}時の裁判官
+Dialogue: 10,0:00:11.70,0:00:13.90,count,,0,0,0,,{\an4\pos(40,620)\fs72\c&H80E0FF&\bord6\3c&H102030&\fad(200,200)\fscx150\fscy150\t(0,140,\fscx100\fscy100)}トキモリ
+Dialogue: 13,0:00:14.40,0:00:14.90,count,,0,0,0,,{\an5\pos(520,260)\fs80\c&HFFFFFF&\3c&H101010&\bord9\shad0\frz10\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(300,500,\fscx110\fscy110\alpha&HFF&)}ヒュッ
+Dialogue: 13,0:00:14.80,0:00:15.55,count,,0,0,0,,{\an5\pos(250,360)\fs110\c&H30D0FF&\3c&H101010&\bord9\shad0\frz-10\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(550,750,\fscx110\fscy110\alpha&HFF&)}バキィッ！
+Dialogue: 13,0:00:15.40,0:00:16.00,count,,0,0,0,,{\an5\pos(470,260)\fs80\c&H40D8FF&\3c&H101010&\bord9\shad0\frz8\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(400,600,\fscx110\fscy110\alpha&HFF&)}ジャララッ
+Dialogue: 13,0:00:16.00,0:00:16.80,count,,0,0,0,,{\an5\pos(360,380)\fs110\c&HFFFFFF&\3c&H101010&\bord9\shad0\frz-6\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(600,800,\fscx110\fscy110\alpha&HFF&)}ガシャァン！！
+Dialogue: 13,0:00:18.30,0:00:19.20,count,,0,0,0,,{\an5\pos(300,330)\fs120\c&H30D0FF&\3c&H101010&\bord9\shad0\frz12\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(700,900,\fscx110\fscy110\alpha&HFF&)}ザザンッ！！
+Dialogue: 13,0:00:23.50,0:00:24.50,count,,0,0,0,,{\an5\pos(360,360)\fs120\c&H2040FF&\3c&H101010&\bord9\shad0\frz-8\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(800,1000,\fscx110\fscy110\alpha&HFF&)}ドガァァン！！
+Dialogue: 13,0:00:21.60,0:00:23.00,count,,0,0,0,,{\an5\pos(360,640)\fs40\c&HDDDDDD&\bord4\3c&H000000&\fscx180\fscy180\t(0,120,\fscx100\fscy100)}時の裁き――
+Dialogue: 13,0:00:21.60,0:00:23.00,count,,0,0,0,,{\an5\pos(360,730)\fs104\c&H40C8FF&\3c&H000000&\bord11\fscx180\fscy180\t(0,120,\fscx100\fscy100)}十分間の刑
+Dialogue: 11,0:00:27.60,0:00:29.10,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H2020D0&\1a&H00&\bord0\shad0\org(360,555)\frz-12\fscx260\fscy260\t(0,110,\fscx100\fscy100)\fad(0,300)}m 190 462 l 530 462 l 530 648 l 190 648 l 190 462 m 212 484 l 212 626 l 508 626 l 508 484 l 212 484{\p0}
+Dialogue: 12,0:00:27.60,0:00:29.10,count,,0,0,0,,{\an5\pos(360,555)\fs130\b1\c&H2020D0&\3c&HFFFFFF&\bord2\shad0\frz-12\fscx260\fscy260\t(0,110,\fscx100\fscy100)\fad(0,300)}有罪
+Dialogue: 3,0:00:31.40,0:00:38.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H70&\bord0\shad0\fad(500,0)}m 0 0 l 720 0 l 720 1280 l 0 1280{\p0}
+Dialogue: 11,0:00:31.50,0:00:38.00,card,,0,0,0,,{\an5\pos(360,300)\fs34\c&H80E0FF&\bord3\3c&H000000&\fad(300,0)}実際にあった話
+Dialogue: 11,0:00:31.60,0:00:38.00,card,,0,0,0,,{\an5\pos(360,420)\fs33\bord3\3c&H000000&\fad(300,0)}1946年、アメリカで\N目の奥から器具を差しこむ\N「ロボトミー手術」が始まった
+Dialogue: 11,0:00:32.30,0:00:38.00,card,,0,0,0,,{\an5\pos(360,590)\fs33\bord3\3c&H000000&\fad(300,0)}1人の医師だけで約2,500人に行われ、\Nのちに危険性から行われなくなった
+Dialogue: 12,0:00:36.00,0:00:38.00,card,,0,0,0,,{\an5\pos(360,790)\fs40\c&H80E0FF&\bord4\3c&H000000&\fad(200,0)}面白かったら\Nコメント・フォローで応援してね！
+Dialogue: 12,0:00:00.00,0:00:38.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H60D0FF&\1a&H00&\bord0\shad0\clip(0,0,0,6)\t(0,38000,\clip(0,0,720,6))}m 0 0 l 720 0 l 720 6 l 0 6{\p0}
+Dialogue: 9,0:00:00.30,0:00:03.28,doc,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}10分で終わる。\Nおとなしくなるだけだ
+Dialogue: 9,0:00:03.30,0:00:06.23,mio,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}いや…\Nお願い、やめて…
+Dialogue: 9,0:00:06.10,0:00:08.60,doc,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}次の患者が\N待っているんだ
+Dialogue: 9,0:00:11.90,0:00:14.44,toki,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}その手術、\Nここで終わり
+Dialogue: 9,0:00:16.10,0:00:17.96,doc,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}ぐあっ…！\Nな、何者だ…
+Dialogue: 9,0:00:19.70,0:00:21.73,doc,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}ま、待て…\N私は医者だ…！
+Dialogue: 9,0:00:21.58,0:00:24.06,toki,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}あなたにも、\N10分あげる
+Dialogue: 9,0:00:25.60,0:00:27.91,toki,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}その罪、\N時効にさせない
+Dialogue: 9,0:00:29.20,0:00:31.40,mio,,0,0,0,,{\an5\pos(360,1000)\fad(60,100)}…ありがとう。\N助けてくれて

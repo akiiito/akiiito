@@ -35,8 +35,8 @@ STY = (
     "Style: hana,{f},70,&H00FFFFFF,&H00FFFFFF,&H00306A30,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1\n"
     "Style: boss,{f},70,&H00FFFFFF,&H00FFFFFF,&H00303030,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1\n"
     "Style: toki,{f},70,&H0080E8FF,&H0080E8FF,&H00102040,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1\n"
-    "Style: sae,{f},70,&H00FFFFFF,&H00FFFFFF,&H00704030,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1\n"
-    "Style: owner,{f},70,&H00FFFFFF,&H00FFFFFF,&H00303030,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1\n"
+    "Style: mio,{f},70,&H00FFFFFF,&H00FFFFFF,&H00704030,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1\n"
+    "Style: doc,{f},70,&H00FFFFFF,&H00FFFFFF,&H00303030,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1\n"
     "Style: hook,{f},70,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,7,0,5,20,20,0,1\n"
     "Style: card,{f},44,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,0,0,5,20,20,0,1\n"
     "Style: count,{f},84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,8,0,5,0,0,0,1\n")
@@ -49,29 +49,32 @@ def build_ui(path):
         E(t0, t1, "shape", r"{\an7\pos(0,0)\p1\1c%s\1a%s\bord0\shad0%s}%s{\p0}" % (col, alpha, extra, draw), layer)
     pop = r"\fscx150\fscy150\t(0,140,\fscx100\fscy100)"
     S(0, 2.9, "m 0 100 l 720 100 l 720 410 l 0 410", "&H000000&", "&H60&", 8, r"\fad(0,200)")
-    E(0, 2.9, "hook", r"{\an5\pos(360,195)\fs64\bord7%s\fad(0,200)}マッチを作るたび、" % pop, 10)
-    E(0, 2.9, "hook", r"{\an5\pos(360,310)\fs64\bord7%s\fad(0,200)}{\c&H40D0FF&}あごの骨{\c&HFFFFFF&}が壊れていった" % pop, 10)
+    E(0, 2.9, "hook", r"{\an5\pos(360,195)\fs60\bord7%s\fad(0,200)}目の奥から、{\c&H4040FF&}アイスピック{\c&HFFFFFF&}で" % pop, 10)
+    E(0, 2.9, "hook", r"{\an5\pos(360,310)\fs60\bord7%s\fad(0,200)}脳を削られた人たちがいた" % pop, 10)
     E(0.3, 2.9, "card", r"{\an5\pos(360,445)\fs28\c&HDDDDDD&\bord3\3c&H000000&\fad(150,200)}実話をもとにしたフィクション", 10)
     E(STOPT + 0.3, RESUME, "card", r"{\an5\pos(360,120)\fs34\c&H80D8FF&\bord3\3c&H000000&\fad(250,150)}― 裁きの時間 ―", 9)
-    E(12.5, 14.6, "card", r"{\an4\pos(46,560)\fs30\c&HDDDDDD&\bord3\3c&H000000&\fad(200,200)}時の裁判官", 10)
-    E(12.5, 14.6, "count", r"{\an4\pos(40,620)\fs72\c&H80E0FF&\bord6\3c&H102030&\fad(200,200)%s}トキモリ" % pop, 10)
+    E(11.7, 13.9, "card", r"{\an4\pos(46,560)\fs30\c&HDDDDDD&\bord3\3c&H000000&\fad(200,200)}時の裁判官", 10)
+    E(11.7, 13.9, "count", r"{\an4\pos(40,620)\fs72\c&H80E0FF&\bord6\3c&H102030&\fad(200,200)%s}トキモリ" % pop, 10)
     # 擬音（マンガの描き文字）
     def boom(t0, text, x, y, fs, rot, col="&H30D0FF&", d=0.75):
         st = r"\frz%d\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(%d,%d,\fscx110\fscy110\alpha&HFF&)" % (rot, int(d * 1000) - 200, int(d * 1000))
         E(t0, t0 + d, "count", r"{\an5\pos(%d,%d)\fs%d\c%s\3c&H101010&\bord9\shad0%s}%s" % (x, y, fs, col, st, text), 13)
-    boom(PUNCH1, "ドゴォッ！", 470, 380, 110, 10)
-    boom(UPPER, "バキィッ！！", 250, 330, 110, -12)
-    boom(UPPER + 0.4, "ゴンッ", 520, 200, 80, 8, "&HFFFFFF&", 0.6)
-    boom(FALL + 0.1, "ドサッ", 230, 820, 76, -6, "&HFFFFFF&", 0.6)
+    boom(LUNGE + 0.2, "ヒュッ", 520, 260, 80, 10, "&HFFFFFF&", 0.5)
+    boom(COUNTER, "バキィッ！", 250, 360, 110, -10)
+    boom(CHAIN, "ジャララッ", 470, 260, 80, 8, "&H40D8FF&", 0.6)
+    boom(SLAM, "ガシャァン！！", 360, 380, 110, -6, "&HFFFFFF&", 0.8)
+    boom(XSLASH, "ザザンッ！！", 300, 330, 120, 12, "&H30D0FF&", 0.9)
     boom(FINISH, "ドガァァン！！", 360, 360, 120, -8, "&H2040FF&", 1.0)
-    boom(RESUME + 0.1, "ジャラジャラ…", 360, 300, 70, 0, "&H40D8FF&", 1.6)
+    tech_t = CLOCK + 0.2
+    E(tech_t, tech_t + 1.4, "count", r"{\an5\pos(360,640)\fs40\c&HDDDDDD&\bord4\3c&H000000&\fscx180\fscy180\t(0,120,\fscx100\fscy100)}時の裁き――", 13)
+    E(tech_t, tech_t + 1.4, "count", r"{\an5\pos(360,730)\fs104\c&H40C8FF&\3c&H000000&\bord11\fscx180\fscy180\t(0,120,\fscx100\fscy100)}十分間の刑", 13)
     st = r"\frz-12\fscx260\fscy260\t(0,110,\fscx100\fscy100)"
     S(STAMP, DAWN + 0.5, "m 190 462 l 530 462 l 530 648 l 190 648 l 190 462 m 212 484 l 212 626 l 508 626 l 508 484 l 212 484", "&H2020D0&", "&H00&", 11, r"\org(360,555)%s\fad(0,300)" % st)
     E(STAMP, DAWN + 0.5, "count", r"{\an5\pos(360,555)\fs130\b1\c&H2020D0&\3c&HFFFFFF&\bord2\shad0%s\fad(0,300)}有罪" % st, 12)
     S(FACT, END, "m 0 0 l 720 0 l 720 1280 l 0 1280", "&H000000&", "&H70&", 3, r"\fad(500,0)")
     E(FACT + 0.1, END, "card", r"{\an5\pos(360,300)\fs34\c&H80E0FF&\bord3\3c&H000000&\fad(300,0)}実際にあった話", 11)
-    E(FACT + 0.2, END, "card", r"{\an5\pos(360,420)\fs33\bord3\3c&H000000&\fad(300,0)}1880年代のロンドンのマッチ工場では、\N有毒な黄リンで\Nあごの骨が壊れる病が出ていた", 11)
-    E(FACT + 0.9, END, "card", r"{\an5\pos(360,590)\fs33\bord3\3c&H000000&\fad(300,0)}1888年、少女たちはストライキで\N会社に立ち向かい、要求を勝ちとった", 11)
+    E(FACT + 0.2, END, "card", r"{\an5\pos(360,420)\fs33\bord3\3c&H000000&\fad(300,0)}1946年、アメリカで\N目の奥から器具を差しこむ\N「ロボトミー手術」が始まった", 11)
+    E(FACT + 0.9, END, "card", r"{\an5\pos(360,590)\fs33\bord3\3c&H000000&\fad(300,0)}1人の医師だけで約2,500人に行われ、\Nのちに危険性から行われなくなった", 11)
     E(END - 2.0, END, "card", r"{\an5\pos(360,790)\fs40\c&H80E0FF&\bord4\3c&H000000&\fad(200,0)}面白かったら\Nコメント・フォローで応援してね！", 12)
     S(0, END, "m 0 0 l 720 0 l 720 6 l 0 6", "&H60D0FF&", "&H00&", 12, r"\clip(0,0,0,6)\t(0,%d,\clip(0,0,720,6))" % int(END * 1000))
     for st_, en, text, _, _, who in R.LINES:
@@ -89,30 +92,27 @@ def click(sec=0.06, f=3200):
 def punch(big=1.0):
     return mix(R.lp(R.kick(140, 45, 0.35, 0.07), 900) * 1.2, R.lp(R.noise(0.35), 3500) * R.dec(0.35, 0.03) * 0.8 * big)
 def build_sfx():
-    B.toki_ep2(add, DUR, STOPT, DASH, RESUME, STAMP, DAWN, tail=TAIL)
+    B.toki_ep2(add, DUR, STOPT, LUNGE, RESUME, STAMP, DAWN, tail=TAIL)
     add(X.braam(2.4, 41.0), 0.05, 0.22)
-    for k in range(6): add(R.lp(R.noise(0.12), 2500) * R.dec(0.12, 0.03), 0.4 + k * 0.42, 0.05)          # マッチ棒の音
-    add(R.lp(R.kick(90, 50, 0.3, 0.05), 900), 3.3, 0.35)                                                  # 机をたたく
-    add(R.whoosh(0.4, 300, 2500), KICKBOX - 0.1, 0.3); add(punch(0.6), KICKBOX, 0.3)
-    for k in range(8): add(click(0.03, 5000), KICKBOX + 0.25 + k * 0.06, 0.12, 0.5 * (-1) ** k)
+    for k in range(4): add(mix(np.sin(2 * np.pi * 2200 * R.tt(0.08)) * R.dec(0.08, 0.02)), 1.0 + k * 1.3, 0.04)          # 器具の音
+    add(X.stinger(1.4), RAISE, 0.3); add(K.suck(1.2), STOPT - 1.2, 0.3)
     add(click(0.08, 6000), STOPT - 0.05, 0.5); add(click(0.05, 4000), STOPT + 0.08, 0.4)
     add(R.whoosh(0.9, 200, 2000), STOPT, 0.4); add(X.tinnitus(1.6, 5200), STOPT + 0.1, 0.12); add(X.swell(1.0), STOPT + 0.2, 0.25)
-    add(K.whoosh(0.3, 400, 7000), DASH - 0.05, 0.6)                                                        # 踏みこみ
-    K.strike(add, PUNCH1, 1.2); add(X.impact(1.2, 50.0), PUNCH1, 0.3)
-    add(K.whoosh(0.18, 800, 8000), UPPER - 0.16, 0.5); K.strike(add, UPPER, 1.3, 0.0, False); add(K.whoosh(0.4, 600, 4000), UPPER + 0.02, 0.35)
-    add(mix(R.lp(R.kick(70, 35, 0.5, 0.12), 700), 0.6 * R.lp(R.noise(0.6), 2500) * R.dec(0.6, 0.15)), UPPER + 0.4, 0.6)   # 天井
-    add(K.crumble(1.0, 18), UPPER + 0.45, 0.6)
-    add(K.hit(0.9), FALL + 0.1, 0.7)
-    for k in range(4): add(np.sin(2 * np.pi * (1800 + 400 * k) * R.tt(0.25)) * R.dec(0.25, 0.08), FALL + 0.3 + k * 0.18, 0.04)   # ピヨピヨ
-    add(X.swell(0.8), CHARGE, 0.4); add(R.riser(0.7), CHARGE, 0.2)
-    K.strike(add, FINISH, 1.6); add(K.boom_big(3.0), FINISH + 0.02, 0.8); add(K.whoosh(1.0, 300, 3000), FINISH + 0.05, 0.4)
-    add(K.crumble(1.6, 36), FINISH + 0.25, 0.7)                                                          # 壁が砕ける
-    for k in range(14): add(R.lp(R.noise(0.1), 2500) * R.dec(0.1, 0.03), FINISH + 0.4 + k * 0.08, 0.18, 0.6 * (-1) ** k)
-    add(R.lp(R.kick(70, 30, 0.5, 0.12), 500), FINISH + 1.4, 0.5)
-    rr = np.random.default_rng(3)
-    for k in range(40):                                                                                    # 金貨
-        f0 = rr.uniform(2600, 5200); add(mix(np.sin(2 * np.pi * f0 * R.tt(0.3)) * R.dec(0.3, 0.06), 0.5 * np.sin(2 * np.pi * f0 * 2.7 * R.tt(0.3)) * R.dec(0.3, 0.03)),
-                                         RESUME + 0.3 + rr.uniform(0, 2.4), 0.03, rr.uniform(-0.7, 0.7))
+    add(K.whoosh(0.25, 600, 8000), LUNGE + 0.15, 0.6); add(K.whoosh(0.2, 900, 9000), LUNGE + 0.35, 0.5)
+    K.strike(add, COUNTER, 1.2)
+    for k in range(10): add(click(0.025, 7000), CHAIN + k * 0.025, 0.2, 0.3)
+    add(K.whoosh(0.5, 300, 4000), CHAIN + 0.1, 0.4)
+    K.strike(add, SLAM, 1.4, 0.0, False); add(K.crumble(1.2, 30) * 0.8, SLAM + 0.05, 0.6)
+    for k in range(18): add(mix(np.sin(2 * np.pi * (3000 + 300 * (k % 7)) * R.tt(0.15)) * R.dec(0.15, 0.04)), SLAM + 0.05 + k * 0.04, 0.05, 0.6 * (-1) ** k)   # ガラス
+    add(X.swell(1.2), HANDS, 0.35); add(K.slash() * 0.5, HANDS + 0.3, 0.3)
+    add(K.suck(0.3), XSLASH - 0.3, 0.4); add(K.slash(), XSLASH - 0.05, 1.0); add(K.slash(), XSLASH + 0.2, 0.9); K.strike(add, XSLASH, 1.3, 0.0, False); K.strike(add, XSLASH + 0.25, 1.1, 0.0, False)
+    add(K.hit(0.8), KNEEL, 0.5)
+    for k in range(12): add(click(0.04, 5000), CLOCK + k * 0.15, 0.25)                                     # 時計の秒針（速く）
+    add(X.swell(2.0), CLOCK, 0.4); add(R.riser(2.0), CLOCK, 0.2)
+    K.strike(add, FINISH, 1.6); add(K.boom_big(3.0), FINISH + 0.02, 0.8)
+    for k in range(24): add(mix(np.sin(2 * np.pi * (2800 + 350 * (k % 9)) * R.tt(0.18)) * R.dec(0.18, 0.05)), FINISH + 0.25 + k * 0.03, 0.06, 0.6 * (-1) ** k)
+    add(K.crumble(1.0, 16), FINISH + 0.3, 0.5); add(K.hit(0.9), FINISH + 1.0, 0.5)
+    for k in range(3): add(click(0.06, 2500), RESUME + 0.1 * k, 0.3)                                          # ベルトがはずれる
     add(X.impact(2.0, 44.0), STAMP, 0.6); add(X.whip(0.35), STAMP - 0.12, 0.35)
     for k in range(6):
         f0 = 3200 + 600 * (k % 3); tt = R.tt(0.12)
