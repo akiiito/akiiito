@@ -60,10 +60,10 @@ def build_ui(path):
         if t1 > t0: ev.append("Dialogue: %d,%s,%s,%s,,0,0,0,,%s" % (layer, R.ts(t0), R.ts(t1), style, text))
     def S(t0, t1, draw, col, alpha="&H00&", layer=4, extra=""):
         E(t0, t1, "shape", r"{\an7\pos(0,0)\p1\1c%s\1a%s\bord0\shad0%s}%s{\p0}" % (col, alpha, extra, draw), layer)
-    pop = r"\fscx150\fscy150\t(0,140,\fscx100\fscy100)"
-    S(0, 2.9, "m 0 100 l 720 100 l 720 410 l 0 410", "&H000000&", "&H60&", 8, r"\fad(0,200)")
-    E(0, 2.9, "hook", r"{\an5\pos(360,200)\fs64\bord7%s\fad(0,200)}触れたら、{\c&H4040FF&}影{\c&HFFFFFF&}になる世界。" % pop, 10)
-    E(0.2, 2.9, "hook", r"{\an5\pos(360,320)\fs84\c&H3030FF&\3c&H000000&\bord8%s\fad(0,200)}最終話" % pop, 10)
+    pop = r"\fscx125\fscy125\t(0,140,\fscx100\fscy100)"
+    S(0, 2.9, "m 0 90 l 720 90 l 720 320 l 0 320", "&H000000&", "&H60&", 8, r"\fad(0,200)")
+    E(0, 2.9, "hook", r"{\an5\pos(360,165)\fs54\bord7%s\fad(0,200)}触れたら、{\c&H4040FF&}影{\c&HFFFFFF&}になる世界。" % pop, 10)
+    E(0.2, 2.9, "hook", r"{\an5\pos(360,262)\fs76\c&H3030FF&\3c&H000000&\bord8%s\fad(0,200)}最終話" % pop, 10)
     # 影化ゲージ
     X0, X1, Y0, Y1 = 96, 330, 30, 56
     S(0, DAWN + 2.5, rr(16, 18, 352, 68, 14), "&H100810&", "&H40&", 6, r"\fad(0,300)")

@@ -21,9 +21,9 @@ Style: count,IPAPGothic,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 8,0:00:00.00,0:00:02.90,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H60&\bord0\shad0\fad(0,200)}m 0 100 l 720 100 l 720 410 l 0 410{\p0}
-Dialogue: 10,0:00:00.00,0:00:02.90,hook,,0,0,0,,{\an5\pos(360,200)\fs64\bord7\fscx150\fscy150\t(0,140,\fscx100\fscy100)\fad(0,200)}触れたら、{\c&H4040FF&}影{\c&HFFFFFF&}になる世界。
-Dialogue: 10,0:00:00.20,0:00:02.90,hook,,0,0,0,,{\an5\pos(360,320)\fs84\c&H3030FF&\3c&H000000&\bord8\fscx150\fscy150\t(0,140,\fscx100\fscy100)\fad(0,200)}最終話
+Dialogue: 8,0:00:00.00,0:00:02.90,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H60&\bord0\shad0\fad(0,200)}m 0 90 l 720 90 l 720 320 l 0 320{\p0}
+Dialogue: 10,0:00:00.00,0:00:02.90,hook,,0,0,0,,{\an5\pos(360,165)\fs54\bord7\fscx125\fscy125\t(0,140,\fscx100\fscy100)\fad(0,200)}触れたら、{\c&H4040FF&}影{\c&HFFFFFF&}になる世界。
+Dialogue: 10,0:00:00.20,0:00:02.90,hook,,0,0,0,,{\an5\pos(360,262)\fs76\c&H3030FF&\3c&H000000&\bord8\fscx125\fscy125\t(0,140,\fscx100\fscy100)\fad(0,200)}最終話
 Dialogue: 6,0:00:00.00,0:00:30.10,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H100810&\1a&H40&\bord0\shad0\fad(0,300)}m 30 18 l 338 18 b 344 18 352 25 352 32 l 352 54 b 352 60 344 68 338 68 l 30 68 b 23 68 16 60 16 54 l 16 32 b 16 25 23 18 30 18{\p0}
 Dialogue: 8,0:00:00.00,0:00:30.10,card,,0,0,0,,{\an4\pos(28,43)\fs24\c&HFF80D0&\fad(0,300)}影化
 Dialogue: 6,0:00:00.00,0:00:30.10,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H302030&\1a&H00&\bord0\shad0\fad(0,300)}m 96 30 l 330 30 l 330 56 l 96 56{\p0}
