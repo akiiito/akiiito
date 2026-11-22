@@ -9,6 +9,7 @@ import numpy as np
 import make_reel as R
 import s_sfx as X
 import s_bgm as B
+import s_hit as K
 MEID = int(os.environ.get("MEID", "1368642336"))
 from block_lines import FINAL as LINES0
 from blk6_timing import *
@@ -41,17 +42,17 @@ def rr(x0, y0, x1, y1, r):
 
 STY = (
     "Style: shape,{f},20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1\n"
-    "Style: ruka,{f},44,&H00FFFFFF,&H00FFFFFF,&H008A3CE8,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1\n"
-    "Style: me,{f},44,&H00FFFFFF,&H00FFFFFF,&H00306A9A,&H00000000,-1,0,0,0,100,100,1,0,1,6,0,5,30,30,0,1\n"
+    "Style: ruka,{f},70,&H00FFFFFF,&H00FFFFFF,&H008A3CE8,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1\n"
+    "Style: me,{f},70,&H00FFFFFF,&H00FFFFFF,&H00306A9A,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1\n"
+    "Style: giant,{f},70,&H00B0B0FF,&H00B0B0FF,&H00100040,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1\n"
     "Style: hook,{f},58,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,7,0,5,20,20,0,1\n"
     "Style: card,{f},44,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,0,0,5,20,20,0,1\n"
     "Style: count,{f},84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,8,0,5,0,0,0,1\n")
 
-def shadow_at(t):
-    """自分の影化（%）：97 → ルカの手で 12"""
-    if t < GLOW0: return 97.0
-    if t < GLOW1: return 97.0 - 85.0 * ((t - GLOW0) / (GLOW1 - GLOW0)) ** 0.8
-    return 12.0
+def blk_at(t):
+    if t < CLENCH: return 0.35
+    if t < FHIT: return 0.35 + 0.55 * min(1, max(0, (t - CLENCH) / 2.0)) ** 1
+    x = min(1, max(0, (t - FHIT - 1.0) / 6.0)); return 0.9 - 0.85 * x * x * (3 - 2 * x)
 
 def build_ui(path):
     ev = []
@@ -59,50 +60,76 @@ def build_ui(path):
         if t1 > t0: ev.append("Dialogue: %d,%s,%s,%s,,0,0,0,,%s" % (layer, R.ts(t0), R.ts(t1), style, text))
     def S(t0, t1, draw, col, alpha="&H00&", layer=4, extra=""):
         E(t0, t1, "shape", r"{\an7\pos(0,0)\p1\1c%s\1a%s\bord0\shad0%s}%s{\p0}" % (col, alpha, extra, draw), layer)
-    pop = r"\fscx40\fscy40\t(0,120,\fscx112\fscy112)\t(120,220,\fscx100\fscy100)"
-    # 冒頭のひとこと（前回を知らなくても分かる）
-    E(0.0, 2.9, "hook", r"{\an5\pos(360,250)\fs56\fad(0,200)%s}触れたら、{\c&H4040FF&}影{\c&HFFFFFF&}になる世界。" % pop, 9)
-    E(0.9, 2.9, "card", r"{\an5\pos(360,330)\fs36\c&HE0E0E0&\bord3\3c&H000000&\fad(150,200)}それでも彼女は、手を握った", 9)
-    # 影化ゲージ（左上・1本だけ）
+    pop = r"\fscx150\fscy150\t(0,140,\fscx100\fscy100)"
+    S(0, 2.9, "m 0 100 l 720 100 l 720 410 l 0 410", "&H000000&", "&H60&", 8, r"\fad(0,200)")
+    E(0, 2.9, "hook", r"{\an5\pos(360,200)\fs64\bord7%s\fad(0,200)}触れたら、{\c&H4040FF&}影{\c&HFFFFFF&}になる世界。" % pop, 10)
+    E(0.2, 2.9, "hook", r"{\an5\pos(360,320)\fs84\c&H3030FF&\3c&H000000&\bord8%s\fad(0,200)}最終話" % pop, 10)
+    # 影化ゲージ
     X0, X1, Y0, Y1 = 96, 330, 30, 56
-    S(0, TIP, rr(16, 18, 352, 68, 14), "&H100810&", "&H40&", 6, r"\fad(0,300)")
-    E(0, TIP, "card", r"{\an4\pos(28,43)\fs24\c&HFF80D0&\fad(0,300)}影化", 8)
-    S(0, TIP, "m %d %d l %d %d l %d %d l %d %d" % (X0, Y0, X1, Y0, X1, Y1, X0, Y1), "&H302030&", "&H00&", 6, r"\fad(0,300)")
+    S(0, DAWN + 2.5, rr(16, 18, 352, 68, 14), "&H100810&", "&H40&", 6, r"\fad(0,300)")
+    E(0, DAWN + 2.5, "card", r"{\an4\pos(28,43)\fs24\c&HFF80D0&\fad(0,300)}影化", 8)
+    S(0, DAWN + 2.5, "m %d %d l %d %d l %d %d l %d %d" % (X0, Y0, X1, Y0, X1, Y1, X0, Y1), "&H302030&", "&H00&", 6, r"\fad(0,300)")
     t = 0.0; step = 1 / 12
-    while t < TIP:
-        v = shadow_at(t); w = int((X1 - X0) * v / 100)
-        col = "&H6020FF&" if v > 90 else ("&H70C0FF&" if t < GLOW1 + 0.4 else "&H60E0FF&")
-        if v > 90 and int(t * 4) % 2: col = "&H3010C0&"
+    while t < DAWN + 2.5:
+        v = 100 * blk_at(t) + (9 if DOMAIN <= t < FHIT else 0); w = int((X1 - X0) * min(v, 100) / 100)
+        col = "&H6020FF&" if v > 80 else ("&H70C0FF&" if v > 40 else "&H60E0FF&")
+        if v > 95 and int(t * 6) % 2: col = "&HFFFFFF&"
         S(t, t + step, "m %d %d l %d %d l %d %d l %d %d" % (X0, Y0, X0 + w, Y0, X0 + w, Y1, X0, Y1), col, "&H00&", 7)
-        E(t, t + step, "card", r"{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}%d%%" % int(round(v)), 9)
+        E(t, t + step, "card", r"{\an6\pos(340,44)\fs22\c&HFFFFFF&\bord2\3c&H000000&}%d%%" % int(round(min(v, 99))), 9)
         t += step
-    E(GLOW1 - 0.4, GLOW1 + 1.6, "count", r"{\an5\pos(360,400)\fs64\c&HFFFFFF&\3c&H303030&\bord6%s}影化 {\c&H6020FF&}97%%{\c&HFFFFFF&} → {\c&H60E0FF&}12%%" % pop, 11)
-    # 最後の一文
-    S(FIN, END, "m 0 0 l 720 0 l 720 1280 l 0 1280", "&H000000&", "&HA0&", 3, r"\fad(500,0)")
-    E(FIN + 0.1, END, "count", r"{\an5\pos(360,520)\fs52\c&HFFFFFF&\3c&H000000&\bord5\fad(400,0)}影は、消えたんじゃない。", 11)
-    E(FIN + 1.3, END, "count", r"{\an5\pos(360,610)\fs60\c&HFFB0F0&\3c&H400040&\bord6\fad(300,0)}ルカに、移っただけ。", 11)
-    E(END - 1.6, END, "card", r"{\an5\pos(360,740)\fs34\c&HFFFFFF&\bord3\3c&H000000&\fad(200,0)}ルカを助けたい人は", 11)
-    E(END - 1.6, END, "card", r"{\an5\pos(360,895)\fs34\c&HFFFFFF&\bord3\3c&H000000&\fad(200,0)}でコメントしてね", 11)
-    # 上端の進行バー
+    # 技名（大きく・墨のふち）
+    def tech(t0, text, sub, col="&HFFFFFF&", y=520, d=1.3):
+        st = r"\fscx180\fscy180\t(0,120,\fscx100\fscy100)\t(%d,%d,\alpha&HFF&)" % (int(d * 1000) - 250, int(d * 1000))
+        E(t0, t0 + d, "count", r"{\an5\pos(360,%d)\fs40\c&HDDDDDD&\bord4\3c&H000000&%s}%s" % (y - 85, st, sub), 13)
+        E(t0, t0 + d, "count", r"{\an5\pos(360,%d)\fs110\c%s\3c&H000000&\bord11\shad0%s}%s" % (y, col, st, text), 13)
+    tech(PILLARS - 0.05, "千本柱", "構築――", "&HFFE0A0&")
+    tech(SWORD + 0.05, "大剣", "構築――", "&HFFE0A0&")
+    tech(RISE - 0.05, "天穿つ拳", "光影合一――", "&H40C8FF&", 470, 1.5)
+    def boom(t0, text, x, y, fs, rot, col="&H30D0FF&", d=0.75):
+        st = r"\frz%d\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(%d,%d,\fscx110\fscy110\alpha&HFF&)" % (rot, int(d * 1000) - 200, int(d * 1000))
+        E(t0, t0 + d, "count", r"{\an5\pos(%d,%d)\fs%d\c%s\3c&H101010&\bord9\shad0%s}%s" % (x, y, fs, col, st, text), 14)
+    boom(PHIT, "ズドドドッ！", 380, 300, 100, -8)
+    boom(SMASH, "ドゴォン！！", 360, 760, 120, 6, "&H2040FF&", 0.9)
+    boom(SLASH, "ザンッ！", 470, 330, 130, -14, "&HFFFFFF&", 0.8)
+    boom(WAVE, "パァンッ！", 250, 260, 90, 8, "&H40E0FF&", 0.6)
+    boom(FHIT, "ドォォォン！！！", 360, 330, 120, -6, "&H2040FF&", 1.2)
+    E(DOMAIN, FHIT, "card", r"{\an5\pos(360,140)\fs36\c&H40C8FF&\bord3\3c&H000000&\fad(300,200)}― 光と影が、反転する ―", 9)
+    # 完
+    S(TITLE, END, "m 0 0 l 720 0 l 720 1280 l 0 1280", "&H000000&", "&HA0&", 3, r"\fad(600,0)")
+    E(TITLE + 0.2, END, "count", r"{\an5\pos(360,480)\fs52\c&HFFFFFF&\3c&H000000&\bord5\fad(500,0)}触れたら、影になる世界", 11)
+    E(TITLE + 0.9, END, "count", r"{\an5\pos(360,590)\fs76\c&HB0E8FF&\3c&H203040&\bord6\fad(500,0)}― 完 ―", 11)
+    E(END - 2.2, END, "card", r"{\an5\pos(360,760)\fs40\c&H80E0FF&\bord4\3c&H000000&\fad(200,0)}面白かったら\Nコメント・フォローで応援してね！", 12)
     S(0, END, "m 0 0 l 720 0 l 720 6 l 0 6", "&H60D0FF&", "&H00&", 12, r"\clip(0,0,0,6)\t(0,%d,\clip(0,0,720,6))" % int(END * 1000))
-    for st, en, text, _, _, who in R.LINES:
-        E(st, en, who, r"{\an5\pos(360,1010)\fad(60,100)}%s" % text, 9)
+    for st_, en, text, _, _, who in R.LINES:
+        E(st_, en, who, r"{\an5\pos(360,1000)\fad(60,100)}%s" % text, 9)
     head = R.ASS_HEAD.replace("{f}", R.FONT).replace("\n[Events]", STY.replace("{f}", R.FONT) + "\n[Events]")
     open(path, "w", encoding="utf-8").write(head + "\n".join(ev) + "\n")
 
 def build_sfx():
-    B.block_hikari(add, DUR, GRAB, GLOW0, WAVE, TIP, HIDE, FIN, tail=TAIL)
-    add(X.braam(2.4, 41.0), 0.05, 0.3)
-    hb = R.heartbeat()
-    t = 0.3
-    while t < GRAB: add(hb, t, 0.42); t += 0.62 - 0.02 * t
-    add(R.whoosh(0.4, 300, 1400), GRAB - 0.25, 0.25); add(R.lp(R.kick(80, 40, 0.2, 0.05), 600), GRAB, 0.3)
-    add(X.swell(2.0), GLOW0 - 0.6, 0.35)
-    if hasattr(R, "sparkle"): add(R.sparkle(1.5), GLOW0 + 0.4, 0.25)
-    add(X.swell(1.6), WAVE - 1.5, 0.4); add(R.boom(3.0), WAVE, 0.55); add(R.whoosh(1.6, 500, 4000), WAVE, 0.35)
-    for k in range(10): add(R.lp(R.noise(0.2), 4000) * R.dec(0.2, 0.06), WAVE + 0.5 + k * 0.35, 0.18, 0.5 * (-1) ** k)
-    add(X.stinger(1.4), TIP + 1.2, 0.3); add(X.tinnitus(2.6, 3600), TIP + 1.3, 0.22)
-    add(X.stinger(1.4), FIN + 1.3, 0.22)
+    B.block_final(add, DUR, CLENCH, PILLARS, SWING, SLASH, CATCH, SWARM, DOMAIN, RISE, FHIT, SUN, DAWN, TITLE, tail=TAIL)
+    add(X.braam(2.4, 38.0), 0.05, 0.3)
+    add(X.braam(2.0, 36.0), 3.0, 0.25)                                                       # 巨人の声に低音
+    add(K.build(10, 0.05), CLENCH + 0.2, 0.25); add(X.swell(1.6), CLENCH + 0.3, 0.3)
+    add(K.build(16, 0.03), PILLARS - 0.1, 0.4); add(K.whoosh(0.5, 300, 5000), PILLARS, 0.5)
+    for k in range(6): K.strike(add, PHIT + k * 0.07, 0.8 + 0.1 * k, 0.4 * (-1) ** k, k == 0)
+    add(K.crumble(1.2, 24), PHIT + 0.2, 0.5)
+    add(K.whoosh(0.9, 150, 1200), SWING - 0.2, 0.5); add(X.swell(0.8), SWING + 0.1, 0.3)
+    K.strike(add, SMASH, 1.6); add(K.boom_big(2.4), SMASH, 0.7); add(K.crumble(1.6, 34), SMASH + 0.1, 0.7)
+    add(K.whoosh(0.25, 800, 8000), SMASH - 0.15, 0.5)                                      # よける
+    add(K.build(24, 0.025), SWORD + 0.05, 0.45); add(K.slash() * 0.6, SWORD + 0.8, 0.4)
+    add(K.suck(0.3), SLASH - 0.3, 0.4); add(K.slash(), SLASH - 0.05, 1.0); K.strike(add, SLASH + 0.02, 1.2, 0.0, False)
+    add(K.crumble(1.0, 16), SLASH + 0.3, 0.4)
+    add(R.whoosh(1.0, 200, 1500), SLASH + 0.3, 0.3); add(K.hit(0.6), CATCH, 0.4)
+    add(X.swell(1.6), JOIN - 0.2, 0.35)
+    add(K.boom_big(2.0) * 0.6, SWARM - 0.4, 0.5)                                             # 咆哮
+    for k in range(3): K.strike(add, WAVE + 0.5 * k, 1.0, 0.3 * (k - 1), True); add(K.whoosh(0.4, 400, 6000), WAVE + 0.5 * k, 0.4)
+    add(X.tinnitus(2.0, 4800), DOMAIN, 0.15); add(X.swell(2.0), DOMAIN + 0.2, 0.4)
+    add(K.suck(0.8), RISE - 0.8, 0.5); add(K.build(30, 0.02), RISE, 0.4); add(R.riser(0.8), RISE, 0.3)
+    K.strike(add, FHIT, 2.0); add(K.boom_big(3.5), FHIT, 1.0); add(K.boom_big(3.0) * 0.7, FHIT + 0.35, 0.8)
+    add(X.impact(2.0, 34.0), SUN, 0.5); add(X.swell(2.0), SUN - 0.5, 0.3)
+    for k in range(6):
+        f0 = 3200 + 600 * (k % 3); tt = R.tt(0.12)
+        add(np.sin(2 * np.pi * (f0 + 2500 * tt) * tt) * R.dec(0.12, 0.04), DAWN + 0.8 + k * 0.55, 0.035, 0.5 * (-1) ** k)
 
 def main():
     if "--voice" in sys.argv:
@@ -124,15 +151,11 @@ def main():
     ass = os.path.join(HERE, "blk6_ui.ass"); build_ui(ass)
     if "--ui" in sys.argv: print("wrote", wav, ass); return
     mp4 = os.path.join(HERE, "block_final.mp4")
-    fire = os.path.join(HERE, "blk6_fire.png")                                  # 絵文字はカラーで（字幕フォントだと白黒になる）
-    subprocess.run(["python3", "-c", "import s2_endcard as e; e.emoji_png('🔥', %r, 150)" % fire], check=True, cwd=HERE)
-    grade = ("[0:v]vignette=PI/5.5,eq=contrast=1.03:saturation=1.06,ass=blk6_ui.ass[v];[2:v]scale=120:-1,format=rgba,fade=in:st=%.2f:d=0.2:alpha=1[f];"
-             "[v][f]overlay=x=(W-w)/2:y=1215-h/2:enable='gte(t,%.2f)'" % (END - 1.6, END - 1.6))
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", os.path.join(FR, "%04d.png"), "-i", wav,
-                    "-loop", "1", "-framerate", str(FPS), "-i", fire, "-filter_complex", grade,
-                    "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "16", "-preset", "slow", "-maxrate", "14M", "-bufsize", "28M",
+                    "-filter_complex", "[0:v]vignette=PI/5.5,eq=contrast=1.03:saturation=1.06,ass=blk6_ui.ass[v]", "-map", "[v]", "-map", "1:a",
+                    "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-preset", "slow", "-maxrate", "12M", "-bufsize", "24M",
                     "-af", "loudnorm=I=-14:TP=-1.0:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", str(SR), "-t", "%.3f" % DUR,
-                    "-shortest", "-movflags", "+faststart", mp4], check=True, cwd=HERE)
+                    "-movflags", "+faststart", mp4], check=True, cwd=HERE)
     print("wrote", mp4)
 
 if __name__ == "__main__":

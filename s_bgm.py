@@ -402,3 +402,45 @@ def toki_ep2(add, DUR, stopt=11.6, dash=14.8, resume=22.0, stamp=27.2, dawn=28.4
         add(piano(nf(ch[k % 3]) * 2, 1.6, 0.45), t, 0.045, 0.25 * (-1) ** k)
         t += beat; k += 1
     for j, n in enumerate(["E5", "G5", "C6", "B5", "G5", "A5"]): add(music_box(nf(n), 2.0), dawn + 0.6 + j * 1.0, 0.05)
+
+def block_final(add, DUR, clench=6.0, pillars=8.3, swing=9.6, slash=12.8, catch=13.9, swarm=17.0, domain=19.1, rise=21.5, fhit=22.3, sun=23.2, dawn=27.6, title=34.4, tail=0.0):
+    """完結編：重い低音（巨人）→ 決意（太鼓が入る）→ 戦闘（速い打ちこみ・弦のスタッカート）→ ルカの手（あたたかい一瞬）
+       → 群れ（さらに速く）→ 反転の世界（無音に近い高音）→ とどめ（全部）→ 夜明け（メインテーマ）→ 完"""
+    add(pad([nf("C1"), nf("G1"), nf("C#2")], clench + 0.4, 300), 0.0, 0.16)
+    for j in range(3): add(music_box(nf(["G5", "F#5", "C5"][j]), 1.8) * 0.7, 0.4 + j * 1.6, 0.04)
+    t = clench; k = 0; b = 60 / 96
+    while t < pillars - 0.1:
+        add(R.lp(R.kick(70, 35, 0.5, 0.15), 300), t, 0.3); t += b; k += 1
+    add(strings([nf("C2"), nf("D#2"), nf("G2"), nf("C3")], pillars - clench, 900, 1.0, 0.2), clench, 0.12)
+    add(R.riser(1.0), pillars - 1.0, 0.15)
+    prog = [("C2", ("C3", "D#3", "G3")), ("G#1", ("G#2", "C3", "D#3")), ("A#1", ("A#2", "D3", "F3")), ("G1", ("G2", "B2", "D3"))]
+    def battle(t0, t1, bpm, g=1.0):
+        b2 = 60 / bpm; t = t0; k = 0
+        while t < t1 - 0.05:
+            lo, ch = prog[(k // 4) % 4]
+            if k % 4 == 0: add(strings([nf(lo), nf(ch[0]), nf(ch[1]), nf(ch[2]), nf(ch[0]) * 2], b2 * 4.1, 2800, 0.02, 0.25), t, 0.12 * g)
+            add(R.lp(R.kick(95, 40, 0.26, 0.07), 450), t, 0.3 * g)
+            add(R.lp(R.noise(0.06), 8000) * R.dec(0.06, 0.015), t + b2 / 2, 0.09 * g)
+            if k % 2: add(R.lp(R.noise(0.14), 5000) * R.dec(0.14, 0.05), t, 0.14 * g)
+            add(piano(nf(ch[k % 3]) * 2, 0.5, 0.8), t, 0.04 * g, 0.3 * (-1) ** k)
+            t += b2; k += 1
+    battle(pillars, catch, 160)
+    add(strings([nf("D#3"), nf("G3"), nf("A#3"), nf("D4")], swarm - catch, 1400, 0.6, 0.4), catch, 0.12)    # ルカの手
+    for j, n in enumerate(["G5", "A#5", "D6", "C6"]): add(music_box(nf(n), 2.0), join_t := catch + 0.9 + j * 0.7, 0.05)
+    battle(swarm - 0.3, domain, 176, 1.1)
+    add(pad([nf("C5"), nf("G5"), nf("D6")], rise - domain, 6000), domain, 0.05)           # 反転：高い持続音だけ
+    add(R.riser(rise - domain), domain, 0.12)
+    battle(rise, sun + 0.4, 176, 1.25)
+    add(R.boom(3.5), fhit, 0.6)
+    theme = [("C3", ("C4", "E4", "G4")), ("G2", ("G3", "B3", "D4")), ("A2", ("A3", "C4", "E4")), ("F2", ("F3", "A3", "C4"))]
+    t = sun + 0.6; k = 0; b3 = 60 / 80
+    while t < DUR + tail - 0.3:
+        lo, ch = theme[(k // 4) % 4]
+        if k % 4 == 0:
+            add(strings([nf(lo) / 2, nf(lo), nf(ch[0]), nf(ch[1]), nf(ch[2])], b3 * 4.4, 2000, 0.8, 1.2), t, 0.13)
+            add(piano(nf(lo), 2.8, 0.9), t, 0.08)
+        add(piano(nf(ch[k % 3]) * 2, 1.6, 0.5), t, 0.05, 0.25 * (-1) ** k)
+        t += b3; k += 1
+    mel = ["E5", "G5", "C6", "B5", "G5", "E5", "F5", "A5", "G5", "E5", "D5", "C5", "D5", "E5", "G5", "C6"]
+    for j, n in enumerate(mel): add(piano(nf(n), 2.0, 0.85), dawn + j * b3, 0.08)
+    for j in range(4): add(music_box(nf(["C6", "B5", "G5", "E5"][j]), 2.2), title + 0.4 + j * 0.8, 0.06)
