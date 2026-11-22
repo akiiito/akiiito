@@ -9,6 +9,7 @@ import numpy as np
 import make_reel as R
 import s_sfx as X
 import s_bgm as B
+import s_hit as K
 from toki_lines import TOKI2 as LINES0
 from toki2_timing import *
 
@@ -96,16 +97,16 @@ def build_sfx():
     for k in range(8): add(click(0.03, 5000), KICKBOX + 0.25 + k * 0.06, 0.12, 0.5 * (-1) ** k)
     add(click(0.08, 6000), STOPT - 0.05, 0.5); add(click(0.05, 4000), STOPT + 0.08, 0.4)
     add(R.whoosh(0.9, 200, 2000), STOPT, 0.4); add(X.tinnitus(1.6, 5200), STOPT + 0.1, 0.12); add(X.swell(1.0), STOPT + 0.2, 0.25)
-    add(R.whoosh(0.35, 400, 5000), DASH - 0.05, 0.5)                                                       # 踏みこみ
-    add(punch(1.2), PUNCH1, 0.75); add(X.impact(1.2, 50.0), PUNCH1, 0.35)
-    add(X.whip(0.35), UPPER - 0.12, 0.4); add(punch(1.3), UPPER, 0.75); add(R.whoosh(0.4, 600, 4000), UPPER + 0.02, 0.35)
+    add(K.whoosh(0.3, 400, 7000), DASH - 0.05, 0.6)                                                        # 踏みこみ
+    K.strike(add, PUNCH1, 1.2); add(X.impact(1.2, 50.0), PUNCH1, 0.3)
+    add(K.whoosh(0.18, 800, 8000), UPPER - 0.16, 0.5); K.strike(add, UPPER, 1.3, 0.0, False); add(K.whoosh(0.4, 600, 4000), UPPER + 0.02, 0.35)
     add(mix(R.lp(R.kick(70, 35, 0.5, 0.12), 700), 0.6 * R.lp(R.noise(0.6), 2500) * R.dec(0.6, 0.15)), UPPER + 0.4, 0.6)   # 天井
-    for k in range(10): add(R.lp(R.noise(0.08), 3000) * R.dec(0.08, 0.02), UPPER + 0.55 + k * 0.07, 0.15, 0.6 * (-1) ** k)
-    add(R.lp(R.kick(60, 30, 0.6, 0.15), 500), FALL + 0.1, 0.6)
+    add(K.crumble(1.0, 18), UPPER + 0.45, 0.6)
+    add(K.hit(0.9), FALL + 0.1, 0.7)
     for k in range(4): add(np.sin(2 * np.pi * (1800 + 400 * k) * R.tt(0.25)) * R.dec(0.25, 0.08), FALL + 0.3 + k * 0.18, 0.04)   # ピヨピヨ
     add(X.swell(0.8), CHARGE, 0.4); add(R.riser(0.7), CHARGE, 0.2)
-    add(punch(1.5), FINISH, 0.8); add(X.impact(2.0, 40.0), FINISH, 0.5); add(R.whoosh(1.0, 300, 3000), FINISH + 0.05, 0.4)
-    add(mix(R.boom(2.2), 0.7 * R.lp(R.noise(1.6), 1500) * R.dec(1.6, 0.6)), FINISH + 0.25, 0.7)                 # 壁が砕ける
+    K.strike(add, FINISH, 1.6); add(K.boom_big(3.0), FINISH + 0.02, 0.8); add(K.whoosh(1.0, 300, 3000), FINISH + 0.05, 0.4)
+    add(K.crumble(1.6, 36), FINISH + 0.25, 0.7)                                                          # 壁が砕ける
     for k in range(14): add(R.lp(R.noise(0.1), 2500) * R.dec(0.1, 0.03), FINISH + 0.4 + k * 0.08, 0.18, 0.6 * (-1) ** k)
     add(R.lp(R.kick(70, 30, 0.5, 0.12), 500), FINISH + 1.4, 0.5)
     rr = np.random.default_rng(3)
