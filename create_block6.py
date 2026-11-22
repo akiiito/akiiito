@@ -17,9 +17,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 arg = lambda k, d: sys.argv[sys.argv.index(k) + 1] if k in sys.argv else d
 SAMPLES = int(arg("--samples", "14")); FPS = 24; N = int(END * FPS)
 RS = float(arg("--res", "0.75"))
-START = int(arg("--start", "0")); STOP = int(arg("--end", str(N)))
+START = int(arg("--start", "0")); STOP = int(arg("--end", str(int(END_OUT * FPS))))
 TEST = [int(x) for x in arg("--test", "").split(",") if x]
-OUT = os.path.join(HERE, "frames_BLK6" + ("_test" if TEST else "")); os.makedirs(OUT, exist_ok=True)
+OUT = os.path.join(HERE, "frames_BLK6W" + ("_test" if TEST else "")); os.makedirs(OUT, exist_ok=True)
 LINES = json.load(open(os.path.join(HERE, "blk6_lines.json"), encoding="utf-8"))
 
 sc = W.reset(SAMPLES, res=(int(1080 * RS), int(1920 * RS)))
@@ -895,12 +895,13 @@ def place(t):
         sv = world_to_camera_view(sc, cam, hit_point(kind)); meta["imp"] = [sv.x, sv.y, sv.z]
     return meta
 
-frames = TEST or range(START, STOP)
+W0, W1 = int(round(8.3 * FPS)), int(round(out_t(13.9) * FPS))
+frames = TEST or range(max(START, W0), min(STOP, W1))
 t0 = time.time()
 for f in frames:
     p = os.path.join(OUT, "%04d.png" % (f + 1))
     if os.path.exists(p) and not TEST: continue
-    t = f / FPS
+    t = story_t(f / FPS)
     meta = place(t)
     for o in bpy.data.objects:
         if any(o.name.startswith(h) for h in [x for x in arg('--hide', '').split(',') if x]): o.hide_render = True

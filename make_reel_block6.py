@@ -13,10 +13,15 @@ import s_hit as K
 MEID = int(os.environ.get("MEID", "1368642336"))
 from block_lines import FINAL as LINES0
 from blk6_timing import *
+import blk6_timing as BT
+for _k in ("CLENCH", "PILLARS", "PHIT", "SWING", "SMASH", "SWORD", "SLASH", "CATCH", "JOIN", "SWARM", "DOMAIN", "RISE", "FHIT", "SUN", "FADEG", "DAWN", "TITLE", "WAVE"):
+    globals()[_k] = BT.out_t(getattr(BT, _k))
+END = BT.END_OUT
+LINES0 = [(BT.out_t(a), BT.out_t(b)) + tuple(r) for a, b, *r in LINES0]
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FPS, SR = 24, R.SR
-FR = os.path.join(HERE, "frames_BLK6_post")
+FR = os.path.join(HERE, "frames_BLK6_cut")
 DUR = END
 TAIL = 0.6
 R.DUR = DUR
@@ -150,6 +155,12 @@ def main():
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes((out * 32767).astype("<i2").tobytes())
     ass = os.path.join(HERE, "blk6_ui.ass"); build_ui(ass)
     if "--ui" in sys.argv: print("wrote", wav, ass); return
+    os.makedirs(FR, exist_ok=True)
+    for f in range(int(round(END * FPS))):
+        src = os.path.join(HERE, "frames_BLK6W_post", "%04d.png" % (f + 1)) if 199 <= f < 420 else os.path.join(HERE, "frames_BLK6_post", "%04d.png" % ((f if f < 199 else f - 86) + 1))
+        dst = os.path.join(FR, "%04d.png" % (f + 1))
+        if os.path.lexists(dst): os.remove(dst)
+        os.symlink(src, dst)
     mp4 = os.path.join(HERE, "block_final.mp4")
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", os.path.join(FR, "%04d.png"), "-i", wav,
                     "-filter_complex", "[0:v]vignette=PI/5.5,eq=contrast=1.03:saturation=1.06,ass=blk6_ui.ass[v]", "-map", "[v]", "-map", "1:a",
