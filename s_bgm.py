@@ -492,3 +492,29 @@ def fps_tense(add, DUR, picks=(), ghosts=(), climax=(16.4, 22.0), alarm=23.0, fi
     add(R.riser(final[1] - final[0]), final[0], 0.18)
     add(R.boom(3.0), final[1], 0.55)
     add(pad([nf("D1"), nf("A1")], DUR + tail - final[1], 200), final[1], 0.12)
+
+def deathgame_bgm(add, DUR, ghosts=(), climax=16.4, win_=22.0, alarm=23.0, final=(25.9, 28.0), tail=0.0):
+    """「異世界デスゲーム」第3話と同じBGM（ノコギリ波の8分オスティナート＋和太鼓＋スネア＋持続音、
+       クライマックスで全音上げ、勝利の偽ファンファーレ、最後は低く不穏な和音）を、この話の長さに合わせて鳴らす"""
+    add(R.pad([73.4, 110, 146.8, 174.6], min(climax, 6.0), 500, 0.6, 0.4), 0, 0.4)
+    beat = 0.1875
+    ost = [82.4, 82.4, 98.0, 82.4, 123.5, 110.0, 98.0, 110.0]
+    gaps = [(g, g + 0.5) for g in ghosts]
+    tt_, i = 1.2, 0
+    while tt_ < alarm:
+        if not any(a <= tt_ < z for a, z in gaps):
+            n = ost[i % 8] * (2 ** (2 / 12) if tt_ >= climax else 1.0)
+            add(R.fade(R.lp(R.saw(n, beat * 0.9) + R.saw(n * 2, beat * 0.9, 0.006), 750), 0.004, 0.03), tt_, 0.3)
+            if i % 2 == 0: add(R.taiko(), tt_, 0.5)
+            if i % 4 == 2: add(R.snare(), tt_, 0.3)
+            if i % 8 in (3, 7): add(R.taiko(), tt_ + beat / 2, 0.28)
+        tt_ += beat; i += 1
+    add(R.pad([164.8, 246.9, 329.6, 493.9], win_ - 1.2, 1600, 0.4, 0.2), 1.2, 0.17)
+    for k, (dt, d) in enumerate(((0.0, 0.25), (0.25, 0.25), (0.5, 1.4))):            # 偽の勝利ファンファーレ
+        add(R.pad([293.7, 370.0, 440.0, 587.3], d, 2600, 0.01, 0.15 if k < 2 else 0.5), win_ + dt, 0.38)
+        add(R.taiko(), win_ + dt, 0.45)
+    add(R.pad([58.3, 82.4, 116.5, 164.8], final[1] - alarm + 0.5, 600, 0.1, 1.0), alarm, 0.5)
+    tt_ = final[0]; i = 0
+    while tt_ < final[1]:                                                             # 最後の2択：太鼓だけ加速
+        add(R.taiko(), tt_, 0.35 + 0.2 * (tt_ - final[0]) / (final[1] - final[0])); tt_ += 0.3 - 0.18 * (tt_ - final[0]) / (final[1] - final[0]); i += 1
+    add(R.boom(3.0), final[1], 0.5)
