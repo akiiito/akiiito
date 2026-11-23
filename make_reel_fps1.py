@@ -52,7 +52,7 @@ def build_ui(path):
     pop = r"\fscx135\fscy135\t(0,140,\fscx100\fscy100)"
     pov = lambda t: not (DRAW <= t < FIRE - 0.15 or FIRE + 0.4 <= t < K3 + 0.4)
     # 冒頭
-    E(0, 3.0, "count", r"{\an5\pos(360,300)\fs150\c&H3030FF&\3c&H000000&\bord10%s\fad(0,250)}残弾 1" % pop, 12)
+    E(0, 3.0, "count", r"{\an5\pos(360,300)\fs124\c&H3030FF&\3c&H000000&\bord10%s\fad(0,250)}残弾 1" % pop, 12)
     S(0, 3.0, "m 0 410 l 720 410 l 720 540 l 0 540", "&H000000&", "&H70&", 8, r"\fad(0,250)")
     E(0, 3.0, "hook", r"{\an5\pos(360,475)\fs44\bord6%s\fad(0,250)}この世界の銃、弾は1発だけ。" % pop, 10)
     # HUD（主観のときだけ）
