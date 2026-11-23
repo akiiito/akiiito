@@ -444,3 +444,20 @@ def block_final(add, DUR, clench=6.0, pillars=8.3, swing=9.6, slash=12.8, catch=
     mel = ["E5", "G5", "C6", "B5", "G5", "E5", "F5", "A5", "G5", "E5", "D5", "C5", "D5", "E5", "G5", "C6"]
     for j, n in enumerate(mel): add(piano(nf(n), 2.0, 0.85), dawn + j * b3, 0.08)
     for j in range(4): add(music_box(nf(["C6", "B5", "G5", "E5"][j]), 2.2), title + 0.4 + j * 0.8, 0.06)
+
+def fps_ep1(add, DUR, duck=8.0, edit=10.5, fire=16.6, k3=22.2, win_=23.0, loop=25.0, admin=27.4, tail=0.0):
+    """FPS第1話：緊張の低音（心音）→ 銃撃戦（速い打ちこみ）→ 編集（時間が止まる高音）→ バレットカム（重い一拍ずつ）→ 勝利 → 不穏"""
+    add(pad([nf("D1"), nf("A1"), nf("D#2")], duck + 0.2, 300), 0.0, 0.15)
+    b = 60 / 150; t = duck; k = 0
+    while t < edit - 0.1:
+        add(R.lp(R.kick(95, 40, 0.26, 0.07), 450), t, 0.3); add(R.lp(R.noise(0.06), 8000) * R.dec(0.06, 0.015), t + b / 2, 0.09)
+        if k % 4 == 0: add(strings([nf("D2"), nf("F2"), nf("A2"), nf("D3")], b * 4.1, 2400, 0.02, 0.25), t, 0.11)
+        t += b; k += 1
+    add(pad([nf("D5"), nf("A5"), nf("E6")], fire - edit, 6000), edit, 0.05)                 # 編集：時間が止まる
+    add(R.riser(fire - edit - 0.3), edit + 0.3, 0.1)
+    for j, kt in enumerate((fire + 0.8, fire + 1.6, fire + 2.4)): add(R.lp(R.kick(60, 30, 0.6, 0.2), 300), kt, 0.25)
+    add(strings([nf("D2"), nf("A2"), nf("D3"), nf("F#3")], k3 - fire + 0.6, 1800, 0.3, 0.5), fire, 0.12)
+    add(strings([nf("D2"), nf("F#2"), nf("A2"), nf("D3"), nf("F#3")], loop - win_ + 0.3, 2000, 0.05, 0.5), win_, 0.13)
+    for j, n in enumerate(["D5", "F#5", "A5", "D6"]): add(piano(nf(n), 1.4, 0.9), win_ + j * 0.22, 0.07)
+    add(pad([nf("C1"), nf("F#1"), nf("C2")], DUR + tail - loop, 300), loop, 0.16)
+    for j in range(3): add(music_box(nf(["F#5", "C6", "F5"][j]), 2.0), admin + 0.3 + j * 0.7, 0.05)
