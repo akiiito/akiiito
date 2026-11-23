@@ -98,7 +98,7 @@ def build_ui(path):
     S(10.25, 11.4, rect(60, 560, 660, 690), "&H000000&", "&H40&", 9, r"\fad(100,0)")
     E(10.25, 11.4, "card", r"{\an7\pos(84,575)\fs30\fad(100,0)}・外したら、撃った人は消える", 9)
     E(10.25, 11.4, "card", r"{\an7\pos(84,625)\fs36\c&H40F0FF&\fad(100,0)\t(200,500,\fscx110\fscy110)}・外れ＝弾が止まったとき", 9)
-    ghost(11.4, 11.9, "一か八か撃つ", "弾が壁で止まる → 消滅")
+    ghost(11.4, 11.9, "一か八か撃つ", "壁で止まる → 消滅")
     E(11.9, 14.4, "card", r"{\an5\pos(360,120)\fs30\c&H40F0FF&\bord3\3c&H000000&}外れ＝弾が止まったとき", 9)
     E(11.9, 13.0, "count", r"{\an5\pos(360,330)\fs90\c&HFFE0A0&\3c&H402000&\bord9%s}弾道編集" % pop, 12)
     choice(12.0, 14.4, "3人を、1発で。", "一直線に貫く", "止まらない輪", ("B", 13.6))
@@ -166,21 +166,8 @@ def render_mp4():
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes((out * 32767).astype("<i2").tobytes())
     ass = os.path.join(HERE, "fps1c_ui.ass"); build_ui(ass)
     if "--ui" in sys.argv: print("wrote", wav, ass); return
-    from PIL import Image
-    SRC = os.path.join(HERE, "frames_FPS1v2_post"); SEQ = os.path.join(HERE, "frames_FPS1c_seq"); os.makedirs(SEQ, exist_ok=True)
-    black = Image.new("RGB", (1080, 1920), (0, 0, 0))
-    for f in range(int(round((DUR + TAIL) * FPS))):
-        t = f / FPS; seg = next((e for e in EDL if e[0] <= t < e[1]), EDL[-1])
-        dst = os.path.join(SEQ, "%04d.png" % (f + 1))
-        if os.path.lexists(dst): os.remove(dst)
-        if seg[4] == "k": black.save(dst); continue
-        st = seg[2] + (t - seg[0]) * (seg[3] - seg[2]) / (seg[1] - seg[0]); src = os.path.join(SRC, "%04d.png" % (min(719, int(round(st * FPS))) + 1))
-        if seg[4] == "n": os.symlink(src, dst); continue
-        im = Image.open(src).convert("L").convert("RGB"); a = np.asarray(im, np.float32) / 255 * np.array([1.0, 0.55, 0.55])
-        rng = np.random.default_rng(f)
-        for _ in range(8):                                                 # 横ずれのノイズ
-            y0 = rng.integers(0, 1900); h = rng.integers(6, 40); a[y0:y0 + h] = np.roll(a[y0:y0 + h], rng.integers(-60, 60), axis=1)
-        Image.fromarray((np.clip(a, 0, 1) * 255).astype(np.uint8)).save(dst)
+    SEQ = os.path.join(HERE, "frames_FPS1c_seq")
+    subprocess.run(["python3", os.path.join(HERE, "assemble_fps1c.py"), json.dumps(EDL), str(DUR + TAIL)], check=True, cwd=HERE)
     mp4 = os.path.join(HERE, "fps_ep1c.mp4")
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", os.path.join(SEQ, "%04d.png"), "-i", wav,
                     "-filter_complex", "[0:v]vignette=PI/5.5,ass=fps1c_ui.ass[v]", "-map", "[v]", "-map", "1:a",
