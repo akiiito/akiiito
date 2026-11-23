@@ -23,7 +23,7 @@ Style: count,IPAPGothic,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 12,0:00:00.00,0:00:03.00,count,,0,0,0,,{\an5\pos(360,300)\fs150\c&H3030FF&\3c&H000000&\bord10\fscx135\fscy135\t(0,140,\fscx100\fscy100)\fad(0,250)}残弾 1
 Dialogue: 8,0:00:00.00,0:00:03.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H70&\bord0\shad0\fad(0,250)}m 0 410 l 720 410 l 720 540 l 0 540{\p0}
-Dialogue: 10,0:00:00.00,0:00:03.00,hook,,0,0,0,,{\an5\pos(360,475)\fs58\bord6\fscx135\fscy135\t(0,140,\fscx100\fscy100)\fad(0,250)}この世界の銃、弾は1発だけ。
+Dialogue: 10,0:00:00.00,0:00:03.00,hook,,0,0,0,,{\an5\pos(360,475)\fs44\bord6\fscx135\fscy135\t(0,140,\fscx100\fscy100)\fad(0,250)}この世界の銃、弾は1発だけ。
 Dialogue: 7,0:00:00.00,0:00:00.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
 Dialogue: 7,0:00:00.00,0:00:00.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
 Dialogue: 7,0:00:00.00,0:00:00.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
