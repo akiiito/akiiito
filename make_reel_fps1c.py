@@ -131,7 +131,7 @@ def tick(): return mix(np.sin(2 * np.pi * 1800 * R.tt(0.03)) * R.dec(0.03, 0.006
 def choose(): return mix(click(0.04, 7000) * 1.2, np.sin(2 * np.pi * 1320 * R.tt(0.18)) * R.dec(0.18, 0.05) * 0.6, np.sin(2 * np.pi * 1760 * R.tt(0.18)) * R.dec(0.18, 0.05) * 0.4)
 def glitch(sec=0.5): return R.bp(R.noise(sec), 300, 5000) * (np.sin(2 * np.pi * 23 * R.tt(sec)) > 0) * 0.8
 def build_sfx():
-    B.fps_ep1(add, DUR, 5.9, 11.9, 16.4, 22.0, 22.0, 23.0, 25.0, tail=TAIL)
+    B.fps_tense(add, DUR, picks=(4.6, 10.2, 13.6), ghosts=(5.4, 11.4), climax=(16.4, 22.0), alarm=23.0, final=(25.9, 28.0), tail=TAIL)
     add(K.hit(1.3), 0.0, 0.6); add(X.braam(2.2, 40.0), 0.05, 0.3)
     hb = R.heartbeat(); t = 0.2
     while t < 2.4: add(hb, t, 0.35); t += 0.7

@@ -461,3 +461,34 @@ def fps_ep1(add, DUR, duck=8.0, edit=10.5, fire=16.6, k3=22.2, win_=23.0, loop=2
     for j, n in enumerate(["D5", "F#5", "A5", "D6"]): add(piano(nf(n), 1.4, 0.9), win_ + j * 0.22, 0.07)
     add(pad([nf("C1"), nf("F#1"), nf("C2")], DUR + tail - loop, 300), loop, 0.16)
     for j in range(3): add(music_box(nf(["F#5", "C6", "F5"][j]), 2.0), admin + 0.3 + j * 0.7, 0.05)
+
+def fps_tense(add, DUR, picks=(), ghosts=(), climax=(16.4, 22.0), alarm=23.0, final=(25.9, 28.0), tail=0.0):
+    """緊迫感BGM：ずっと止まらない16分の低音オスティナート＋刻むハイハット＋心音のサブ低音＋じわじわ上がる弦。
+       選択の瞬間に一撃、幻（選ばなかった方）で一瞬ブツッと抜く、クライマックスで最大、最後の2択で加速して無音に落とす"""
+    bpm = 140.0; b = 60 / bpm; s16 = b / 4
+    bass = ["D2", "D2", "D3", "D2", "F2", "D2", "C3", "D2"]
+    gaps = [(g, g + 0.5) for g in ghosts]
+    def muted(t): return any(a <= t < z for a, z in gaps) or t >= final[1]
+    t = 0.0; k = 0
+    while t < final[1]:
+        sp = 1.0 if t < final[0] else 1.0 + 0.6 * (t - final[0]) / (final[1] - final[0])   # 最後の2択で加速
+        if not muted(t):
+            lvl = 0.6 + 0.4 * min(1.0, t / 8.0) + (0.25 if climax[0] <= t < climax[1] else 0.0)
+            n = bass[k % len(bass)]; f = nf(n)
+            x = np.sin(2 * np.pi * f * R.tt(s16 * 0.9)) * R.dec(s16 * 0.9, s16 * 0.5) + 0.4 * np.sign(np.sin(2 * np.pi * f * R.tt(s16 * 0.9))) * R.dec(s16 * 0.9, s16 * 0.3)
+            add(R.lp(x, 900), t, 0.09 * lvl)
+            if k % 2 == 1: add(R.hp(R.noise(0.03), 7000) * R.dec(0.03, 0.006), t, 0.05 * lvl, 0.3)
+            if k % 4 == 0: add(R.lp(R.kick(70, 38, 0.3, 0.08), 260), t, 0.22 * lvl)
+            if k % 16 == 8: add(R.lp(R.noise(0.18), 4000) * R.dec(0.18, 0.06), t, 0.1 * lvl)
+        t += s16 / sp; k += 1
+    # じわじわ上がる弦（全音ずつ上がるクラスター）
+    seg = [(0.0, 5.4, ("D3", "D#3", "A3")), (5.9, 11.4, ("E3", "F3", "B3")), (11.9, climax[0], ("F#3", "G3", "C#4")),
+           (climax[0], climax[1], ("D3", "A3", "D4", "F4")), (climax[1], alarm, ("D3", "F#3", "A3", "D4")), (alarm, final[1], ("C#3", "D3", "G#3", "C4"))]
+    for a, z, ns in seg:
+        if z > a: add(strings([nf(n) for n in ns], z - a, 1600, 0.4, 0.2), a, 0.1)
+    for p in picks: add(R.boom(1.2) * 0.8, p, 0.35); add(strings([nf("D2"), nf("A2"), nf("D3")], 0.6, 2500, 0.01, 0.4), p, 0.12)
+    for g in ghosts: add(R.lp(R.noise(0.5), 600) * R.dec(0.5, 0.2), g, 0.25)
+    add(R.riser(climax[0] - 14.4), 14.4, 0.15)
+    add(R.riser(final[1] - final[0]), final[0], 0.18)
+    add(R.boom(3.0), final[1], 0.55)
+    add(pad([nf("D1"), nf("A1")], DUR + tail - final[1], 200), final[1], 0.12)
