@@ -16,13 +16,13 @@ SAMPLES = int(arg("--samples", "20")); FPS = 24; N = int(END * FPS)
 RS = float(arg("--res", "0.75"))
 START = int(arg("--start", "0")); STOP = int(arg("--end", str(N)))
 TEST = [int(x) for x in arg("--test", "").split(",") if x]
-OUT = os.path.join(HERE, "frames_FPS1" + ("_test" if TEST else "")); os.makedirs(OUT, exist_ok=True)
+OUT = os.path.join(HERE, "frames_FPS1v2" + ("_test" if TEST else "")); os.makedirs(OUT, exist_ok=True)
 sc = W.reset(SAMPLES, res=(int(1080 * RS), int(1920 * RS)))
 sc.cycles.use_adaptive_sampling = True; sc.cycles.adaptive_threshold = float(arg("--thr", "0.04"))
 sc.cycles.max_bounces = 5; sc.render.use_persistent_data = True
 try: sc.cycles.denoising_prefilter = "ACCURATE"; sc.cycles.denoising_quality = "HIGH"
 except Exception: pass
-sc.view_settings.view_transform = "AgX"; sc.view_settings.look = "AgX - Medium High Contrast"; sc.view_settings.exposure = -1.25
+sc.view_settings.view_transform = "AgX"; sc.view_settings.look = "AgX - Medium High Contrast"; sc.view_settings.exposure = -1.45
 rnd = random.Random(3)
 def ease(x): x = min(max(x, 0.0), 1.0); return x * x * (3 - 2 * x)
 def win(t, a, b, fi=0.3, fo=0.3): return ease((t - a) / fi) * (1 - ease((t - b) / fo))
@@ -38,7 +38,7 @@ so = bpy.data.objects.new("sun", sun); bpy.context.collection.objects.link(so); 
 fl = bpy.data.lights.new("fill", "AREA"); fl.size = 3; fl.energy = 60; fl.color = (0.5, 0.6, 1.0)
 flo = bpy.data.objects.new("fill", fl); bpy.context.collection.objects.link(flo); flo.location = (-3, -2, 4); flo.rotation_euler = (0.9, 0, -0.6)
 # 霧（遠くほどかすむ）：大きな箱の中の体積は重いので、材質に距離で混ぜる
-FOGC = (0.5, 0.42, 0.42)
+FOGC = (0.42, 0.38, 0.4)
 def fogify(m):
     nt = m.node_tree; N_ = nt.nodes; L = nt.links.new
     out = [n for n in N_ if n.type == "OUTPUT_MATERIAL"][0]; src = out.inputs["Surface"].links[0].from_socket
@@ -52,7 +52,7 @@ def fogify(m):
     return m
 
 # ---------------------------------------------------------------- 街
-conc = fogify(F.mat_concrete("conc", (0.3, 0.28, 0.26), 0.8)); asph = fogify(F.mat_concrete("asph", (0.16, 0.16, 0.17), 0.3, 6.0))
+conc = fogify(F.mat_concrete("conc", (0.34, 0.32, 0.3), 0.8)); asph = fogify(F.mat_concrete("asph", (0.13, 0.13, 0.14), 0.3, 6.0, streaks=False, puddles=True))
 glass = fogify(F.mat_simple("glass", (0.25, 0.32, 0.36), 0.08, 0.6)); frame = fogify(F.mat_simple("frame", (0.3, 0.29, 0.27), 0.7))
 F.box("ground", (0, 30, -0.05), (120, 140, 0.1), asph)
 F.box("sidewalkL", (-7.5, 30, 0.08), (3, 140, 0.16), conc); F.box("sidewalkR", (7.5, 30, 0.08), (3, 140, 0.16), conc)
@@ -63,6 +63,13 @@ for k in range(7):
 ROOF = Vector((10.5, 20.0, 16.0))                                       # 管理者が立つ屋上
 F.building("bAdmin", 15.0, 20.0, 10, 12, ROOF.z, fogify(F.mat_concrete("adm", (0.27, 0.26, 0.25), 0.8)), glass, frame, rnd)
 F.rubble("rub1", (-4.5, 8, 0), 2.0, 140, conc, rnd); F.rubble("rub2", (5, 18, 0), 3.0, 200, conc, rnd); F.rubble("rub3", (-1, 27, 0), 3.5, 220, conc, rnd, 0.9)
+lane = fogify(F.mat_simple("lane", (0.55, 0.53, 0.48), 0.7))
+for k in range(14): F.box("lane", (0.0, 3.0 + k * 4.0, 0.002), (0.18, 2.0, 0.004), lane)
+pole = fogify(F.mat_simple("pole", (0.08, 0.08, 0.09), 0.5, 0.6))
+for k in range(5):
+    for sx in (-1, 1):
+        F.cyl("pole", (sx * 5.8, 6 + k * 12, 3.0), 0.07, 6.0, pole, rot=(0, sx * (0.05 + 0.15 * (k % 2)), 0))
+        F.box("lamp", (sx * 5.3, 6 + k * 12, 6.0), (1.0, 0.2, 0.12), pole)
 COVER = F.box("cover", (0.2, 1.3, 0.5), (2.0, 0.35, 1.0), conc, bevel=0.05)
 F.box("barrier2", (-3.3, 9.6, 0.5), (2.2, 0.4, 1.0), conc, rot=(0, 0, -0.3), bevel=0.05)
 car = fogify(F.mat_simple("car", (0.12, 0.05, 0.04), 0.6, 0.4))

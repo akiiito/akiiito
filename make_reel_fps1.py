@@ -15,7 +15,7 @@ from fps1_timing import *
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FPS, SR = 24, R.SR
-DUR = END; TAIL = 0.6
+DUR = END; TAIL = 2.2
 R.DUR = DUR; R.MIX = np.zeros((R.n_(DUR) + SR, 2)); add = R.add
 R.VV_CAST.update({
     "ren": (1368642336, 1368642336, 0.0, 1.0, 1.0),       # レン（M2）
@@ -88,9 +88,9 @@ def build_ui(path):
     E(K3 + 0.1, K3 + 1.6, "count", r"{\an5\pos(360,520)\fs76\c&H40C8FF&\3c&H000000&\bord8%s}トリプルキル" % pop, 12)
     E(WIN, LOOP, "count", r"{\an5\pos(360,300)\fs90\c&H60FF60&\3c&H003000&\bord8%s\fad(0,200)}勝利" % pop, 12)
     # 警告
-    S(LOOP + 0.8, END, "m 0 0 l 720 0 l 720 1280 l 0 1280", "&H0000C0&", "&HD8&", 3, r"\t(0,300,\1a&HC0&)\t(300,600,\1a&HE8&)\t(600,900,\1a&HC0&)\t(900,1200,\1a&HE8&)")
-    E(ADMIN, END, "count", r"{\an5\pos(360,250)\fs44\c&H3030FF&\3c&H000000&\bord5\fad(150,0)}⚠ 規約違反を検知", 12)
-    E(END - 2.0, END, "card", r"{\an5\pos(360,1180)\fs30\c&HDDDDDD&\bord3\3c&H000000&\fad(200,0)}コメント・フォローで応援してね", 12)
+    S(LOOP + 0.8, END + TAIL, "m 0 0 l 720 0 l 720 1280 l 0 1280", "&H0000C0&", "&HD8&", 3, r"\t(0,300,\1a&HC0&)\t(300,600,\1a&HE8&)\t(600,900,\1a&HC0&)\t(900,1200,\1a&HE8&)")
+    E(ADMIN, END + TAIL, "count", r"{\an5\pos(360,250)\fs44\c&H3030FF&\3c&H000000&\bord5\fad(150,0)}⚠ 規約違反を検知", 12)
+    E(END - 2.0, END + TAIL, "card", r"{\an5\pos(360,1180)\fs30\c&HDDDDDD&\bord3\3c&H000000&\fad(200,0)}コメント・フォローで応援してね", 12)
     for st_, en, text, _, _, who in R.LINES:
         E(st_, en, who, r"{\an5\pos(360,1000)\fad(60,100)}%s" % text, 9)
     head = R.ASS_HEAD.replace("{f}", R.FONT).replace("\n[Events]", STY.replace("{f}", R.FONT) + "\n[Events]")
@@ -120,7 +120,8 @@ def build_sfx():
     add(X.impact(1.6, 46.0), K3 + 0.05, 0.4)
     for k in range(8): add(K.whoosh(0.25, 2000, 9000) * 0.5, LOOP + k * 0.3, 0.3, 0.6 * (-1) ** k)                      # 回り続ける弾
     for k in range(6): add(mix(np.sin(2 * np.pi * 880 * R.tt(0.15)) * R.dec(0.15, 0.1)), LOOP + 0.8 + k * 0.3, 0.12)   # 警告音
-    add(X.braam(2.6, 33.0), ADMIN, 0.5)
+    add(X.braam(2.6, 33.0), ADMIN, 0.5); add(X.braam(3.5, 30.0), END - 0.4, 0.35)
+    for k in range(3): add(mix(np.sin(2 * np.pi * 220 * R.tt(1.2)) * R.dec(1.2, 0.5)), END + 0.2 + k * 0.5, 0.04)
 
 def render_mp4():
     R.LINES = [tuple(l) for l in json.load(open(LINES_JSON, encoding="utf-8"))]
@@ -129,7 +130,7 @@ def render_mp4():
     R.MIX = np.zeros_like(voice); build_sfx()
     R.MIX = voice + X.duck(R.MIX, voice)
     out = R.MIX[: R.n_(DUR + TAIL)].copy()
-    out[-R.n_(0.8):] *= np.linspace(1, 0, R.n_(0.8))[:, None]
+    out[-R.n_(1.9):] *= np.linspace(1, 0, R.n_(1.9))[:, None] ** 1.5
     out = np.tanh(out * 1.1 / max(1e-9, np.percentile(np.abs(out), 99.9))) * 0.8
     wav = os.path.join(HERE, "fps1_audio.wav")
     with wave.open(wav, "wb") as w:
@@ -138,9 +139,9 @@ def render_mp4():
     if "--ui" in sys.argv: print("wrote", wav, ass); return
     mp4 = os.path.join(HERE, "fps_ep1.mp4")
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", os.path.join(HERE, "frames_FPS1_post", "%04d.png"), "-i", wav,
-                    "-filter_complex", "[0:v]vignette=PI/5.5,ass=fps1_ui.ass[v]", "-map", "[v]", "-map", "1:a",
+                    "-filter_complex", "[0:v]tpad=stop_mode=clone:stop_duration=%.2f,vignette=PI/5.5,ass=fps1_ui.ass,fade=t=out:st=%.2f:d=1.6[v]" % (TAIL, DUR + TAIL - 1.7), "-map", "[v]", "-map", "1:a",
                     "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-preset", "slow", "-maxrate", "12M", "-bufsize", "24M",
-                    "-af", "loudnorm=I=-14:TP=-1.0:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", str(SR), "-t", "%.3f" % DUR,
+                    "-af", "loudnorm=I=-14:TP=-1.0:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", str(SR), "-t", "%.3f" % (DUR + TAIL),
                     "-movflags", "+faststart", mp4], check=True, cwd=HERE)
     print("wrote", mp4)
 

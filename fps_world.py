@@ -6,18 +6,46 @@ import math, random
 import bpy, bmesh
 from mathutils import Vector, Matrix
 
-def mat_concrete(name, base=(0.42, 0.4, 0.37), dirt=0.5, scale=3.0):
+def mat_concrete(name, base=(0.42, 0.4, 0.37), dirt=0.5, scale=3.0, streaks=True, puddles=False):
+    """汚れたコンクリート：大きなムラ＋細かいざらつき＋雨だれのすじ＋下ほど黒いすす＋（地面なら）ひびと水たまり"""
     m = bpy.data.materials.new(name); m.use_nodes = True; nt = m.node_tree; N = nt.nodes; L = nt.links.new
-    b = N["Principled BSDF"]; b.inputs["Roughness"].default_value = 0.85
-    tc = N.new("ShaderNodeTexCoord"); nz = N.new("ShaderNodeTexNoise"); nz.inputs["Scale"].default_value = scale; nz.inputs["Detail"].default_value = 12.0
-    L(tc.outputs["Object"], nz.inputs["Vector"])
-    nz2 = N.new("ShaderNodeTexNoise"); nz2.inputs["Scale"].default_value = scale * 9; nz2.inputs["Detail"].default_value = 6.0; L(tc.outputs["Object"], nz2.inputs["Vector"])
+    b = N["Principled BSDF"]; b.inputs["Roughness"].default_value = 0.88
+    tc = N.new("ShaderNodeTexCoord"); geo = N.new("ShaderNodeNewGeometry")
+    def noise(sc_, det=8.0, vec=None):
+        n = N.new("ShaderNodeTexNoise"); n.inputs["Scale"].default_value = sc_; n.inputs["Detail"].default_value = det
+        L(vec or geo.outputs["Position"], n.inputs["Vector"]); return n.outputs["Fac"]
+    def math_(op, a_, b_=None):
+        n = N.new("ShaderNodeMath"); n.operation = op
+        for i, v in enumerate((a_, b_)):
+            if v is None: continue
+            if isinstance(v, (int, float)): n.inputs[i].default_value = v
+            else: L(v, n.inputs[i])
+        return n.outputs[0]
+    big = noise(scale * 0.35, 6.0); fine = noise(scale * 14.0, 4.0)
+    # 雨だれ：X だけ細かく、Z は引きのばしたノイズ
+    mp = N.new("ShaderNodeMapping"); mp.inputs["Scale"].default_value = (18.0, 18.0, 0.6); L(geo.outputs["Position"], mp.inputs["Vector"])
+    st = noise(4.0, 3.0, mp.outputs["Vector"]); st = math_("POWER", math_("MAXIMUM", math_("SUBTRACT", st, 0.52), 0.0), 0.7)
+    sep = N.new("ShaderNodeSeparateXYZ"); L(geo.outputs["Position"], sep.inputs[0])
+    soot = math_("MAXIMUM", math_("SUBTRACT", 1.0, math_("MULTIPLY", sep.outputs["Z"], 0.6)), 0.0)          # 下ほど黒い
+    dark = math_("ADD", math_("MULTIPLY", math_("SUBTRACT", big, 0.45), 1.6), math_("MULTIPLY", st, 1.6 if streaks else 0.0))
+    dark = math_("ADD", dark, math_("MULTIPLY", soot, 0.35 * dirt))
     ramp = N.new("ShaderNodeValToRGB"); el = ramp.color_ramp.elements
-    el[0].position, el[0].color = 0.35, tuple(c * (1 - 0.45 * dirt) for c in base) + (1,)
-    el[1].position, el[1].color = 0.7, tuple(min(1, c * 1.15) for c in base) + (1,)
-    L(nz.outputs["Fac"], ramp.inputs["Fac"]); L(ramp.outputs["Color"], b.inputs["Base Color"])
-    bump = N.new("ShaderNodeBump"); bump.inputs["Strength"].default_value = 0.35; bump.inputs["Distance"].default_value = 0.02
-    L(nz2.outputs["Fac"], bump.inputs["Height"]); L(bump.outputs["Normal"], b.inputs["Normal"])
+    el[0].position, el[0].color = 0.0, tuple(min(1, c * 1.12) for c in base) + (1,)
+    el[1].position, el[1].color = 1.0, tuple(c * 0.28 for c in base) + (1,)
+    L(math_("ADD", math_("MULTIPLY", dark, 0.5), math_("MULTIPLY", fine, 0.25)), ramp.inputs["Fac"]); L(ramp.outputs["Color"], b.inputs["Base Color"])
+    bump = N.new("ShaderNodeBump"); bump.inputs["Strength"].default_value = 0.45; bump.inputs["Distance"].default_value = 0.02
+    hgt = math_("ADD", fine, math_("MULTIPLY", st, -0.3))
+    if puddles:                                                            # ひび（ボロノイの境目）と水たまり（ツヤ）
+        vor = N.new("ShaderNodeTexVoronoi"); vor.feature = "DISTANCE_TO_EDGE"; vor.inputs["Scale"].default_value = 0.9
+        wob = N.new("ShaderNodeVectorMath"); wob.operation = "ADD"; L(geo.outputs["Position"], wob.inputs[0]); nzv = N.new("ShaderNodeTexNoise"); nzv.inputs["Scale"].default_value = 1.5; L(geo.outputs["Position"], nzv.inputs["Vector"]); L(nzv.outputs["Color"], wob.inputs[1]); L(wob.outputs[0], vor.inputs["Vector"])
+        crack = math_("MULTIPLY", math_("LESS_THAN", vor.outputs["Distance"], 0.01), math_("GREATER_THAN", noise(0.6, 3.0), 0.5))
+        hgt = math_("SUBTRACT", hgt, math_("MULTIPLY", crack, 0.8))
+        pud = math_("MULTIPLY", math_("GREATER_THAN", noise(0.12, 4.0), 0.66), 0.85)
+        rough = math_("ADD", math_("MULTIPLY", pud, -0.82), 0.9); L(rough, b.inputs["Roughness"])
+        mix = N.new("ShaderNodeMix"); mix.data_type = "RGBA"; L(pud, mix.inputs["Factor"]); L(ramp.outputs["Color"], mix.inputs["A"]); mix.inputs["B"].default_value = (0.02, 0.02, 0.022, 1)
+        mix2 = N.new("ShaderNodeMix"); mix2.data_type = "RGBA"; L(crack, mix2.inputs["Factor"]); L(mix.outputs["Result"], mix2.inputs["A"]); mix2.inputs["B"].default_value = (0.005, 0.005, 0.005, 1)
+        L(mix2.outputs["Result"], b.inputs["Base Color"])
+    L(hgt, bump.inputs["Height"]); L(bump.outputs["Normal"], b.inputs["Normal"])
     return m
 def mat_simple(name, col, rough=0.5, metal=0.0, emit=None, estr=0.0, coat=0.0):
     m = bpy.data.materials.new(name); m.use_nodes = True; b = m.node_tree.nodes["Principled BSDF"]
