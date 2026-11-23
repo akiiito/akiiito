@@ -1,0 +1,754 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hero,IPAPGothic,66,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,1,0,1,7,3,5,30,30,0,1
+Style: narr,IPAPGothic,62,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,2,0,1,7,3,5,30,30,0,1
+Style: shout,IPAPGothic,78,&H0040E6FF,&H0040E6FF,&H00200818,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: resolve,IPAPGothic,80,&H00FFFFFF,&H00FFFFFF,&H003C14DC,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: shape,IPAPGothic,20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: ren,IPAPGothic,68,&H00FFFFFF,&H00FFFFFF,&H00202020,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: mina,IPAPGothic,68,&H00E0C8FF,&H00E0C8FF,&H00402040,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: ann,IPAPGothic,60,&H00FFE8A0,&H00FFE8A0,&H00402000,&H00000000,-1,0,0,0,100,100,1,0,1,7,0,5,16,16,0,1
+Style: hook,IPAPGothic,58,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,7,0,5,20,20,0,1
+Style: hud,IPAPGothic,26,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,2,0,5,0,0,0,1
+Style: card,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,0,0,5,20,20,0,1
+Style: count,IPAPGothic,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,8,0,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 12,0:00:00.00,0:00:02.20,count,,0,0,0,,{\an5\pos(360,300)\fs124\c&H3030FF&\3c&H000000&\bord10\fscx135\fscy135\t(0,140,\fscx100\fscy100)\fad(0,250)}残弾 1
+Dialogue: 8,0:00:00.00,0:00:02.20,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H70&\bord0\shad0\fad(0,250)}m 0 410 l 720 410 l 720 540 l 0 540{\p0}
+Dialogue: 10,0:00:00.00,0:00:02.20,hook,,0,0,0,,{\an5\pos(360,475)\fs44\bord6\fscx135\fscy135\t(0,140,\fscx100\fscy100)\fad(0,250)}この世界の銃、弾は1発だけ。
+Dialogue: 7,0:00:00.00,0:00:00.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:00.00,0:00:00.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:00.00,0:00:00.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:00.00,0:00:00.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:00.12,0:00:00.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:00.12,0:00:00.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:00.12,0:00:00.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:00.12,0:00:00.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:00.25,0:00:00.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:00.25,0:00:00.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:00.25,0:00:00.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:00.25,0:00:00.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:00.38,0:00:00.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:00.38,0:00:00.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:00.38,0:00:00.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:00.38,0:00:00.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:00.50,0:00:00.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:00.50,0:00:00.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:00.50,0:00:00.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:00.50,0:00:00.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:00.62,0:00:00.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:00.62,0:00:00.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:00.62,0:00:00.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:00.62,0:00:00.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:00.75,0:00:00.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:00.75,0:00:00.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:00.75,0:00:00.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:00.75,0:00:00.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:00.88,0:00:01.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:00.88,0:00:01.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:00.88,0:00:01.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:00.88,0:00:01.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:01.00,0:00:01.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:01.00,0:00:01.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:01.00,0:00:01.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:01.00,0:00:01.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:01.12,0:00:01.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:01.12,0:00:01.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:01.12,0:00:01.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:01.12,0:00:01.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:01.25,0:00:01.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:01.25,0:00:01.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:01.25,0:00:01.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:01.25,0:00:01.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:01.38,0:00:01.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:01.38,0:00:01.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:01.38,0:00:01.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:01.38,0:00:01.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:01.50,0:00:01.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:01.50,0:00:01.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:01.50,0:00:01.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:01.50,0:00:01.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:01.62,0:00:01.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:01.62,0:00:01.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:01.62,0:00:01.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:01.62,0:00:01.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:01.75,0:00:01.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:01.75,0:00:01.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:01.75,0:00:01.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:01.75,0:00:01.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:01.88,0:00:02.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:01.88,0:00:02.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:01.88,0:00:02.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:01.88,0:00:02.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:02.00,0:00:02.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:02.00,0:00:02.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:02.00,0:00:02.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:02.00,0:00:02.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:02.12,0:00:02.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:02.12,0:00:02.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:02.12,0:00:02.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:02.12,0:00:02.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:02.25,0:00:02.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:02.25,0:00:02.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:02.25,0:00:02.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:02.25,0:00:02.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:02.38,0:00:02.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:02.38,0:00:02.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:02.38,0:00:02.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:02.38,0:00:02.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:02.50,0:00:02.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:02.50,0:00:02.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:02.50,0:00:02.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:02.50,0:00:02.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:02.62,0:00:02.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:02.62,0:00:02.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:02.62,0:00:02.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:02.62,0:00:02.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:02.75,0:00:02.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:02.75,0:00:02.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:02.75,0:00:02.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:02.75,0:00:02.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:02.88,0:00:03.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:02.88,0:00:03.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:02.88,0:00:03.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:02.88,0:00:03.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:03.00,0:00:03.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:03.00,0:00:03.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:03.00,0:00:03.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:03.00,0:00:03.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:03.12,0:00:03.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:03.12,0:00:03.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:03.12,0:00:03.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:03.12,0:00:03.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:03.25,0:00:03.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:03.25,0:00:03.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:03.25,0:00:03.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:03.25,0:00:03.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:03.38,0:00:03.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:03.38,0:00:03.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:03.38,0:00:03.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:03.38,0:00:03.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:03.50,0:00:03.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:03.50,0:00:03.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:03.50,0:00:03.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:03.50,0:00:03.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:03.62,0:00:03.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:03.62,0:00:03.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:03.62,0:00:03.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:03.62,0:00:03.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:03.75,0:00:03.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:03.75,0:00:03.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:03.75,0:00:03.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:03.75,0:00:03.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:03.88,0:00:04.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:03.88,0:00:04.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:03.88,0:00:04.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:03.88,0:00:04.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:04.00,0:00:04.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:04.00,0:00:04.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:04.00,0:00:04.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:04.00,0:00:04.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:04.12,0:00:04.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:04.12,0:00:04.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:04.12,0:00:04.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:04.12,0:00:04.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:04.25,0:00:04.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:04.25,0:00:04.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:04.25,0:00:04.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:04.25,0:00:04.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:04.38,0:00:04.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:04.38,0:00:04.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:04.38,0:00:04.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:04.38,0:00:04.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:04.50,0:00:04.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:04.50,0:00:04.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:04.50,0:00:04.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:04.50,0:00:04.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:04.62,0:00:04.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:04.62,0:00:04.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:04.62,0:00:04.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:04.62,0:00:04.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:04.75,0:00:04.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:04.75,0:00:04.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:04.75,0:00:04.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:04.75,0:00:04.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:04.88,0:00:05.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:04.88,0:00:05.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:04.88,0:00:05.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:04.88,0:00:05.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:05.00,0:00:05.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:05.00,0:00:05.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:05.00,0:00:05.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:05.00,0:00:05.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:05.12,0:00:05.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:05.12,0:00:05.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:05.12,0:00:05.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:05.12,0:00:05.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:05.25,0:00:05.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:05.25,0:00:05.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:05.25,0:00:05.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:05.25,0:00:05.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:05.38,0:00:05.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:05.38,0:00:05.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:05.38,0:00:05.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:05.38,0:00:05.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:05.50,0:00:05.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:05.50,0:00:05.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:05.50,0:00:05.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:05.50,0:00:05.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:05.62,0:00:05.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:05.62,0:00:05.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:05.62,0:00:05.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:05.62,0:00:05.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:05.75,0:00:05.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:05.75,0:00:05.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:05.75,0:00:05.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:05.75,0:00:05.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:05.88,0:00:06.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:05.88,0:00:06.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:05.88,0:00:06.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:05.88,0:00:06.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:06.00,0:00:06.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:06.00,0:00:06.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:06.00,0:00:06.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:06.00,0:00:06.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:06.12,0:00:06.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:06.12,0:00:06.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:06.12,0:00:06.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:06.12,0:00:06.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:06.25,0:00:06.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:06.25,0:00:06.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:06.25,0:00:06.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:06.25,0:00:06.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:06.38,0:00:06.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:06.38,0:00:06.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:06.38,0:00:06.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:06.38,0:00:06.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:06.50,0:00:06.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:06.50,0:00:06.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:06.50,0:00:06.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:06.50,0:00:06.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:06.62,0:00:06.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:06.62,0:00:06.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:06.62,0:00:06.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:06.62,0:00:06.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:06.75,0:00:06.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:06.75,0:00:06.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:06.75,0:00:06.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:06.75,0:00:06.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:06.88,0:00:07.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:06.88,0:00:07.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:06.88,0:00:07.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:06.88,0:00:07.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:07.00,0:00:07.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:07.00,0:00:07.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:07.00,0:00:07.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:07.00,0:00:07.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:07.12,0:00:07.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:07.12,0:00:07.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:07.12,0:00:07.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:07.12,0:00:07.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:07.25,0:00:07.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:07.25,0:00:07.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:07.25,0:00:07.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:07.25,0:00:07.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:07.38,0:00:07.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:07.38,0:00:07.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:07.38,0:00:07.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:07.38,0:00:07.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:07.50,0:00:07.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:07.50,0:00:07.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:07.50,0:00:07.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:07.50,0:00:07.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:07.62,0:00:07.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:07.62,0:00:07.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:07.62,0:00:07.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:07.62,0:00:07.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:07.75,0:00:07.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:07.75,0:00:07.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:07.75,0:00:07.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:07.75,0:00:07.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:07.88,0:00:08.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:07.88,0:00:08.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:07.88,0:00:08.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:07.88,0:00:08.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:08.00,0:00:08.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:08.00,0:00:08.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:08.00,0:00:08.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:08.00,0:00:08.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:08.12,0:00:08.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:08.12,0:00:08.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:08.12,0:00:08.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:08.12,0:00:08.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:08.25,0:00:08.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:08.25,0:00:08.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:08.25,0:00:08.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:08.25,0:00:08.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:08.38,0:00:08.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:08.38,0:00:08.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:08.38,0:00:08.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:08.38,0:00:08.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:08.50,0:00:08.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:08.50,0:00:08.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:08.50,0:00:08.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:08.50,0:00:08.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:08.62,0:00:08.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:08.62,0:00:08.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:08.62,0:00:08.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:08.62,0:00:08.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:08.75,0:00:08.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:08.75,0:00:08.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:08.75,0:00:08.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:08.75,0:00:08.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:08.88,0:00:09.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:08.88,0:00:09.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:08.88,0:00:09.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:08.88,0:00:09.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:09.00,0:00:09.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:09.00,0:00:09.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:09.00,0:00:09.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:09.00,0:00:09.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:09.12,0:00:09.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:09.12,0:00:09.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:09.12,0:00:09.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:09.12,0:00:09.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:09.25,0:00:09.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:09.25,0:00:09.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:09.25,0:00:09.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:09.25,0:00:09.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:09.38,0:00:09.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:09.38,0:00:09.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:09.38,0:00:09.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:09.38,0:00:09.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:09.50,0:00:09.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:09.50,0:00:09.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:09.50,0:00:09.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:09.50,0:00:09.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:09.62,0:00:09.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:09.62,0:00:09.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:09.62,0:00:09.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:09.62,0:00:09.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:09.75,0:00:09.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:09.75,0:00:09.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:09.75,0:00:09.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:09.75,0:00:09.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:09.88,0:00:10.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:09.88,0:00:10.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:09.88,0:00:10.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:09.88,0:00:10.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:10.00,0:00:10.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:10.00,0:00:10.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:10.00,0:00:10.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:10.00,0:00:10.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:10.12,0:00:10.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:10.12,0:00:10.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:10.12,0:00:10.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:10.12,0:00:10.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:10.25,0:00:10.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:10.25,0:00:10.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:10.25,0:00:10.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:10.25,0:00:10.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:10.38,0:00:10.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:10.38,0:00:10.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:10.38,0:00:10.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:10.38,0:00:10.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:10.50,0:00:10.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:10.50,0:00:10.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:10.50,0:00:10.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:10.50,0:00:10.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:10.62,0:00:10.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:10.62,0:00:10.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:10.62,0:00:10.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:10.62,0:00:10.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:10.75,0:00:10.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:10.75,0:00:10.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:10.75,0:00:10.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:10.75,0:00:10.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:10.88,0:00:11.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:10.88,0:00:11.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:10.88,0:00:11.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:10.88,0:00:11.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:11.00,0:00:11.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:11.00,0:00:11.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:11.00,0:00:11.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:11.00,0:00:11.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:11.12,0:00:11.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:11.12,0:00:11.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:11.12,0:00:11.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:11.12,0:00:11.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:11.25,0:00:11.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:11.25,0:00:11.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:11.25,0:00:11.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:11.25,0:00:11.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:11.38,0:00:11.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:11.38,0:00:11.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:11.38,0:00:11.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:11.38,0:00:11.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:11.50,0:00:11.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:11.50,0:00:11.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:11.50,0:00:11.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:11.50,0:00:11.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:11.62,0:00:11.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:11.62,0:00:11.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:11.62,0:00:11.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:11.62,0:00:11.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:11.75,0:00:11.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:11.75,0:00:11.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:11.75,0:00:11.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:11.75,0:00:11.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:11.88,0:00:12.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:11.88,0:00:12.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:11.88,0:00:12.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:11.88,0:00:12.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}12%
+Dialogue: 7,0:00:12.00,0:00:12.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:12.00,0:00:12.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:12.00,0:00:12.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:12.00,0:00:12.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:12.12,0:00:12.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:12.12,0:00:12.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:12.12,0:00:12.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:12.12,0:00:12.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:12.25,0:00:12.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:12.25,0:00:12.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:12.25,0:00:12.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:12.25,0:00:12.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:12.38,0:00:12.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:12.38,0:00:12.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:12.38,0:00:12.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:12.38,0:00:12.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:12.50,0:00:12.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:12.50,0:00:12.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:12.50,0:00:12.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:12.50,0:00:12.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:12.62,0:00:12.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:12.62,0:00:12.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:12.62,0:00:12.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:12.62,0:00:12.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:12.75,0:00:12.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:12.75,0:00:12.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:12.75,0:00:12.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:12.75,0:00:12.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:12.88,0:00:13.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:12.88,0:00:13.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:12.88,0:00:13.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:12.88,0:00:13.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:13.00,0:00:13.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:13.00,0:00:13.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:13.00,0:00:13.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:13.00,0:00:13.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:13.12,0:00:13.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:13.12,0:00:13.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:13.12,0:00:13.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:13.12,0:00:13.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:13.25,0:00:13.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:13.25,0:00:13.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:13.25,0:00:13.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:13.25,0:00:13.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:13.38,0:00:13.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:13.38,0:00:13.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:13.38,0:00:13.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:13.38,0:00:13.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:13.50,0:00:13.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:13.50,0:00:13.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:13.50,0:00:13.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:13.50,0:00:13.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:13.62,0:00:13.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:13.62,0:00:13.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:13.62,0:00:13.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:13.62,0:00:13.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:13.75,0:00:13.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:13.75,0:00:13.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:13.75,0:00:13.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:13.75,0:00:13.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:13.88,0:00:14.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:13.88,0:00:14.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:13.88,0:00:14.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:13.88,0:00:14.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:14.00,0:00:14.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:14.00,0:00:14.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:14.00,0:00:14.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:14.00,0:00:14.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:14.12,0:00:14.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:14.12,0:00:14.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:14.12,0:00:14.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:14.12,0:00:14.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:14.25,0:00:14.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:14.25,0:00:14.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:14.25,0:00:14.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:14.25,0:00:14.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:14.38,0:00:14.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:14.38,0:00:14.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}1{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:14.38,0:00:14.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:14.38,0:00:14.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:16.50,0:00:16.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:16.50,0:00:16.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:16.50,0:00:16.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:16.50,0:00:16.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}34%
+Dialogue: 7,0:00:16.62,0:00:16.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:16.62,0:00:16.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:16.62,0:00:16.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:16.62,0:00:16.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}35%
+Dialogue: 7,0:00:16.75,0:00:16.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:16.75,0:00:16.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:16.75,0:00:16.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}3
+Dialogue: 7,0:00:16.75,0:00:16.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}35%
+Dialogue: 7,0:00:22.00,0:00:22.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:22.00,0:00:22.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:22.00,0:00:22.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:22.00,0:00:22.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}64%
+Dialogue: 7,0:00:22.12,0:00:22.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:22.12,0:00:22.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:22.12,0:00:22.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:22.12,0:00:22.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}64%
+Dialogue: 7,0:00:22.25,0:00:22.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:22.25,0:00:22.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:22.25,0:00:22.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:22.25,0:00:22.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}64%
+Dialogue: 7,0:00:22.38,0:00:22.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:22.38,0:00:22.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:22.38,0:00:22.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:22.38,0:00:22.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}64%
+Dialogue: 7,0:00:22.50,0:00:22.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:22.50,0:00:22.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:22.50,0:00:22.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:22.50,0:00:22.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}64%
+Dialogue: 7,0:00:22.62,0:00:22.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:22.62,0:00:22.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:22.62,0:00:22.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:22.62,0:00:22.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}64%
+Dialogue: 7,0:00:22.75,0:00:22.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:22.75,0:00:22.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:22.75,0:00:22.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:22.75,0:00:22.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}64%
+Dialogue: 7,0:00:22.88,0:00:23.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:22.88,0:00:23.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:22.88,0:00:23.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:22.88,0:00:23.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}64%
+Dialogue: 7,0:00:23.00,0:00:23.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:23.00,0:00:23.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:23.00,0:00:23.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:23.00,0:00:23.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}64%
+Dialogue: 7,0:00:23.12,0:00:23.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:23.12,0:00:23.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:23.12,0:00:23.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:23.12,0:00:23.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}66%
+Dialogue: 7,0:00:23.25,0:00:23.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:23.25,0:00:23.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:23.25,0:00:23.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:23.25,0:00:23.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}69%
+Dialogue: 7,0:00:23.38,0:00:23.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:23.38,0:00:23.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:23.38,0:00:23.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:23.38,0:00:23.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}72%
+Dialogue: 7,0:00:23.50,0:00:23.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:23.50,0:00:23.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:23.50,0:00:23.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:23.50,0:00:23.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}75%
+Dialogue: 7,0:00:23.62,0:00:23.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:23.62,0:00:23.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:23.62,0:00:23.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:23.62,0:00:23.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}78%
+Dialogue: 7,0:00:23.75,0:00:23.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:23.75,0:00:23.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:23.75,0:00:23.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:23.75,0:00:23.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}81%
+Dialogue: 7,0:00:23.88,0:00:24.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:23.88,0:00:24.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:23.88,0:00:24.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:23.88,0:00:24.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}84%
+Dialogue: 7,0:00:24.00,0:00:24.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:24.00,0:00:24.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:24.00,0:00:24.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:24.00,0:00:24.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H40D0FF&\fs30}87%
+Dialogue: 7,0:00:24.12,0:00:24.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:24.12,0:00:24.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:24.12,0:00:24.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:24.12,0:00:24.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&HFFFFFF&\fs30}90%
+Dialogue: 7,0:00:24.25,0:00:24.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:24.25,0:00:24.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:24.25,0:00:24.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:24.25,0:00:24.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}93%
+Dialogue: 7,0:00:24.38,0:00:24.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:24.38,0:00:24.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:24.38,0:00:24.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:24.38,0:00:24.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&HFFFFFF&\fs30}96%
+Dialogue: 7,0:00:24.50,0:00:24.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:24.50,0:00:24.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:24.50,0:00:24.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:24.50,0:00:24.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:24.62,0:00:24.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:24.62,0:00:24.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:24.62,0:00:24.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:24.62,0:00:24.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:24.75,0:00:24.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:24.75,0:00:24.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:24.75,0:00:24.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:24.75,0:00:24.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&HFFFFFF&\fs30}99%
+Dialogue: 7,0:00:24.88,0:00:25.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:24.88,0:00:25.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:24.88,0:00:25.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:24.88,0:00:25.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:25.00,0:00:25.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:25.00,0:00:25.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:25.00,0:00:25.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:25.00,0:00:25.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&HFFFFFF&\fs30}99%
+Dialogue: 7,0:00:25.12,0:00:25.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:25.12,0:00:25.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:25.12,0:00:25.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:25.12,0:00:25.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&HFFFFFF&\fs30}99%
+Dialogue: 7,0:00:25.25,0:00:25.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:25.25,0:00:25.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:25.25,0:00:25.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:25.25,0:00:25.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:25.38,0:00:25.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:25.38,0:00:25.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:25.38,0:00:25.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:25.38,0:00:25.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&HFFFFFF&\fs30}99%
+Dialogue: 7,0:00:25.50,0:00:25.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:25.50,0:00:25.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:25.50,0:00:25.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:25.50,0:00:25.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:25.62,0:00:25.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:25.62,0:00:25.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:25.62,0:00:25.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:25.62,0:00:25.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:25.75,0:00:25.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:25.75,0:00:25.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:25.75,0:00:25.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:25.75,0:00:25.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&HFFFFFF&\fs30}99%
+Dialogue: 7,0:00:25.88,0:00:26.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:25.88,0:00:26.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:25.88,0:00:26.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:25.88,0:00:26.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:26.00,0:00:26.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:26.00,0:00:26.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:26.00,0:00:26.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:26.00,0:00:26.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&HFFFFFF&\fs30}99%
+Dialogue: 7,0:00:26.12,0:00:26.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:26.12,0:00:26.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:26.12,0:00:26.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:26.12,0:00:26.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&HFFFFFF&\fs30}99%
+Dialogue: 7,0:00:26.25,0:00:26.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:26.25,0:00:26.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:26.25,0:00:26.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:26.25,0:00:26.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:26.38,0:00:26.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:26.38,0:00:26.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:26.38,0:00:26.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:26.38,0:00:26.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&HFFFFFF&\fs30}99%
+Dialogue: 7,0:00:26.50,0:00:26.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:26.50,0:00:26.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:26.50,0:00:26.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:26.50,0:00:26.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:26.62,0:00:26.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:26.62,0:00:26.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:26.62,0:00:26.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:26.62,0:00:26.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:26.75,0:00:26.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:26.75,0:00:26.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:26.75,0:00:26.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:26.75,0:00:26.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&HFFFFFF&\fs30}99%
+Dialogue: 7,0:00:26.88,0:00:27.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:26.88,0:00:27.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:26.88,0:00:27.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:26.88,0:00:27.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:27.00,0:00:27.12,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:27.00,0:00:27.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:27.00,0:00:27.12,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:27.00,0:00:27.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&HFFFFFF&\fs30}99%
+Dialogue: 7,0:00:27.12,0:00:27.25,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:27.12,0:00:27.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:27.12,0:00:27.25,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:27.12,0:00:27.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&HFFFFFF&\fs30}99%
+Dialogue: 7,0:00:27.25,0:00:27.38,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:27.25,0:00:27.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:27.25,0:00:27.38,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:27.25,0:00:27.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:27.38,0:00:27.50,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:27.38,0:00:27.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:27.38,0:00:27.50,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:27.38,0:00:27.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&HFFFFFF&\fs30}99%
+Dialogue: 7,0:00:27.50,0:00:27.62,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:27.50,0:00:27.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:27.50,0:00:27.62,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:27.50,0:00:27.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:27.62,0:00:27.75,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:27.62,0:00:27.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:27.62,0:00:27.75,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:27.62,0:00:27.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:27.75,0:00:27.88,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:27.75,0:00:27.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:27.75,0:00:27.88,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:27.75,0:00:27.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&HFFFFFF&\fs30}99%
+Dialogue: 7,0:00:27.88,0:00:28.00,hud,,0,0,0,,{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100
+Dialogue: 7,0:00:27.88,0:00:28.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:27.88,0:00:28.00,hud,,0,0,0,,{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}0
+Dialogue: 7,0:00:27.88,0:00:28.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 10,0:00:02.40,0:00:05.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H60&\bord0\shad0\fad(120,150)}m 0 700 l 720 700 l 720 960 l 0 960{\p0}
+Dialogue: 12,0:00:02.40,0:00:05.40,count,,0,0,0,,{\an5\pos(360,745)\fs40\c&HFFFFFF&\3c&H000000&\bord4\fad(120,150)\fscx135\fscy135\t(0,140,\fscx100\fscy100)}敵が3人、近づいてくる！
+Dialogue: 11,0:00:02.40,0:00:04.60,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H404040&\1a&H30&\bord0\shad0\fad(120,0)}m 40 790 l 350 790 l 350 890 l 40 890{\p0}
+Dialogue: 11,0:00:04.60,0:00:05.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H202020&\1a&HA0&\bord0\shad0\fad(0,150)}m 40 790 l 350 790 l 350 890 l 40 890{\p0}
+Dialogue: 13,0:00:02.40,0:00:05.40,count,,0,0,0,,{\an5\pos(195,840)\fs40\c&HFFFFFF&\3c&H000000&\bord3\fad(120,150)}A：今すぐ撃つ
+Dialogue: 11,0:00:02.40,0:00:04.60,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H404040&\1a&H30&\bord0\shad0\fad(120,0)}m 370 790 l 680 790 l 680 890 l 370 890{\p0}
+Dialogue: 11,0:00:04.60,0:00:05.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H30C8FF&\1a&H10&\bord0\shad0\t(0,120,\fscx104\fscy104)\fad(0,150)}m 370 790 l 680 790 l 680 890 l 370 890{\p0}
+Dialogue: 13,0:00:02.40,0:00:05.40,count,,0,0,0,,{\an5\pos(525,840)\fs40\c&HFFFFFF&\3c&H000000&\bord3\fad(120,150)}B：隠れる
+Dialogue: 12,0:00:02.40,0:00:04.60,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H3030FF&\1a&H00&\bord0\shad0\clip(40,905,680,918)\t(0,2199,\clip(40,905,40,918))}m 40 905 l 680 905 l 680 918 l 40 918{\p0}
+Dialogue: 14,0:00:05.40,0:00:05.90,count,,0,0,0,,{\an5\pos(360,240)\fs34\c&HDDDDDD&\bord3\3c&H000000&}もし「今すぐ撃つ」を選んでいたら…
+Dialogue: 14,0:00:05.40,0:00:05.90,count,,0,0,0,,{\an5\pos(360,330)\fs86\c&H2020FF&\3c&H000000&\bord8\fscx135\fscy135\t(0,140,\fscx100\fscy100)}外れ → 消滅
+Dialogue: 10,0:00:08.60,0:00:11.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H60&\bord0\shad0\fad(120,150)}m 0 700 l 720 700 l 720 960 l 0 960{\p0}
+Dialogue: 12,0:00:08.60,0:00:11.40,count,,0,0,0,,{\an5\pos(360,745)\fs40\c&HFFFFFF&\3c&H000000&\bord4\fad(120,150)\fscx135\fscy135\t(0,140,\fscx100\fscy100)}撃たれて身動きできない！
+Dialogue: 11,0:00:08.60,0:00:10.20,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H404040&\1a&H30&\bord0\shad0\fad(120,0)}m 40 790 l 350 790 l 350 890 l 40 890{\p0}
+Dialogue: 11,0:00:10.20,0:00:11.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H202020&\1a&HA0&\bord0\shad0\fad(0,150)}m 40 790 l 350 790 l 350 890 l 40 890{\p0}
+Dialogue: 13,0:00:08.60,0:00:11.40,count,,0,0,0,,{\an5\pos(195,840)\fs40\c&HFFFFFF&\3c&H000000&\bord3\fad(120,150)}A：一か八か撃つ
+Dialogue: 11,0:00:08.60,0:00:10.20,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H404040&\1a&H30&\bord0\shad0\fad(120,0)}m 370 790 l 680 790 l 680 890 l 370 890{\p0}
+Dialogue: 11,0:00:10.20,0:00:11.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H30C8FF&\1a&H10&\bord0\shad0\t(0,120,\fscx104\fscy104)\fad(0,150)}m 370 790 l 680 790 l 680 890 l 370 890{\p0}
+Dialogue: 13,0:00:08.60,0:00:11.40,count,,0,0,0,,{\an5\pos(525,840)\fs40\c&HFFFFFF&\3c&H000000&\bord3\fad(120,150)}B：ルールを読む
+Dialogue: 12,0:00:08.60,0:00:10.20,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H3030FF&\1a&H00&\bord0\shad0\clip(40,905,680,918)\t(0,1599,\clip(40,905,40,918))}m 40 905 l 680 905 l 680 918 l 40 918{\p0}
+Dialogue: 9,0:00:10.25,0:00:11.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H40&\bord0\shad0\fad(100,0)}m 60 560 l 660 560 l 660 690 l 60 690{\p0}
+Dialogue: 9,0:00:10.25,0:00:11.40,card,,0,0,0,,{\an7\pos(84,575)\fs30\fad(100,0)}・外したら、撃った人は消える
+Dialogue: 9,0:00:10.25,0:00:11.40,card,,0,0,0,,{\an7\pos(84,625)\fs36\c&H40F0FF&\fad(100,0)\t(200,500,\fscx110\fscy110)}・外れ＝弾が止まったとき
+Dialogue: 14,0:00:11.40,0:00:11.90,count,,0,0,0,,{\an5\pos(360,240)\fs34\c&HDDDDDD&\bord3\3c&H000000&}もし「一か八か撃つ」を選んでいたら…
+Dialogue: 14,0:00:11.40,0:00:11.90,count,,0,0,0,,{\an5\pos(360,330)\fs86\c&H2020FF&\3c&H000000&\bord8\fscx135\fscy135\t(0,140,\fscx100\fscy100)}弾が壁で止まる → 消滅
+Dialogue: 9,0:00:11.90,0:00:14.40,card,,0,0,0,,{\an5\pos(360,120)\fs30\c&H40F0FF&\bord3\3c&H000000&}外れ＝弾が止まったとき
+Dialogue: 12,0:00:11.90,0:00:13.00,count,,0,0,0,,{\an5\pos(360,330)\fs90\c&HFFE0A0&\3c&H402000&\bord9\fscx135\fscy135\t(0,140,\fscx100\fscy100)}弾道編集
+Dialogue: 10,0:00:12.00,0:00:14.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H60&\bord0\shad0\fad(120,150)}m 0 700 l 720 700 l 720 960 l 0 960{\p0}
+Dialogue: 12,0:00:12.00,0:00:14.40,count,,0,0,0,,{\an5\pos(360,745)\fs40\c&HFFFFFF&\3c&H000000&\bord4\fad(120,150)\fscx135\fscy135\t(0,140,\fscx100\fscy100)}3人を、1発で。
+Dialogue: 11,0:00:12.00,0:00:13.60,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H404040&\1a&H30&\bord0\shad0\fad(120,0)}m 40 790 l 350 790 l 350 890 l 40 890{\p0}
+Dialogue: 11,0:00:13.60,0:00:14.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H202020&\1a&HA0&\bord0\shad0\fad(0,150)}m 40 790 l 350 790 l 350 890 l 40 890{\p0}
+Dialogue: 13,0:00:12.00,0:00:14.40,count,,0,0,0,,{\an5\pos(195,840)\fs40\c&HFFFFFF&\3c&H000000&\bord3\fad(120,150)}A：一直線に貫く
+Dialogue: 11,0:00:12.00,0:00:13.60,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H404040&\1a&H30&\bord0\shad0\fad(120,0)}m 370 790 l 680 790 l 680 890 l 370 890{\p0}
+Dialogue: 11,0:00:13.60,0:00:14.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H30C8FF&\1a&H10&\bord0\shad0\t(0,120,\fscx104\fscy104)\fad(0,150)}m 370 790 l 680 790 l 680 890 l 370 890{\p0}
+Dialogue: 13,0:00:12.00,0:00:14.40,count,,0,0,0,,{\an5\pos(525,840)\fs40\c&HFFFFFF&\3c&H000000&\bord3\fad(120,150)}B：止まらない輪
+Dialogue: 12,0:00:12.00,0:00:13.60,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H3030FF&\1a&H00&\bord0\shad0\clip(40,905,680,918)\t(0,1599,\clip(40,905,40,918))}m 40 905 l 680 905 l 680 918 l 40 918{\p0}
+Dialogue: 14,0:00:18.40,0:00:19.30,count,,0,0,0,,{\an5\pos(380,330)\fs110\c&HFFF0A0&\3c&H101010&\bord9\shad0\frz-8\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(700,900,\alpha&HFF&)}パキィン！
+Dialogue: 14,0:00:20.80,0:00:21.50,count,,0,0,0,,{\an5\pos(300,300)\fs100\c&HFFF0A0&\3c&H101010&\bord9\shad0\frz8\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(500,700,\alpha&HFF&)}パキン！
+Dialogue: 14,0:00:22.00,0:00:22.70,count,,0,0,0,,{\an5\pos(420,360)\fs100\c&HFFF0A0&\3c&H101010&\bord9\shad0\frz-6\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(500,700,\alpha&HFF&)}パキン！
+Dialogue: 12,0:00:22.00,0:00:23.00,count,,0,0,0,,{\an5\pos(360,520)\fs76\c&H40C8FF&\3c&H000000&\bord8\fscx135\fscy135\t(0,140,\fscx100\fscy100)}トリプルキル
+Dialogue: 3,0:00:23.00,0:00:28.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H0000C0&\1a&HD8&\bord0\shad0\t(0,300,\1a&HC0&)\t(300,600,\1a&HE8&)\t(600,900,\1a&HC0&)\t(900,1200,\1a&HE8&)}m 0 0 l 720 0 l 720 1280 l 0 1280{\p0}
+Dialogue: 12,0:00:23.00,0:00:28.00,count,,0,0,0,,{\an5\pos(360,250)\fs44\c&H3030FF&\3c&H000000&\bord5\fad(150,0)}⚠ 規約違反を検知
+Dialogue: 10,0:00:25.90,0:00:28.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H60&\bord0\shad0\fad(120,150)}m 0 700 l 720 700 l 720 960 l 0 960{\p0}
+Dialogue: 12,0:00:25.90,0:00:28.00,count,,0,0,0,,{\an5\pos(360,745)\fs40\c&HFFFFFF&\3c&H000000&\bord4\fad(120,150)\fscx135\fscy135\t(0,140,\fscx100\fscy100)}白い管理者が狙っている！
+Dialogue: 11,0:00:25.90,0:00:28.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H404040&\1a&H30&\bord0\shad0\fad(120,0)}m 40 790 l 350 790 l 350 890 l 40 890{\p0}
+Dialogue: 13,0:00:25.90,0:00:28.00,count,,0,0,0,,{\an5\pos(195,840)\fs40\c&HFFFFFF&\3c&H000000&\bord3\fad(120,150)}A：声の方へ逃げる
+Dialogue: 11,0:00:25.90,0:00:28.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H404040&\1a&H30&\bord0\shad0\fad(120,0)}m 370 790 l 680 790 l 680 890 l 370 890{\p0}
+Dialogue: 13,0:00:25.90,0:00:28.00,count,,0,0,0,,{\an5\pos(525,840)\fs40\c&HFFFFFF&\3c&H000000&\bord3\fad(120,150)}B：撃ち返す
+Dialogue: 12,0:00:25.90,0:00:28.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H3030FF&\1a&H00&\bord0\shad0\clip(40,905,680,918)\t(0,2100,\clip(40,905,40,918))}m 40 905 l 680 905 l 680 918 l 40 918{\p0}
+Dialogue: 15,0:00:28.00,0:00:30.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H00&\bord0\shad0}m 0 0 l 720 0 l 720 1280 l 0 1280{\p0}
+Dialogue: 16,0:00:28.00,0:00:30.00,count,,0,0,0,,{\an5\pos(360,520)\fs76\c&HFFFFFF&\3c&H000000&\bord6\fscx135\fscy135\t(0,140,\fscx100\fscy100)}あなたならどっち？
+Dialogue: 16,0:00:28.20,0:00:30.00,count,,0,0,0,,{\an5\pos(360,630)\fs40\c&H30C8FF&\bord4\3c&H000000&\fad(150,0)}A か B でコメントしてね
+Dialogue: 16,0:00:28.50,0:00:30.00,card,,0,0,0,,{\an5\pos(360,720)\fs30\c&HDDDDDD&\fad(150,0)}多かった方が、第2話の展開になる
+Dialogue: 16,0:00:28.80,0:00:30.00,card,,0,0,0,,{\an5\pos(360,1180)\fs28\c&HAAAAAA&\fad(150,0)}フォローして続きを待っててね
+Dialogue: 9,0:00:00.40,0:00:02.60,ann,,0,0,0,,{\an5\pos(360,1060)\fad(60,100)}外したら――\Nあなたは消えます
+Dialogue: 9,0:00:06.00,0:00:08.39,ren,,0,0,0,,{\an5\pos(360,1060)\fad(60,100)}1発しかない。\N外せない…
+Dialogue: 9,0:00:14.50,0:00:16.67,ren,,0,0,0,,{\an5\pos(360,1060)\fad(60,100)}止まらなければ、\N外れじゃない
+Dialogue: 9,0:00:23.00,0:00:25.68,ann,,0,0,0,,{\an5\pos(360,1060)\fad(60,100)}規約違反を検知。\N管理者が向かいます
+Dialogue: 9,0:00:25.53,0:00:27.00,mina,,0,0,0,,{\an5\pos(360,1060)\fad(60,100)}こっち！早く！
