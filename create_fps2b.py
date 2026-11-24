@@ -249,16 +249,25 @@ def shot(t):
     if t < MINA: return P0, Vector((0.6, 30, 3.0 + 2.0 * ease((t - DELETE) / 1.5))), 24, True
     if t < 8.4: k = ease((t - MINA) / 1.0); return P0, Vector((0.6, 30, 3.0)).lerp(mh, k), 24 + 10 * k, True
     if t < 10.4: return P0, P0 + Vector((0.05, 1.0, -0.35)), 26, True
-    if t < 13.0: return P0, mh + Vector((0, 0, -0.02)), 40, True
-    if t < 14.7: return P0, Vector((0.6, 20, 1.6)), 22, True
-    if t < 18.3: return P0, P0 + Vector((0.05, 1.0, -0.35)), 26, True
-    if t < 19.6: return P0, mh + Vector((0.05, 0, -0.08)), 36, True
-    if t < CHOICE: return P0, Vector((0.6, 25, 14.0)), 22, True
-    return P0, mh + Vector((0, 0, -0.03)), 44 + 4 * ease((t - CHOICE) / 4.0), True
+    # 10.4秒以降：目線の先が変わるカメラ（見せたいものは1.5秒以上止める）
+    wave = lambda: Vector((0.8, 14.0, 2.2)); hands = P0 + Vector((0.1, 0.9, -0.75)); skyv = Vector((0.6, 25, 14.0))
+    KEYS = [(10.4, mh + Vector((0, 0, -0.02)), 40, 0.0), (12.3, mh + Vector((0, 0, -0.02)), 40, 0.0),
+            (12.9, wave(), 26, 0.7), (14.6, wave(), 24, 0.0), (15.3, hands, 26, 0.7), (18.2, hands, 26, 0.0),
+            (18.55, mh + Vector((0.05, 0, -0.08)), 36, 0.35), (19.7, mh + Vector((0.05, 0, -0.08)), 38, 0.0),
+            (20.4, skyv, 22, 0.7), (21.5, skyv, 22, 0.0), (22.2, mh + Vector((0, 0, -0.03)), 44, 0.7), (26.0, mh + Vector((0, 0, -0.03)), 50, 0.0)]
+    i = max(j for j, k in enumerate(KEYS) if k[0] <= t) if t >= KEYS[0][0] else 0
+    k1 = KEYS[i]
+    if i + 1 < len(KEYS) and KEYS[i + 1][3] > 0:
+        k2 = KEYS[i + 1]; ts_ = k2[0] - k2[3]
+        if t >= ts_:
+            u = ease((t - ts_) / k2[3]); return P0, k1[1].lerp(k2[1], u), k1[2] + (k2[2] - k1[2]) * u, True
+    if i + 1 < len(KEYS):
+        k2 = KEYS[i + 1]; u = (t - k1[0]) / max(0.01, (k2[0] - k2[3]) - k1[0]); return P0, k1[1], k1[2] + (k2[2] - k1[2]) * 0.0 + 2.0 * min(1, max(0, u)) * (k1[3] == 0), True
+    return P0, k1[1], k1[2], True
 def gun_pose(t):
     loc = Vector((0.1, -0.13, -0.24)); rot = Vector((math.radians(-92), math.radians(-3), math.radians(4)))
-    down = 0.0
-    loc += Vector((-0.04, 0.06, 0.04)) * down; rot += Vector((0.35, 0.0, 0.25)) * down
+    down = win(t, 15.0, 18.3, 0.6, 0.3) if t >= 10.6 else 0.0
+    loc += Vector((0.05, -0.05, -0.02)) * down; rot += Vector((0.25, 0.55, 0.15)) * down
     k = t - FIRE
     if 0 <= k < 0.4: rec = math.exp(-k / 0.07); loc += Vector((0, -0.03 * rec, 0.05 * rec)); rot += Vector((0.12 * rec, 0, 0))
     return loc, rot
