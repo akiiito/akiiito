@@ -1,0 +1,546 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hero,IPAPGothic,66,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,1,0,1,7,3,5,30,30,0,1
+Style: narr,IPAPGothic,62,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,2,0,1,7,3,5,30,30,0,1
+Style: shout,IPAPGothic,78,&H0040E6FF,&H0040E6FF,&H00200818,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: resolve,IPAPGothic,80,&H00FFFFFF,&H00FFFFFF,&H003C14DC,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: shape,IPAPGothic,20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: ren,IPAPGothic,68,&H00FFFFFF,&H00FFFFFF,&H00202020,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: mina,IPAPGothic,68,&H00E0C8FF,&H00E0C8FF,&H00402040,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: ann,IPAPGothic,60,&H00FFE8A0,&H00FFE8A0,&H00402000,&H00000000,-1,0,0,0,100,100,1,0,1,7,0,5,16,16,0,1
+Style: hook,IPAPGothic,58,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,7,0,5,20,20,0,1
+Style: hud,IPAPGothic,26,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,2,0,5,0,0,0,1
+Style: card,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,0,0,5,20,20,0,1
+Style: count,IPAPGothic,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,8,0,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 9,0:00:00.00,0:00:01.70,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H50&\bord0\shad0\fad(0,200)}m 0 130 l 720 130 l 720 250 l 0 250{\p0}
+Dialogue: 10,0:00:00.00,0:00:01.70,card,,0,0,0,,{\an5\pos(360,165)\fs28\c&HDDDDDD&\fad(0,200)}前回、あなたは――
+Dialogue: 10,0:00:00.00,0:00:01.70,count,,0,0,0,,{\an5\pos(360,215)\fs48\c&H3070FF&\3c&H000000&\bord5\fscx135\fscy135\t(0,140,\fscx100\fscy100)\fad(0,200)}「撃ち返す」を選んだ
+Dialogue: 7,0:00:00.00,0:00:00.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:00.00,0:00:00.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:00.12,0:00:00.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:00.12,0:00:00.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:00.25,0:00:00.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:00.25,0:00:00.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:00.38,0:00:00.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:00.38,0:00:00.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:00.50,0:00:00.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:00.50,0:00:00.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:00.62,0:00:00.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:00.62,0:00:00.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:00.75,0:00:00.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:00.75,0:00:00.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:00.88,0:00:01.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:00.88,0:00:01.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:01.00,0:00:01.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:01.00,0:00:01.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:01.12,0:00:01.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:01.12,0:00:01.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:01.25,0:00:01.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:01.25,0:00:01.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:01.38,0:00:01.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:01.38,0:00:01.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:01.50,0:00:01.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:01.50,0:00:01.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:01.62,0:00:01.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:01.62,0:00:01.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:03.12,0:00:03.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:03.12,0:00:03.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:03.25,0:00:03.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:03.25,0:00:03.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:03.38,0:00:03.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:03.38,0:00:03.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:03.50,0:00:03.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:03.50,0:00:03.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:03.62,0:00:03.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:03.62,0:00:03.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:03.75,0:00:03.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:03.75,0:00:03.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:03.88,0:00:04.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:03.88,0:00:04.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:04.00,0:00:04.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:04.00,0:00:04.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:04.12,0:00:04.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:04.12,0:00:04.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:04.25,0:00:04.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:04.25,0:00:04.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:04.38,0:00:04.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:04.38,0:00:04.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:04.50,0:00:04.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:04.50,0:00:04.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:04.62,0:00:04.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:04.62,0:00:04.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:04.75,0:00:04.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:04.75,0:00:04.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:04.88,0:00:05.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:04.88,0:00:05.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:05.00,0:00:05.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:05.00,0:00:05.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:05.12,0:00:05.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:05.12,0:00:05.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:05.25,0:00:05.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:05.25,0:00:05.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:05.38,0:00:05.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:05.38,0:00:05.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:05.50,0:00:05.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:05.50,0:00:05.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:05.62,0:00:05.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:05.62,0:00:05.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:05.75,0:00:05.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:05.75,0:00:05.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:05.88,0:00:06.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:05.88,0:00:06.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:06.00,0:00:06.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:06.00,0:00:06.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:06.12,0:00:06.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:06.12,0:00:06.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:06.25,0:00:06.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:06.25,0:00:06.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:06.38,0:00:06.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:06.38,0:00:06.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:06.50,0:00:06.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:06.50,0:00:06.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:06.62,0:00:06.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:06.62,0:00:06.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:06.75,0:00:06.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:06.75,0:00:06.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:06.88,0:00:07.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:06.88,0:00:07.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:07.00,0:00:07.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:07.00,0:00:07.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:07.12,0:00:07.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:07.12,0:00:07.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:07.25,0:00:07.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:07.25,0:00:07.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:07.38,0:00:07.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:07.38,0:00:07.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:07.50,0:00:07.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:07.50,0:00:07.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:07.62,0:00:07.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:07.62,0:00:07.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:07.75,0:00:07.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:07.75,0:00:07.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:07.88,0:00:08.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:07.88,0:00:08.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:08.00,0:00:08.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:08.00,0:00:08.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:08.12,0:00:08.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:08.12,0:00:08.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:08.25,0:00:08.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:08.25,0:00:08.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:08.38,0:00:08.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:08.38,0:00:08.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:08.50,0:00:08.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:08.50,0:00:08.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:08.62,0:00:08.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:08.62,0:00:08.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:08.75,0:00:08.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:08.75,0:00:08.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:08.88,0:00:09.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:08.88,0:00:09.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:09.00,0:00:09.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:09.00,0:00:09.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:09.12,0:00:09.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:09.12,0:00:09.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:09.25,0:00:09.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:09.25,0:00:09.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:09.38,0:00:09.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:09.38,0:00:09.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:09.50,0:00:09.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:09.50,0:00:09.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:09.62,0:00:09.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:09.62,0:00:09.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:09.75,0:00:09.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:09.75,0:00:09.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:09.88,0:00:10.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:09.88,0:00:10.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:10.00,0:00:10.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:10.00,0:00:10.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:10.12,0:00:10.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:10.12,0:00:10.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:10.25,0:00:10.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:10.25,0:00:10.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:10.38,0:00:10.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:10.38,0:00:10.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:10.50,0:00:10.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:10.50,0:00:10.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:10.62,0:00:10.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:10.62,0:00:10.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:10.75,0:00:10.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:10.75,0:00:10.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:10.88,0:00:11.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:10.88,0:00:11.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:11.00,0:00:11.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:11.00,0:00:11.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:11.12,0:00:11.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:11.12,0:00:11.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:11.25,0:00:11.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:11.25,0:00:11.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:11.38,0:00:11.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:11.38,0:00:11.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:11.50,0:00:11.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:11.50,0:00:11.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:11.62,0:00:11.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:11.62,0:00:11.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:11.75,0:00:11.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:11.75,0:00:11.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:11.88,0:00:12.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:11.88,0:00:12.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:12.00,0:00:12.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:12.00,0:00:12.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:12.12,0:00:12.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:12.12,0:00:12.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:12.25,0:00:12.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:12.25,0:00:12.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:12.38,0:00:12.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:12.38,0:00:12.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:12.50,0:00:12.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:12.50,0:00:12.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:12.62,0:00:12.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:12.62,0:00:12.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:12.75,0:00:12.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:12.75,0:00:12.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:12.88,0:00:13.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:12.88,0:00:13.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:13.00,0:00:13.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:13.00,0:00:13.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:13.12,0:00:13.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:13.12,0:00:13.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:13.25,0:00:13.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:13.25,0:00:13.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:13.38,0:00:13.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:13.38,0:00:13.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:13.50,0:00:13.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:13.50,0:00:13.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:13.62,0:00:13.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:13.62,0:00:13.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:13.75,0:00:13.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:13.75,0:00:13.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:13.88,0:00:14.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}99%
+Dialogue: 7,0:00:13.88,0:00:14.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:14.00,0:00:14.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:14.00,0:00:14.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:14.12,0:00:14.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:14.12,0:00:14.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:14.25,0:00:14.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:14.25,0:00:14.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:14.38,0:00:14.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:14.38,0:00:14.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:14.50,0:00:14.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:14.50,0:00:14.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:14.62,0:00:14.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:14.62,0:00:14.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:14.75,0:00:14.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:14.75,0:00:14.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:14.75,0:00:14.88,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:14.88,0:00:15.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:14.88,0:00:15.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:14.88,0:00:15.00,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:15.00,0:00:15.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:15.00,0:00:15.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:15.00,0:00:15.12,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:15.12,0:00:15.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:15.12,0:00:15.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:15.12,0:00:15.25,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:15.25,0:00:15.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:15.25,0:00:15.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:15.25,0:00:15.38,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:15.38,0:00:15.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:15.38,0:00:15.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:15.38,0:00:15.50,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:15.50,0:00:15.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:15.50,0:00:15.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:15.50,0:00:15.62,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:15.62,0:00:15.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:15.62,0:00:15.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:15.62,0:00:15.75,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:15.75,0:00:15.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:15.75,0:00:15.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:15.75,0:00:15.88,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:15.88,0:00:16.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:15.88,0:00:16.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:15.88,0:00:16.00,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:16.00,0:00:16.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:16.00,0:00:16.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:16.00,0:00:16.12,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:16.12,0:00:16.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:16.12,0:00:16.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:16.12,0:00:16.25,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:16.25,0:00:16.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:16.25,0:00:16.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:16.25,0:00:16.38,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:16.38,0:00:16.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:16.38,0:00:16.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:16.38,0:00:16.50,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:16.50,0:00:16.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:16.50,0:00:16.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:16.50,0:00:16.62,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:16.62,0:00:16.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:16.62,0:00:16.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:16.62,0:00:16.75,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:16.75,0:00:16.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:16.75,0:00:16.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:16.75,0:00:16.88,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:16.88,0:00:17.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:16.88,0:00:17.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:16.88,0:00:17.00,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:17.00,0:00:17.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:17.00,0:00:17.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:17.00,0:00:17.12,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:17.12,0:00:17.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:17.12,0:00:17.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:17.12,0:00:17.25,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:17.25,0:00:17.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:17.25,0:00:17.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:17.25,0:00:17.38,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:17.38,0:00:17.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:17.38,0:00:17.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:17.38,0:00:17.50,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:17.50,0:00:17.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:17.50,0:00:17.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:17.50,0:00:17.62,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:17.62,0:00:17.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:17.62,0:00:17.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:17.62,0:00:17.75,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:17.75,0:00:17.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:17.75,0:00:17.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:17.75,0:00:17.88,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:17.88,0:00:18.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:17.88,0:00:18.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:17.88,0:00:18.00,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:18.00,0:00:18.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:18.00,0:00:18.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:18.00,0:00:18.12,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:18.12,0:00:18.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:18.12,0:00:18.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:18.12,0:00:18.25,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:18.25,0:00:18.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:18.25,0:00:18.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:18.25,0:00:18.38,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:18.38,0:00:18.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:18.38,0:00:18.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:18.38,0:00:18.50,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:18.50,0:00:18.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:18.50,0:00:18.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:18.50,0:00:18.62,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:18.62,0:00:18.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:18.62,0:00:18.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:18.62,0:00:18.75,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:18.75,0:00:18.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:18.75,0:00:18.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:18.75,0:00:18.88,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:18.88,0:00:19.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:18.88,0:00:19.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:18.88,0:00:19.00,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:19.00,0:00:19.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:19.00,0:00:19.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:19.00,0:00:19.12,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:19.12,0:00:19.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:19.12,0:00:19.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:19.12,0:00:19.25,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:19.25,0:00:19.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:19.25,0:00:19.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:19.25,0:00:19.38,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:19.38,0:00:19.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:19.38,0:00:19.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:19.38,0:00:19.50,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:19.50,0:00:19.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:19.50,0:00:19.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:19.50,0:00:19.62,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:19.62,0:00:19.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:19.62,0:00:19.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:19.62,0:00:19.75,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:19.75,0:00:19.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:19.75,0:00:19.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:19.75,0:00:19.88,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:19.88,0:00:20.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:19.88,0:00:20.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:19.88,0:00:20.00,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:20.00,0:00:20.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:20.00,0:00:20.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:20.00,0:00:20.12,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:20.12,0:00:20.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:20.12,0:00:20.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:20.12,0:00:20.25,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:20.25,0:00:20.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:20.25,0:00:20.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:20.25,0:00:20.38,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:20.38,0:00:20.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:20.38,0:00:20.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:20.38,0:00:20.50,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:20.50,0:00:20.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:20.50,0:00:20.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:20.50,0:00:20.62,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:20.62,0:00:20.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:20.62,0:00:20.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:20.62,0:00:20.75,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:20.75,0:00:20.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:20.75,0:00:20.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:20.75,0:00:20.88,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:20.88,0:00:21.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:20.88,0:00:21.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:20.88,0:00:21.00,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:21.00,0:00:21.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:21.00,0:00:21.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:21.00,0:00:21.12,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:21.12,0:00:21.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:21.12,0:00:21.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:21.12,0:00:21.25,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:21.25,0:00:21.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:21.25,0:00:21.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:21.25,0:00:21.38,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:21.38,0:00:21.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:21.38,0:00:21.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:21.38,0:00:21.50,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:21.50,0:00:21.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:21.50,0:00:21.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:21.50,0:00:21.62,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:21.62,0:00:21.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:21.62,0:00:21.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:21.62,0:00:21.75,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:21.75,0:00:21.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:21.75,0:00:21.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:21.75,0:00:21.88,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:21.88,0:00:22.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:21.88,0:00:22.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:21.88,0:00:22.00,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:22.00,0:00:22.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:22.00,0:00:22.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:22.00,0:00:22.12,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:22.12,0:00:22.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:22.12,0:00:22.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:22.12,0:00:22.25,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:22.25,0:00:22.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:22.25,0:00:22.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:22.25,0:00:22.38,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:22.38,0:00:22.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:22.38,0:00:22.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:22.38,0:00:22.50,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:22.50,0:00:22.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:22.50,0:00:22.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:22.50,0:00:22.62,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:22.62,0:00:22.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:22.62,0:00:22.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:22.62,0:00:22.75,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:22.75,0:00:22.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:22.75,0:00:22.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:22.75,0:00:22.88,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:22.88,0:00:23.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:22.88,0:00:23.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:22.88,0:00:23.00,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:23.00,0:00:23.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:23.00,0:00:23.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:23.00,0:00:23.12,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:23.12,0:00:23.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:23.12,0:00:23.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:23.12,0:00:23.25,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:23.25,0:00:23.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:23.25,0:00:23.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:23.25,0:00:23.38,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:23.38,0:00:23.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:23.38,0:00:23.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:23.38,0:00:23.50,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:23.50,0:00:23.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:23.50,0:00:23.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:23.50,0:00:23.62,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:23.62,0:00:23.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:23.62,0:00:23.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:23.62,0:00:23.75,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:23.75,0:00:23.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:23.75,0:00:23.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:23.75,0:00:23.88,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:23.88,0:00:24.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:23.88,0:00:24.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:23.88,0:00:24.00,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:24.00,0:00:24.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:24.00,0:00:24.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:24.00,0:00:24.12,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:24.12,0:00:24.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:24.12,0:00:24.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:24.12,0:00:24.25,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:24.25,0:00:24.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:24.25,0:00:24.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:24.25,0:00:24.38,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:24.38,0:00:24.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:24.38,0:00:24.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:24.38,0:00:24.50,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:24.50,0:00:24.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:24.50,0:00:24.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:24.50,0:00:24.62,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:24.62,0:00:24.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:24.62,0:00:24.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:24.62,0:00:24.75,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:24.75,0:00:24.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:24.75,0:00:24.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:24.75,0:00:24.88,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:24.88,0:00:25.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:24.88,0:00:25.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:24.88,0:00:25.00,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:25.00,0:00:25.12,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:25.00,0:00:25.12,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:25.00,0:00:25.12,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:25.12,0:00:25.25,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:25.12,0:00:25.25,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:25.12,0:00:25.25,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:25.25,0:00:25.38,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:25.25,0:00:25.38,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:25.25,0:00:25.38,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:25.38,0:00:25.50,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:25.38,0:00:25.50,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:25.38,0:00:25.50,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:25.50,0:00:25.62,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:25.50,0:00:25.62,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:25.50,0:00:25.62,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:25.62,0:00:25.75,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:25.62,0:00:25.75,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:25.62,0:00:25.75,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:25.75,0:00:25.88,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:25.75,0:00:25.88,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:25.75,0:00:25.88,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:25.88,0:00:26.00,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:25.88,0:00:26.00,hud,,0,0,0,,{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1
+Dialogue: 7,0:00:25.88,0:00:26.00,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:03.20,0:00:06.60,count,,0,0,0,,{\an5\pos(360,300)\fs40\c&HFFFFFF&\3c&H000000&\bord4\fad(150,150)}⚠ 世界の終了まで 残り 60秒
+Dialogue: 12,0:00:08.30,0:00:10.60,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF4F4F4&\1a&H08&\bord0\shad0\fad(120,200)\move(0,-120,0,0,0,150)}m 24 60 l 696 60 l 696 230 l 24 230{\p0}
+Dialogue: 13,0:00:08.30,0:00:10.60,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H55C806&\1a&H00&\bord0\shad0\fad(120,200)\move(0,-120,0,0,0,150)}m 44 80 l 84 80 l 84 120 l 44 120{\p0}
+Dialogue: 14,0:00:08.30,0:00:10.60,card,,0,0,0,,{\an7\pos(96,80)\fs28\c&H303030&\fad(120,200)\move(96,-40,96,80,0,150)}母
+Dialogue: 14,0:00:08.30,0:00:10.60,card,,0,0,0,,{\an7\pos(44,132)\fs30\c&H202020&\fad(120,200)\move(44,12,44,132,0,150)}さっきから、あなたの部屋で\N銃声がするんだけど
+Dialogue: 12,0:00:19.40,0:00:21.60,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF4F4F4&\1a&H08&\bord0\shad0\fad(120,200)\move(0,-120,0,0,0,150)}m 24 60 l 696 60 l 696 230 l 24 230{\p0}
+Dialogue: 13,0:00:19.40,0:00:21.60,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H55C806&\1a&H00&\bord0\shad0\fad(120,200)\move(0,-120,0,0,0,150)}m 44 80 l 84 80 l 84 120 l 44 120{\p0}
+Dialogue: 14,0:00:19.40,0:00:21.60,card,,0,0,0,,{\an7\pos(96,80)\fs28\c&H303030&\fad(120,200)\move(96,-40,96,80,0,150)}妹
+Dialogue: 14,0:00:19.40,0:00:21.60,card,,0,0,0,,{\an7\pos(44,132)\fs30\c&H202020&\fad(120,200)\move(44,12,44,132,0,150)}お兄ちゃん、パソコンの画面の中に\Nいるの、お兄ちゃんだよね？
+Dialogue: 12,0:00:24.00,0:00:26.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF4F4F4&\1a&H08&\bord0\shad0\fad(120,200)\move(0,-120,0,0,0,150)}m 24 60 l 696 60 l 696 230 l 24 230{\p0}
+Dialogue: 13,0:00:24.00,0:00:26.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H55C806&\1a&H00&\bord0\shad0\fad(120,200)\move(0,-120,0,0,0,150)}m 44 80 l 84 80 l 84 120 l 44 120{\p0}
+Dialogue: 14,0:00:24.00,0:00:26.00,card,,0,0,0,,{\an7\pos(96,80)\fs28\c&H303030&\fad(120,200)\move(96,-40,96,80,0,150)}妹
+Dialogue: 14,0:00:24.00,0:00:26.00,card,,0,0,0,,{\an7\pos(44,132)\fs30\c&H202020&\fad(120,200)\move(44,12,44,132,0,150)}帰ってきて
+Dialogue: 11,0:00:14.70,0:00:17.00,count,,0,0,0,,{\an5\pos(360,320)\fs46\c&H40F0FF&\3c&H000000&\bord5\fscx135\fscy135\t(0,140,\fscx100\fscy100)}新しい管理者：あなた
+Dialogue: 15,0:00:26.00,0:00:30.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H70&\bord0\shad0\fad(250,0)}m 0 0 l 720 0 l 720 1280 l 0 1280{\p0}
+Dialogue: 16,0:00:26.00,0:00:30.00,count,,0,0,0,,{\an5\pos(360,330)\fs64\c&HFFFFFF&\3c&H000000&\bord6\fad(200,0)}あなたなら\Nどうする？
+Dialogue: 16,0:00:26.15,0:00:30.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H2E9AC8&\1a&H00&\bord0\shad0\fad(150,0)\t(0,120,\fscx102\fscy102)}m 30 430 l 690 430 l 690 600 l 30 600{\p0}
+Dialogue: 17,0:00:26.15,0:00:30.00,count,,0,0,0,,{\an4\pos(140,515)\fs46\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}世界を閉じて\N現実に帰る
+Dialogue: 17,0:00:26.35,0:00:30.00,count,,0,0,0,,{\an5\pos(360,650)\fs44\c&H40E0FF&\3c&H000000&\bord4\fad(150,0)}それとも
+Dialogue: 16,0:00:26.50,0:00:30.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HC07030&\1a&H00&\bord0\shad0\fad(150,0)\t(0,120,\fscx102\fscy102)}m 30 700 l 690 700 l 690 870 l 30 870{\p0}
+Dialogue: 17,0:00:26.50,0:00:30.00,count,,0,0,0,,{\an4\pos(140,785)\fs46\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}世界を残して\Nここに留まる
+Dialogue: 17,0:00:26.80,0:00:30.00,count,,0,0,0,,{\an5\pos(360,960)\fs50\c&HFFFFFF&\3c&H000000&\bord5\fad(150,0)}コメントで教えて　
+Dialogue: 9,0:00:01.70,0:00:03.00,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}…当たった？
+Dialogue: 9,0:00:03.20,0:00:05.30,ann,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}管理者の消失を確認
+Dialogue: 9,0:00:05.15,0:00:07.23,ann,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}この世界を、閉じます
+Dialogue: 9,0:00:07.08,0:00:08.58,mina,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}なんで撃ったの…！？
+Dialogue: 9,0:00:08.50,0:00:10.82,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}母さんから…？\Nここ、異世界だぞ…
+Dialogue: 9,0:00:10.67,0:00:13.76,mina,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}世界が消えたら、\Nここにいる人は全員消える
+Dialogue: 9,0:00:13.61,0:00:15.51,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}…俺も、消えるのか？
+Dialogue: 9,0:00:15.36,0:00:18.28,ann,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}新しい管理者を登録します。\N…あなたです
+Dialogue: 9,0:00:18.13,0:00:19.61,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}手が…白く…
+Dialogue: 9,0:00:19.46,0:00:20.79,mina,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}…動かないで
+Dialogue: 9,0:00:20.64,0:00:22.30,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}なんで…\N見えてるんだ
+Dialogue: 9,0:00:22.15,0:00:25.25,ann,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}閉じるか、残すか。\N選んでください
+Dialogue: 9,0:00:25.10,0:00:26.00,mina,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}お願い…残して

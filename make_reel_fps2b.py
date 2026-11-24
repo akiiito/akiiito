@@ -40,16 +40,6 @@ STY = (
     "Style: card,{f},44,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,0,0,5,20,20,0,1\n"
     "Style: count,{f},84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,8,0,5,0,0,0,1\n")
 
-# 編集表：(出力の開始, 終わり, 元の開始, 元の終わり, 種類)  種類 n=そのまま g=選ばなかった方（白黒の幻） k=黒
-EDL = [(0.0, 5.4, 0.0, 5.4, "n"), (5.4, 5.9, 16.6, 17.1, "g"), (5.9, 8.6, 8.0, 10.5, "n"), (8.6, 11.4, 5.5, 8.3, "n"), (11.4, 11.9, 8.6, 9.1, "g"),
-       (11.9, 14.4, 10.5, 13.0, "n"), (14.4, 16.4, 13.0, 15.0, "n"), (16.4, 22.0, 16.6, 22.2, "n"), (22.0, 23.0, 23.0, 24.0, "n"),
-       (23.0, 25.0, 25.0, 27.0, "n"), (25.0, 28.0, 27.4, 30.0, "n"), (28.0, 30.0, 0, 0, "k")]
-K1O, K2O, K3O = 18.4, 20.8, 22.0
-def det_at(t):
-    if t < 11.9: return 12
-    if t < 23.0: return 34 + (int(30 * min(1, (t - 16.4) / 5.5)) if t > 16.4 else 0)
-    return min(99, 64 + int(35 * min(1, (t - 23.0) / 1.5)))
-
 def build_ui(path):
     ev = []
     def E(t0, t1, style, text, layer=5):
@@ -58,65 +48,41 @@ def build_ui(path):
         E(t0, t1, "shape", r"{\an7\pos(0,0)\p1\1c%s\1a%s\bord0\shad0%s}%s{\p0}" % (col, alpha, extra, draw), layer)
     def rect(x0, y0, x1, y1): return "m %d %d l %d %d l %d %d l %d %d" % (x0, y0, x1, y0, x1, y1, x0, y1)
     pop = r"\fscx135\fscy135\t(0,140,\fscx100\fscy100)"
-    def choice(t0, t1, q, A, B, pick=None):
-        """2択：問い＋A/Bのボタン＋減っていく時間のバー。pick='A'/'B' で選んだ方が金色に光る"""
-        tp = pick[1] if pick else t1; who = pick[0] if pick else None
-        S(t0, t1, rect(0, 700, 720, 960), "&H000000&", "&H60&", 10, r"\fad(120,150)")
-        E(t0, t1, "count", r"{\an5\pos(360,745)\fs40\c&HFFFFFF&\3c&H000000&\bord4\fad(120,150)%s}%s" % (pop, q), 12)
-        for k, (lab, txt, x0) in enumerate((("A", A, 40), ("B", B, 370))):
-            chosen = who == lab
-            S(t0, tp, rect(x0, 790, x0 + 310, 890), "&H404040&", "&H30&", 11, r"\fad(120,0)")
-            if who:
-                col = "&H30C8FF&" if chosen else "&H202020&"
-                S(tp, t1, rect(x0, 790, x0 + 310, 890), col, "&H10&" if chosen else "&HA0&", 11, (r"\t(0,120,\fscx104\fscy104)" if chosen else "") + r"\fad(0,150)")
-            E(t0, t1, "count", r"{\an5\pos(%d,840)\fs40\c%s\3c&H000000&\bord3\fad(120,150)}%s：%s" % (x0 + 155, "&H000000&" if False else "&HFFFFFF&", lab, txt), 13)
-        dur = int((tp - t0) * 1000)
-        S(t0, tp, rect(40, 905, 680, 918), "&H3030FF&", "&H00&", 12, r"\clip(40,905,680,918)\t(0,%d,\clip(40,905,40,918))" % dur)
-    def ghost(t0, t1, what, res):
-        E(t0, t1, "count", r"{\an5\pos(360,240)\fs34\c&HDDDDDD&\bord3\3c&H000000&}もし「%s」を選んでいたら…" % what, 14)
-        E(t0, t1, "count", r"{\an5\pos(360,330)\fs86\c&H2020FF&\3c&H000000&\bord8%s}%s" % (pop, res), 14)
-    # 冒頭
-    E(0, 2.2, "count", r"{\an5\pos(360,300)\fs124\c&H3030FF&\3c&H000000&\bord10%s\fad(0,250)}残弾 1" % pop, 12)
-    S(0, 2.2, rect(0, 410, 720, 540), "&H000000&", "&H70&", 8, r"\fad(0,250)")
-    E(0, 2.2, "hook", r"{\an5\pos(360,475)\fs44\bord6%s\fad(0,250)}この世界の銃、弾は1発だけ。" % pop, 10)
-    # HUD（主観のとき）
-    pov = lambda t: not (14.4 <= t < 16.4 or 16.8 <= t < 22.0 or t >= 28.0)
+    # 前回の選択
+    S(0, 1.7, rect(0, 130, 720, 250), "&H000000&", "&H50&", 9, r"\fad(0,200)")
+    E(0, 1.7, "card", r"{\an5\pos(360,165)\fs28\c&HDDDDDD&\fad(0,200)}前回、あなたは――", 10)
+    E(0, 1.7, "count", r"{\an5\pos(360,215)\fs48\c&H3070FF&\3c&H000000&\bord5%s\fad(0,200)}「撃ち返す」を選んだ" % pop, 10)
+    # HUD
     t = 0.0; step = 1 / 8
-    while t < 28.0:
-        if pov(t):
-            E(t, t + step, "hud", r"{\an1\pos(28,1250)\fs30\c&HFFFFFF&}HP {\c&H60FF60&}100", 7)
-            E(t, t + step, "hud", r"{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}%d{\c&HFFFFFF&\fs30}/1" % (0 if t >= 16.4 else 1), 7)
-            en = 3 - (t >= K1O) - (t >= K2O) - (t >= K3O)
-            E(t, t + step, "hud", r"{\an7\pos(28,24)\fs28\c&HFFFFFF&}敵 {\c&H3030FF&}%d" % en, 7)
-            d = det_at(t); dc = "&H40D0FF&" if d < 90 else ("&H3030FF&" if int(t * 6) % 2 else "&HFFFFFF&")
-            E(t, t + step, "hud", r"{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c%s\fs30}%d%%" % (dc, d), 7)
+    while t < CARD:
+        if not (HIT <= t < 3.1):
+            d = 99 if t < WHITE else 100
+            E(t, t + step, "hud", r"{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}%d%%" % d, 7)
+            E(t, t + step, "hud", r"{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1", 7)
+            if t >= 14.7: E(t, t + step, "hud", r"{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者", 7)
         t += step
-    # 2択の連続
-    choice(2.4, 5.4, "敵が3人、近づいてくる！", "今すぐ撃つ", "隠れる", ("B", 4.6))
-    ghost(5.4, 5.9, "今すぐ撃つ", "外れ → 消滅")
-    choice(8.6, 11.4, "撃たれて身動きできない！", "一か八か撃つ", "ルールを読む", ("B", 10.2))
-    S(10.25, 11.4, rect(60, 560, 660, 690), "&H000000&", "&H40&", 9, r"\fad(100,0)")
-    E(10.25, 11.4, "card", r"{\an7\pos(84,575)\fs30\fad(100,0)}・外したら、撃った人は消える", 9)
-    E(10.25, 11.4, "card", r"{\an7\pos(84,625)\fs36\c&H40F0FF&\fad(100,0)\t(200,500,\fscx110\fscy110)}・外れ＝弾が止まったとき", 9)
-    ghost(11.4, 11.9, "一か八か撃つ", "壁で止まる → 消滅")
-    E(11.9, 14.4, "card", r"{\an5\pos(360,120)\fs30\c&H40F0FF&\bord3\3c&H000000&}外れ＝弾が止まったとき", 9)
-    E(11.9, 13.0, "count", r"{\an5\pos(360,330)\fs90\c&HFFE0A0&\3c&H402000&\bord9%s}弾道編集" % pop, 12)
-    choice(12.0, 14.4, "3人を、1発で。", "一直線に貫く", "止まらない輪", ("B", 13.6))
-    def boom(t0, text, x, y, fs, rot, col="&HFFF0A0&", d=0.7):
-        st = r"\frz%d\fscx240\fscy240\t(0,90,\fscx100\fscy100)\t(%d,%d,\alpha&HFF&)" % (rot, int(d * 1000) - 200, int(d * 1000))
-        E(t0, t0 + d, "count", r"{\an5\pos(%d,%d)\fs%d\c%s\3c&H101010&\bord9\shad0%s}%s" % (x, y, fs, col, st, text), 14)
-    boom(K1O, "パキィン！", 380, 330, 110, -8, d=0.9); boom(K2O, "パキン！", 300, 300, 100, 8); boom(K3O, "パキン！", 420, 360, 100, -6)
-    E(K3O, 23.0, "count", r"{\an5\pos(360,520)\fs76\c&H40C8FF&\3c&H000000&\bord8%s}トリプルキル" % pop, 12)
-    S(23.0, 28.0, rect(0, 0, 720, 1280), "&H0000C0&", "&HD8&", 3, r"\t(0,300,\1a&HC0&)\t(300,600,\1a&HE8&)\t(600,900,\1a&HC0&)\t(900,1200,\1a&HE8&)")
-    E(23.0, 28.0, "count", r"{\an5\pos(360,250)\fs44\c&H3030FF&\3c&H000000&\bord5\fad(150,0)}⚠ 規約違反を検知", 12)
-    choice(25.9, 28.0, "白い管理者が狙っている！", "声の方へ逃げる", "撃ち返す")
-    S(28.0, 30.0, rect(0, 0, 720, 1280), "&H000000&", "&H00&", 15)
-    E(28.0, 30.0, "count", r"{\an5\pos(360,520)\fs76\c&HFFFFFF&\3c&H000000&\bord6%s}あなたならどっち？" % pop, 16)
-    E(28.2, 30.0, "count", r"{\an5\pos(360,630)\fs40\c&H30C8FF&\bord4\3c&H000000&\fad(150,0)}A か B でコメントしてね", 16)
-    E(28.5, 30.0, "card", r"{\an5\pos(360,720)\fs30\c&HDDDDDD&\fad(150,0)}多かった方が、第2話の展開になる", 16)
-    E(28.8, 30.0, "card", r"{\an5\pos(360,1180)\fs28\c&HAAAAAA&\fad(150,0)}フォローして続きを待っててね", 16)
+    E(3.2, 6.6, "count", r"{\an5\pos(360,300)\fs40\c&HFFFFFF&\3c&H000000&\bord4\fad(150,150)}⚠ 世界の終了まで 残り 60秒", 11)
+    # LINE風の通知（現実からのメッセージ）
+    def line(t0, t1, who, msg):
+        S(t0, t1, rect(24, 60, 696, 230), "&HF4F4F4&", "&H08&", 12, r"\fad(120,200)\move(0,-120,0,0,0,150)")
+        S(t0, t1, rect(44, 80, 84, 120), "&H55C806&", "&H00&", 13, r"\fad(120,200)\move(0,-120,0,0,0,150)")
+        E(t0, t1, "card", r"{\an7\pos(96,80)\fs28\c&H303030&\fad(120,200)\move(96,-40,96,80,0,150)}%s" % who, 14)
+        E(t0, t1, "card", r"{\an7\pos(44,132)\fs30\c&H202020&\fad(120,200)\move(44,12,44,132,0,150)}%s" % msg, 14)
+    line(LINE1, 10.6, "母", r"さっきから、あなたの部屋で\N銃声がするんだけど")
+    line(LINE2, 21.6, "妹", r"お兄ちゃん、パソコンの画面の中に\Nいるの、お兄ちゃんだよね？")
+    line(LINE3, CARD, "妹", "帰ってきて")
+    E(14.7, 17.0, "count", r"{\an5\pos(360,320)\fs46\c&H40F0FF&\3c&H000000&\bord5%s}新しい管理者：あなた" % pop, 11)
+    # 2択カード（参考の形：黄と青、それとも、コメントで教えて）
+    S(CARD, END, rect(0, 0, 720, 1280), "&H000000&", "&H70&", 15, r"\fad(250,0)")
+    E(CARD, END, "count", r"{\an5\pos(360,330)\fs64\c&HFFFFFF&\3c&H000000&\bord6\fad(200,0)}あなたなら\Nどうする？", 16)
+    S(CARD + 0.15, END, rect(30, 430, 690, 600), "&H2E9AC8&", "&H00&", 16, r"\fad(150,0)\t(0,120,\fscx102\fscy102)")
+    E(CARD + 0.15, END, "count", r"{\an4\pos(140,515)\fs46\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}世界を閉じて\N現実に帰る", 17)
+    E(CARD + 0.35, END, "count", r"{\an5\pos(360,650)\fs44\c&H40E0FF&\3c&H000000&\bord4\fad(150,0)}それとも", 17)
+    S(CARD + 0.5, END, rect(30, 700, 690, 870), "&HC07030&", "&H00&", 16, r"\fad(150,0)\t(0,120,\fscx102\fscy102)")
+    E(CARD + 0.5, END, "count", r"{\an4\pos(140,785)\fs46\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}世界を残して\Nここに留まる", 17)
+    E(CARD + 0.8, END, "count", r"{\an5\pos(360,960)\fs50\c&HFFFFFF&\3c&H000000&\bord5\fad(150,0)}コメントで教えて　", 17)
     for st_, en, text, _, _, who in R.LINES:
-        E(st_, en, who, r"{\an5\pos(360,1060)\fad(60,100)}%s" % text, 9)
+        if st_ < CARD: E(st_, min(en, CARD), who, r"{\an5\pos(360,1040)\fad(60,100)}%s" % text, 9)
     head = R.ASS_HEAD.replace("{f}", R.FONT).replace("\n[Events]", STY.replace("{f}", R.FONT) + "\n[Events]")
     open(path, "w", encoding="utf-8").write(head + "\n".join(ev) + "\n")
 
@@ -127,30 +93,18 @@ def mix(*xs):
 def click(sec=0.06, f=3200): return R.lp(R.noise(sec), f) * R.dec(sec, 0.008)
 def gunshot():
     return mix(R.hp(R.noise(0.02), 2000) * R.dec(0.02, 0.004) * 1.2, R.lp(R.kick(160, 50, 0.25, 0.05), 1500) * 1.3, R.lp(R.noise(0.6), 2500) * R.dec(0.6, 0.12) * 0.6)
-def tick(): return mix(np.sin(2 * np.pi * 1800 * R.tt(0.03)) * R.dec(0.03, 0.006))
-def choose(): return mix(click(0.04, 7000) * 1.2, np.sin(2 * np.pi * 1320 * R.tt(0.18)) * R.dec(0.18, 0.05) * 0.6, np.sin(2 * np.pi * 1760 * R.tt(0.18)) * R.dec(0.18, 0.05) * 0.4)
-def glitch(sec=0.5): return R.bp(R.noise(sec), 300, 5000) * (np.sin(2 * np.pi * 23 * R.tt(sec)) > 0) * 0.8
+def notif(): return mix(np.sin(2 * np.pi * 1568 * R.tt(0.12)) * R.dec(0.12, 0.05), np.concatenate([np.zeros(R.n_(0.1)), np.sin(2 * np.pi * 2093 * R.tt(0.2)) * R.dec(0.2, 0.07)]))
 def build_sfx():
-    B.deathgame_bgm(add, DUR, ghosts=(5.4, 11.4), climax=16.4, win_=22.0, alarm=23.0, final=(25.9, 28.0), tail=TAIL)
-    add(K.hit(1.3), 0.0, 0.6); add(X.braam(2.2, 40.0), 0.05, 0.3)
-    hb = R.heartbeat(); t = 0.2
-    while t < 2.4: add(hb, t, 0.35); t += 0.7
-    for k in range(6): add(gunshot() * 0.25, 2.5 + k * 0.45, 0.25, 0.7 * (-1) ** k)
-    for (a, b, p) in ((2.4, 5.4, 4.6), (8.6, 11.4, 10.2), (12.0, 14.4, 13.6), (25.9, 28.0, None)):
-        t = a
-        while t < (p or b): add(tick(), t, 0.18); t += 0.25
-        if p: add(choose(), p, 0.5)
-    for g in (5.4, 11.4): add(glitch(0.5), g, 0.5); add(K.hit(1.0) * 0.8, g + 0.05, 0.5); add(X.stinger(1.0), g, 0.25)
-    for k in range(10): add(mix(gunshot() * 0.5, K.crumble(0.4, 6) * 0.6), 5.95 + k * 0.25, 0.45, 0.5 * (-1) ** k)
-    add(K.suck(1.0), 11.5, 0.4); add(X.swell(2.0), 11.9, 0.4); add(X.tinnitus(2.4, 4200), 12.0, 0.1)
-    add(K.slash() * 0.4, 14.4, 0.3); add(K.whoosh(1.9, 300, 6000) * 0.6, 14.5, 0.35)
-    add(K.suck(0.4), 16.0, 0.5); add(gunshot(), 16.4, 1.0); add(K.whoosh(1.8, 800, 9000), 16.45, 0.4)
-    for kt in (K1O, K2O, K3O): K.strike(add, kt, 1.2, 0.0, kt == K1O); add(mix(np.sin(2 * np.pi * 3800 * R.tt(0.3)) * R.dec(0.3, 0.08)), kt, 0.15)
-    add(X.impact(1.6, 46.0), K3O + 0.05, 0.4)
-    for k in range(6): add(K.whoosh(0.25, 2000, 9000) * 0.5, 23.0 + k * 0.3, 0.3, 0.6 * (-1) ** k)
-    for k in range(8): add(mix(np.sin(2 * np.pi * 880 * R.tt(0.15)) * R.dec(0.15, 0.1)), 23.4 + k * 0.32, 0.12)
-    add(X.braam(2.6, 33.0), 25.0, 0.5)
-    add(K.hit(1.2), 28.0, 0.5); add(X.braam(2.4, 30.0), 28.05, 0.35)
+    B.deathgame_bgm(add, DUR, ghosts=(), climax=14.7, win_=99.0, alarm=CHOICE, final=(CHOICE + 0.5, CARD), tail=TAIL)
+    add(K.suck(0.6), FIRE - 0.6, 0.4); add(gunshot(), FIRE, 1.0); add(K.whoosh(0.8, 800, 9000), FIRE + 0.05, 0.4)
+    K.strike(add, HIT, 1.4, 0.0, False); add(K.crumble(1.4, 30), HIT + 0.05, 0.5); add(mix(np.sin(2 * np.pi * 3800 * R.tt(0.4)) * R.dec(0.4, 0.1)), HIT, 0.15)
+    add(X.braam(2.6, 33.0), DELETE, 0.45)
+    for k in range(16): add(mix(R.bp(R.noise(0.25), 1500, 7000) * R.dec(0.25, 0.08)), DELETE + 0.6 + k * 1.2, 0.12, 0.6 * (-1) ** k)   # 消えていく音
+    add(K.whoosh(0.5, 400, 4000), MINA, 0.3)
+    for t_ in (LINE1, LINE2, LINE3): add(notif(), t_, 0.35)
+    add(X.swell(2.0), 14.7, 0.35); add(X.tinnitus(2.6, 5000), 15.6, 0.1)
+    add(click(0.08, 3000), AIM + 0.2, 0.5); add(X.stinger(1.2), AIM + 0.2, 0.3)
+    add(K.hit(1.2), CARD, 0.5); add(X.braam(2.4, 30.0), CARD + 0.05, 0.3)
 
 def render_mp4():
     R.LINES = [tuple(l) for l in json.load(open(LINES_JSON, encoding="utf-8"))]
@@ -166,11 +120,18 @@ def render_mp4():
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes((out * 32767).astype("<i2").tobytes())
     ass = os.path.join(HERE, "fps2b_ui.ass"); build_ui(ass)
     if "--ui" in sys.argv: print("wrote", wav, ass); return
-    SEQ = os.path.join(HERE, "frames_FPS1c_seq")
-    subprocess.run(["python3", os.path.join(HERE, "assemble_fps1c.py"), json.dumps(EDL), str(DUR + TAIL)], check=True, cwd=HERE)
     mp4 = os.path.join(HERE, "fps_ep2b.mp4")
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", os.path.join(SEQ, "%04d.png"), "-i", wav,
-                    "-filter_complex", "[0:v]vignette=PI/5.5,ass=fps2b_ui.ass[v]", "-map", "[v]", "-map", "1:a",
+    em = []
+    for nm, ch in (("house", "🏠"), ("globe", "🌍"), ("down", "👇")):
+        pth = os.path.join(HERE, "fps2b_%s.png" % nm); em.append(pth)
+        subprocess.run(["python3", "-c", "import s2_endcard as e; e.emoji_png(%r, %r, 160)" % (ch, pth)], check=True, cwd=HERE)
+    fc = ("[0:v]vignette=PI/5.5,ass=fps2b_ui.ass[v0];"
+          "[2:v]scale=110:-1,format=rgba,fade=in:st=%.2f:d=0.15:alpha=1[e1];[3:v]scale=110:-1,format=rgba,fade=in:st=%.2f:d=0.15:alpha=1[e2];[4:v]scale=90:-1,format=rgba,fade=in:st=%.2f:d=0.15:alpha=1[e3];"
+          "[v0][e1]overlay=x=60:y=718:enable='gte(t,%.2f)'[v1];[v1][e2]overlay=x=60:y=1123:enable='gte(t,%.2f)'[v2];[v2][e3]overlay=x=860:y=1395:enable='gte(t,%.2f)'[v]"
+          % (CARD + 0.15, CARD + 0.5, CARD + 0.8, CARD + 0.15, CARD + 0.5, CARD + 0.8))
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", os.path.join(HERE, "frames_FPS2B_post", "%04d.png"), "-i", wav,
+                    "-loop", "1", "-i", em[0], "-loop", "1", "-i", em[1], "-loop", "1", "-i", em[2],
+                    "-filter_complex", fc, "-map", "[v]", "-map", "1:a",
                     "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-preset", "slow", "-maxrate", "12M", "-bufsize", "24M",
                     "-af", "loudnorm=I=-14:TP=-1.0:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", str(SR), "-t", "%.3f" % (DUR + TAIL),
                     "-movflags", "+faststart", mp4], check=True, cwd=HERE)
