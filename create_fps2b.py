@@ -132,7 +132,7 @@ import s3_toon as T, blk_hair as H
 LINES = json.load(open(os.path.join(HERE, "fps2b_lines.json"), encoding="utf-8"))
 # 輪郭線（アニメ調）
 sc.render.use_freestyle = True
-sc.cycles.transparent_max_bounces = 48
+sc.cycles.transparent_max_bounces = 24
 try: sc.render.line_thickness_mode = "ABSOLUTE"; sc.render.line_thickness = 1.4 * RS / 0.75
 except Exception: pass
 try:
