@@ -48,41 +48,42 @@ def build_ui(path):
         E(t0, t1, "shape", r"{\an7\pos(0,0)\p1\1c%s\1a%s\bord0\shad0%s}%s{\p0}" % (col, alpha, extra, draw), layer)
     def rect(x0, y0, x1, y1): return "m %d %d l %d %d l %d %d l %d %d" % (x0, y0, x1, y0, x1, y1, x0, y1)
     pop = r"\fscx135\fscy135\t(0,140,\fscx100\fscy100)"
-    # 前回の選択
-    S(0, 1.7, rect(0, 130, 720, 250), "&H000000&", "&H50&", 9, r"\fad(0,200)")
-    E(0, 1.7, "card", r"{\an5\pos(360,165)\fs28\c&HDDDDDD&\fad(0,200)}前回、あなたは――", 10)
-    E(0, 1.7, "count", r"{\an5\pos(360,215)\fs48\c&H3070FF&\3c&H000000&\bord5%s\fad(0,200)}「撃ち返す」を選んだ" % pop, 10)
+    # 前回の選択（0〜1.6秒）→ 1.6秒から BAD STORY（絵の方で描く）
+    S(0, 1.6, rect(0, 130, 720, 250), "&H000000&", "&H50&", 9, r"\fad(0,150)")
+    E(0, 1.6, "card", r"{\an5\pos(360,165)\fs28\c&HDDDDDD&\fad(0,150)}前回、あなたは――", 10)
+    E(0, 1.6, "count", r"{\an5\pos(360,215)\fs44\c&HC07030&\3c&H000000&\bord5%s\fad(0,150)}「世界を残す」を選んだ" % pop, 10)
     # HUD
-    t = 0.0; step = 1 / 8
-    while t < CARD:
-        if not (HIT <= t < 3.1):
-            d = 99 if t < WHITE else 100
-            E(t, t + step, "hud", r"{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}%d%%" % d, 7)
-            E(t, t + step, "hud", r"{\an3\pos(692,1250)\fs34\c&HFFFFFF&}残弾 {\c&H3030FF&\fs52}0{\c&HFFFFFF&\fs30}/1", 7)
-            if t >= 14.7: E(t, t + step, "hud", r"{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者", 7)
+    t = R0; step = 1 / 8
+    while t < MAP - 0.6:
+        E(t, t + step, "hud", r"{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%", 7)
+        E(t, t + step, "hud", r"{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者", 7)
+        if 9.0 <= t < 12.6:
+            pc = min(100, int(37 + 63 * (t - 9.0) / 3.0))
+            E(t, t + step, "hud", r"{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… %d%%" % pc, 11)
         t += step
-    E(3.2, 6.6, "count", r"{\an5\pos(360,300)\fs40\c&HFFFFFF&\3c&H000000&\bord4\fad(150,150)}⚠ 世界の終了まで 残り 60秒", 11)
-    # LINE風の通知（現実からのメッセージ）
+    E(R0 + 0.1, 5.4, "count", r"{\an5\pos(360,300)\fs40\c&HFFFFFF&\3c&H000000&\bord4\fad(150,150)}世界の保存：{\c&H60FF60&}完了", 11)
+    E(13.0, 14.8, "count", r"{\an5\pos(360,560)\fs60\c&H3030FF&\3c&H000000&\bord6%s}ログアウト：不可" % pop, 11)
+    E(20.6, MAP - 0.4, "count", r"{\an5\pos(360,320)\fs44\c&H3030FF&\3c&H000000&\bord5%s}ログアウト機能：削除済み" % pop, 11)
+    # LINE風の通知
     def line(t0, t1, who, msg):
         S(t0, t1, rect(24, 60, 696, 230), "&HF4F4F4&", "&H08&", 12, r"\fad(120,200)\move(0,-120,0,0,0,150)")
         S(t0, t1, rect(44, 80, 84, 120), "&H55C806&", "&H00&", 13, r"\fad(120,200)\move(0,-120,0,0,0,150)")
         E(t0, t1, "card", r"{\an7\pos(96,80)\fs28\c&H303030&\fad(120,200)\move(96,-40,96,80,0,150)}%s" % who, 14)
         E(t0, t1, "card", r"{\an7\pos(44,132)\fs30\c&H202020&\fad(120,200)\move(44,12,44,132,0,150)}%s" % msg, 14)
-    line(LINE1, 10.6, "母", r"さっきから、あなたの部屋で\N銃声がするんだけど")
-    line(LINE2, 21.6, "妹", r"お兄ちゃん、パソコンの画面の中に\Nいるの、お兄ちゃんだよね？")
-    line(LINE3, CARD, "妹", "帰ってきて")
-    E(14.7, 17.0, "count", r"{\an5\pos(360,320)\fs46\c&H40F0FF&\3c&H000000&\bord5%s}新しい管理者：あなた" % pop, 11)
-    # 2択カード（参考の形：黄と青、それとも、コメントで教えて）
-    S(CARD, END, rect(0, 0, 720, 1280), "&H000000&", "&H70&", 15, r"\fad(250,0)")
-    E(CARD, END, "count", r"{\an5\pos(360,330)\fs64\c&HFFFFFF&\3c&H000000&\bord6\fad(200,0)}あなたなら\Nどうする？", 16)
-    S(CARD + 0.15, END, rect(30, 430, 690, 600), "&H2E9AC8&", "&H00&", 16, r"\fad(150,0)\t(0,120,\fscx102\fscy102)")
-    E(CARD + 0.15, END, "count", r"{\an4\pos(140,515)\fs46\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}世界を閉じて\N現実に帰る", 17)
-    E(CARD + 0.35, END, "count", r"{\an5\pos(360,650)\fs44\c&H40E0FF&\3c&H000000&\bord4\fad(150,0)}それとも", 17)
-    S(CARD + 0.5, END, rect(30, 700, 690, 870), "&HC07030&", "&H00&", 16, r"\fad(150,0)\t(0,120,\fscx102\fscy102)")
-    E(CARD + 0.5, END, "count", r"{\an4\pos(140,785)\fs46\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}世界を残して\Nここに留まる", 17)
-    E(CARD + 0.8, END, "count", r"{\an5\pos(360,960)\fs50\c&HFFFFFF&\3c&H000000&\bord5\fad(150,0)}コメントで教えて　", 17)
+    line(LINE1, 10.8, "母", r"ごはんできてるよ。\N…返事して？")
+    line(LINE2, 14.9, "妹", r"お兄ちゃん、画面の前で\N動かないよ…？")
+    line(LINE3, MAP - 0.5, "妹", "お兄ちゃん…？")
+    # 投票カード：次のジャンル
+    S(VOTE, END, rect(0, 0, 720, 1280), "&H000000&", "&H60&", 15, r"\fad(250,0)")
+    E(VOTE, END, "count", r"{\an5\pos(360,330)\fs58\c&HFFFFFF&\3c&H000000&\bord6\fad(200,0)}次の「へんな世界」は\Nどっちがいい？", 16)
+    S(VOTE + 0.15, END, rect(30, 430, 690, 600), "&H2E9AC8&", "&H00&", 16, r"\fad(150,0)\t(0,120,\fscx102\fscy102)")
+    E(VOTE + 0.15, END, "count", r"{\an4\pos(140,515)\fs44\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}毎日ルールが増える\N家のホラー", 17)
+    E(VOTE + 0.35, END, "count", r"{\an5\pos(360,650)\fs44\c&H40E0FF&\3c&H000000&\bord4\fad(150,0)}それとも", 17)
+    S(VOTE + 0.5, END, rect(30, 700, 690, 870), "&HC07030&", "&H00&", 16, r"\fad(150,0)\t(0,120,\fscx102\fscy102)")
+    E(VOTE + 0.5, END, "count", r"{\an4\pos(140,785)\fs44\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}最後の1人になる\N学園デスゲーム", 17)
+    E(VOTE + 0.8, END, "count", r"{\an5\pos(360,960)\fs50\c&HFFFFFF&\3c&H000000&\bord5\fad(150,0)}コメントで教えて　", 17)
     for st_, en, text, _, _, who in R.LINES:
-        if st_ < CARD: E(st_, min(en, CARD), who, r"{\an5\pos(360,1040)\fad(60,100)}%s" % text, 9)
+        if st_ < MAP: E(st_, min(en, MAP), who, r"{\an5\pos(360,1040)\fad(60,100)}%s" % text, 9)
     head = R.ASS_HEAD.replace("{f}", R.FONT).replace("\n[Events]", STY.replace("{f}", R.FONT) + "\n[Events]")
     open(path, "w", encoding="utf-8").write(head + "\n".join(ev) + "\n")
 
@@ -95,16 +96,34 @@ def gunshot():
     return mix(R.hp(R.noise(0.02), 2000) * R.dec(0.02, 0.004) * 1.2, R.lp(R.kick(160, 50, 0.25, 0.05), 1500) * 1.3, R.lp(R.noise(0.6), 2500) * R.dec(0.6, 0.12) * 0.6)
 def notif(): return mix(np.sin(2 * np.pi * 1568 * R.tt(0.12)) * R.dec(0.12, 0.05), np.concatenate([np.zeros(R.n_(0.1)), np.sin(2 * np.pi * 2093 * R.tt(0.2)) * R.dec(0.2, 0.07)]))
 def build_sfx():
-    B.deathgame_bgm(add, DUR, ghosts=(), climax=14.7, win_=99.0, alarm=CHOICE, final=(CHOICE + 0.5, CARD), tail=TAIL)
-    add(K.suck(0.6), FIRE - 0.6, 0.4); add(gunshot(), FIRE, 1.0); add(K.whoosh(0.8, 800, 9000), FIRE + 0.05, 0.4)
-    K.strike(add, HIT, 1.4, 0.0, False); add(K.crumble(1.4, 30), HIT + 0.05, 0.5); add(mix(np.sin(2 * np.pi * 3800 * R.tt(0.4)) * R.dec(0.4, 0.1)), HIT, 0.15)
-    add(X.braam(2.6, 33.0), DELETE, 0.45)
-    for k in range(16): add(mix(R.bp(R.noise(0.25), 1500, 7000) * R.dec(0.25, 0.08)), DELETE + 0.6 + k * 1.2, 0.12, 0.6 * (-1) ** k)   # 消えていく音
-    add(K.whoosh(0.5, 400, 4000), MINA, 0.3)
+    # 0〜3.2：前回の選択 → BAD STORY
+    add(X.stinger(1.2), 0.0, 0.25)
+    add(K.hit(1.2), 1.6, 0.7); add(X.braam(2.0, 30.0), 1.62, 0.45)
+    for k in range(6): add(R.bp(R.noise(0.07), 900, 6000) * R.dec(0.07, 0.03), 1.6 + 0.05 + k * 0.13, 0.25, 0.7 * (-1) ** k)
+    # 3.2〜22.4：本編（緊迫BGM）
+    B.deathgame_bgm(lambda x, at, g=1.0, pan=0.0: add(x, at + R0, g, pan) if at + R0 < MAP + 0.6 else None,
+                    MAP - R0, ghosts=(), climax=15.0 - R0, win_=99.0, alarm=17.9 - R0, final=(18.2 - R0, MAP - R0), tail=0.0)
+    for k in range(14): add(mix(R.bp(R.noise(0.2), 1500, 7000) * R.dec(0.2, 0.06)), 3.3 + k * 0.28, 0.1, 0.6 * (-1) ** k)   # 世界がよみがえる
+    add(X.swell(2.0), 3.3, 0.3)
     for t_ in (LINE1, LINE2, LINE3): add(notif(), t_, 0.35)
-    add(X.swell(2.0), 14.7, 0.35); add(X.tinnitus(2.6, 5000), 15.6, 0.1)
-    add(click(0.08, 3000), AIM + 0.2, 0.5); add(X.stinger(1.2), AIM + 0.2, 0.3)
-    add(K.hit(1.2), CARD, 0.5); add(X.braam(2.4, 30.0), CARD + 0.05, 0.3)
+    add(X.swell(2.0), 9.0, 0.35); add(X.tinnitus(3.0, 5000), 10.6, 0.08)
+    add(K.hit(1.0), 13.0, 0.45)
+    add(X.stinger(1.2), 17.5, 0.3)
+    add(X.tinnitus(2.4, 6000), 20.4, 0.12); add(K.hit(1.2), 20.6, 0.5)
+    add(X.swell(1.6), 20.9, 0.35)
+    # 22.4〜：分岐の全体図
+    add(R.pad([55.0, 82.4, 110.0, 130.8], VOTE - MAP + 0.4, 300, 0.8, 0.8), MAP - 0.2, 0.6)
+    for t_ in (0.4, 1.0, 1.5, 2.4, 3.0, 3.5): add(click(0.05, 4000), MAP + t_, 0.5)
+    for t_ in (1.5, 3.5): add(notif(), MAP + t_, 0.2)
+    add(K.hit(1.4), MAP + 5.0, 0.8); add(X.braam(2.6, 30.0), MAP + 5.02, 0.45)
+    # 30〜：投票
+    add(K.hit(1.2), VOTE, 0.5); add(X.braam(2.4, 33.0), VOTE + 0.05, 0.3)
+    t_ = MAP + 0.4
+    while t_ < END - 0.3:                                               # 心臓の音（全体図〜投票）
+        add(R.lp(R.kick(70, 40, 0.3, 0.08), 400), t_, 0.9); add(R.lp(R.kick(60, 35, 0.3, 0.08), 400), t_ + 0.22, 0.6); t_ += 0.9
+    t_ = VOTE + 0.5
+    while t_ < END - 0.2: add(click(0.03, 6000), t_, 0.35, 0.3); t_ += 0.5     # 秒針
+    add(R.pad([73.4, 110, 146.8, 174.6], END - VOTE, 500, 0.6, 1.0), VOTE, 0.6)
 
 def render_mp4():
     R.LINES = [tuple(l) for l in json.load(open(LINES_JSON, encoding="utf-8"))]
@@ -122,13 +141,13 @@ def render_mp4():
     if "--ui" in sys.argv: print("wrote", wav, ass); return
     mp4 = os.path.join(HERE, "fps_ep3b.mp4")
     em = []
-    for nm, ch in (("house", "🏠"), ("globe", "🌍"), ("down", "👇")):
+    for nm, ch in (("house", "👻"), ("globe", "🎲"), ("down", "👇")):
         pth = os.path.join(HERE, "fps3b_%s.png" % nm); em.append(pth)
         subprocess.run(["python3", "-c", "import s2_endcard as e; e.emoji_png(%r, %r, 160)" % (ch, pth)], check=True, cwd=HERE)
     fc = ("[0:v]vignette=PI/5.5,ass=fps3b_ui.ass[v0];"
           "[2:v]scale=110:-1,format=rgba,fade=in:st=%.2f:d=0.15:alpha=1[e1];[3:v]scale=110:-1,format=rgba,fade=in:st=%.2f:d=0.15:alpha=1[e2];[4:v]scale=90:-1,format=rgba,fade=in:st=%.2f:d=0.15:alpha=1[e3];"
           "[v0][e1]overlay=x=60:y=718:enable='gte(t,%.2f)'[v1];[v1][e2]overlay=x=60:y=1123:enable='gte(t,%.2f)'[v2];[v2][e3]overlay=x=860:y=1395:enable='gte(t,%.2f)'[v]"
-          % (CARD + 0.15, CARD + 0.5, CARD + 0.8, CARD + 0.15, CARD + 0.5, CARD + 0.8))
+          % (VOTE + 0.15, VOTE + 0.5, VOTE + 0.8, VOTE + 0.15, VOTE + 0.5, VOTE + 0.8))
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-framerate", str(FPS), "-i", os.path.join(HERE, "frames_FPS3B_final", "%04d.png"), "-i", wav,
                     "-loop", "1", "-i", em[0], "-loop", "1", "-i", em[1], "-loop", "1", "-i", em[2],
                     "-filter_complex", fc, "-map", "[v]", "-map", "1:a",
