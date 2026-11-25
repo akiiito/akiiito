@@ -5,10 +5,10 @@
 
 | 記事（宅建） | このアプリ（社労士） |
 |---|---|
-| 学習：YouTube 2チャンネルの動画に論点ラベルを付け、論点から動画へ飛べる | **学習タブ**：社労士の論点（約60個）ごとに動画を並べる。`scripts/label_videos.py` で動画タイトルに論点を自動で付ける |
-| 演習：過去問PDFをAIで構造化し、肢ごとの解説・論点タグ・法改正チェックを付ける | **演習タブ**：`scripts/import_pdf.py` で過去問PDFを取り込み、肢ごと／空欄ごとの解説・論点タグ・法改正チェックを付ける。択一式（5肢）と選択式（空欄5つ・語群20個）の両方に対応 |
+| 学習：YouTube 2チャンネルの動画に論点ラベルを付け、論点から動画へ飛べる | **学習タブ**：社労士の論点（約60個）ごとに動画を並べる。Claude Code のスキルで動画タイトルに論点を付ける |
+| 演習：過去問PDFをAIで構造化し、肢ごとの解説・論点タグ・法改正チェックを付ける | **演習タブ**：Claude Code のスキルで過去問PDFを取り込み、肢ごと／空欄ごとの解説・論点タグ・法改正チェックを付ける。択一式（5肢）と選択式（空欄5つ・語群20個）の両方に対応 |
 | 最新年度は模試用に取っておく | 設定で「模試用に取っておく試験回」を選ぶと、普段の分野別演習には出なくなる。試験回モードでは選択式と択一式それぞれの**科目別基準点（足切り）**を判定する |
-| フィードバック：選んだ肢・正誤・回答時間を記録し、Claude API で傾向分析とアドバイスを作る | **履歴タブ**：同じ情報を記録し、Claude が「足切りされそうな科目」を最優先に、重点論点と次にやることを提案する。重点論点からそのまま演習・動画へ移れる |
+| フィードバック：選んだ肢・正誤・回答時間を記録し、Claude API で傾向分析とアドバイスを作る | **履歴タブ**：同じ情報を記録し、**APIを使わず**スキル経由で Claude に渡す。Claude は「足切りされそうな科目」を最優先に、重点論点と次にやることを提案し、その結果をアプリに取り込む |
 | FastAPI + Jinja2 + SQLite を自宅サーバーで動かし、Tailscale でスマホから使う | 同じ構成。ホーム画面に追加してアプリのように使える（PWA） |
 
 ## 画面
@@ -19,6 +19,31 @@
 - **履歴**：科目別の成績、AIアドバイス、最近のセッション
 - **設定**：本試験日、模試用の試験回、法令基準日、合格基準（目安）、データの再読み込み
 
+## AIアドバイスの流れ（API不要・追加料金なし）
+
+アプリは Claude API を呼びません。普段使っている Claude（アプリ／Claude Code）に、スキル経由でアドバイスさせます。
+
+### スマホ（Claudeアプリ）で
+
+1. アプリの **履歴** か **結果画面** で「Claudeに相談」を押す
+2. 「コピーしてClaudeを開く」を押す → Claude の新しいチャットに貼り付けて送信
+3. Claude の返答を最後まで全部コピー → アプリに戻って貼り付け →「取り込む」
+4. ホームと履歴にアドバイスが表示され、重点論点からそのまま演習・動画へ移れる
+
+精度を上げるため、claude.ai に **sharoshi-advisor スキル** を入れておきます（初回のみ）。
+`skills-dist/sharoshi-advisor.zip` を、claude.ai の 設定 → 機能（Capabilities）→ スキル でアップロードしてください。
+スキルが無くても、貼り付けるテキストに指示と出力形式が含まれているので動きます。
+
+### PC（Claude Code）で
+
+アプリを動かしているPCで `sharoshi-app` を開いて Claude Code を起動し、
+
+```
+/sharoshi-advisor
+```
+
+と打つだけです。Claude がログを読んで分析し、アドバイスをアプリに直接書き込みます（コピペ不要）。
+
 ## セットアップ（自宅PC / Mac / Linux）
 
 ```bash
@@ -26,8 +51,6 @@ cd sharoshi-app
 python3 -m venv .venv
 source .venv/bin/activate          # Windows は .venv\Scripts\activate
 pip install -r requirements.txt
-
-export ANTHROPIC_API_KEY=sk-ant-...   # アドバイス機能と取り込みスクリプトに必要
 uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 
@@ -36,41 +59,35 @@ PCのブラウザで http://localhost:8000 を開くと使えます。最初は�
 ### スマホから使う（Tailscale）
 
 1. PCとスマホの両方に [Tailscale](https://tailscale.com/) を入れ、同じアカウントでログインする
-2. Tailscale アプリに表示されるPCの名前（例: `my-pc`）かIPアドレスを確認する
-3. スマホのブラウザで `http://my-pc:8000` を開く
+2. PCで `tailscale serve --bg 8000` を実行する（Tailscale内だけで使える https のURLが発行される）
+3. 表示された `https://<PC名>.<tailnet名>.ts.net` をスマホのブラウザで開く
 4. 共有メニューの「ホーム画面に追加」で、アプリのように起動できる
 
-Tailscale 経由ならインターネットに公開されません。念のためパスワードを掛けたい場合は、`APP_PASSWORD=好きな文字列` を設定して起動してください（ユーザー名は空欄で可）。
+https で開くと、「クリップボードから貼り付け」と「共有メニューで送る」ボタンが使えます。http のままでもコピーと手動の貼り付けは使えます。
+インターネットには公開されません。念のためパスワードを掛けたい場合は、`APP_PASSWORD=好きな文字列` を設定して起動してください。
 
-## 過去問を取り込む
+## 過去問を取り込む（Claude Code のスキル）
 
 社労士試験の過去問（問題・正答）は、社会保険労務士試験オフィシャルサイト（試験センター）で年度ごとにPDFで公開されています。
-選択式の問題・択一式の問題・正答のPDFをダウンロードしてから、次のように実行します。
 
-```bash
-python scripts/import_pdf.py --exam 令和7年度 --year 2025 --prefix R07 \
-  --sentaku R7_選択式.pdf --takuitsu R7_択一式.pdf --answers R7_正答.pdf \
-  --baseline 2027-04-16
-```
+1. 選択式の問題・択一式の問題・正答のPDFを `sharoshi-app/inbox/` に置く
+2. Claude Code で `/sharoshi-import-exam 令和7年度` と頼む
+3. Claude が PDF を読み、肢ごとの解説・論点タグ・法改正チェック付きで `data/questions/R07.json` を作り、`scripts/validate_data.py` で形式を検証する
+4. アプリの **設定 → データを再読み込み** で反映
 
-- 選択式を1回、択一式を科目ごとに7回（各10問）に分けて Claude に送ります。途中で止まっても、もう一度実行すれば続きから再開します。
-- 出力は `data/questions/R07.json` です。アプリの **設定 → データを再読み込み** で反映されます。
 - `law_check` の値で出題を制御します。
   - `revised`（法改正で正答が変わる・公式に正答なし）：出題しません
   - `uncertain`（改正の可能性あり、統計・白書のように年度で変わるもの）：設定で出題するかどうかを選べます
 - **AIの解説と法改正の判定は誤ることがあります。** 気になる問題は条文やテキストで確認し、JSONを直接直してください。
 - 記事にならうなら、直近5〜6年分を取り込み、最新年度を模試用に取っておくのがおすすめです。
 
-## YouTube講座を論点に紐づける
+## YouTube講座を論点に紐づける（Claude Code のスキル）
 
-```bash
-pip install yt-dlp
-python scripts/label_videos.py --channel "〇〇の社労士講座" --url "https://www.youtube.com/@xxxx/videos"
-# または CSV（列: title,url[,minutes,published]）から
-python scripts/label_videos.py --channel "〇〇の社労士講座" --csv videos.csv
+```
+/sharoshi-label-videos https://www.youtube.com/@xxxx/videos
 ```
 
-Claude が動画タイトルから論点と種別（講義／直前期／過去問解説）を付けて、`data/videos.json` に追記します。
+`scripts/fetch_videos.py`（yt-dlp）で動画一覧を取り、Claude がタイトルから論点と種別（講義／直前期／過去問解説）を付けて、`data/videos.json` に追記します。
 動画が未登録の論点では、YouTube の検索リンクを表示します。
 
 ## ファイル構成
@@ -81,22 +98,29 @@ sharoshi-app/
     main.py        画面とルーティング（FastAPI）
     exam.py        試験の構造（科目・択一の一般常識合算）とデータ読み込み
     stats.py       集計・出題の選び方・模試の採点
-    advisor.py     Claude API によるアドバイス
+    advisor.py     学習ログの書き出しと、Claudeの返答（score-advice）の読み取り
     db.py          SQLite（回答ログ・セッション・アドバイス・設定）
     templates/     画面（Jinja2）
     static/        CSS・アイコン・manifest
+  .claude/skills/
+    sharoshi-advisor/       学習アドバイス（Claudeアプリ / Claude Code 共通）
+    sharoshi-import-exam/   過去問PDFの取り込み
+    sharoshi-label-videos/  動画への論点ラベル付け
+  skills-dist/sharoshi-advisor.zip   claude.ai にアップロードする用
   data/
     topics.json         論点の一覧（自由に編集してよい）
     questions/*.json    問題データ（sample.json はサンプル）
-    videos.json         動画データ（スクリプトで作成）
+    videos.json         動画データ
     app.db              学習記録（自動作成・Git管理外）
+  inbox/                過去問PDFの置き場（Git管理外）
   scripts/
-    import_pdf.py       過去問PDFの取り込み
-    label_videos.py     動画への論点ラベル付け
+    advice_io.py        Claude Code 用：ログの書き出し・アドバイスの取り込み
+    validate_data.py    問題・動画JSONの形式チェック
+    fetch_videos.py     YouTube動画一覧の取得（yt-dlp）
 ```
 
 ## メモ
 
-- 使うモデルは `claude-opus-5-5` です（環境変数 `SHAROSHI_MODEL` で変更できます）。アドバイス1回あたり数円〜十数円、過去問1年分の取り込みで数百円〜千円程度が目安です（PDFの量で変わります）。
+- Claude API は使いません。Claude のサブスクリプション（Claudeアプリ・Claude Code）の範囲で動きます。
 - 合格基準（選択式25点・各3点、択一式44点・各4点）は目安の初期値です。毎年補正されるので、設定で調整してください。
 - 本試験日の初期値（2027-08-22）は例年の日程から推定した仮の日付です。公式発表を確認して設定してください。

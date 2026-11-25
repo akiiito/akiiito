@@ -33,7 +33,6 @@
     <li><span>問題数</span><b>{{ n_questions }}</b></li>
     {% for e in exams %}<li><span>　{{ e.exam }}</span><b>{{ e.count }}</b></li>{% endfor %}
     <li><span>動画数</span><b>{{ n_videos }}</b></li>
-    <li><span>アドバイス（Claude API）</span><b>{{ ('有効 · ' ~ model) if api else '未設定' }}</b></li>
   </ul>
   <form method="post" action="/reload"><button class="btn">データを再読み込み</button></form>
   <small class="muted">data/questions/*.json や data/videos.json を更新したら押してください。</small>

@@ -19,18 +19,12 @@
 </ul>
 {%- endmacro %}
 
-{% macro advice_card(advice, scope, api, error="") -%}
-<section class="card">
+{% macro advice_card(advice, scope, show_button=True) -%}
+<section class="card" id="advice">
   <div class="card-head">
     <h2><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg>アドバイス</h2>
-    {% if api %}
-    <form method="post" action="/advice" onsubmit="this.querySelector('button').disabled=true;this.querySelector('button').textContent='生成中…'">
-      <input type="hidden" name="scope" value="{{ scope }}">
-      <button class="chip-btn">{{ '再生成' if advice else '生成' }}</button>
-    </form>
-    {% endif %}
+    {% if show_button %}<a href="/advice?scope={{ scope|urlencode }}" class="chip-btn">Claudeに相談</a>{% endif %}
   </div>
-  {% if error %}<p class="error">{{ error }}</p>{% endif %}
   {% if advice %}
     <p class="advice">{{ advice.summary }}</p>
     {% if advice.focus %}
@@ -38,7 +32,7 @@
     <ol class="focus">
       {% for f in advice.focus %}
       <li>
-        <div><strong>{{ f.title }}</strong> <span class="tag">{{ f.subject }}</span></div>
+        <div><strong>{{ f.title }}</strong> {% if f.subject %}<span class="tag">{{ f.subject }}</span>{% endif %}</div>
         <small>{{ f.reason }}</small>
         {% if f.topic_id and f.topic_id in store.topics %}
         <div class="links">
@@ -58,11 +52,9 @@
     <h3>次にやること</h3>
     <ul class="actions">{% for a in advice.actions %}<li>{{ a }}</li>{% endfor %}</ul>
     {% endif %}
-    <small class="muted">生成: {{ advice.created_at.replace('T', ' ') }}</small>
-  {% elif api %}
-    <p class="muted">演習ログをもとに、Claude が学習方針をアドバイスします。</p>
+    <small class="muted">取り込み: {{ advice.created_at.replace('T', ' ') }}</small>
   {% else %}
-    <p class="muted">環境変数 <code>ANTHROPIC_API_KEY</code> を設定すると、演習ログをもとにしたアドバイスが使えます。</p>
+    <p class="muted small">「Claudeに相談」で学習ログを Claude に渡すと、足切りリスクや弱点論点を分析したアドバイスがここに表示されます（API不要）。</p>
   {% endif %}
 </section>
 {%- endmacro %}

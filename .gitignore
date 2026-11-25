@@ -2,3 +2,4 @@
 __pycache__/
 sharoshi-app/data/app.db
 sharoshi-app/data/questions/*.partial.json
+sharoshi-app/inbox/*.pdf

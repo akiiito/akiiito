@@ -7,7 +7,6 @@ import secrets
 from pathlib import Path
 from urllib.parse import quote
 
-import anthropic
 from fastapi import FastAPI, Form, HTTPException, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
@@ -192,7 +191,7 @@ def feedback(request: Request, sid: int, idx: int):
 
 
 @app.get("/s/{sid}/result", response_class=HTMLResponse)
-def result(request: Request, sid: int, error: str = ""):
+def result(request: Request, sid: int):
     sess = db.get_session(sid)
     if not sess:
         raise HTTPException(404)
@@ -214,7 +213,7 @@ def result(request: Request, sid: int, error: str = ""):
     summary["pct"] = round(100 * summary["correct"] / summary["units"]) if summary["units"] else 0
     mock = stats.score_mock(store, settings, sess["question_ids"], answers) if sess["mode"] == "mock" else None
     return render(request, "result.html", "practice", sess=sess, rows=rows, summary=summary, mock=mock,
-                  advice=db.latest_advice(f"session:{sid}"), api=advisor.api_available(), error=error)
+                  advice=db.latest_advice(f"session:{sid}"))
 
 
 @app.get("/q/{qid}", response_class=HTMLResponse)
@@ -233,73 +232,52 @@ def learn(request: Request, open: str = ""):
 
 
 # ---------------- 履歴・アドバイス ----------------
-def _mock_results(settings) -> list[dict]:
-    out = []
-    for s in db.recent_sessions(50):
-        if s["mode"] != "mock":
-            continue
-        sess = db.get_session(s["id"])
-        sc = stats.score_mock(store, settings, sess["question_ids"], db.session_answers(s["id"]))
-        out.append({"title": s["title"], "date": s["started_at"][:10],
-                    "sentaku": f'{sc["sentaku_total"]}/{sc["sentaku_max"]}',
-                    "takuitsu": f'{sc["takuitsu_total"]}/{sc["takuitsu_max"]}',
-                    "below_base": [r["name"] + "(選択)" for r in sc["sentaku"] if not r["ok"]]
-                                  + [r["name"] + "(択一)" for r in sc["takuitsu"] if not r["ok"]]})
-    return out
-
-
 @app.get("/history", response_class=HTMLResponse)
-def history(request: Request, error: str = ""):
+def history(request: Request):
     settings = db.get_settings()
     return render(request, "history.html", "history",
                   subjects=stats.subject_stats(store, settings),
                   ov=stats.overview(store, settings),
                   sessions=db.recent_sessions(20),
-                  advice=db.latest_advice("overall"),
-                  api=advisor.api_available(), error=error)
+                  advice=db.latest_advice("overall"))
 
 
-def _run_advice(scope: str, note: str) -> str:
-    settings = db.get_settings()
-    ctx = advisor.build_context(store, settings, _mock_results(settings))
-    try:
-        db.save_advice(scope, advisor.generate_advice(ctx, note))
-        return ""
-    except anthropic.AuthenticationError:
-        return "APIキーが無効です"
-    except anthropic.RateLimitError:
-        return "レート制限中です。少し待って再生成してください"
-    except anthropic.APIConnectionError:
-        return "Claude APIに接続できません"
-    except anthropic.APIStatusError as e:
-        return f"APIエラー({e.status_code})"
-    except Exception as e:  # noqa: BLE001
-        return str(e)
-
-
-@app.post("/advice")
-def advice_regen(scope: str = Form("overall")):
-    if not advisor.api_available():
-        return RedirectResponse("/history?error=" + quote("ANTHROPIC_API_KEY が未設定です"), status_code=303)
+def _back_url(scope: str) -> str:
     if scope.startswith("session:"):
-        sid = int(scope.split(":", 1)[1])
-        sess = db.get_session(sid)
-        note = f"直前のセッション「{sess['title']}」の結果を重視して" if sess else ""
-        err = _run_advice(scope, note)
-        return RedirectResponse(f"/s/{sid}/result" + (f"?error={quote(err)}" if err else ""), status_code=303)
-    err = _run_advice("overall", "")
-    return RedirectResponse("/history" + (f"?error={quote(err)}" if err else ""), status_code=303)
+        return f"/s/{int(scope.split(':', 1)[1])}/result"
+    return "/history"
+
+
+@app.get("/advice", response_class=HTMLResponse)
+def advice_page(request: Request, scope: str = "overall", error: str = "", text: str = ""):
+    """Claudeに渡す学習ログのコピーと、Claudeの返答の貼り付け。"""
+    settings = db.get_settings()
+    sid = int(scope.split(":", 1)[1]) if scope.startswith("session:") else None
+    ctx = advisor.build_context(store, settings, sid)
+    return render(request, "advice.html", "history", scope=scope, error=error, pasted=text,
+                  export=advisor.export_text(ctx, scope), back=_back_url(scope))
+
+
+@app.post("/advice/import")
+def advice_import(scope: str = Form("overall"), text: str = Form("")):
+    try:
+        advice = advisor.parse_advice(text)
+    except advisor.AdviceParseError as e:
+        return RedirectResponse(f"/advice?scope={quote(scope)}&error={quote(str(e))}", status_code=303)
+    db.save_advice(scope, advice)
+    if scope != "overall":  # セッション単位のアドバイスはホーム/履歴にも反映
+        db.save_advice("overall", advice)
+    return RedirectResponse(_back_url(scope) + "#advice", status_code=303)
 
 
 # ---------------- 設定 ----------------
 @app.get("/settings", response_class=HTMLResponse)
 def settings_page(request: Request, saved: str = ""):
     return render(request, "settings.html", "settings", settings=db.get_settings(),
-                  exams=store.exams, api=advisor.api_available(), saved=saved,
+                  exams=store.exams, saved=saved,
                   n_questions=len(store.questions), n_videos=len(store.videos),
                   n_revised=sum(1 for q in store.questions.values() if q.get("law_check") == "revised"),
-                  n_uncertain=sum(1 for q in store.questions.values() if q.get("law_check") == "uncertain"),
-                  model=advisor.MODEL)
+                  n_uncertain=sum(1 for q in store.questions.values() if q.get("law_check") == "uncertain"))
 
 
 @app.post("/settings")

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Claudeに相談{% endblock %}
+{% block content %}
+<section class="card">
+  <h2><span class="step">1</span>学習ログをClaudeに渡す</h2>
+  <p class="small muted">ボタンを押すと学習ログがコピーされ、Claude が開きます。新しいチャットに<b>そのまま貼り付けて送信</b>してください。</p>
+  <div class="quick">
+    <a href="https://claude.ai/new" target="_blank" rel="noopener" class="btn primary big" id="copy-open">コピーしてClaudeを開く</a>
+    <button type="button" class="btn" id="share" hidden>共有メニューでClaudeアプリに送る</button>
+  </div>
+  <p class="okmsg small" id="copied" hidden>コピーしました</p>
+  <details class="small">
+    <summary>渡す内容を見る（{{ export|length }}文字）</summary>
+    <textarea id="export" readonly rows="8">{{ export }}</textarea>
+  </details>
+</section>
+
+<section class="card">
+  <h2><span class="step">2</span>Claudeの返答を貼り付ける</h2>
+  <p class="small muted">Claude の返答を<b>最後まで全部</b>コピーして貼り付けてください（最後の <code>score-advice</code> ブロックを読み取ります）。</p>
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  <form method="post" action="/advice/import" class="stack">
+    <input type="hidden" name="scope" value="{{ scope }}">
+    <button type="button" class="btn" id="paste" hidden>クリップボードから貼り付け</button>
+    <textarea name="text" id="reply" rows="8" placeholder="ここに Claude の返答を貼り付け">{{ pasted }}</textarea>
+    <button class="btn primary big">取り込む</button>
+  </form>
+</section>
+<p class="center small"><a href="{{ back }}">戻る</a></p>
+{% endblock %}
+{% block scripts %}
+<script>
+const text = document.getElementById('export').value;
+function copyText(t) {
+  // http(Tailscale直)でも動くよう、選択→execCommand をまず試す
+  const ta = document.createElement('textarea');
+  ta.value = t; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, t.length);
+  let ok = false;
+  try { ok = document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+  if (!ok && navigator.clipboard) { navigator.clipboard.writeText(t).catch(() => {}); ok = true; }
+  return ok;
+}
+document.getElementById('copy-open').addEventListener('click', () => {
+  if (copyText(text)) document.getElementById('copied').hidden = false;
+});
+const share = document.getElementById('share');
+if (navigator.share) {
+  share.hidden = false;
+  share.addEventListener('click', () => navigator.share({ text }).catch(() => {}));
+}
+const paste = document.getElementById('paste');
+if (navigator.clipboard && navigator.clipboard.readText) {
+  paste.hidden = false;
+  paste.addEventListener('click', async () => {
+    try { document.getElementById('reply').value = await navigator.clipboard.readText(); } catch (e) {}
+  });
+}
+</script>
+{% endblock %}

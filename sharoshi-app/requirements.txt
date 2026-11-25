@@ -2,6 +2,5 @@ fastapi>=0.115
 uvicorn[standard]>=0.30
 jinja2>=3.1
 python-multipart>=0.0.9
-anthropic>=2.14
 # 動画一覧の自動取得を使う場合のみ
 # yt-dlp
