@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% from "_macros.html" import subject_rows, advice_card %}
+{% block title %}ホーム{% endblock %}
+{% block content %}
+<section class="card hero">
+  <div class="countdown">
+    {% if ov.days_left is not none %}
+      <small>本試験まで</small>
+      <div><b>{{ ov.days_left }}</b>日</div>
+      <small class="muted">{{ settings.exam_date }}</small>
+    {% endif %}
+  </div>
+  <div class="kpis">
+    <div><b>{{ ov.today }}</b><small>今日の回答</small></div>
+    <div><b>{{ ov.pct if ov.pct is not none else '–' }}<em>%</em></b><small>累計正答率</small></div>
+    <div><b>{{ ov.touched }}<em>/{{ ov.pool }}</em></b><small>着手済み</small></div>
+  </div>
+</section>
+
+<section class="quick">
+  <form method="post" action="/practice/start">
+    <input type="hidden" name="order" value="smart"><input type="hidden" name="count" value="{{ settings.per_session }}">
+    <button class="btn primary big">おまかせ演習（{{ settings.per_session }}問）</button>
+  </form>
+  {% if ov.wrong_now %}
+  <form method="post" action="/practice/start">
+    <input type="hidden" name="order" value="wrong"><input type="hidden" name="count" value="{{ settings.per_session }}">
+    <button class="btn big">誤答を復習（残り{{ ov.wrong_now }}問）</button>
+  </form>
+  {% endif %}
+</section>
+
+{% if advice %}{{ advice_card(advice, "overall", false) }}{% endif %}
+
+<section class="card">
+  <h2>科目別の成績</h2>
+  {{ subject_rows(subjects) }}
+</section>
+{% endblock %}

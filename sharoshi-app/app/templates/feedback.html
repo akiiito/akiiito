@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}解説{% endblock %}
+{% block content %}
+{% set ok = ans and not ans.skipped and ans.correct_units == ans.total_units %}
+<section class="card qcard">
+  {% if sess %}<div class="progress"><div style="width: {{ (100 * (idx + 1) / total)|round }}%"></div></div>{% endif %}
+  <div class="qmeta">
+    <span class="tag strong">{{ qlabel(q) }}</span>
+    <span class="tag">{{ SUBJECTS[q.subject] }}</span>
+    <span class="tag">{{ topic_name }}</span>
+    {% if sess %}<span class="count">{{ idx + 1 }} / {{ total }}</span>{% endif %}
+  </div>
+
+  {% if ans %}
+  <div class="verdict {{ 'ok' if ok else ('skip' if ans.skipped else 'ng') }}">
+    {% if ans.skipped %}スキップ
+    {% elif q.format == '選択式' %}{{ ans.correct_units }} / {{ ans.total_units }} 正解
+    {% else %}{{ '正解' if ok else '不正解' }}{% endif %}
+    {% if ans.time_ms %}<small>{{ (ans.time_ms / 1000)|round|int }}秒</small>{% endif %}
+  </div>
+  {% endif %}
+  {% if q.law_check != 'ok' and q.law_note %}<p class="warn-box">法改正メモ: {{ q.law_note }}</p>{% endif %}
+
+  <p class="stem">{{ q.stem }}</p>
+
+  {% if q.format == '選択式' %}
+    <div class="sentaku-text">{{ q.text | replace('\n', '<br>') | replace('［', '<span class="blank">') | replace('］', '</span>') | safe }}</div>
+    <ul class="explain">
+    {% for b in q.blanks %}
+      {% set mine = ans.selected[b.label] if ans and ans.selected else none %}
+      <li class="{{ 'ok' if mine == b.answer else 'ng' }}">
+        <div><span class="blank">{{ b.label }}</span> 正解: <b>{{ b.answer }}. {{ q.options[b.answer - 1] }}</b>
+          {% if ans and not ans.skipped %}<small>（あなた: {{ (mine ~ '. ' ~ q.options[mine - 1]) if mine else '未選択' }}）</small>{% endif %}</div>
+        <small>{{ b.explanation }}</small>
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <ul class="explain">
+    {% for c in q.choices %}
+      {% set mine = ans and ans.selected == c.label %}
+      <li class="{{ 'answer' if c.label == q.answer }} {{ 'mine' if mine }}">
+        <div class="choice-head"><span class="lbl">{{ c.label }}</span>
+          {% if c.label == q.answer %}<span class="tag ok">正答</span>{% endif %}
+          {% if mine and c.label != q.answer %}<span class="tag ng">あなたの回答</span>{% endif %}
+        </div>
+        <p>{{ c.text }}</p>
+        <small>{{ c.explanation }}</small>
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if videos %}
+  <h3>この論点の動画</h3>
+  <ul class="videos">{% for v in videos[:4] %}
+    <li><a href="{{ v.url }}" target="_blank" rel="noopener">▶ {{ v.title }}</a><small class="muted">{{ v.channel }}{% if v.minutes %} · {{ v.minutes }}分{% endif %}</small></li>
+  {% endfor %}</ul>
+  {% else %}
+  <p class="small"><a href="{{ yt_search(topic_name) }}" target="_blank" rel="noopener">▶ YouTubeで「{{ topic_name }}」を探す</a></p>
+  {% endif %}
+
+  {% if next_url %}
+  <div class="sticky-actions">
+    <a href="/s/{{ sess.id }}/result" class="btn">終了</a>
+    <a href="{{ next_url }}" class="btn primary">{{ '次へ' if 'result' not in next_url else '結果を見る' }}</a>
+  </div>
+  {% endif %}
+</section>
+{% endblock %}

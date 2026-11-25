@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% from "_macros.html" import advice_card %}
+{% block title %}結果{% endblock %}
+{% block content %}
+<section class="card score">
+  <h2 class="center accent">{{ sess.title }}</h2>
+  <div class="kpis">
+    <div><b class="ok-text">{{ summary.correct }}</b><small>/ {{ summary.units }} 正解</small></div>
+    <div><b class="accent">{{ summary.pct }}<em>%</em></b><small>正答率</small></div>
+    <div><b>{{ summary.skipped }}</b><small>スキップ</small></div>
+  </div>
+</section>
+
+{% if mock %}
+<section class="card">
+  <h2>基準点判定
+    {% if mock.passed is true %}<span class="tag ok">合格ライン</span>{% elif mock.passed is false %}<span class="tag ng">不合格ライン</span>{% endif %}</h2>
+  {% if not mock.full %}<p class="muted small">1回分が揃っていないため、総合判定は表示しません（科目別のみ）。</p>{% endif %}
+  {% if mock.sentaku %}
+  <h3>選択式 {{ mock.sentaku_total }}/{{ mock.sentaku_max }}点 <small class="muted">（総得点目安 {{ mock.sentaku_need }}点・各科目{{ mock.sentaku_each }}点）</small></h3>
+  <ul class="scores">{% for r in mock.sentaku %}<li class="{{ 'ok' if r.ok else 'ng' }}"><span>{{ r.name }}</span><b>{{ r.score }}/{{ r.max }}</b></li>{% endfor %}</ul>
+  {% endif %}
+  {% if mock.takuitsu %}
+  <h3>択一式 {{ mock.takuitsu_total }}/{{ mock.takuitsu_max }}点 <small class="muted">（総得点目安 {{ mock.takuitsu_need }}点・各科目{{ mock.takuitsu_each }}点）</small></h3>
+  <ul class="scores">{% for r in mock.takuitsu %}<li class="{{ 'ok' if r.ok else 'ng' }}"><span>{{ r.name }}</span><b>{{ r.score }}/{{ r.max }}</b></li>{% endfor %}</ul>
+  {% endif %}
+  <small class="muted">基準点は年度により補正されます。設定で変更できます。</small>
+</section>
+{% endif %}
+
+{{ advice_card(advice, "session:" ~ sess.id, api, error) }}
+
+<section class="card">
+  <h2>問題一覧</h2>
+  <ul class="list">
+    {% for r in rows %}
+    {% set a = r.a %}
+    <li>
+      <a href="/q/{{ r.q.id }}" class="qrow">
+        <span class="mark {{ 'skip' if not a or a.skipped else ('ok' if a.correct_units == a.total_units else 'ng') }}">
+          {% if not a or a.skipped %}–{% elif a.correct_units == a.total_units %}○{% elif r.q.format == '選択式' %}{{ a.correct_units }}{% else %}×{% endif %}
+        </span>
+        <span><small class="muted">{{ qlabel(r.q) }}</small><br>{{ store.topic_name(r.q.topic) }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+<div class="quick">
+  <a href="/practice" class="btn primary big">演習に戻る</a>
+</div>
+{% endblock %}

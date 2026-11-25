@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% from "_macros.html" import subject_rows, advice_card %}
+{% block title %}履歴{% endblock %}
+{% block content %}
+<section class="card">
+  <h2><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 20V10M10 20V4M15 20v-8M20 20v-5"/></svg>科目別の成績</h2>
+  <p class="muted small">全体 {{ ov.answers }}回答・正答率 {{ ov.pct if ov.pct is not none else '–' }}%（直近7日 {{ ov.recent_pct if ov.recent_pct is not none else '–' }}%）</p>
+  {{ subject_rows(subjects) }}
+</section>
+
+{{ advice_card(advice, "overall", api, error) }}
+
+<section class="card">
+  <h2>最近のセッション</h2>
+  {% if not sessions %}<p class="muted">まだありません</p>{% endif %}
+  <ul class="list">
+    {% for s in sessions %}
+    <li>
+      <a href="/s/{{ s.id }}/result" class="qrow">
+        <span class="mark {{ 'mock' if s.mode == 'mock' else '' }}">{{ '模' if s.mode == 'mock' else ('復' if s.mode == 'review' else '演') }}</span>
+        <span><small class="muted">{{ s.started_at[:16].replace('T', ' ') }}</small><br>{{ s.title }}</span>
+        <span class="num">{% if s.tu %}{{ (100 * s.cu / s.tu)|round|int }}%{% endif %}<br><small class="muted">{{ s.n_answered }}問</small></span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

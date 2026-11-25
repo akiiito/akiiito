@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}{{ idx + 1 }}/{{ total }}{% endblock %}
+{% block content %}
+<section class="card qcard">
+  <div class="progress"><div style="width: {{ (100 * (idx + 1) / total)|round }}%"></div></div>
+  <div class="qmeta">
+    <span class="tag strong">{{ qlabel(q) }}</span>
+    <span class="tag">{{ SUBJECTS[q.subject] }}</span>
+    <span class="tag">{{ topic_name }}</span>
+    {% if q.law_check == 'uncertain' %}<span class="tag warn">法改正要確認</span>{% endif %}
+    <span class="count">{{ idx + 1 }} / {{ total }}</span>
+  </div>
+  {% if sess.mode == 'mock' %}<p class="muted small">試験回モード：最後にまとめて採点します</p>{% endif %}
+
+  <form method="post" id="qform">
+    <input type="hidden" name="elapsed_ms" id="elapsed">
+    <p class="stem">{{ q.stem }}</p>
+
+    {% if q.format == '選択式' %}
+      <div class="sentaku-text">{{ q.text | replace('\n', '<br>') | replace('［', '<span class="blank">') | replace('］', '</span>') | safe }}</div>
+      <div class="blanks">
+        {% for b in q.blanks %}
+        <label class="blank-row"><span class="blank">{{ b.label }}</span>
+          <select name="blank_{{ b.label }}">
+            <option value="">― 選択 ―</option>
+            {% for o in q.options %}<option value="{{ loop.index }}">{{ loop.index }}. {{ o }}</option>{% endfor %}
+          </select>
+        </label>
+        {% endfor %}
+      </div>
+      <details class="opts"><summary>選択肢一覧（{{ q.options|length }}）</summary>
+        <ol class="optlist">{% for o in q.options %}<li>{{ o }}</li>{% endfor %}</ol>
+      </details>
+    {% else %}
+      <div class="choices">
+        {% for c in q.choices %}
+        <label class="choice">
+          <input type="radio" name="choice" value="{{ c.label }}">
+          <span class="lbl">{{ c.label }}</span>
+          <span class="txt">{{ c.text }}</span>
+        </label>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    <div class="sticky-actions">
+      <button name="action" value="skip" class="btn" formnovalidate>スキップ</button>
+      <button name="action" value="answer" class="btn primary" id="submit">回答する</button>
+    </div>
+  </form>
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+const t0 = Date.now();
+const form = document.getElementById('qform');
+form.addEventListener('submit', (e) => {
+  document.getElementById('elapsed').value = Date.now() - t0;
+  const btn = e.submitter;
+  if (btn && btn.value === 'answer' && form.choice !== undefined) {
+    if (!form.querySelector('input[name=choice]:checked')) { e.preventDefault(); alert('選択肢を選んでください'); }
+  }
+});
+</script>
+{% endblock %}

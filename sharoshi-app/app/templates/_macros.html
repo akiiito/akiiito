@@ -1,0 +1,68 @@
+{% macro bar(pct) -%}
+<div class="bar"><div style="width: {{ pct or 0 }}%"></div></div>
+{%- endmacro %}
+
+{% macro subject_rows(subjects, link=True) -%}
+<ul class="subjects">
+{% for s in subjects %}
+  <li>
+    {% if link %}<a href="/practice?subject={{ s.id }}">{% endif %}
+    <div class="row">
+      <strong>{{ s.name }}</strong>
+      <span class="num">{% if s.pct is not none %}<b>{{ s.pct }}%</b> <small>{{ s.cu }}/{{ s.tu }}</small>{% else %}<small class="muted">未回答</small>{% endif %}</span>
+    </div>
+    {{ bar(s.pct) }}
+    <small class="muted">回答済み {{ s.touched }}/{{ s.total }}問</small>
+    {% if link %}</a>{% endif %}
+  </li>
+{% endfor %}
+</ul>
+{%- endmacro %}
+
+{% macro advice_card(advice, scope, api, error="") -%}
+<section class="card">
+  <div class="card-head">
+    <h2><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg>アドバイス</h2>
+    {% if api %}
+    <form method="post" action="/advice" onsubmit="this.querySelector('button').disabled=true;this.querySelector('button').textContent='生成中…'">
+      <input type="hidden" name="scope" value="{{ scope }}">
+      <button class="chip-btn">{{ '再生成' if advice else '生成' }}</button>
+    </form>
+    {% endif %}
+  </div>
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  {% if advice %}
+    <p class="advice">{{ advice.summary }}</p>
+    {% if advice.focus %}
+    <h3>重点項目</h3>
+    <ol class="focus">
+      {% for f in advice.focus %}
+      <li>
+        <div><strong>{{ f.title }}</strong> <span class="tag">{{ f.subject }}</span></div>
+        <small>{{ f.reason }}</small>
+        {% if f.topic_id and f.topic_id in store.topics %}
+        <div class="links">
+          <form method="post" action="/practice/start" class="inline">
+            <input type="hidden" name="topic" value="{{ f.topic_id }}">
+            <input type="hidden" name="order" value="smart"><input type="hidden" name="count" value="10">
+            <button class="link-btn">演習する</button>
+          </form>
+          <a href="/learn?open={{ f.topic_id }}#{{ f.topic_id }}">動画で学ぶ</a>
+        </div>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ol>
+    {% endif %}
+    {% if advice.actions %}
+    <h3>次にやること</h3>
+    <ul class="actions">{% for a in advice.actions %}<li>{{ a }}</li>{% endfor %}</ul>
+    {% endif %}
+    <small class="muted">生成: {{ advice.created_at.replace('T', ' ') }}</small>
+  {% elif api %}
+    <p class="muted">演習ログをもとに、Claude が学習方針をアドバイスします。</p>
+  {% else %}
+    <p class="muted">環境変数 <code>ANTHROPIC_API_KEY</code> を設定すると、演習ログをもとにしたアドバイスが使えます。</p>
+  {% endif %}
+</section>
+{%- endmacro %}

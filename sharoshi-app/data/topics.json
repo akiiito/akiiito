@@ -1,0 +1,124 @@
+{
+  "_comment": "論点マスタ。id は問題データ・動画データの topic と対応。group は学習タブでの見出し。",
+  "groups": [
+    {
+      "group": "労働基準法",
+      "subject": "roki",
+      "topics": [
+        {"id": "lb_general", "name": "総則・労働者/使用者の定義"},
+        {"id": "lb_contract", "name": "労働契約"},
+        {"id": "lb_dismissal", "name": "解雇・解雇予告・退職"},
+        {"id": "lb_wage", "name": "賃金・平均賃金"},
+        {"id": "lb_hours", "name": "労働時間・変形労働時間制"},
+        {"id": "lb_breaks", "name": "休憩・休日・時間外/休日労働(36協定)"},
+        {"id": "lb_extra", "name": "割増賃金・みなし労働時間制"},
+        {"id": "lb_leave", "name": "年次有給休暇"},
+        {"id": "lb_women_minors", "name": "年少者・妊産婦等"},
+        {"id": "lb_rules", "name": "就業規則・寄宿舎・雑則"}
+      ]
+    },
+    {
+      "group": "労働安全衛生法",
+      "subject": "roki",
+      "topics": [
+        {"id": "sh_system", "name": "総則・安全衛生管理体制"},
+        {"id": "sh_measures", "name": "危害防止措置・機械等・有害物"},
+        {"id": "sh_health", "name": "健康診断・ストレスチェック・面接指導"}
+      ]
+    },
+    {
+      "group": "労災保険法",
+      "subject": "rosai",
+      "topics": [
+        {"id": "wc_scope", "name": "適用・業務災害の認定"},
+        {"id": "wc_commute", "name": "通勤災害"},
+        {"id": "wc_base", "name": "給付基礎日額"},
+        {"id": "wc_medical", "name": "療養(補償)等給付・休業(補償)等給付"},
+        {"id": "wc_disability", "name": "障害・傷病(補償)等給付・介護(補償)等給付"},
+        {"id": "wc_survivor", "name": "遺族(補償)等給付・葬祭料等"},
+        {"id": "wc_special", "name": "特別加入・社会復帰促進等事業・特別支給金"},
+        {"id": "wc_misc", "name": "支給制限・費用徴収・不服申立て・雑則"}
+      ]
+    },
+    {
+      "group": "雇用保険法",
+      "subject": "koyo",
+      "topics": [
+        {"id": "ei_scope", "name": "適用事業・被保険者"},
+        {"id": "ei_basic", "name": "基本手当の受給要件・所定給付日数"},
+        {"id": "ei_basic_calc", "name": "基本手当日額・受給期間・待期・給付制限"},
+        {"id": "ei_other_unemployed", "name": "傷病手当等・高年齢/短期/日雇の求職者給付"},
+        {"id": "ei_employment_promo", "name": "就職促進給付"},
+        {"id": "ei_education", "name": "教育訓練給付"},
+        {"id": "ei_continuation", "name": "雇用継続給付(高年齢・介護)"},
+        {"id": "ei_childcare", "name": "育児休業等給付"},
+        {"id": "ei_misc", "name": "雇用保険二事業・不服申立て・雑則"}
+      ]
+    },
+    {
+      "group": "労働保険徴収法",
+      "subject": "rosai",
+      "topics": [
+        {"id": "lc_relation", "name": "保険関係の成立・消滅・一括"},
+        {"id": "lc_premium", "name": "労働保険料・概算/確定保険料・申告納付"},
+        {"id": "lc_merit", "name": "メリット制・印紙保険料・滞納処分・雑則"}
+      ]
+    },
+    {
+      "group": "労務管理その他の労働に関する一般常識",
+      "subject": "roippan",
+      "topics": [
+        {"id": "gl_contract_law", "name": "労働契約法・労働組合法・労働関係調整法"},
+        {"id": "gl_equality", "name": "均等法・育児介護休業法・パート有期法"},
+        {"id": "gl_other_law", "name": "最低賃金法・派遣法・職安法・高年法・障害者雇用促進法 等"},
+        {"id": "gl_stats", "name": "労働経済・統計・白書"}
+      ]
+    },
+    {
+      "group": "社会保険に関する一般常識",
+      "subject": "shaippan",
+      "topics": [
+        {"id": "gs_nhi", "name": "国民健康保険法"},
+        {"id": "gs_elderly", "name": "高齢者医療確保法"},
+        {"id": "gs_ltc", "name": "介護保険法"},
+        {"id": "gs_other", "name": "確定給付/確定拠出年金・船員保険・社労士法 等"},
+        {"id": "gs_stats", "name": "社会保障制度の沿革・白書・統計"}
+      ]
+    },
+    {
+      "group": "健康保険法",
+      "subject": "kenpo",
+      "topics": [
+        {"id": "hi_scope", "name": "保険者・適用事業所・被保険者・被扶養者"},
+        {"id": "hi_remuneration", "name": "標準報酬月額・標準賞与額"},
+        {"id": "hi_benefits", "name": "療養の給付・保険外併用療養費・高額療養費"},
+        {"id": "hi_cash", "name": "傷病手当金・出産手当金・出産育児一時金・埋葬料"},
+        {"id": "hi_continuation", "name": "資格喪失後の給付・任意継続被保険者"},
+        {"id": "hi_premium", "name": "保険料・費用負担・不服申立て・雑則"}
+      ]
+    },
+    {
+      "group": "厚生年金保険法",
+      "subject": "konen",
+      "topics": [
+        {"id": "ep_scope", "name": "適用事業所・被保険者・標準報酬"},
+        {"id": "ep_old", "name": "老齢厚生年金(特別支給含む)・在職老齢年金"},
+        {"id": "ep_disability", "name": "障害厚生年金・障害手当金"},
+        {"id": "ep_survivor", "name": "遺族厚生年金"},
+        {"id": "ep_misc", "name": "離婚時分割・脱退一時金・保険料・雑則"}
+      ]
+    },
+    {
+      "group": "国民年金法",
+      "subject": "kokunen",
+      "topics": [
+        {"id": "np_scope", "name": "被保険者・届出"},
+        {"id": "np_premium", "name": "保険料・免除・納付猶予・追納"},
+        {"id": "np_old", "name": "老齢基礎年金・付加年金・繰上げ/繰下げ"},
+        {"id": "np_disability", "name": "障害基礎年金"},
+        {"id": "np_survivor", "name": "遺族基礎年金・寡婦年金・死亡一時金"},
+        {"id": "np_misc", "name": "給付の通則・年金生活者支援給付金・基金・雑則"}
+      ]
+    }
+  ]
+}

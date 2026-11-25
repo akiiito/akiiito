@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %}学習{% endblock %}
+{% block content %}
+{% if not store.videos %}
+<section class="card">
+  <p class="muted small">動画はまだ登録されていません。<code>scripts/label_videos.py</code> で講座チャンネルの動画に論点ラベルを付けて <code>data/videos.json</code> に登録すると、ここに論点ごとに並びます。それまでは各論点の YouTube 検索リンクを表示します。</p>
+</section>
+{% endif %}
+
+{% for g in store.groups %}
+<h2 class="group-title">{{ g.group }}</h2>
+{% for t in g.topics %}
+  {% set vids = store.videos_for(t.id) %}
+  {% set ts = tstats.get(t.id) %}
+  <details class="card topic" id="{{ t.id }}" {{ 'open' if open_topic == t.id }}>
+    <summary>
+      <span class="topic-name">{{ t.name }}</span>
+      <span class="topic-meta">
+        {% if ts and ts.pct is not none %}<span class="tag {{ 'ng' if ts.pct < 60 else '' }}">{{ ts.pct }}%</span>{% endif %}
+        {% for ch, n in (vids | groupby('channel')) %}<span class="tag">{{ ch }} {{ n|length }}</span>{% endfor %}
+      </span>
+    </summary>
+    {% for ch, chv in (vids | groupby('channel')) %}
+      <h3 class="ch">● {{ ch }}</h3>
+      {% for kind, kv in (chv | groupby('kind')) %}
+        <h4 class="kind">{{ kind }}</h4>
+        <ul class="videos">
+          {% for v in kv %}
+          <li><a href="{{ v.url }}" target="_blank" rel="noopener"><span class="play">▶</span>{{ v.title }}</a>
+            <small class="muted">{% if v.minutes %}{{ v.minutes }}分{% endif %}{% if v.published %} · {{ v.published }}{% endif %}</small></li>
+          {% endfor %}
+        </ul>
+      {% endfor %}
+    {% endfor %}
+    <div class="links">
+      <form method="post" action="/practice/start" class="inline">
+        <input type="hidden" name="topic" value="{{ t.id }}"><input type="hidden" name="order" value="smart"><input type="hidden" name="count" value="10">
+        <button class="link-btn">この論点を演習</button>
+      </form>
+      <a href="{{ yt_search(t.name) }}" target="_blank" rel="noopener">YouTubeで探す</a>
+    </div>
+  </details>
+{% endfor %}
+{% endfor %}
+{% endblock %}

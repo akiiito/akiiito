@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% from "_macros.html" import bar %}
+{% block title %}演習{% endblock %}
+{% block content %}
+{% if request.query_params.get('empty') %}<p class="error">条件に合う問題がありません。条件を変えてください。</p>{% endif %}
+
+<section class="card">
+  <h2>分野別演習</h2>
+  <form method="post" action="/practice/start" class="stack">
+    <label>科目
+      <select name="subject" id="subject-select">
+        <option value="">全科目</option>
+        {% for s in subjects %}<option value="{{ s.id }}" {{ 'selected' if s.id == selected }}>{{ s.name }}（{{ s.total }}問）</option>{% endfor %}
+      </select>
+    </label>
+    <label>論点
+      <select name="topic" id="topic-select">
+        <option value="">すべて</option>
+        {% for g in store.groups %}
+        <optgroup label="{{ g.group }}" data-subject="{{ g.subject }}">
+          {% for t in g.topics %}
+          <option value="{{ t.id }}" data-subject="{{ g.subject }}">{{ t.name }}（{{ topic_counts.get(t.id, 0) }}）</option>
+          {% endfor %}
+        </optgroup>
+        {% endfor %}
+      </select>
+    </label>
+    <div class="grid2">
+      <label>形式
+        <select name="fmt"><option value="">両方</option><option>択一式</option><option>選択式</option></select>
+      </label>
+      <label>問題数
+        <select name="count">{% for n in [5, 10, 20, 30] %}<option {{ 'selected' if n|string == settings.per_session }}>{{ n }}</option>{% endfor %}</select>
+      </label>
+    </div>
+    <fieldset class="seg">
+      <legend>出題順</legend>
+      <label><input type="radio" name="order" value="smart" checked><span>おまかせ</span></label>
+      <label><input type="radio" name="order" value="wrong"><span>誤答のみ</span></label>
+      <label><input type="radio" name="order" value="new"><span>未着手</span></label>
+      <label><input type="radio" name="order" value="random"><span>ランダム</span></label>
+    </fieldset>
+    <small class="muted">おまかせ = 誤答 → 未着手 → 正解済み（古い順）</small>
+    <button class="btn primary big">開始</button>
+  </form>
+</section>
+
+<section class="card">
+  <h2>試験回（模試）</h2>
+  <p class="muted">本試験と同じ順で1回分を通しで解きます。回答中は正誤を表示せず、最後に科目別の基準点判定を出します。</p>
+  {% if settings.mock_exam %}<p><span class="tag">{{ settings.mock_exam }}</span> は模試用として分野別演習から除外中</p>{% endif %}
+  <ul class="list">
+    {% for e in exams %}
+    <li>
+      <div><strong>{{ e.exam }}</strong> <small class="muted">{{ e.count }}問</small></div>
+      <form method="post" action="/mock/start" class="row-actions">
+        <input type="hidden" name="exam" value="{{ e.exam }}">
+        <button name="fmt" value="選択式" class="chip-btn">選択式</button>
+        <button name="fmt" value="択一式" class="chip-btn">択一式</button>
+        <button name="fmt" value="" class="chip-btn strong">通し</button>
+      </form>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}
+{% block scripts %}
+<script>
+// 科目を選ぶと論点の候補を絞る
+const subj = document.getElementById('subject-select');
+const topicSel = document.getElementById('topic-select');
+function filterTopics() {
+  const s = subj.value;
+  topicSel.querySelectorAll('optgroup').forEach(g => { g.hidden = !!s && g.dataset.subject !== s && !(s === 'koyo' && g.label === '労働保険徴収法'); });
+  const cur = topicSel.selectedOptions[0];
+  if (cur && cur.parentElement.hidden) topicSel.value = '';
+}
+subj.addEventListener('change', filterTopics); filterTopics();
+</script>
+{% endblock %}

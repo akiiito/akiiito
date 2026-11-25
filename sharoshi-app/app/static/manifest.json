@@ -1,0 +1,13 @@
+{
+  "name": "Score 社労士",
+  "short_name": "Score",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f6f6",
+  "theme_color": "#0f766e",
+  "icons": [
+    {"src": "/static/icon.svg", "sizes": "any", "type": "image/svg+xml"},
+    {"src": "/static/icon-180.png", "sizes": "180x180", "type": "image/png"},
+    {"src": "/static/icon-512.png", "sizes": "512x512", "type": "image/png"}
+  ]
+}
