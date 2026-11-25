@@ -131,15 +131,15 @@ LOOKS = dict(
 # (時刻, 見る先, レンズ, そこへ動く時間) ― 止めている間はわずかに寄る。見せたい物は1.4秒以上止める
 KEYS = [(0.0, "clock", 95, 0.0), (1.7, "clock", 100, 0.0), (2.45, "duty", 70, 0.65), (3.0, "duty", 72, 0.0),
         (3.5, "spk", 40, 0.55), (4.6, "spk", 42, 0.0),
-        (5.2, "mio", 30, 0.55), (7.0, "boss", 30, 1.8),
-        (7.6, "kai", 38, 0.55), (10.9, "kai", 42, 0.0),
-        (11.5, "sae", 46, 0.55), (14.0, "sae", 48, 0.0),
-        (14.5, "mei", 32, 0.5), (15.3, "mei", 33, 0.0),
-        (15.65, "yui", 34, 0.35), (17.4, "yui", 36, 0.0),
-        (18.2, "vase", 42, 0.75), (20.3, "vase", 50, 0.0),
-        (20.65, "kai", 36, 0.35), (24.8, "kai", 40, 0.0),
-        (25.2, "yuic", 36, 0.4), (28.2, "yuic", 40, 0.0),
-        (28.9, "clock", 70, 0.6), (END, "clock", 80, 0.0)]
+        (5.2, "mio", 30, 0.55), (7.2, "boss", 30, 2.0),
+        (7.8, "kai", 38, 0.55), (12.0, "kai", 43, 0.0),
+        (12.6, "sae", 46, 0.55), (16.0, "sae", 48, 0.0),
+        (16.5, "mei", 32, 0.5), (17.4, "mei", 33, 0.0),
+        (17.75, "yui", 34, 0.35), (19.6, "yui", 36, 0.0),
+        (20.4, "vase", 42, 0.75), (22.4, "vase", 50, 0.0),
+        (22.75, "kai", 36, 0.35), (27.0, "kai", 40, 0.0),
+        (27.4, "yuic", 36, 0.4), (30.4, "yuic", 40, 0.0),
+        (31.1, "clock", 70, 0.6), (END, "clock", 80, 0.0)]
 def shot(t):
     i = max([j for j, k in enumerate(KEYS) if k[0] <= t] or [0]); k1 = KEYS[i]
     if i + 1 < len(KEYS):
@@ -155,39 +155,39 @@ def shot(t):
 def expr(who, t):
     tk = mouth(who, t); bl = blink(t, len(who) * 7)
     if who == "yui":
-        if t < 15.4: return "sadblink" if bl else "sad"
-        if t < 20.5: return "sadtalk" if tk else ("sadblink" if bl else "sad")
-        if t < 24.9: return "shock" if t < 22.6 else "shockc"
+        if t < 17.6: return "sadblink" if bl else "sad"
+        if t < 22.6: return "sadtalk" if tk else ("sadblink" if bl else "sad")
+        if t < 27.1: return "shock" if t < 24.6 else "shockc"
         return "tearsadtalk" if tk else "tearsad"
     if who == "kai":
-        if t < 11.0: return "shock"
+        if t < 12.5: return "shock"
         return "coldtalk" if tk else ("blink" if bl else "cold")
     if who == "sae":
-        if 11.0 <= t < 14.0: return "talk" if tk else "base"
+        if 12.6 <= t < 16.3: return "talk" if tk else "base"
         return "blink" if bl else "cold"
-    return "shockc" if t < 11.0 else ("blink" if bl else "base")
+    return "shockc" if t < 12.5 else ("blink" if bl else "base")
 def place(t):
     # ユイ：すがりつく形は 25秒から
-    cling = t >= 25.0
+    cling = t >= 27.2
     show(C["yui"][0], not cling); show(C["yuic"][0], cling)
     for k in ("yui", "yuic"):
-        p = YUI_P + (Vector((0.1, -0.05, 0)) * ease((t - 25.0) / 0.5) if k == "yuic" else Vector())
+        p = YUI_P + (Vector((0.1, -0.05, 0)) * ease((t - 27.2) / 0.5) if k == "yuic" else Vector())
         face_to(C[k][0], p, P0); T.set_expr(C[k][1], "hana", expr("yui", t))
     # カイト：20.6秒から指さす
-    pt = t >= 20.6
+    pt = t >= 22.6
     show(C["kai"][0], not pt); show(C["kaip"][0], pt)
-    for k in ("kai", "kaip"): face_to(C[k][0], KAI_P, P0 if t < 11.0 or t >= 20.0 else FRONT * 0 + SAE_P); T.set_expr(C[k][1], "yota", expr("kai", t))
+    for k in ("kai", "kaip"): face_to(C[k][0], KAI_P, P0 if t < 12.5 or t >= 22.0 else FRONT * 0 + SAE_P); T.set_expr(C[k][1], "yota", expr("kai", t))
     face_to(C["sae"][0], SAE_P, P0 + Vector((0.6, 0, 0))); T.set_expr(C["sae"][1], "sae", expr("sae", t))
     # ほかの生徒：最初はざわついて互いを見る → 出席確認からは前（委員長）を向く。誰も「あなた」に振り向かない
     for k, (kind, face, p, hc) in EXTRA.items():
-        tgt = (P0 + Vector((1.2 if k == "mio" else -1.5, 1.0, 0))) if t < 11.0 else SAE_P
+        tgt = (P0 + Vector((1.2 if k == "mio" else -1.5, 1.0, 0))) if t < 12.5 else SAE_P
         face_to(C[k][0], p, tgt); T.set_expr(C[k][1], face, expr(k, t))
     look, lens = shot(t)
     sway = Vector((0.006 * math.sin(t * 1.3), 0.004 * math.sin(t * 0.9), 0.005 * math.sin(t * 1.7)))
     cam.location = P0 + sway; W.aim(cam, look); cam.data.lens = lens
     cam.data.dof.focus_distance = max(0.5, (look - P0).length)
     return dict(t=t, impact=0.0, kind="", edit=0.0, pov=True, dash=0.0,
-                wake=1.0 - ease((t - 0.0) / 1.2), red=ease((t - 20.5) / 0.4) * (1 - ease((t - 25.0) / 0.6)) * 0.5 + ease((t - 28.2) / 0.6) * 0.6)
+                wake=1.0 - ease((t - 0.0) / 1.2), red=ease((t - 22.5) / 0.4) * (1 - ease((t - 27.2) / 0.6)) * 0.5 + ease((t - 30.5) / 0.6) * 0.6)
 
 frames = TEST or range(START, STOP)
 t0 = time.time()

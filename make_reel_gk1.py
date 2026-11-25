@@ -56,9 +56,9 @@ def build_ui(path):
     E(0.6, 3.0, "card", r"{\an8\pos(360,70)\fs30\c&HDDDDDD&\3c&H000000&\bord3\fad(300,300)}学園デスゲーム", 10)
     E(0.6, 3.0, "count", r"{\an8\pos(360,112)\fs56\c&HFFFFFF&\3c&H000000&\bord5\fad(300,300)}出席番号13番　{\fs34}第1話", 10)
     # 放送中の表示
-    for a, b in ((2.8, 11.0), (28.2, 29.6)):
+    for a, b in ((2.6, 12.5), (30.5, 32.2)):
         E(a, b, "hud", r"{\an7\pos(28,24)\fs26\c&H3030FF&\fad(100,100)}● {\c&HFFFFFF&}校内放送", 7)
-    E(7.4, 11.0, "count", r"{\an5\pos(360,250)\fs40\c&HFFFFFF&\3c&H000000&\bord4\fad(150,150)}ルール：間違えたら、{\c&H3030FF&}消える", 11)
+    E(8.0, 12.5, "count", r"{\an5\pos(360,250)\fs40\c&HFFFFFF&\3c&H000000&\bord4\fad(150,150)}ルール：間違えたら、{\c&H3030FF&}消える", 11)
     # LINE風の通知（16:44 で止まったスマホ）
     def line(t0, t1, who, msg):
         S(t0, t1, rect(24, 60, 696, 230), "&HF4F4F4&", "&H08&", 12, r"\fad(120,200)\move(0,-120,0,0,0,150)")
@@ -66,7 +66,7 @@ def build_ui(path):
         E(t0, t1, "card", r"{\an7\pos(96,80)\fs28\c&H303030&\fad(120,200)\move(96,-40,96,80,0,150)}%s" % who, 14)
         E(t0, t1, "card", r"{\an9\pos(676,80)\fs26\c&H808080&\fad(120,200)\move(676,-40,676,80,0,150)}16:44　100%%", 14)
         E(t0, t1, "card", r"{\an7\pos(44,132)\fs30\c&H202020&\fad(120,200)\move(44,12,44,132,0,150)}%s" % msg, 14)
-    line(LINE1, 20.2, "母", r"今日はお花、\N何色がいい？")
+    line(LINE1, 22.3, "母", r"今日はお花、\N何色がいい？")
     # 投票まで10秒
     E(COUNT, CARD, "count", r"{\an5\pos(360,300)\fs44\c&HFFFFFF&\3c&H000000&\bord5%s}投票まで　{\c&H3030FF&\fs80}10" % pop, 11)
     # 2択カード
@@ -100,15 +100,15 @@ def chime(t0):
 def build_sfx():
     chime(0.15)
     add(R.lp(R.noise(1.2), 300) * 0.5, 0.0, 0.2)
-    add(mix(R.bp(R.noise(0.5), 300, 3000) * R.dec(0.5, 0.2)), 2.65, 0.25)                 # 放送のスイッチ
-    B.deathgame_bgm(lambda x, at, g=1.0, pan=0.0: add(x, at + 3.0, g, pan), END - 3.0, ghosts=(), climax=20.6 - 3.0, win_=99.0,
+    add(mix(R.bp(R.noise(0.5), 300, 3000) * R.dec(0.5, 0.2)), 2.45, 0.25)                 # 放送のスイッチ
+    B.deathgame_bgm(lambda x, at, g=1.0, pan=0.0: add(x, at + 3.0, g, pan), END - 3.0, ghosts=(), climax=22.6 - 3.0, win_=99.0,
                     alarm=COUNT - 3.0, final=(CARD - 3.0, END - 3.0), tail=0.0)
-    add(X.braam(2.4, 33.0), 9.6, 0.35)                                                    # 消えます
-    add(K.hit(0.8), 14.1, 0.3)                                                            # 13番は？（だれも振り向かない）
+    add(X.braam(2.4, 33.0), 10.8, 0.35)                                                    # 消えます
+    add(K.hit(0.8), 16.35, 0.3)                                                            # 13番は？（だれも振り向かない）
     add(notif(), LINE1, 0.35)
-    add(X.stinger(1.2), 18.25, 0.35); add(X.tinnitus(2.0, 5200), 18.3, 0.08)              # 白い菊
-    add(K.hit(1.2), 20.6, 0.6); add(X.braam(2.4, 30.0), 20.62, 0.4)                       # いない生徒は、ユイだ
-    add(X.swell(1.4), 24.9, 0.3)
+    add(X.stinger(1.2), 20.4, 0.35); add(X.tinnitus(2.0, 5200), 20.45, 0.08)              # 白い菊
+    add(K.hit(1.2), 22.6, 0.6); add(X.braam(2.4, 30.0), 22.62, 0.4)                       # いない生徒は、ユイだ
+    add(X.swell(1.4), 27.2, 0.3)
     for k in range(4): add(click(0.04, 5000), COUNT + 0.1 + k * 0.4, 0.5)
     add(K.hit(1.2), CARD, 0.5); add(X.braam(2.4, 30.0), CARD + 0.05, 0.3)
 
