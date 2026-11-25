@@ -23,12 +23,13 @@ R.VV_CAST.update({
     "yui": (1717361472, 1717361472, 0.0, 1.0, 1.15),      # ユイ
     "kaito": (593129376, 593129376, 0.0, 1.05, 1.25),     # カイト
     "sae": (1325133120, 1325133120, 0.0, 1.0, 0.9),       # 委員長サエ
+    "riku": (2051283137, 2051283137, 0.0, 1.12, 1.3),     # 教室を出ようとする男子
 })
-R.VOICE.update({"ren": (0, 0, 1.1, 0.04), "ann": (0, 0, 1.0, 0.2), "yui": (0, 0, 1.1, 0.05), "kaito": (0, 0, 1.1, 0.05), "sae": (0, 0, 1.0, 0.06)})
+R.VOICE.update({"ren": (0, 0, 1.1, 0.04), "ann": (0, 0, 1.0, 0.2), "yui": (0, 0, 1.1, 0.05), "kaito": (0, 0, 1.1, 0.05), "sae": (0, 0, 1.0, 0.06), "riku": (0, 0, 1.15, 0.03)})
 R.SPK_REF_TEXT[:] = ["今日の放課後、少しだけ話せる", "写真、見せてくれる", "ううん、なんでもない", "また明日ね", "窓の外、きれいだね"]
 R.LINES = list(LINES0)
 R.RETAKE_MIN, R.RETAKES = 0.66, 24
-R.VV_READ += [("2年B組", "にねんびーぐみ"), ("準備室", "じゅんびしつ"), ("火事", "かじ"), ("味方", "みかた"), ("13番", "じゅうさんばん"), ("11番", "じゅういちばん"), ("12番", "じゅうにばん"), ("14番", "じゅうよんばん"), ("10秒", "じゅうびょう"), ("透けてる", "すけてる"), ("一緒", "いっしょ"), ("機能", "きのう"), ("削除", "さくじょ"), ("権限", "けんげん"), ("移行", "いこう"), ("異世界", "いせかい"), ("消失", "しょうしつ"), ("登録", "とうろく"), ("1発", "いっぱつ"), ("3人", "さんにん"), ("規約違反", "きやくいはん"), ("検知", "けんち"), ("管理者", "かんりしゃ")]
+R.VV_READ += [("2年B組", "にねんびーぐみ"), ("準備室", "じゅんびしつ"), ("火事", "かじ"), ("味方", "みかた"), ("13番", "じゅうさんばん"), ("11番", "じゅういちばん"), ("12番", "じゅうにばん"), ("14番", "じゅうよんばん"), ("10秒", "じゅうびょう"), ("透けてる", "すけてる"), ("一緒", "いっしょ"), ("機能", "きのう"), ("削除", "さくじょ"), ("権限", "けんげん"), ("移行", "いこう"), ("異世界", "いせかい"), ("消失", "しょうしつ"), ("登録", "とうろく"), ("1発", "いっぱつ"), ("1票", "いっぴょう"), ("違反", "いはん"), ("3人", "さんにん"), ("規約違反", "きやくいはん"), ("検知", "けんち"), ("管理者", "かんりしゃ")]
 VOICE_NPY = os.path.join(HERE, "gk1_voice.npy"); LINES_JSON = os.path.join(HERE, "gk1_lines.json")
 
 
@@ -52,13 +53,22 @@ def build_ui(path):
         E(t0, t1, "shape", r"{\an7\pos(0,0)\p1\1c%s\1a%s\bord0\shad0%s}%s{\p0}" % (col, alpha, extra, draw), layer)
     def rect(x0, y0, x1, y1): return "m %d %d l %d %d l %d %d l %d %d" % (x0, y0, x1, y0, x1, y1, x0, y1)
     pop = r"\fscx135\fscy135\t(0,140,\fscx100\fscy100)"
-    # タイトル
-    E(0.6, 3.0, "card", r"{\an8\pos(360,70)\fs30\c&HDDDDDD&\3c&H000000&\bord3\fad(300,300)}学園デスゲーム", 10)
-    E(0.6, 3.0, "count", r"{\an8\pos(360,112)\fs56\c&HFFFFFF&\3c&H000000&\bord5\fad(300,300)}出席番号13番　{\fs34}第1話", 10)
+    # タイトル（小さく、フックの邪魔をしない）
+    E(0.3, 2.2, "card", r"{\an8\pos(360,64)\fs28\c&HDDDDDD&\3c&H000000&\bord3\fad(200,300)}学園デスゲーム　{\c&HFFFFFF&\fs40}出席番号13番　{\fs28}第1話", 10)
     # 放送中の表示
-    for a, b in ((2.6, 12.5), (30.5, 32.2)):
+    for a, b in ((2.2, 13.0), (32.0, 34.5)):
         E(a, b, "hud", r"{\an7\pos(28,24)\fs26\c&H3030FF&\fad(100,100)}● {\c&HFFFFFF&}校内放送", 7)
-    E(8.0, 12.5, "count", r"{\an5\pos(360,250)\fs40\c&HFFFFFF&\3c&H000000&\bord4\fad(150,150)}ルール：間違えたら、{\c&H3030FF&}消える", 11)
+    # 脱落の演出（分かりやすい気持ちよさ：赤いスタンプ＋残り人数が減る）
+    E(DIS + 0.3, 4.6, "count", r"{\an5\pos(360,560)\fs110\c&H2020F0&\3c&HFFFFFF&\bord6\frz-8%s\fad(0,250)}脱落" % pop, 12)
+    E(DIS + 0.45, 4.6, "count", r"{\an5\pos(360,690)\fs40\c&HFFFFFF&\3c&H000000&\bord4\fad(120,250)}教室を出た生徒は、{\c&H3030FF&}消える", 12)
+    E(1.0, DIS + 0.4, "hud", r"{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\fs40}31{\fs30}／31", 7)
+    E(DIS + 0.4, DIS + 0.75, "hud", r"{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\c&H3030FF&\fs52%s}30{\c&HFFFFFF&\fs30}／31" % pop, 7)
+    E(DIS + 0.75, CARD, "hud", r"{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\fs40}30{\fs30}／31", 7)
+    E(10.55, 13.0, "count", r"{\an5\pos(360,250)\fs40\c&HFFFFFF&\3c&H000000&\bord4\fad(150,150)}ルール：間違えたら、{\c&H3030FF&}消える", 11)
+    # 伏線に赤丸（止まった時計 16:44）
+    ring = r"{\an7\pos(0,0)\p1\1a&HFF&\3c&H2020F0&\bord7\shad0\fad(80,200)%s}m 360 490 b 443 490 510 557 510 640 b 510 723 443 790 360 790 b 277 790 210 723 210 640 b 210 557 277 490 360 490{\p0}"
+    E(13.25, 14.5, "shape", ring % (r"\org(360,640)\fscx150\fscy150\t(0,160,\fscx100\fscy100)"), 12)
+    E(13.4, 14.5, "count", r"{\an5\pos(360,850)\fs52\c&HFFFFFF&\3c&H2020F0&\bord5%s\fad(0,200)}16:44" % pop, 12)
     # LINE風の通知（16:44 で止まったスマホ）
     def line(t0, t1, who, msg):
         S(t0, t1, rect(24, 60, 696, 230), "&HF4F4F4&", "&H08&", 12, r"\fad(120,200)\move(0,-120,0,0,0,150)")
@@ -66,17 +76,36 @@ def build_ui(path):
         E(t0, t1, "card", r"{\an7\pos(96,80)\fs28\c&H303030&\fad(120,200)\move(96,-40,96,80,0,150)}%s" % who, 14)
         E(t0, t1, "card", r"{\an9\pos(676,80)\fs26\c&H808080&\fad(120,200)\move(676,-40,676,80,0,150)}16:44　100%%", 14)
         E(t0, t1, "card", r"{\an7\pos(44,132)\fs30\c&H202020&\fad(120,200)\move(44,12,44,132,0,150)}%s" % msg, 14)
-    line(LINE1, 22.3, "母", r"今日はお花、\N何色がいい？")
-    # 投票まで10秒
-    E(COUNT, CARD, "count", r"{\an5\pos(360,300)\fs44\c&HFFFFFF&\3c&H000000&\bord5%s}投票まで　{\c&H3030FF&\fs80}10" % pop, 11)
+    line(LINE1, 23.2, "母", r"今日はお花、\N何色がいい？")
+    # 得票バー：ユイ vs カイト が競り合って同票に
+    T0, T1 = TALLY, TALLY + 1.3
+    S(T0, CARD, rect(60, 300, 660, 470), "&H000000&", "&H70&", 11, r"\fad(150,150)")
+    E(T0, CARD, "card", r"{\an4\pos(80,345)\fs34\c&H40D8FF&\3c&H000000&\bord3\fad(150,150)}ユイに投票", 12)
+    E(T0, CARD, "card", r"{\an4\pos(80,425)\fs34\c&HFFB050&\3c&H000000&\bord3\fad(150,150)}カイトに投票", 12)
+    seq = [(0, 0), (2, 1), (4, 3), (5, 6), (8, 7), (9, 10), (12, 11), (13, 13), (14, 15), (15, 15)]
+    for k, (y_, k_) in enumerate(seq):
+        a_ = T0 + 0.15 + k * 0.13; b_ = (T0 + 0.15 + (k + 1) * 0.13) if k + 1 < len(seq) else CARD
+        S(a_, b_, rect(290, 330, 290 + y_ * 20, 362), "&H40D8FF&", "&H00&", 12)
+        S(a_, b_, rect(290, 410, 290 + k_ * 20, 442), "&HFFB050&", "&H00&", 12)
+        E(a_, b_, "card", r"{\an6\pos(645,345)\fs38\c&HFFFFFF&\3c&H000000&\bord3}%d" % y_, 13)
+        E(a_, b_, "card", r"{\an6\pos(645,425)\fs38\c&HFFFFFF&\3c&H000000&\bord3}%d" % k_, 13)
+    tie = T0 + 0.15 + (len(seq) - 1) * 0.13
+    E(tie, 29.6, "count", r"{\an5\pos(360,540)\fs90\c&H20E0FF&\3c&H000000&\bord6\frz6%s\fad(0,200)}同票！" % pop, 13)
+    E(32.0, COUNT, "count", r"{\an5\pos(360,540)\fs54\c&HFFFFFF&\3c&H000000&\bord5%s\fad(100,100)}最後の1票は、{\c&H3030FF&}あなた" % pop, 13)
+    # 投票まで 3・2・1
+    for k in range(3):
+        a_ = COUNT + k * (CARD - COUNT) / 3; b_ = COUNT + (k + 1) * (CARD - COUNT) / 3
+        E(a_, b_, "count", r"{\an5\pos(360,640)\fs60\c&HFFFFFF&\3c&H000000&\bord5}投票まで{\N}{\c&H3030FF&\fs170%s}%d" % (pop, 3 - k), 11)
     # 2択カード
     S(CARD, END, rect(0, 0, 720, 1280), "&H000000&", "&H50&", 15, r"\fad(250,0)")
     E(CARD, END, "count", r"{\an5\pos(360,330)\fs64\c&HFFFFFF&\3c&H000000&\bord6\fad(200,0)}あなたなら\Nどうする？", 16)
     S(CARD + 0.15, END, rect(30, 430, 690, 600), "&H2E9AC8&", "&H00&", 16, r"\fad(150,0)\t(0,120,\fscx102\fscy102)")
-    E(CARD + 0.15, END, "count", r"{\an4\pos(140,515)\fs50\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}ユイを信じる", 17)
+    E(CARD + 0.15, END, "count", r"{\an4\pos(140,500)\fs50\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}ユイを信じる", 17)
+    E(CARD + 0.15, END, "card", r"{\an4\pos(144,562)\fs28\c&HFFFFFF&\3c&H303030&\bord3\fad(150,0)}（カイトに投票する）", 17)
     E(CARD + 0.35, END, "count", r"{\an5\pos(360,650)\fs44\c&H40E0FF&\3c&H000000&\bord4\fad(150,0)}それとも", 17)
     S(CARD + 0.5, END, rect(30, 700, 690, 870), "&HC07030&", "&H00&", 16, r"\fad(150,0)\t(0,120,\fscx102\fscy102)")
-    E(CARD + 0.5, END, "count", r"{\an4\pos(140,785)\fs50\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}カイトを信じる", 17)
+    E(CARD + 0.5, END, "count", r"{\an4\pos(140,770)\fs50\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}カイトを信じる", 17)
+    E(CARD + 0.5, END, "card", r"{\an4\pos(144,832)\fs28\c&HFFFFFF&\3c&H303030&\bord3\fad(150,0)}（ユイに投票する）", 17)
     E(CARD + 0.8, END, "count", r"{\an5\pos(360,960)\fs50\c&HFFFFFF&\3c&H000000&\bord5\fad(150,0)}コメントで教えて　", 17)
     for st_, en, text, _, _, who in R.LINES:
         if st_ < CARD: E(st_, min(en, CARD), who, r"{\an5\pos(360,1040)\fad(60,100)}%s" % text, 9)
@@ -97,19 +126,31 @@ def chime(t0):
         n = R.tt(1.6); w = 1 + 0.004 * np.sin(2 * np.pi * 3 * n) - 0.02 * k / 8
         sig = (np.sin(2 * np.pi * f * w * n) + 0.3 * np.sin(2 * np.pi * f * 2.01 * w * n)) * R.dec(1.6, 0.6)
         add(sig, t0 + k * 0.42, 0.22, 0.3 * (-1) ** k)
+def sparkle(sec=1.6):
+    rng = np.random.default_rng(3); out = np.zeros(R.n_(sec))
+    for k in range(70):
+        f = rng.uniform(2500, 7000); d = rng.uniform(0.05, 0.25); o = int(rng.uniform(0, sec - d) * SR)
+        g = np.sin(2 * np.pi * f * R.tt(d)) * R.dec(d, d * 0.3) * (1 - o / len(out)); out[o:o + len(g)] += g
+    return out
 def build_sfx():
-    chime(0.15)
-    add(R.lp(R.noise(1.2), 300) * 0.5, 0.0, 0.2)
-    add(mix(R.bp(R.noise(0.5), 300, 3000) * R.dec(0.5, 0.2)), 2.45, 0.25)                 # 放送のスイッチ
-    B.deathgame_bgm(lambda x, at, g=1.0, pan=0.0: add(x, at + 3.0, g, pan), END - 3.0, ghosts=(), climax=22.6 - 3.0, win_=99.0,
-                    alarm=COUNT - 3.0, final=(CARD - 3.0, END - 3.0), tail=0.0)
-    add(X.braam(2.4, 33.0), 10.8, 0.35)                                                    # 消えます
-    add(K.hit(0.8), 16.35, 0.3)                                                            # 13番は？（だれも振り向かない）
+    add(K.hit(1.0), 0.0, 0.45); add(R.lp(R.noise(1.2), 300) * 0.5, 0.0, 0.2)                # 1コマ目から緊張
+    B.deathgame_bgm(add, END, ghosts=(), climax=23.3, win_=99.0, alarm=COUNT, final=(CARD, END), tail=0.0)
+    add(R.bp(R.noise(0.45), 200, 1800) * R.dec(0.45, 0.25), DOOR, 0.35, 0.4)                  # 引き戸
+    add(mix(R.bp(R.noise(0.5), 300, 3000) * R.dec(0.5, 0.2)), 2.2, 0.2)                      # 放送のスイッチ
+    add(X.swell(0.6), DIS - 0.55, 0.3); add(sparkle(1.6), DIS, 0.22); add(X.braam(2.4, 36.0), DIS, 0.45)
+    add(K.hit(1.2), DIS + 0.3, 0.6)                                                        # 脱落スタンプ
+    for k in range(3): add(click(0.03, 6000), DIS + 0.4 + k * 0.06, 0.4)                    # 残り人数が減る
+    add(X.braam(2.4, 33.0), 10.55, 0.35)                                                   # 消えます
+    add(X.whip(0.35), 12.75, 0.3); add(np.sin(2 * np.pi * 1760 * R.tt(0.5)) * R.dec(0.5, 0.15), 13.25, 0.3); add(X.tinnitus(1.4, 5200), 13.3, 0.07)
+    add(K.hit(0.8), 18.3, 0.3)                                                             # 13番は？（だれも振り向かない）
     add(notif(), LINE1, 0.35)
-    add(X.stinger(1.2), 20.4, 0.35); add(X.tinnitus(2.0, 5200), 20.45, 0.08)              # 白い菊
-    add(K.hit(1.2), 22.6, 0.6); add(X.braam(2.4, 30.0), 22.62, 0.4)                       # いない生徒は、ユイだ
-    add(X.swell(1.4), 27.2, 0.3)
-    for k in range(4): add(click(0.04, 5000), COUNT + 0.1 + k * 0.4, 0.5)
+    add(X.stinger(1.2), 22.0, 0.35); add(X.tinnitus(1.6, 5200), 22.05, 0.08)              # 白い菊
+    add(X.whip(0.35), 23.2, 0.35); add(K.hit(1.2), 23.3, 0.6); add(X.braam(2.4, 30.0), 23.32, 0.4)   # いない生徒は、ユイだ
+    for k in range(10): add(click(0.03, 4000 + 150 * k), TALLY + 0.15 + k * 0.13, 0.35)    # 得票バー
+    add(K.hit(1.0), TALLY + 0.15 + 9 * 0.13, 0.5)                                         # 同票！
+    add(X.swell(1.4), 28.9, 0.3)
+    add(X.stinger(1.4), 32.0, 0.35)                                                        # 最後の1票は、あなた
+    for k in range(3): add(np.sin(2 * np.pi * 880 * R.tt(0.15)) * R.dec(0.15, 0.06), COUNT + k * (CARD - COUNT) / 3, 0.35)
     add(K.hit(1.2), CARD, 0.5); add(X.braam(2.4, 30.0), CARD + 0.05, 0.3)
 
 def render_mp4():
