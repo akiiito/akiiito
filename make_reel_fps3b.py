@@ -74,7 +74,7 @@ def build_ui(path):
     line(LINE2, 14.9, "妹", r"お兄ちゃん、画面の前で\N動かないよ…？")
     line(LINE3, MAP - 0.5, "妹", "お兄ちゃん…？")
     # 投票カード：次のジャンル
-    S(VOTE, END, rect(0, 0, 720, 1280), "&H000000&", "&H60&", 15, r"\fad(250,0)")
+    S(VOTE, END, rect(0, 0, 720, 1280), "&H000000&", "&H18&", 15, r"\fad(250,0)")
     E(VOTE, END, "count", r"{\an5\pos(360,330)\fs58\c&HFFFFFF&\3c&H000000&\bord6\fad(200,0)}次の「へんな世界」は\Nどっちがいい？", 16)
     S(VOTE + 0.15, END, rect(30, 430, 690, 600), "&H2E9AC8&", "&H00&", 16, r"\fad(150,0)\t(0,120,\fscx102\fscy102)")
     E(VOTE + 0.15, END, "count", r"{\an4\pos(140,515)\fs44\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}毎日ルールが増える\N家のホラー", 17)
