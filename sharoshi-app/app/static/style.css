@@ -241,3 +241,4 @@ textarea { font: inherit; font-size: .85rem; color: var(--text); background: var
 .ox:active { background: var(--accent-soft); }
 .ox-answer { font-size: 1.1rem; margin: 10px 0 4px; }
 .sticky-actions.single { grid-template-columns: 1fr; }
+.sticky-actions.single { position: static; background: none; }

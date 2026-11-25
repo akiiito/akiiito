@@ -25,13 +25,13 @@ def main() -> None:
         exam, year = d["exam"], d["year_num"]
         for q in d["questions"]:
             by_id[q["id"]] = q
-    qs = sorted(by_id.values(), key=lambda q: (q["format"] != "選択式", q["number"]))
+    qs = sorted(by_id.values(), key=lambda q: (q["format"] != "選択式", q["number"], q.get("branch", "")))
     out = ROOT / "data" / "questions" / f"{prefix}.json"
     out.write_text(json.dumps({"exam": exam, "year_num": year, "questions": qs}, ensure_ascii=False, indent=1),
                    encoding="utf-8")
-    n_s = sum(q["format"] == "選択式" for q in qs)
-    n_t = len(qs) - n_s
-    print(f"{out}: 選択式{n_s}問 / 択一式{n_t}問" + ("" if (n_s, n_t) == (8, 70) else "  ※不足あり"))
+    from collections import Counter
+    c = Counter(q["format"] for q in qs)
+    print(f"{out}: " + " / ".join(f"{k}{v}" for k, v in c.items()))
 
 
 if __name__ == "__main__":
