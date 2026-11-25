@@ -1,0 +1,387 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hero,IPAPGothic,66,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,1,0,1,7,3,5,30,30,0,1
+Style: narr,IPAPGothic,62,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,2,0,1,7,3,5,30,30,0,1
+Style: shout,IPAPGothic,78,&H0040E6FF,&H0040E6FF,&H00200818,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: resolve,IPAPGothic,80,&H00FFFFFF,&H00FFFFFF,&H003C14DC,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: shape,IPAPGothic,20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: ren,IPAPGothic,68,&H00FFFFFF,&H00FFFFFF,&H00202020,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: mina,IPAPGothic,68,&H00E0C8FF,&H00E0C8FF,&H00402040,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: ann,IPAPGothic,60,&H00FFE8A0,&H00FFE8A0,&H00402000,&H00000000,-1,0,0,0,100,100,1,0,1,7,0,5,16,16,0,1
+Style: hook,IPAPGothic,58,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,7,0,5,20,20,0,1
+Style: hud,IPAPGothic,26,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,2,0,5,0,0,0,1
+Style: card,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,0,0,5,20,20,0,1
+Style: count,IPAPGothic,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,8,0,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 9,0:00:00.00,0:00:01.60,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H50&\bord0\shad0\fad(0,150)}m 0 130 l 720 130 l 720 250 l 0 250{\p0}
+Dialogue: 10,0:00:00.00,0:00:01.60,card,,0,0,0,,{\an5\pos(360,165)\fs28\c&HDDDDDD&\fad(0,150)}前回、あなたは――
+Dialogue: 10,0:00:00.00,0:00:01.60,count,,0,0,0,,{\an5\pos(360,215)\fs44\c&HC07030&\3c&H000000&\bord5\fscx135\fscy135\t(0,140,\fscx100\fscy100)\fad(0,150)}「世界を残す」を選んだ
+Dialogue: 7,0:00:03.20,0:00:03.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:03.20,0:00:03.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:03.32,0:00:03.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:03.32,0:00:03.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:03.45,0:00:03.58,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:03.45,0:00:03.58,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:03.58,0:00:03.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:03.58,0:00:03.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:03.70,0:00:03.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:03.70,0:00:03.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:03.82,0:00:03.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:03.82,0:00:03.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:03.95,0:00:04.08,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:03.95,0:00:04.08,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:04.08,0:00:04.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:04.08,0:00:04.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:04.20,0:00:04.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:04.20,0:00:04.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:04.32,0:00:04.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:04.32,0:00:04.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:04.45,0:00:04.58,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:04.45,0:00:04.58,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:04.58,0:00:04.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:04.58,0:00:04.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:04.70,0:00:04.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:04.70,0:00:04.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:04.82,0:00:04.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:04.82,0:00:04.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:04.95,0:00:05.08,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:04.95,0:00:05.08,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:05.08,0:00:05.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:05.08,0:00:05.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:05.20,0:00:05.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:05.20,0:00:05.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:05.32,0:00:05.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:05.32,0:00:05.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:05.45,0:00:05.58,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:05.45,0:00:05.58,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:05.58,0:00:05.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:05.58,0:00:05.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:05.70,0:00:05.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:05.70,0:00:05.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:05.82,0:00:05.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:05.82,0:00:05.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:05.95,0:00:06.08,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:05.95,0:00:06.08,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:06.08,0:00:06.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:06.08,0:00:06.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:06.20,0:00:06.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:06.20,0:00:06.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:06.32,0:00:06.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:06.32,0:00:06.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:06.45,0:00:06.58,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:06.45,0:00:06.58,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:06.58,0:00:06.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:06.58,0:00:06.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:06.70,0:00:06.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:06.70,0:00:06.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:06.82,0:00:06.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:06.82,0:00:06.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:06.95,0:00:07.08,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:06.95,0:00:07.08,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:07.08,0:00:07.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:07.08,0:00:07.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:07.20,0:00:07.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:07.20,0:00:07.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:07.32,0:00:07.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:07.32,0:00:07.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:07.45,0:00:07.58,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:07.45,0:00:07.58,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:07.58,0:00:07.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:07.58,0:00:07.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:07.70,0:00:07.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:07.70,0:00:07.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:07.82,0:00:07.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:07.82,0:00:07.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:07.95,0:00:08.07,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:07.95,0:00:08.07,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:08.07,0:00:08.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:08.07,0:00:08.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:08.20,0:00:08.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:08.20,0:00:08.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:08.32,0:00:08.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:08.32,0:00:08.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:08.45,0:00:08.57,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:08.45,0:00:08.57,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:08.57,0:00:08.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:08.57,0:00:08.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:08.70,0:00:08.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:08.70,0:00:08.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:08.82,0:00:08.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:08.82,0:00:08.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:08.95,0:00:09.07,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:08.95,0:00:09.07,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:09.07,0:00:09.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:09.07,0:00:09.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:09.07,0:00:09.20,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 38%
+Dialogue: 7,0:00:09.20,0:00:09.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:09.20,0:00:09.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:09.20,0:00:09.32,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 41%
+Dialogue: 7,0:00:09.32,0:00:09.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:09.32,0:00:09.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:09.32,0:00:09.45,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 43%
+Dialogue: 7,0:00:09.45,0:00:09.57,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:09.45,0:00:09.57,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:09.45,0:00:09.57,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 46%
+Dialogue: 7,0:00:09.57,0:00:09.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:09.57,0:00:09.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:09.57,0:00:09.70,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 49%
+Dialogue: 7,0:00:09.70,0:00:09.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:09.70,0:00:09.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:09.70,0:00:09.82,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 51%
+Dialogue: 7,0:00:09.82,0:00:09.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:09.82,0:00:09.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:09.82,0:00:09.95,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 54%
+Dialogue: 7,0:00:09.95,0:00:10.07,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:09.95,0:00:10.07,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:09.95,0:00:10.07,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 56%
+Dialogue: 7,0:00:10.07,0:00:10.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:10.07,0:00:10.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:10.07,0:00:10.20,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 59%
+Dialogue: 7,0:00:10.20,0:00:10.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:10.20,0:00:10.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:10.20,0:00:10.32,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 62%
+Dialogue: 7,0:00:10.32,0:00:10.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:10.32,0:00:10.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:10.32,0:00:10.45,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 64%
+Dialogue: 7,0:00:10.45,0:00:10.58,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:10.45,0:00:10.58,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:10.45,0:00:10.58,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 67%
+Dialogue: 7,0:00:10.58,0:00:10.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:10.58,0:00:10.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:10.58,0:00:10.70,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 70%
+Dialogue: 7,0:00:10.70,0:00:10.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:10.70,0:00:10.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:10.70,0:00:10.82,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 72%
+Dialogue: 7,0:00:10.82,0:00:10.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:10.82,0:00:10.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:10.82,0:00:10.95,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 75%
+Dialogue: 7,0:00:10.95,0:00:11.08,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:10.95,0:00:11.08,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:10.95,0:00:11.08,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 77%
+Dialogue: 7,0:00:11.08,0:00:11.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:11.08,0:00:11.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:11.08,0:00:11.20,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 80%
+Dialogue: 7,0:00:11.20,0:00:11.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:11.20,0:00:11.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:11.20,0:00:11.32,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 83%
+Dialogue: 7,0:00:11.32,0:00:11.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:11.32,0:00:11.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:11.32,0:00:11.45,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 85%
+Dialogue: 7,0:00:11.45,0:00:11.58,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:11.45,0:00:11.58,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:11.45,0:00:11.58,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 88%
+Dialogue: 7,0:00:11.58,0:00:11.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:11.58,0:00:11.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:11.58,0:00:11.70,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 91%
+Dialogue: 7,0:00:11.70,0:00:11.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:11.70,0:00:11.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:11.70,0:00:11.82,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 93%
+Dialogue: 7,0:00:11.82,0:00:11.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:11.82,0:00:11.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:11.82,0:00:11.95,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 96%
+Dialogue: 7,0:00:11.95,0:00:12.08,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:11.95,0:00:12.08,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:11.95,0:00:12.08,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 98%
+Dialogue: 7,0:00:12.08,0:00:12.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:12.08,0:00:12.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:12.08,0:00:12.20,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 100%
+Dialogue: 7,0:00:12.20,0:00:12.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:12.20,0:00:12.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:12.20,0:00:12.32,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 100%
+Dialogue: 7,0:00:12.32,0:00:12.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:12.32,0:00:12.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:12.32,0:00:12.45,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 100%
+Dialogue: 7,0:00:12.45,0:00:12.58,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:12.45,0:00:12.58,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:12.45,0:00:12.58,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 100%
+Dialogue: 7,0:00:12.58,0:00:12.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:12.58,0:00:12.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:12.58,0:00:12.70,hud,,0,0,0,,{\an5\pos(360,300)\fs34\c&H40F0FF&\3c&H000000&\bord4}管理者権限 移行中… 100%
+Dialogue: 7,0:00:12.70,0:00:12.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:12.70,0:00:12.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:12.82,0:00:12.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:12.82,0:00:12.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:12.95,0:00:13.08,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:12.95,0:00:13.08,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:13.08,0:00:13.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:13.08,0:00:13.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:13.20,0:00:13.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:13.20,0:00:13.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:13.32,0:00:13.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:13.32,0:00:13.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:13.45,0:00:13.58,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:13.45,0:00:13.58,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:13.58,0:00:13.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:13.58,0:00:13.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:13.70,0:00:13.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:13.70,0:00:13.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:13.82,0:00:13.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:13.82,0:00:13.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:13.95,0:00:14.08,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:13.95,0:00:14.08,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:14.08,0:00:14.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:14.08,0:00:14.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:14.20,0:00:14.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:14.20,0:00:14.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:14.32,0:00:14.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:14.32,0:00:14.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:14.45,0:00:14.58,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:14.45,0:00:14.58,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:14.58,0:00:14.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:14.58,0:00:14.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:14.70,0:00:14.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:14.70,0:00:14.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:14.82,0:00:14.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:14.82,0:00:14.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:14.95,0:00:15.08,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:14.95,0:00:15.08,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:15.08,0:00:15.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:15.08,0:00:15.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:15.20,0:00:15.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:15.20,0:00:15.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:15.32,0:00:15.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:15.32,0:00:15.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:15.45,0:00:15.58,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:15.45,0:00:15.58,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:15.58,0:00:15.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:15.58,0:00:15.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:15.70,0:00:15.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:15.70,0:00:15.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:15.82,0:00:15.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:15.82,0:00:15.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:15.95,0:00:16.08,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:15.95,0:00:16.08,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:16.08,0:00:16.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:16.08,0:00:16.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:16.20,0:00:16.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:16.20,0:00:16.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:16.32,0:00:16.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:16.32,0:00:16.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:16.45,0:00:16.58,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:16.45,0:00:16.58,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:16.58,0:00:16.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:16.58,0:00:16.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:16.70,0:00:16.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:16.70,0:00:16.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:16.82,0:00:16.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:16.82,0:00:16.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:16.95,0:00:17.08,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:16.95,0:00:17.08,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:17.08,0:00:17.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:17.08,0:00:17.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:17.20,0:00:17.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:17.20,0:00:17.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:17.32,0:00:17.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:17.32,0:00:17.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:17.45,0:00:17.58,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:17.45,0:00:17.58,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:17.58,0:00:17.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:17.58,0:00:17.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:17.70,0:00:17.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:17.70,0:00:17.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:17.82,0:00:17.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:17.82,0:00:17.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:17.95,0:00:18.08,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:17.95,0:00:18.08,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:18.08,0:00:18.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:18.08,0:00:18.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:18.20,0:00:18.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:18.20,0:00:18.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:18.32,0:00:18.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:18.32,0:00:18.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:18.45,0:00:18.58,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:18.45,0:00:18.58,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:18.58,0:00:18.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:18.58,0:00:18.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:18.70,0:00:18.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:18.70,0:00:18.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:18.82,0:00:18.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:18.82,0:00:18.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:18.95,0:00:19.08,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:18.95,0:00:19.08,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:19.08,0:00:19.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:19.08,0:00:19.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:19.20,0:00:19.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:19.20,0:00:19.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:19.32,0:00:19.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:19.32,0:00:19.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:19.45,0:00:19.58,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:19.45,0:00:19.58,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:19.58,0:00:19.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:19.58,0:00:19.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:19.70,0:00:19.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:19.70,0:00:19.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:19.82,0:00:19.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:19.82,0:00:19.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:19.95,0:00:20.08,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:19.95,0:00:20.08,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:20.08,0:00:20.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:20.08,0:00:20.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:20.20,0:00:20.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:20.20,0:00:20.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:20.32,0:00:20.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:20.32,0:00:20.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:20.45,0:00:20.58,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:20.45,0:00:20.58,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:20.58,0:00:20.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:20.58,0:00:20.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:20.70,0:00:20.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:20.70,0:00:20.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:20.82,0:00:20.95,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:20.82,0:00:20.95,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:20.95,0:00:21.08,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:20.95,0:00:21.08,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:21.08,0:00:21.20,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:21.08,0:00:21.20,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:21.20,0:00:21.32,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:21.20,0:00:21.32,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:21.32,0:00:21.45,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:21.32,0:00:21.45,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:21.45,0:00:21.58,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:21.45,0:00:21.58,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:21.58,0:00:21.70,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:21.58,0:00:21.70,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 7,0:00:21.70,0:00:21.82,hud,,0,0,0,,{\an9\pos(692,24)\fs24\c&HFFFFFF&}異常検知 {\c&H3030FF&\fs30}100%
+Dialogue: 7,0:00:21.70,0:00:21.82,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&HFFFFFF&}権限：{\c&H40F0FF&}管理者
+Dialogue: 11,0:00:03.30,0:00:05.40,count,,0,0,0,,{\an5\pos(360,300)\fs40\c&HFFFFFF&\3c&H000000&\bord4\fad(150,150)}世界の保存：{\c&H60FF60&}完了
+Dialogue: 11,0:00:13.00,0:00:14.80,count,,0,0,0,,{\an5\pos(360,560)\fs60\c&H3030FF&\3c&H000000&\bord6\fscx135\fscy135\t(0,140,\fscx100\fscy100)}ログアウト：不可
+Dialogue: 11,0:00:20.60,0:00:22.00,count,,0,0,0,,{\an5\pos(360,320)\fs44\c&H3030FF&\3c&H000000&\bord5\fscx135\fscy135\t(0,140,\fscx100\fscy100)}ログアウト機能：削除済み
+Dialogue: 12,0:00:08.00,0:00:10.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF4F4F4&\1a&H08&\bord0\shad0\fad(120,200)\move(0,-120,0,0,0,150)}m 24 60 l 696 60 l 696 230 l 24 230{\p0}
+Dialogue: 13,0:00:08.00,0:00:10.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H55C806&\1a&H00&\bord0\shad0\fad(120,200)\move(0,-120,0,0,0,150)}m 44 80 l 84 80 l 84 120 l 44 120{\p0}
+Dialogue: 14,0:00:08.00,0:00:10.80,card,,0,0,0,,{\an7\pos(96,80)\fs28\c&H303030&\fad(120,200)\move(96,-40,96,80,0,150)}母
+Dialogue: 14,0:00:08.00,0:00:10.80,card,,0,0,0,,{\an7\pos(44,132)\fs30\c&H202020&\fad(120,200)\move(44,12,44,132,0,150)}ごはんできてるよ。\N…返事して？
+Dialogue: 12,0:00:12.40,0:00:14.90,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF4F4F4&\1a&H08&\bord0\shad0\fad(120,200)\move(0,-120,0,0,0,150)}m 24 60 l 696 60 l 696 230 l 24 230{\p0}
+Dialogue: 13,0:00:12.40,0:00:14.90,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H55C806&\1a&H00&\bord0\shad0\fad(120,200)\move(0,-120,0,0,0,150)}m 44 80 l 84 80 l 84 120 l 44 120{\p0}
+Dialogue: 14,0:00:12.40,0:00:14.90,card,,0,0,0,,{\an7\pos(96,80)\fs28\c&H303030&\fad(120,200)\move(96,-40,96,80,0,150)}妹
+Dialogue: 14,0:00:12.40,0:00:14.90,card,,0,0,0,,{\an7\pos(44,132)\fs30\c&H202020&\fad(120,200)\move(44,12,44,132,0,150)}お兄ちゃん、画面の前で\N動かないよ…？
+Dialogue: 12,0:00:19.60,0:00:21.90,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF4F4F4&\1a&H08&\bord0\shad0\fad(120,200)\move(0,-120,0,0,0,150)}m 24 60 l 696 60 l 696 230 l 24 230{\p0}
+Dialogue: 13,0:00:19.60,0:00:21.90,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H55C806&\1a&H00&\bord0\shad0\fad(120,200)\move(0,-120,0,0,0,150)}m 44 80 l 84 80 l 84 120 l 44 120{\p0}
+Dialogue: 14,0:00:19.60,0:00:21.90,card,,0,0,0,,{\an7\pos(96,80)\fs28\c&H303030&\fad(120,200)\move(96,-40,96,80,0,150)}妹
+Dialogue: 14,0:00:19.60,0:00:21.90,card,,0,0,0,,{\an7\pos(44,132)\fs30\c&H202020&\fad(120,200)\move(44,12,44,132,0,150)}お兄ちゃん…？
+Dialogue: 15,0:00:30.00,0:00:36.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H60&\bord0\shad0\fad(250,0)}m 0 0 l 720 0 l 720 1280 l 0 1280{\p0}
+Dialogue: 16,0:00:30.00,0:00:36.00,count,,0,0,0,,{\an5\pos(360,330)\fs58\c&HFFFFFF&\3c&H000000&\bord6\fad(200,0)}次の「へんな世界」は\Nどっちがいい？
+Dialogue: 16,0:00:30.15,0:00:36.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H2E9AC8&\1a&H00&\bord0\shad0\fad(150,0)\t(0,120,\fscx102\fscy102)}m 30 430 l 690 430 l 690 600 l 30 600{\p0}
+Dialogue: 17,0:00:30.15,0:00:36.00,count,,0,0,0,,{\an4\pos(140,515)\fs44\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}毎日ルールが増える\N家のホラー
+Dialogue: 17,0:00:30.35,0:00:36.00,count,,0,0,0,,{\an5\pos(360,650)\fs44\c&H40E0FF&\3c&H000000&\bord4\fad(150,0)}それとも
+Dialogue: 16,0:00:30.50,0:00:36.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HC07030&\1a&H00&\bord0\shad0\fad(150,0)\t(0,120,\fscx102\fscy102)}m 30 700 l 690 700 l 690 870 l 30 870{\p0}
+Dialogue: 17,0:00:30.50,0:00:36.00,count,,0,0,0,,{\an4\pos(140,785)\fs44\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}最後の1人になる\N学園デスゲーム
+Dialogue: 17,0:00:30.80,0:00:36.00,count,,0,0,0,,{\an5\pos(360,960)\fs50\c&HFFFFFF&\3c&H000000&\bord5\fad(150,0)}コメントで教えて　
+Dialogue: 9,0:00:03.40,0:00:05.69,ann,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}世界の保存を、\N確認しました
+Dialogue: 9,0:00:05.54,0:00:06.94,mina,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}…ありがとう
+Dialogue: 9,0:00:07.00,0:00:09.18,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}これで、みんな\N助かったんだよな
+Dialogue: 9,0:00:09.03,0:00:11.25,ann,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}管理者権限の\N移行を開始します
+Dialogue: 9,0:00:11.10,0:00:12.77,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}手が…透けてる…
+Dialogue: 9,0:00:13.00,0:00:14.52,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}ログアウト…\Nできない？
+Dialogue: 9,0:00:15.00,0:00:17.76,mina,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}前の管理者もね、\Nそう言って残ったの
+Dialogue: 9,0:00:17.61,0:00:18.45,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}…え？
+Dialogue: 9,0:00:18.30,0:00:20.72,mina,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}これで、ずっと一緒だね
+Dialogue: 9,0:00:20.57,0:00:22.40,ann,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}ログアウト機能を、\N削除しました
