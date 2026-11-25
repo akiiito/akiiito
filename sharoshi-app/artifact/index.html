@@ -1,0 +1,639 @@
+<title>Score 社労士</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=M+PLUS+1p:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+/* Layout: one-column phone app — sticky app bar, scrolling cards, fixed 5-tab bar. Teal accent like a 社労士 badge, mint-grey neutrals. */
+:root {
+  --bg: #f3f6f5; --card: #ffffff; --text: #18302d; --muted: #5f716e; --line: #dde6e4;
+  --accent: #0f766e; --accent-2: #14b8a6; --accent-soft: #e2f3f0; --on-accent: #ffffff;
+  --ok: #157a3c; --ok-soft: #e5f3ea; --ng: #b9400c; --ng-soft: #fcece3; --warn: #8a5a00; --warn-soft: #fbf3dc;
+  --font-body: "Noto Sans JP", "Hiragino Sans", "Yu Gothic UI", system-ui, sans-serif;
+  --font-display: "M PLUS 1p", "Noto Sans JP", "Hiragino Sans", system-ui, sans-serif;
+  --radius: 16px; --tab-h: 62px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0e1514; --card: #172120; --text: #e3eeec; --muted: #93a6a3; --line: #283634;
+  --accent: #2dd4bf; --accent-2: #5eead4; --accent-soft: #12332f; --on-accent: #042f2b;
+  --ok: #4ade80; --ok-soft: #12301d; --ng: #fb923c; --ng-soft: #3a2214; --warn: #facc15; --warn-soft: #3a3210;
+  color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0e1514; --card: #172120; --text: #e3eeec; --muted: #93a6a3; --line: #283634;
+  --accent: #2dd4bf; --accent-2: #5eead4; --accent-soft: #12332f; --on-accent: #042f2b;
+  --ok: #4ade80; --ok-soft: #12301d; --ng: #fb923c; --ng-soft: #3a2214; --warn: #facc15; --warn-soft: #3a3210;
+  color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.7;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 calc(var(--tab-h) + env(safe-area-inset-bottom, 0px) + 20px); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--card); }
+a { color: var(--accent); text-decoration: none; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+h2 { font-family: var(--font-display); font-size: 1.08rem; margin: 0 0 10px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; text-wrap: balance; }
+h3 { font-size: .9rem; margin: 14px 0 6px; color: var(--muted); }
+.appbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; margin: 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px))) 12px;
+  padding: 10px max(16px, env(safe-area-inset-left, 0px)); background: var(--card); border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 10px; }
+.brand { font-family: var(--font-display); font-weight: 800; font-size: 1.2rem; letter-spacing: .02em; }
+.logo { width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, var(--accent-2), var(--accent)); display: grid; place-items: center; color: var(--on-accent); font-weight: 800; font-size: .8rem; }
+.sync { margin-left: auto; font-size: .75rem; color: var(--muted); }
+main { max-width: 640px; margin: 0 auto; display: grid; gap: 12px; }
+.card { background: var(--card); border-radius: var(--radius); padding: 16px; box-shadow: 0 1px 2px rgb(0 0 0 / 5%); min-width: 0; }
+.muted { color: var(--muted); } small, .small { font-size: .82rem; }
+.tag { display: inline-block; font-size: .76rem; padding: 2px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 700; line-height: 1.6; }
+.tag.strong { background: var(--accent); color: var(--on-accent); }
+.tag.ok { background: var(--ok-soft); color: var(--ok); } .tag.ng { background: var(--ng-soft); color: var(--ng); } .tag.warn { background: var(--warn-soft); color: var(--warn); }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 18px; border-radius: 999px; border: 1.5px solid var(--line); background: var(--card); font-weight: 700; cursor: pointer; width: 100%; }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.btn:disabled { opacity: .55; }
+.chip-btn { border: 0; background: var(--accent-soft); color: var(--accent); font-weight: 700; font-size: .85rem; padding: 6px 14px; border-radius: 999px; cursor: pointer; }
+.chip-btn.strong { background: var(--accent); color: var(--on-accent); }
+.link-btn { border: 0; background: none; color: var(--accent); padding: 0; cursor: pointer; font-weight: 700; font-size: .9rem; }
+.stack { display: grid; gap: 12px; } .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+label.field { display: grid; gap: 4px; font-size: .86rem; color: var(--muted); font-weight: 700; }
+select, input[type=date], input[type=number], textarea { font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 9px 12px; min-height: 44px; width: 100%; }
+.seg { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.seg button { padding: 8px 2px; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); font-size: .84rem; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); font-weight: 700; }
+.kpis { display: grid; grid-template-columns: repeat(3, 1fr); text-align: center; gap: 4px; }
+.kpis b { display: block; font-family: var(--font-display); font-size: 1.75rem; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.kpis em { font-style: normal; font-size: .85rem; color: var(--muted); }
+.kpis small { color: var(--muted); }
+.countdown { text-align: center; margin-bottom: 10px; }
+.countdown b { font-family: var(--font-display); font-size: 2.6rem; color: var(--accent); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.subjects { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.subjects button { all: unset; display: block; width: 100%; cursor: pointer; }
+.row { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.num { font-variant-numeric: tabular-nums; text-align: right; }
+.bar { height: 8px; background: var(--accent-soft); border-radius: 99px; overflow: hidden; margin: 4px 0 2px; }
+.bar div { height: 100%; background: linear-gradient(90deg, var(--accent-2), var(--accent)); border-radius: 99px; }
+.list { list-style: none; padding: 0; margin: 0; }
+.list > li { border-top: 1px solid var(--line); padding: 10px 0; display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.list > li:first-child { border-top: 0; }
+.qrow { all: unset; cursor: pointer; display: grid; grid-template-columns: 34px 1fr auto; gap: 10px; align-items: center; width: 100%; line-height: 1.4; }
+.mark { width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; background: var(--accent-soft); color: var(--accent); }
+.mark.ok { background: var(--ok-soft); color: var(--ok); } .mark.ng { background: var(--ng-soft); color: var(--ng); } .mark.skip { background: var(--bg); color: var(--muted); }
+.mark.mock { background: var(--accent); color: var(--on-accent); }
+.progress { height: 6px; background: var(--accent-soft); border-radius: 99px; overflow: hidden; margin-bottom: 12px; }
+.progress div { height: 100%; background: var(--accent); }
+.qmeta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 6px; }
+.qmeta .count { margin-left: auto; color: var(--muted); font-weight: 700; font-variant-numeric: tabular-nums; }
+.stem { margin: 6px 0 12px; }
+.choices { display: grid; gap: 10px; }
+.choice { all: unset; box-sizing: border-box; display: grid; grid-template-columns: 34px 1fr; gap: 10px; padding: 12px; border: 1.5px solid var(--line); border-radius: 14px; cursor: pointer; align-items: start; }
+.choice .lbl, .lbl { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; font-weight: 800; color: var(--muted); }
+.choice[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.choice[aria-pressed="true"] .lbl { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.boxed { background: var(--bg); border-radius: 12px; padding: 12px 14px; white-space: pre-wrap; }
+.blank { display: inline-block; min-width: 2.2em; text-align: center; font-weight: 800; color: var(--accent); border-bottom: 2px solid var(--accent); margin: 0 2px; white-space: normal; }
+.blank-row { display: grid; grid-template-columns: 40px 1fr; align-items: center; gap: 8px; }
+.ox-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.ox { font-family: var(--font-display); font-size: 2.4rem; font-weight: 800; border-radius: 18px; border: 2px solid var(--line); background: var(--card); padding: 12px 0 8px; display: grid; justify-items: center; cursor: pointer; }
+.ox small { font-family: var(--font-body); font-size: .8rem; font-weight: 700; color: var(--muted); }
+.ox.o { color: var(--ok); } .ox.x { color: var(--ng); }
+.actions2 { display: grid; grid-template-columns: 1fr 2fr; gap: 10px; margin-top: 14px; }
+.verdict { font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; padding: 8px 14px; border-radius: 12px; margin: 6px 0; display: flex; justify-content: space-between; align-items: baseline; }
+.verdict.ok { background: var(--ok-soft); color: var(--ok); } .verdict.ng { background: var(--ng-soft); color: var(--ng); } .verdict.skip { background: var(--bg); color: var(--muted); }
+.verdict small { font-family: var(--font-body); font-weight: 400; }
+.explain { list-style: none; padding: 0; margin: 10px 0; display: grid; gap: 10px; }
+.explain li { border: 1.5px solid var(--line); border-radius: 14px; padding: 10px 12px; }
+.explain li p { margin: 6px 0; }
+.explain li small { color: var(--muted); display: block; }
+.explain li.answer, .explain li.ok { border-color: var(--ok); }
+.explain li.ng, .explain li.mine { border-color: var(--ng); }
+.explain li.mine { background: var(--ng-soft); }
+.warn-box { background: var(--warn-soft); color: var(--warn); padding: 8px 12px; border-radius: 10px; font-size: .88rem; }
+.err { background: var(--ng-soft); color: var(--ng); padding: 8px 12px; border-radius: 10px; }
+.scores { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.scores li { display: flex; justify-content: space-between; padding: 6px 10px; border-radius: 10px; background: var(--ok-soft); }
+.scores li.ng { background: var(--ng-soft); color: var(--ng); }
+.focus { padding-left: 20px; margin: 0; display: grid; gap: 10px; }
+.focus small { display: block; color: var(--muted); }
+.links { display: flex; gap: 16px; margin-top: 4px; flex-wrap: wrap; }
+.advice { white-space: pre-wrap; margin: 0 0 6px; }
+details.topic > summary { list-style: none; cursor: pointer; display: grid; gap: 4px; }
+details.topic > summary::-webkit-details-marker { display: none; }
+.group-title { font-family: var(--font-display); margin: 8px 4px 0; font-size: 1rem; color: var(--muted); }
+.tabbar { position: fixed; inset: auto 0 0; z-index: 20; display: grid; grid-template-columns: repeat(5, 1fr); background: var(--card); border-top: 1px solid var(--line);
+  padding: 0 env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px); }
+.tabbar button { all: unset; height: var(--tab-h); display: grid; place-items: center; align-content: center; gap: 2px; color: var(--muted); font-size: .72rem; font-weight: 700; cursor: pointer; }
+.tabbar svg { padding: 3px 14px; border-radius: 999px; width: 52px; height: 30px; }
+.tabbar button[aria-current="page"] { color: var(--accent); }
+.tabbar button[aria-current="page"] svg { background: var(--accent-soft); }
+.loading { text-align: center; padding: 40px 0; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<div class="appbar"><div class="logo">S</div><span class="brand">Score</span><span class="sync" id="sync"></span></div>
+<main id="view"><div class="card loading">問題データを読み込み中…</div></main>
+<nav class="tabbar" id="tabs"></nav>
+
+<script>
+"use strict";
+/* ============ 定数 ============ */
+const SUBJECTS = { roki: "労基・安衛", rosai: "労災・徴収", koyo: "雇用・徴収", roippan: "労一", shaippan: "社一", kenpo: "健保", konen: "厚年", kokunen: "国年" };
+const TAK_GROUPS = { roki: ["roki"], rosai: ["rosai"], koyo: ["koyo"], ippan: ["roippan", "shaippan"], kenpo: ["kenpo"], konen: ["konen"], kokunen: ["kokunen"] };
+const TAK_NAMES = { ...SUBJECTS, ippan: "一般常識" };
+const TARGET_SEC = { "択一式": 180, "選択式": 600, "一問一答": 36 };
+const DEFAULT_SETTINGS = { exam_date: "2027-08-22", mock_exam: "令和8年度", per_session: 10, include_uncertain: true,
+  pass_sentaku_total: 25, pass_sentaku_each: 3, pass_takuitsu_total: 44, pass_takuitsu_each: 4 };
+const TABS = [["home", "ホーム", "M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"],
+  ["practice", "演習", "M9 11l3 3 8-8M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"],
+  ["learn", "学習", "M4 5h16v12H4zM10 9v4l4-2zM8 21h8"],
+  ["history", "履歴", "M5 20V10M10 20V4M15 20v-8M20 20v-5"],
+  ["prefs", "設定", "M4 7h10M18 7h2M4 17h4M12 17h8M14 5v4M8 15v4"]];
+
+/* ============ 状態 ============ */
+let DATA = null, QBY = new Map(), TOPIC = new Map();
+const S = { byExam: {}, days: {}, sessions: [], advice: null, settings: { ...DEFAULT_SETTINGS }, current: null };
+let store = null;          // db 保存先（null なら端末内のみ）
+let tab = "home", view = { name: "home" }, flash = "";
+
+const $ = (sel) => document.querySelector(sel);
+const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const pct = (c, t) => (t ? Math.round((100 * c) / t) : null);
+const today = () => new Date().toLocaleDateString("sv-SE");
+const shuffle = (a) => { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const ytSearch = (name) => "https://www.youtube.com/results?search_query=" + encodeURIComponent("社労士 " + name);
+const examKey = (exam) => "st-" + encodeURIComponent(exam).replace(/%/g, "");
+function qlabel(q) {
+  if (q.format === "一問一答") return `${q.exam} 択一問${q.number}-${q.branch}`;
+  return `${q.exam} ${q.format === "選択式" ? "選択" : "択一"}問${q.number}`;
+}
+const topicName = (id) => TOPIC.get(id)?.name || id;
+function setSync(text) { $("#sync").textContent = text; }
+
+/* ============ 保存（db があれば db、無ければ localStorage） ============ */
+const chains = {};
+function persist(key, value) {
+  try { localStorage.setItem("score:" + key, JSON.stringify(value)); } catch (e) {}
+  if (!store) return;
+  const body = JSON.parse(JSON.stringify(value));
+  chains[key] = (chains[key] || Promise.resolve()).then(() => store.doc(key).set(body)).then(
+    () => setSync("保存済み"),
+    (e) => { setSync(e?.code === "quota_exceeded" ? "保存容量がいっぱいです" : "保存できませんでした"); });
+}
+function localLoad(key) { try { const v = localStorage.getItem("score:" + key); return v ? JSON.parse(v) : null; } catch (e) { return null; } }
+
+async function connectStore() {
+  if (!window.claude?.use) { setSync("端末内に保存"); return; }
+  try {
+    const [db, user] = await Promise.all([claude.use("db"), claude.use("user")]);
+    const uid = db && user ? await user.id() : null;
+    if (!uid) { setSync("端末内に保存"); return; }
+    const col = db.collection("data/users/" + uid);
+    const timer = setTimeout(() => setSync("同期に時間がかかっています"), 10000);
+    const snap = await col.get();
+    clearTimeout(timer);
+    for (const d of snap.docs) {
+      const v = d.data();
+      if (d.id === "days") S.days = v.days || {};
+      else if (d.id === "sessions") S.sessions = v.list || [];
+      else if (d.id === "advice") S.advice = v;
+      else if (d.id === "settings") S.settings = { ...DEFAULT_SETTINGS, ...v };
+      else if (d.id === "current") S.current = v.session || null;
+      else if (d.id.startsWith("st-")) S.byExam[v.exam] = v.q || {};
+    }
+    store = col;
+    setSync("クラウドに保存");
+    render();
+  } catch (e) { setSync("端末内に保存"); }
+}
+function loadLocal() {
+  S.days = localLoad("days")?.days || {};
+  S.sessions = localLoad("sessions")?.list || [];
+  S.advice = localLoad("advice");
+  S.settings = { ...DEFAULT_SETTINGS, ...(localLoad("settings") || {}) };
+  S.current = localLoad("current")?.session || null;
+  for (const e of DATA.exams) { const v = localLoad(examKey(e.exam)); if (v) S.byExam[e.exam] = v.q || {}; }
+}
+
+/* ============ 集計・出題 ============ */
+function eligible(forMock = false) {
+  const st = S.settings;
+  return DATA.questions.filter((q) => q.law_check !== "revised"
+    && !(q.law_check === "uncertain" && !st.include_uncertain)
+    && (forMock || !st.mock_exam || q.exam !== st.mock_exam));
+}
+const rec = (q) => S.byExam[q.exam]?.[q.id];
+const isWrong = (q) => { const r = rec(q); return r && r.last && r.last.cu < r.last.tu; };
+
+function selectQuestions({ subject = "", topic = "", fmt = "", order = "smart", count = 10 }) {
+  let pool = eligible().filter((q) => (!subject || q.subject === subject) && (!topic || q.topic === topic) && (!fmt || q.format === fmt));
+  shuffle(pool);
+  if (order === "wrong") pool = pool.filter(isWrong);
+  else if (order === "new") pool = pool.filter((q) => !rec(q));
+  else if (order === "smart") {
+    const key = (q) => { const r = rec(q); if (!r) return [1, ""]; return [r.last.cu < r.last.tu ? 0 : 2, r.last.at]; };
+    pool.sort((a, b) => { const x = key(a), y = key(b); return x[0] - y[0] || (x[1] < y[1] ? -1 : x[1] > y[1] ? 1 : 0); });
+  }
+  return pool.slice(0, count).map((q) => q.id);
+}
+
+function subjectStats() {
+  const pool = eligible();
+  const rows = Object.entries(SUBJECTS).map(([id, name]) => ({ id, name, cu: 0, tu: 0, touched: 0, total: 0 }));
+  const by = Object.fromEntries(rows.map((r) => [r.id, r]));
+  for (const q of pool) {
+    const r = by[q.subject]; r.total++;
+    const x = rec(q); if (x) { r.cu += x.c; r.tu += x.t; r.touched++; }
+  }
+  rows.forEach((r) => (r.pct = pct(r.cu, r.tu)));
+  return rows;
+}
+function topicStats() {
+  const out = {};
+  for (const q of DATA.questions) {
+    const x = rec(q); if (!x) continue;
+    const o = (out[q.topic] ||= { cu: 0, tu: 0, n: 0 }); o.cu += x.c; o.tu += x.t; o.n += x.n;
+  }
+  for (const v of Object.values(out)) v.pct = pct(v.cu, v.tu);
+  return out;
+}
+function overview() {
+  let cu = 0, tu = 0, n = 0;
+  for (const ex of Object.values(S.byExam)) for (const r of Object.values(ex)) { cu += r.c; tu += r.t; n += r.n; }
+  const pool = eligible();
+  const touched = pool.filter((q) => rec(q)).length;
+  const wrong = pool.filter(isWrong).length;
+  const d = S.days[today()];
+  let rcu = 0, rtu = 0;
+  const since = new Date(Date.now() - 7 * 864e5).toLocaleDateString("sv-SE");
+  for (const [k, v] of Object.entries(S.days)) if (k >= since) { rcu += v.cu; rtu += v.tu; }
+  const dl = Math.ceil((new Date(S.settings.exam_date + "T00:00:00") - new Date(today() + "T00:00:00")) / 864e5);
+  return { answers: n, pct: pct(cu, tu), recentPct: pct(rcu, rtu), today: d?.n || 0, pool: pool.length, touched, wrong, daysLeft: isNaN(dl) ? null : dl };
+}
+
+function grade(q, input) {
+  if (q.format === "選択式") {
+    let cu = 0; const sel = {};
+    for (const b of q.blanks) { const v = Number(input[b.label]) || null; sel[b.label] = v; if (v === b.answer) cu++; }
+    return { sel, cu, tu: q.blanks.length };
+  }
+  if (q.format === "一問一答") return { sel: input, cu: (input === "o") === !!q.ox ? 1 : 0, tu: 1 };
+  return { sel: input, cu: input === q.answer || (q.also_correct || []).includes(input) ? 1 : 0, tu: 1 };
+}
+
+function record(q, g, ms) {
+  const ex = (S.byExam[q.exam] ||= {});
+  const r = ex[q.id] || { n: 0, c: 0, t: 0 };
+  ex[q.id] = { n: r.n + 1, c: r.c + g.cu, t: r.t + g.tu, last: { cu: g.cu, tu: g.tu, sel: g.sel, at: new Date().toISOString(), ms } };
+  persist(examKey(q.exam), { exam: q.exam, q: ex });
+  const d = (S.days[today()] ||= { n: 0, cu: 0, tu: 0, ms: 0 });
+  d.n++; d.cu += g.cu; d.tu += g.tu; d.ms += ms || 0;
+  persist("days", { days: S.days });
+}
+
+function scoreMock(sess) {
+  const sen = {}, tak = {}, formats = new Set();
+  const exam = DATA.exams.find((e) => e.exam === sess.exam);
+  const add = (q, cu) => {
+    if (q.format === "選択式") { const s = (sen[q.subject] ||= [0, 0]); s[0] += cu; s[1] += q.blanks.length; }
+    else { const g = Object.keys(TAK_GROUPS).find((k) => TAK_GROUPS[k].includes(q.subject)); const s = (tak[g] ||= [0, 0]); s[0] += cu; s[1] += 1; }
+  };
+  sess.qids.forEach((id, i) => { const q = QBY.get(id); if (!q) return; formats.add(q.format); const a = sess.answers[i]; add(q, a && !a.skipped ? a.cu : 0); });
+  let free = 0;
+  for (const q of DATA.questions) if (q.exam === sess.exam && formats.has(q.format) && !sess.qids.includes(q.id)) { add(q, q.format === "選択式" ? q.blanks.length : 1); free++; }
+  const st = S.settings, c = exam?.pass;
+  const P = c ? c : { sentaku_total: st.pass_sentaku_total, sentaku_each: st.pass_sentaku_each, sentaku_except: {}, takuitsu_total: st.pass_takuitsu_total, takuitsu_each: st.pass_takuitsu_each, takuitsu_except: {} };
+  const sRows = Object.entries(sen).map(([k, v]) => { const need = P.sentaku_except?.[k] ?? P.sentaku_each; return { name: SUBJECTS[k], score: v[0], max: v[1], need, ok: v[0] >= need }; });
+  const tRows = Object.entries(tak).map(([k, v]) => { const need = P.takuitsu_except?.[k] ?? P.takuitsu_each; return { name: TAK_NAMES[k], score: v[0], max: v[1], need, ok: v[0] >= need }; });
+  const sum = (rows, f) => rows.reduce((a, r) => a + r[f], 0);
+  const sT = sum(sRows, "score"), tT = sum(tRows, "score");
+  const sOk = sT >= P.sentaku_total && sRows.every((r) => r.ok), tOk = tT >= P.takuitsu_total && tRows.every((r) => r.ok);
+  const full = sum(sRows, "max") === 40 && sum(tRows, "max") === 70;
+  return { sRows, tRows, sT, tT, sMax: sum(sRows, "max"), tMax: sum(tRows, "max"), P, official: !!c, free, full, sOk, tOk, passed: full ? sOk && tOk : null };
+}
+
+/* ============ セッション ============ */
+function startSession(mode, title, qids, exam) {
+  if (!qids.length) { flash = "条件に合う問題がありません。条件を変えてください。"; go("practice"); return; }
+  S.current = { id: Date.now().toString(36), mode, title, qids, exam: exam || null, idx: 0, answers: {}, started: new Date().toISOString() };
+  persist("current", { session: S.current });
+  view = { name: "question", t0: Date.now() }; tab = "practice"; render(); scrollTo(0, 0);
+}
+function answerCurrent(input, skipped) {
+  const sess = S.current, q = QBY.get(sess.qids[sess.idx]);
+  const ms = Date.now() - (view.t0 || Date.now());
+  if (skipped) sess.answers[sess.idx] = { skipped: true, cu: 0, tu: q.format === "選択式" ? q.blanks.length : 1, ms };
+  else { const g = grade(q, input); sess.answers[sess.idx] = { sel: g.sel, cu: g.cu, tu: g.tu, ms }; record(q, g, ms); }
+  persist("current", { session: sess });
+  if (sess.mode === "mock") nextQuestion();
+  else { view = { name: "feedback" }; render(); scrollTo(0, 0); }
+}
+function nextQuestion() {
+  const sess = S.current;
+  if (sess.idx + 1 < sess.qids.length) { sess.idx++; persist("current", { session: sess }); view = { name: "question", t0: Date.now() }; }
+  else finishSession();
+  render(); scrollTo(0, 0);
+}
+function finishSession() {
+  const sess = S.current; if (!sess) return;
+  const ans = Object.values(sess.answers);
+  const units = sess.qids.reduce((a, id, i) => a + (sess.answers[i]?.tu ?? (QBY.get(id)?.format === "選択式" ? 5 : 1)), 0);
+  const summary = { id: sess.id, mode: sess.mode, title: sess.title, date: sess.started, n: ans.filter((a) => !a.skipped).length, cu: ans.reduce((a, x) => a + x.cu, 0), tu: units, qids: sess.qids, answers: sess.answers, exam: sess.exam };
+  if (sess.mode === "mock") { const sc = scoreMock(sess); summary.mock = { sT: sc.sT, sMax: sc.sMax, tT: sc.tT, tMax: sc.tMax, below: [...sc.sRows.filter((r) => !r.ok).map((r) => r.name + "(選択)"), ...sc.tRows.filter((r) => !r.ok).map((r) => r.name + "(択一)")] }; }
+  S.sessions = [summary, ...S.sessions.filter((s) => s.id !== sess.id)].slice(0, 40);
+  persist("sessions", { list: S.sessions });
+  S.current = null; persist("current", { session: null });
+  view = { name: "result", id: summary.id };
+}
+
+/* ============ Claude アドバイス（sample） ============ */
+const ADVISOR = `あなたは社会保険労務士試験の専門家で、1人の受験生専属の家庭教師です。下の演習ログ（JSON）を分析し、次に何をすべきかを助言してください。一般的な勉強法ではなく、このログから読み取れることだけを書きます。
+
+前提: 選択式は8問・各5空欄（科目5点満点、計40点）、択一式は70問（科目10点満点、計70点）。合格には総得点に加えて全科目の基準点（目安: 選択式各3点・択一式各4点、年度で補正）が必要で、1科目でも割ると不合格。だから「得意を伸ばす」より「どの科目も足切りされない」が優先。選択式は条文・判例・白書の穴埋めで、2点以下の事故が最大のリスク（特に労一・社一）。択一式の一般常識は労一+社一の合算。年金2法は相互に関連し配点が大きい。紛らわしい数字の対比（待期: 健保は継続3日、雇用は通算7日、労災は休業4日目から）は頻出の失点源。法改正・白書は直前期に重点化。目安時間: 択一1問約3分、選択1問約10分、一問一答1肢約36秒。
+
+分析の順: (1) 足切りリスク（正答率の低い科目、模試の below）。選択式と択一式・一問一答は分けて見る。(2) 残り日数で戦略を変える（半年以上: 全科目一周を優先、3〜6か月: 弱点反復と年金・一般常識の底上げ、3か月未満: 新範囲に広げず誤答の見直しと法改正・白書、1か月未満: 誤答見直しと時間配分）。(3) 弱点論点（回答数が少ないものは「判断材料が少ない」と明記し断定しない）。(4) 着手状況（touched/total が低い科目）。(5) 回答時間。(6) focus_session があれば具体的に触れる。
+
+数字（正答率・回答数・残り日数）を根拠に示す。summary は4〜6文。focus は優先度順に3〜5件、topic_id はログの topics にあるIDからだけ選ぶ（科目全体なら空文字）。actions は次の1回分の学習で具体的にやること2〜4件（例:「健保の傷病手当金を誤答のみで10問」）。
+
+返答は次のJSONだけ: {"summary": string, "focus": [{"topic_id": string, "title": string, "subject": string, "reason": string}], "actions": [string]}`;
+
+function buildContext(sessionId) {
+  const ov = overview();
+  const ts = topicStats();
+  const topics = Object.entries(ts).map(([id, v]) => ({ topic_id: id, name: topicName(id), subject: SUBJECTS[TOPIC.get(id)?.subject] || "", correct: v.cu, total: v.tu, pct: v.pct }))
+    .sort((a, b) => (a.pct ?? 0) - (b.pct ?? 0));
+  const fs = {}, times = {}, wrongBy = {};
+  for (const q of DATA.questions) {
+    const r = rec(q); if (!r) continue;
+    const k = `${q.format}/${SUBJECTS[q.subject]}`; const o = (fs[k] ||= [0, 0]); o[0] += r.c; o[1] += r.t;
+    if (r.last?.ms) (times[q.format] ||= []).push(r.last.ms / 1000);
+    if (r.last.cu < r.last.tu) wrongBy[q.topic] = (wrongBy[q.topic] || 0) + 1;
+  }
+  const avg = Object.fromEntries(Object.entries(times).map(([f, v]) => [f, { avg_sec: Math.round(v.reduce((a, b) => a + b, 0) / v.length), target_sec: TARGET_SEC[f], n: v.length }]));
+  const ctx = { overview: ov, subjects: subjectStats().map(({ name, pct, cu, tu, touched, total }) => ({ name, pct, cu, tu, touched, total })),
+    format_subject: Object.fromEntries(Object.entries(fs).map(([k, v]) => [k, `${v[0]}/${v[1]}`])), topics, still_wrong_by_topic: wrongBy, avg_time: avg,
+    mock_results: S.sessions.filter((s) => s.mock).map((s) => ({ title: s.title, date: s.date.slice(0, 10), sentaku: `${s.mock.sT}/${s.mock.sMax}`, takuitsu: `${s.mock.tT}/${s.mock.tMax}`, below_base: s.mock.below })),
+    exam_date: S.settings.exam_date };
+  if (sessionId) {
+    const s = S.sessions.find((x) => x.id === sessionId);
+    if (s) ctx.focus_session = { title: s.title, mode: s.mode, items: s.qids.map((id, i) => { const q = QBY.get(id); const a = s.answers[i]; return q && { q: qlabel(q), topic: q.topic, result: !a || a.skipped ? "skip" : `${a.cu}/${a.tu}`, sec: a?.ms ? Math.round(a.ms / 1000) : null }; }).filter(Boolean) };
+  }
+  return ctx;
+}
+
+let adviceState = { busy: false, error: "" };
+async function askAdvice(sessionId) {
+  const sample = window.claude?.use ? await claude.use("sample") : null;
+  if (!sample) { adviceState = { busy: false, error: "この画面では Claude に相談できません（claude.ai で開いてください）。" }; render(); return; }
+  adviceState = { busy: true, error: "" }; render();
+  try {
+    const res = await sample.json(ADVISOR + "\n\n演習ログ:\n" + JSON.stringify(buildContext(sessionId)), { cache: false });
+    if (!res || typeof res.summary !== "string") throw { code: "invalid_json" };
+    S.advice = { summary: res.summary, focus: Array.isArray(res.focus) ? res.focus.filter((f) => f && f.title).slice(0, 6) : [], actions: Array.isArray(res.actions) ? res.actions.map(String).slice(0, 6) : [], at: new Date().toISOString() };
+    persist("advice", S.advice);
+    adviceState = { busy: false, error: "" };
+  } catch (e) {
+    const msg = { not_granted: "Claude の利用が許可されませんでした。", sampling_disabled: "このアカウントでは Claude を使えません。", rate_limited: "今は混み合っているか、利用上限に達しています。少し時間をおいてください。", invalid_json: "うまく読み取れませんでした。もう一度押してください。", refused: "この内容では回答できませんでした。", cancelled: "" }[e?.code];
+    adviceState = { busy: false, error: msg ?? "通信に失敗しました。もう一度押してください。" };
+  }
+  render();
+}
+
+/* ============ 画面 ============ */
+function go(name, extra = {}) { tab = ["home", "practice", "learn", "history", "prefs"].includes(name) ? name : tab; view = { name, ...extra }; render(); scrollTo(0, 0); }
+function bar(p) { return `<div class="bar"><div style="width:${p || 0}%"></div></div>`; }
+function subjectList(rows) {
+  return `<ul class="subjects">${rows.map((s) => `<li><button data-act="subject" data-id="${s.id}">
+    <div class="row"><strong>${esc(s.name)}</strong><span class="num">${s.pct != null ? `<b>${s.pct}%</b> <small class="muted">${s.cu}/${s.tu}</small>` : `<small class="muted">未回答</small>`}</span></div>
+    ${bar(s.pct)}<small class="muted">回答済み ${s.touched}/${s.total}問</small></button></li>`).join("")}</ul>`;
+}
+function adviceCard(sessionId) {
+  const a = S.advice;
+  return `<section class="card" id="advice"><div class="row" style="margin-bottom:8px"><h2 style="margin:0">アドバイス</h2>
+    <button class="chip-btn" data-act="advice" data-sid="${esc(sessionId || "")}" ${adviceState.busy ? "disabled" : ""}>${adviceState.busy ? "考え中…" : "Claudeに相談"}</button></div>
+    ${adviceState.error ? `<p class="err">${esc(adviceState.error)}</p>` : ""}
+    ${a ? `<p class="advice">${esc(a.summary)}</p>
+      ${a.focus.length ? `<h3>重点項目</h3><ol class="focus">${a.focus.map((f) => `<li><div><strong>${esc(f.title)}</strong> ${f.subject ? `<span class="tag">${esc(f.subject)}</span>` : ""}</div><small>${esc(f.reason)}</small>
+        ${f.topic_id && TOPIC.has(f.topic_id) ? `<div class="links"><button class="link-btn" data-act="topic-practice" data-id="${esc(f.topic_id)}">演習する</button><a href="${ytSearch(topicName(f.topic_id))}" target="_blank" rel="noopener">動画を探す</a></div>` : ""}</li>`).join("")}</ol>` : ""}
+      ${a.actions.length ? `<h3>次にやること</h3><ul>${a.actions.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+      <small class="muted">${esc(a.at.slice(0, 16).replace("T", " "))} 時点</small>`
+    : `<p class="small muted">演習ログを Claude が分析して、足切りリスクや弱点論点、次にやることを教えてくれます。あなたの Claude の利用枠で動きます（API料金はかかりません）。</p>`}</section>`;
+}
+
+const V = {};
+V.home = () => {
+  const ov = overview(), st = S.settings, cur = S.current;
+  return `<section class="card">
+    ${ov.daysLeft != null ? `<div class="countdown"><small class="muted">本試験まで</small><div><b>${ov.daysLeft}</b> 日</div><small class="muted">${esc(st.exam_date)}</small></div>` : ""}
+    <div class="kpis"><div><b>${ov.today}</b><small>今日の回答</small></div><div><b>${ov.pct ?? "–"}<em>%</em></b><small>累計正答率</small></div><div><b>${ov.touched}<em>/${ov.pool}</em></b><small>着手済み</small></div></div></section>
+    ${cur ? `<button class="btn primary" data-act="resume">続きから（${esc(cur.title)} ${cur.idx + 1}/${cur.qids.length}）</button>` : ""}
+    <button class="btn ${cur ? "" : "primary"}" data-act="quick">おまかせ演習（${st.per_session}問）</button>
+    ${ov.wrong ? `<button class="btn" data-act="wrong">誤答を復習（残り${ov.wrong}問）</button>` : ""}
+    ${adviceCard("")}
+    <section class="card"><h2>科目別の成績</h2>${subjectList(subjectStats())}</section>`;
+};
+
+const P = { subject: "", topic: "", fmt: "", order: "smart", count: 10 };
+V.practice = () => {
+  const counts = {}; for (const q of eligible()) counts[q.topic] = (counts[q.topic] || 0) + 1;
+  const subs = subjectStats();
+  const groups = DATA.topics.filter((g) => !P.subject || g.subject === P.subject || (P.subject === "koyo" && g.group === "労働保険徴収法"));
+  const mocks = DATA.exams.filter((e) => e.formats.includes("択一式"));
+  const f = flash; flash = "";
+  return `${f ? `<p class="err">${esc(f)}</p>` : ""}<section class="card"><h2>分野別演習</h2><div class="stack">
+    <label class="field">科目<select id="p-subject"><option value="">全科目</option>${subs.map((s) => `<option value="${s.id}" ${s.id === P.subject ? "selected" : ""}>${esc(s.name)}（${s.total}問）</option>`).join("")}</select></label>
+    <label class="field">論点<select id="p-topic"><option value="">すべて</option>${groups.map((g) => `<optgroup label="${esc(g.group)}">${g.topics.map((t) => `<option value="${t.id}" ${t.id === P.topic ? "selected" : ""}>${esc(t.name)}（${counts[t.id] || 0}）</option>`).join("")}</optgroup>`).join("")}</select></label>
+    <div class="grid2"><label class="field">形式<select id="p-fmt">${[["", "すべて"], ["択一式", "択一式（5択）"], ["選択式", "選択式"], ["一問一答", "一問一答（○×）"]].map(([v, l]) => `<option value="${v}" ${v === P.fmt ? "selected" : ""}>${l}</option>`).join("")}</select></label>
+    <label class="field">問題数<select id="p-count">${[5, 10, 20, 30].map((n) => `<option ${n === P.count ? "selected" : ""}>${n}</option>`).join("")}</select></label></div>
+    <div><div class="field" style="margin-bottom:4px">出題順</div><div class="seg">${[["smart", "おまかせ"], ["wrong", "誤答のみ"], ["new", "未着手"], ["random", "ランダム"]].map(([v, l]) => `<button data-act="order" data-v="${v}" aria-pressed="${P.order === v}">${l}</button>`).join("")}</div>
+    <small class="muted">おまかせ ＝ 誤答 → 未着手 → 正解済み（古い順）</small></div>
+    <button class="btn primary" data-act="start">開始</button></div></section>
+    <section class="card"><h2>試験回（模試）</h2><p class="small muted">本試験と同じ順に1回分を解きます。途中は正誤を出さず、最後にその年の合格基準で判定します。</p>
+    ${S.settings.mock_exam ? `<p class="small"><span class="tag">${esc(S.settings.mock_exam)}</span> は模試用に取ってあり、分野別演習には出ません</p>` : ""}
+    <ul class="list">${mocks.map((e) => `<li><div><strong>${esc(e.exam)}</strong> <small class="muted">${e.count}問</small></div><div class="links">
+      <button class="chip-btn" data-act="mock" data-exam="${esc(e.exam)}" data-fmt="選択式">選択式</button>
+      <button class="chip-btn" data-act="mock" data-exam="${esc(e.exam)}" data-fmt="択一式">択一式</button>
+      <button class="chip-btn strong" data-act="mock" data-exam="${esc(e.exam)}" data-fmt="">通し</button></div></li>`).join("")}</ul></section>`;
+};
+
+function qHeader(q, sess) {
+  const tot = sess ? sess.qids.length : 1, i = sess ? sess.idx : 0;
+  return `${sess ? `<div class="progress"><div style="width:${Math.round((100 * (i + 1)) / tot)}%"></div></div>` : ""}
+    <div class="qmeta"><span class="tag strong">${esc(qlabel(q))}</span><span class="tag">${esc(SUBJECTS[q.subject])}</span><span class="tag">${esc(topicName(q.topic))}</span>
+    ${q.law_check === "uncertain" ? `<span class="tag warn">要確認</span>` : ""}${sess ? `<span class="count">${i + 1} / ${tot}</span>` : ""}</div>`;
+}
+const blanksHtml = (text) => esc(text).replace(/［([A-E])］/g, '<span class="blank">$1</span>');
+
+let picked = null;
+V.question = () => {
+  const sess = S.current; if (!sess) { view = { name: "practice" }; return V.practice(); }
+  const q = QBY.get(sess.qids[sess.idx]);
+  picked = null;
+  let body = "";
+  if (q.format === "一問一答") {
+    body = `<p class="boxed">${esc(q.stem)}</p><div class="ox-buttons"><button class="ox o" data-act="ox" data-v="o">○<small>正しい</small></button><button class="ox x" data-act="ox" data-v="x">×<small>誤り</small></button></div>
+      <button class="btn" style="margin-top:12px" data-act="skip">スキップ</button>`;
+  } else if (q.format === "選択式") {
+    body = `<p class="stem">${esc(q.stem)}</p><div class="boxed">${blanksHtml(q.text)}</div><div class="stack" style="margin-top:12px">
+      ${q.blanks.map((b) => `<label class="blank-row"><span class="blank">${b.label}</span><select id="b-${b.label}" data-blank="${b.label}"><option value="">― 選択 ―</option>${(b.options || q.options).map((o, i) => `<option value="${i + 1}">${i + 1}. ${esc(o)}</option>`).join("")}</select></label>`).join("")}</div>
+      ${q.options ? `<details style="margin-top:10px"><summary class="small">語群の一覧（${q.options.length}）</summary><ol class="small">${q.options.map((o) => `<li>${esc(o)}</li>`).join("")}</ol></details>` : ""}
+      <div class="actions2"><button class="btn" data-act="skip">スキップ</button><button class="btn primary" data-act="submit-blanks">回答する</button></div>`;
+  } else {
+    body = `<p class="stem">${esc(q.stem)}</p><div class="choices">${q.choices.map((c) => `<button class="choice" data-act="pick" data-v="${c.label}" aria-pressed="false"><span class="lbl">${c.label}</span><span>${esc(c.text)}</span></button>`).join("")}</div>
+      <div class="actions2"><button class="btn" data-act="skip">スキップ</button><button class="btn primary" data-act="submit-choice" disabled>回答する</button></div>`;
+  }
+  return `<section class="card">${qHeader(q, sess)}${sess.mode === "mock" ? `<p class="small muted">試験回モード：最後にまとめて採点します</p>` : ""}${body}</section>`;
+};
+
+function explainHtml(q, a) {
+  let h = "";
+  if (q.law_check !== "ok" && q.law_note) h += `<p class="warn-box">${q.law_check === "revised" ? "法改正" : "要確認"}：${esc(q.law_note)}</p>`;
+  if (q.format === "一問一答") {
+    h += `<p class="boxed">${esc(q.stem)}</p><ul class="explain"><li class="answer"><div>正解：<b>${q.ox ? "○ 正しい" : "× 誤り"}</b>${a && !a.skipped ? ` <small style="display:inline">（あなた：${a.sel === "o" ? "○" : "×"}）</small>` : ""}</div><p class="small">${esc(q.explanation)}</p></li></ul>`;
+  } else if (q.format === "選択式") {
+    h += `<p class="stem">${esc(q.stem)}</p><div class="boxed">${blanksHtml(q.text)}</div><ul class="explain">${q.blanks.map((b) => {
+      const opts = b.options || q.options, mine = a?.sel?.[b.label];
+      return `<li class="${a && !a.skipped ? (mine === b.answer ? "ok" : "ng") : "answer"}"><div><span class="blank">${b.label}</span> 正解：<b>${b.answer}. ${esc(opts[b.answer - 1])}</b>${a && !a.skipped ? ` <small style="display:inline">（あなた：${mine ? mine + ". " + esc(opts[mine - 1]) : "未選択"}）</small>` : ""}</div><small>${esc(b.explanation)}</small></li>`; }).join("")}</ul>`;
+  } else {
+    const ok = [q.answer, ...(q.also_correct || [])];
+    h += `<p class="stem">${esc(q.stem)}</p><ul class="explain">${q.choices.map((c) => {
+      const isAns = ok.includes(c.label), mine = a && !a.skipped && a.sel === c.label;
+      return `<li class="${isAns ? "answer" : ""} ${mine && !isAns ? "mine" : ""}"><div class="row" style="justify-content:flex-start"><span class="lbl">${c.label}</span>${isAns ? `<span class="tag ok">正答</span>` : ""}${mine && !isAns ? `<span class="tag ng">あなたの回答</span>` : ""}</div><p>${esc(c.text)}</p><small>${esc(c.explanation)}</small></li>`; }).join("")}</ul>`;
+  }
+  h += `<p class="small"><a href="${ytSearch(topicName(q.topic))}" target="_blank" rel="noopener">▶ YouTubeで「${esc(topicName(q.topic))}」を探す</a></p>`;
+  return h;
+}
+V.feedback = () => {
+  const sess = S.current, q = QBY.get(sess.qids[sess.idx]), a = sess.answers[sess.idx];
+  const ok = a && !a.skipped && a.cu === a.tu;
+  const last = sess.idx + 1 >= sess.qids.length;
+  return `<section class="card">${qHeader(q, sess)}
+    <div class="verdict ${a.skipped ? "skip" : ok ? "ok" : "ng"}">${a.skipped ? "スキップ" : q.format === "選択式" ? `${a.cu} / ${a.tu} 正解` : ok ? "正解" : "不正解"}${a.ms ? `<small>${Math.round(a.ms / 1000)}秒</small>` : ""}</div>
+    ${explainHtml(q, a)}
+    <div class="actions2"><button class="btn" data-act="finish">終了</button><button class="btn primary" data-act="next">${last ? "結果を見る" : "次へ"}</button></div></section>`;
+};
+V.review = () => {
+  const s = S.sessions.find((x) => x.id === view.sid), q = QBY.get(view.qid);
+  const a = s ? s.answers[view.i] : null;
+  return `<section class="card">${qHeader(q, null)}${explainHtml(q, a)}<button class="btn" data-act="${s ? "back-result" : "back-history"}" data-id="${esc(view.sid || "")}">戻る</button></section>`;
+};
+
+V.result = () => {
+  const s = S.sessions.find((x) => x.id === view.id); if (!s) return V.history();
+  let mockHtml = "";
+  if (s.mode === "mock") {
+    const sc = scoreMock({ ...s, qids: s.qids, answers: s.answers });
+    const rows = (r) => `<ul class="scores">${r.map((x) => `<li class="${x.ok ? "" : "ng"}"><span>${esc(x.name)}${x.need !== undefined && x.need !== (r === sc.sRows ? sc.P.sentaku_each : sc.P.takuitsu_each) ? `<small>（基準${x.need}）</small>` : ""}</span><b>${x.score}/${x.max}</b></li>`).join("")}</ul>`;
+    mockHtml = `<section class="card"><h2>基準点判定 ${sc.passed === true ? `<span class="tag ok">合格ライン</span>` : sc.passed === false ? `<span class="tag ng">不合格ライン</span>` : ""}</h2>
+      ${sc.sRows.length ? `<h3>選択式 ${sc.sT}/${sc.sMax}点（${sc.official ? "合格基準" : "目安"} ${sc.P.sentaku_total}点以上・各${sc.P.sentaku_each}点以上）</h3>${rows(sc.sRows)}` : ""}
+      ${sc.tRows.length ? `<h3>択一式 ${sc.tT}/${sc.tMax}点（${sc.official ? "合格基準" : "目安"} ${sc.P.takuitsu_total}点以上・各${sc.P.takuitsu_each}点以上）</h3>${rows(sc.tRows)}` : ""}
+      ${!sc.full ? `<p class="small muted">片方だけなので総合判定は出しません。${sc.sRows.length ? `選択式は${sc.sOk ? "基準クリア" : "基準未達"}。` : ""}${sc.tRows.length ? `択一式は${sc.tOk ? "基準クリア" : "基準未達"}。` : ""}</p>` : ""}
+      ${sc.free ? `<p class="small muted">法改正・出題誤り等で除外した${sc.free}問は正解扱いで加点しています。</p>` : ""}</section>`;
+  }
+  const skipped = s.qids.length - s.n;
+  return `<section class="card"><h2 style="justify-content:center;color:var(--accent)">${esc(s.title)}</h2>
+    <div class="kpis"><div><b style="color:var(--ok)">${s.cu}</b><small>/ ${s.tu} 正解</small></div><div><b style="color:var(--accent)">${pct(s.cu, s.tu) ?? 0}<em>%</em></b><small>正答率</small></div><div><b>${skipped}</b><small>スキップ</small></div></div></section>
+    ${mockHtml}${adviceCard(s.id)}
+    <section class="card"><h2>問題一覧</h2><ul class="list">${s.qids.map((id, i) => { const q = QBY.get(id); if (!q) return ""; const a = s.answers[i];
+      const cls = !a || a.skipped ? "skip" : a.cu === a.tu ? "ok" : "ng", m = !a || a.skipped ? "–" : a.cu === a.tu ? "○" : q.format === "選択式" ? a.cu : "×";
+      return `<li><button class="qrow" data-act="review" data-sid="${esc(s.id)}" data-qid="${esc(id)}" data-i="${i}"><span class="mark ${cls}">${m}</span><span><small class="muted">${esc(qlabel(q))}</small><br>${esc(topicName(q.topic))}</span><span></span></button></li>`; }).join("")}</ul></section>
+    <button class="btn primary" data-act="tab" data-id="practice">演習に戻る</button>`;
+};
+
+V.learn = () => {
+  const ts = topicStats();
+  return `<section class="card"><p class="small muted" style="margin:0">論点ごとの正答率と、YouTube の講座動画を探すリンクです。弱い論点から演習できます。</p></section>
+    ${DATA.topics.map((g) => `<h2 class="group-title">${esc(g.group)}</h2>${g.topics.map((t) => { const s = ts[t.id];
+      return `<section class="card"><div class="row"><strong style="color:var(--accent)">${esc(t.name)}</strong>${s && s.pct != null ? `<span class="tag ${s.pct < 60 ? "ng" : ""}">${s.pct}%</span>` : `<small class="muted">未回答</small>`}</div>
+        <div class="links"><button class="link-btn" data-act="topic-practice" data-id="${t.id}">この論点を演習</button><a href="${ytSearch(t.name)}" target="_blank" rel="noopener">YouTubeで探す</a></div></section>`; }).join("")}`).join("")}`;
+};
+
+V.history = () => {
+  const ov = overview();
+  return `<section class="card"><h2>科目別の成績</h2><p class="small muted">全体 ${ov.answers}回答・正答率 ${ov.pct ?? "–"}%（直近7日 ${ov.recentPct ?? "–"}%）</p>${subjectList(subjectStats())}</section>
+    ${adviceCard("")}
+    <section class="card"><h2>最近のセッション</h2>${S.sessions.length ? "" : `<p class="muted">まだありません。演習すると、ここに記録が並びます。</p>`}
+    <ul class="list">${S.sessions.map((s) => `<li><button class="qrow" data-act="result" data-id="${esc(s.id)}"><span class="mark ${s.mode === "mock" ? "mock" : ""}">${s.mode === "mock" ? "模" : s.mode === "review" ? "復" : "演"}</span>
+      <span><small class="muted">${esc(s.date.slice(0, 16).replace("T", " "))}</small><br>${esc(s.title)}</span><span class="num">${pct(s.cu, s.tu) ?? 0}%<br><small class="muted">${s.n}問</small></span></button></li>`).join("")}</ul></section>`;
+};
+
+V.prefs = () => {
+  const st = S.settings, f = flash; flash = "";
+  const nUnc = DATA.questions.filter((q) => q.law_check === "uncertain").length, nRev = DATA.questions.filter((q) => q.law_check === "revised").length;
+  return `${f ? `<p class="tag ok" style="padding:8px 12px;border-radius:10px;display:block">${esc(f)}</p>` : ""}
+    <section class="card"><h2>試験・出題</h2><div class="stack">
+    <label class="field">本試験日<input type="date" id="s-date" value="${esc(st.exam_date)}"></label>
+    <label class="field">模試用に取っておく試験回（分野別演習に出さない）<select id="s-mock"><option value="">なし</option>${DATA.exams.filter((e) => e.formats.includes("択一式")).map((e) => `<option ${e.exam === st.mock_exam ? "selected" : ""}>${esc(e.exam)}</option>`).join("")}</select></label>
+    <label class="field">1回の問題数<input type="number" id="s-per" min="1" max="70" value="${st.per_session}"></label>
+    <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="s-unc" ${st.include_uncertain ? "checked" : ""}> 「要確認」の問題も出題する（${nUnc}問）</label>
+    <small class="muted">法改正で使えなくなった問題（${nRev}問）は常に出しません。</small>
+    <button class="btn primary" data-act="save-prefs">保存</button></div></section>
+    <section class="card"><h2>収録データ</h2><ul class="list">${DATA.exams.map((e) => `<li><span>${esc(e.exam)}</span><span class="muted small">${e.formats.join("・")} ${e.count}${e.formats.includes("一問一答") ? "肢" : "問"}</span></li>`).join("")}</ul>
+    <p class="small muted">令和6〜8年度は試験センター公表の問題・正答（正答は公式と全問照合済み）。平成29〜令和5年度は社労士過去問ラボ経由の問題文を一問一答にしたもので、○×と解説は独自に作成しています。解説はAIが書いたもので誤りを含む可能性があります。</p></section>
+    <section class="card"><h2>保存先</h2><p class="small">${store ? "学習記録はこのページのクラウド保存領域に保存されています（あなた専用・ほかの人からは見えません）。機種変更しても残ります。" : "今は端末のブラウザ内に保存しています。claude.ai にログインした状態で開くと、クラウドに保存されます。"}</p></section>`;
+};
+
+/* ============ 描画とイベント ============ */
+function render() {
+  if (!DATA) return;
+  $("#tabs").innerHTML = TABS.map(([k, l, d]) => `<button data-act="tab" data-id="${k}" ${tab === k ? 'aria-current="page"' : ""}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="${d}"/></svg><span>${l}</span></button>`).join("");
+  $("#view").innerHTML = (V[view.name] || V.home)();
+}
+
+document.addEventListener("change", (e) => {
+  const id = e.target.id;
+  if (id === "p-subject") { P.subject = e.target.value; P.topic = ""; render(); }
+  else if (id === "p-topic") P.topic = e.target.value;
+  else if (id === "p-fmt") P.fmt = e.target.value;
+  else if (id === "p-count") P.count = Number(e.target.value);
+});
+document.addEventListener("click", (e) => {
+  const el = e.target.closest("[data-act]"); if (!el || el.disabled) return;
+  const act = el.dataset.act, d = el.dataset;
+  switch (act) {
+    case "tab": go(d.id); break;
+    case "subject": P.subject = d.id; P.topic = ""; go("practice"); break;
+    case "order": P.order = d.v; render(); break;
+    case "start": {
+      const parts = [P.topic ? topicName(P.topic) : P.subject ? SUBJECTS[P.subject] : "全科目"]; if (P.fmt) parts.push(P.fmt);
+      parts.push({ wrong: "誤答復習", new: "未着手", random: "ランダム" }[P.order] || "おまかせ");
+      startSession(P.order === "wrong" ? "review" : "practice", parts.join(" / "), selectQuestions(P)); break; }
+    case "quick": startSession("practice", "おまかせ", selectQuestions({ count: S.settings.per_session })); break;
+    case "wrong": startSession("review", "誤答復習", selectQuestions({ order: "wrong", count: S.settings.per_session })); break;
+    case "topic-practice": startSession("practice", topicName(d.id), selectQuestions({ topic: d.id, count: 10 })); break;
+    case "resume": view = { name: "question", t0: Date.now() }; tab = "practice"; render(); scrollTo(0, 0); break;
+    case "mock": {
+      let qs = eligible(true).filter((q) => q.exam === d.exam && q.format !== "一問一答" && (!d.fmt || q.format === d.fmt));
+      qs.sort((a, b) => (a.format !== "選択式") - (b.format !== "選択式") || a.number - b.number);
+      startSession("mock", `${d.exam} 試験回${d.fmt ? `（${d.fmt}）` : ""}`, qs.map((q) => q.id), d.exam); break; }
+    case "pick":
+      picked = d.v; document.querySelectorAll(".choice").forEach((b) => b.setAttribute("aria-pressed", String(b === el)));
+      document.querySelector('[data-act="submit-choice"]').disabled = false; break;
+    case "submit-choice": if (picked) answerCurrent(picked, false); break;
+    case "submit-blanks": {
+      const input = {}; document.querySelectorAll("[data-blank]").forEach((s) => (input[s.dataset.blank] = s.value));
+      answerCurrent(input, false); break; }
+    case "ox": answerCurrent(d.v, false); break;
+    case "skip": answerCurrent(null, true); break;
+    case "next": nextQuestion(); break;
+    case "finish": finishSession(); render(); scrollTo(0, 0); break;
+    case "result": go("result", { id: d.id }); tab = "history"; render(); break;
+    case "review": go("review", { sid: d.sid, qid: d.qid, i: Number(d.i) }); break;
+    case "back-result": go("result", { id: d.id }); break;
+    case "back-history": go("history"); break;
+    case "advice": askAdvice(d.sid || ""); break;
+    case "save-prefs": {
+      const st = S.settings;
+      st.exam_date = $("#s-date").value || st.exam_date; st.mock_exam = $("#s-mock").value;
+      st.per_session = Math.max(1, Math.min(70, Number($("#s-per").value) || 10)); st.include_uncertain = $("#s-unc").checked;
+      persist("settings", st); flash = "保存しました"; render(); break; }
+  }
+});
+
+/* ============ 起動 ============ */
+(async () => {
+  try {
+    const res = await fetch("data.json");
+    DATA = await res.json();
+  } catch (e) { $("#view").innerHTML = `<div class="card err">問題データを読み込めませんでした。ページを開き直してください。</div>`; return; }
+  for (const q of DATA.questions) QBY.set(q.id, q);
+  for (const g of DATA.topics) for (const t of g.topics) TOPIC.set(t.id, { ...t, group: g.group, subject: g.subject });
+  loadLocal();
+  P.count = S.settings.per_session;
+  render();
+  connectStore();
+})();
+</script>
