@@ -62,6 +62,7 @@ class Store:
     groups: list[dict] = field(default_factory=list)
     questions: dict[str, dict] = field(default_factory=dict)
     exams: list[dict] = field(default_factory=list)  # [{exam, year_num, count}]
+    exam_meta: dict[str, dict] = field(default_factory=dict)  # 試験回ごとの合格基準など
     videos: list[Video] = field(default_factory=list)
 
     def topic_name(self, tid: str) -> str:
@@ -100,6 +101,10 @@ def load_store() -> Store:
             n += 1
         s.exams.append({"exam": exam, "year_num": year_num, "count": n})
     s.exams.sort(key=lambda e: e["year_num"], reverse=True)
+
+    mpath = DATA_DIR / "exams.json"
+    if mpath.exists():
+        s.exam_meta = {k: v for k, v in _load_json(mpath).items() if not k.startswith("_")}
 
     vpath = DATA_DIR / "videos.json"
     if vpath.exists():

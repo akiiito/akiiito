@@ -133,15 +133,15 @@ def overview(store: Store, settings: dict) -> dict:
 
 
 def score_mock(store: Store, settings: dict, qids: list[str], answers: dict[int, dict]) -> dict:
-    """模試の採点。選択式は空欄1つ1点（科目5点満点）、択一式は1問1点（科目10点満点）。"""
+    """模試の採点。選択式は空欄1つ1点（科目5点満点）、択一式は1問1点（科目10点満点）。
+
+    - 試験回の公式合格基準（data/exams.json）があればそれを使い、なければ設定の目安を使う。
+    - 法改正等で出題から外した問題は、公式の「全員正解」扱いにならって得点に加える。
+    """
     sen = defaultdict(lambda: [0, 0])
     tak = defaultdict(lambda: [0, 0])
-    for i, qid in enumerate(qids):
-        q = store.questions.get(qid)
-        if not q:
-            continue
-        a = answers.get(i)
-        cu = a["correct_units"] if a and not a["skipped"] else 0
+
+    def add(q, cu):
         if q["format"] == "選択式":
             sen[q["subject"]][0] += cu
             sen[q["subject"]][1] += len(q["blanks"])
@@ -149,16 +149,38 @@ def score_mock(store: Store, settings: dict, qids: list[str], answers: dict[int,
             grp = next(g for g, subs in TAKUITSU_GROUPS.items() if q["subject"] in subs)
             tak[grp][0] += cu
             tak[grp][1] += 1
-    s_each = int(settings.get("pass_sentaku_each", 3))
-    t_each = int(settings.get("pass_takuitsu_each", 4))
-    s_rows = [{"name": SUBJECTS[k], "score": v[0], "max": v[1], "ok": v[0] >= s_each}
-              for k, v in sen.items()]
-    t_rows = [{"name": TAKUITSU_GROUP_NAMES[k], "score": v[0], "max": v[1], "ok": v[0] >= t_each}
-              for k, v in tak.items()]
+
+    exams, formats = set(), set()
+    for i, qid in enumerate(qids):
+        q = store.questions.get(qid)
+        if not q:
+            continue
+        exams.add(q["exam"])
+        formats.add(q["format"])
+        a = answers.get(i)
+        add(q, a["correct_units"] if a and not a["skipped"] else 0)
+    exam = next(iter(exams)) if len(exams) == 1 else None
+    free = 0
+    if exam:
+        for q in store.questions.values():
+            if q["exam"] == exam and q["format"] in formats and q["id"] not in qids:
+                add(q, len(q["blanks"]) if q["format"] == "選択式" else 1)
+                free += 1
+
+    crit = (store.exam_meta.get(exam, {}) if exam else {}).get("pass")
+    if crit:
+        s_need, s_each, s_exc = crit["sentaku_total"], crit["sentaku_each"], crit.get("sentaku_except", {})
+        t_need, t_each, t_exc = crit["takuitsu_total"], crit["takuitsu_each"], crit.get("takuitsu_except", {})
+    else:
+        s_need, s_each, s_exc = int(settings.get("pass_sentaku_total", 25)), int(settings.get("pass_sentaku_each", 3)), {}
+        t_need, t_each, t_exc = int(settings.get("pass_takuitsu_total", 44)), int(settings.get("pass_takuitsu_each", 4)), {}
+
+    s_rows = [{"name": SUBJECTS[k], "score": v[0], "max": v[1], "need": s_exc.get(k, s_each),
+               "ok": v[0] >= s_exc.get(k, s_each)} for k, v in sen.items()]
+    t_rows = [{"name": TAKUITSU_GROUP_NAMES[k], "score": v[0], "max": v[1], "need": t_exc.get(k, t_each),
+               "ok": v[0] >= t_exc.get(k, t_each)} for k, v in tak.items()]
     s_total = sum(r["score"] for r in s_rows)
     t_total = sum(r["score"] for r in t_rows)
-    s_need = int(settings.get("pass_sentaku_total", 25))
-    t_need = int(settings.get("pass_takuitsu_total", 44))
     full = sum(r["max"] for r in s_rows) == 40 and sum(r["max"] for r in t_rows) == 70
     passed = (s_total >= s_need and t_total >= t_need
               and all(r["ok"] for r in s_rows) and all(r["ok"] for r in t_rows)) if full else None
@@ -167,4 +189,7 @@ def score_mock(store: Store, settings: dict, qids: list[str], answers: dict[int,
         "sentaku_total": s_total, "sentaku_max": sum(r["max"] for r in s_rows), "sentaku_need": s_need,
         "takuitsu_total": t_total, "takuitsu_max": sum(r["max"] for r in t_rows), "takuitsu_need": t_need,
         "sentaku_each": s_each, "takuitsu_each": t_each, "full": full, "passed": passed,
+        "official": bool(crit), "exam": exam, "free": free,
+        "sentaku_ok": s_total >= s_need and all(r["ok"] for r in s_rows),
+        "takuitsu_ok": t_total >= t_need and all(r["ok"] for r in t_rows),
     }

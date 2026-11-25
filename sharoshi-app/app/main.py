@@ -167,7 +167,7 @@ async def answer(request: Request, sid: int, idx: int):
         sel = form.get("choice")
         if not sel and not skipped:
             return RedirectResponse(f"/s/{sid}/{idx}", status_code=303)
-        correct = int(sel == q["answer"]) if not skipped else 0
+        correct = int(sel == q["answer"] or sel in q.get("also_correct", [])) if not skipped else 0
         db.record_answer(sid, idx, q["id"], None if skipped else sel, skipped, correct, 1, time_ms)
 
     if sess["mode"] == "mock":

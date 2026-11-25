@@ -28,9 +28,10 @@
     <ul class="explain">
     {% for b in q.blanks %}
       {% set mine = ans.selected[b.label] if ans and ans.selected else none %}
+      {% set opts = b.options or q.options %}
       <li class="{{ 'ok' if mine == b.answer else 'ng' }}">
-        <div><span class="blank">{{ b.label }}</span> 正解: <b>{{ b.answer }}. {{ q.options[b.answer - 1] }}</b>
-          {% if ans and not ans.skipped %}<small>（あなた: {{ (mine ~ '. ' ~ q.options[mine - 1]) if mine else '未選択' }}）</small>{% endif %}</div>
+        <div><span class="blank">{{ b.label }}</span> 正解: <b>{{ b.answer }}. {{ opts[b.answer - 1] }}</b>
+          {% if ans and not ans.skipped %}<small>（あなた: {{ (mine ~ '. ' ~ opts[mine - 1]) if mine else '未選択' }}）</small>{% endif %}</div>
         <small>{{ b.explanation }}</small>
       </li>
     {% endfor %}
@@ -39,10 +40,11 @@
     <ul class="explain">
     {% for c in q.choices %}
       {% set mine = ans and ans.selected == c.label %}
-      <li class="{{ 'answer' if c.label == q.answer }} {{ 'mine' if mine }}">
+      {% set is_ans = c.label == q.answer or c.label in (q.also_correct or []) %}
+      <li class="{{ 'answer' if is_ans }} {{ 'mine' if mine }}">
         <div class="choice-head"><span class="lbl">{{ c.label }}</span>
-          {% if c.label == q.answer %}<span class="tag ok">正答</span>{% endif %}
-          {% if mine and c.label != q.answer %}<span class="tag ng">あなたの回答</span>{% endif %}
+          {% if is_ans %}<span class="tag ok">正答</span>{% endif %}
+          {% if mine and not is_ans %}<span class="tag ng">あなたの回答</span>{% endif %}
         </div>
         <p>{{ c.text }}</p>
         <small>{{ c.explanation }}</small>

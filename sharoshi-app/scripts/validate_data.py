@@ -53,9 +53,12 @@ def check_questions(path: Path, topics: set[str]) -> list[str]:
                 errs.append(w + "choices は A〜E の5つが必要")
             if q.get("answer") not in LABELS:
                 errs.append(w + "answer が A〜E ではない")
-            if sum(bool(c.get("correct")) for c in ch) != 1 or not any(
-                    c.get("correct") and c.get("label") == q.get("answer") for c in ch):
-                errs.append(w + "correct フラグと answer が一致しない")
+            also = q.get("also_correct") or []
+            want = {q.get("answer"), *also}
+            if {c.get("label") for c in ch if c.get("correct")} != want:
+                errs.append(w + "correct フラグと answer(+also_correct) が一致しない")
+            if not set(also) <= set(LABELS):
+                errs.append(w + "also_correct が不正")
             for c in ch:
                 if not c.get("text") or not c.get("explanation"):
                     errs.append(w + f'肢{c.get("label")} の text/explanation が空')
@@ -65,16 +68,24 @@ def check_questions(path: Path, topics: set[str]) -> list[str]:
                     errs.append(w + f"問{n} の subject は {sorted(exp)} のはず")
         elif q.get("format") == "選択式":
             opts = q.get("options") or []
-            if len(opts) != 20:
-                errs.append(w + f"options は20個（現在{len(opts)}）")
             bl = q.get("blanks") or []
+            per_blank = any(b.get("options") for b in bl)
+            if per_blank:
+                if opts:
+                    errs.append(w + "options と blanks[].options は併用しない")
+                for b in bl:
+                    if not 2 <= len(b.get("options") or []) <= 8:
+                        errs.append(w + f'空欄{b.get("label")} の options は2〜8個')
+            elif len(opts) != 20:
+                errs.append(w + f"options は20個（現在{len(opts)}）")
             if [b.get("label") for b in bl] != LABELS:
                 errs.append(w + "blanks は A〜E の5つが必要")
             text = q.get("text", "")
             for b in bl:
                 if f'［{b.get("label")}］' not in text:
                     errs.append(w + f'本文に ［{b.get("label")}］ がない')
-                if not isinstance(b.get("answer"), int) or not 1 <= b["answer"] <= len(opts):
+                n_opt = len(b.get("options") or []) if per_blank else len(opts)
+                if not isinstance(b.get("answer"), int) or not 1 <= b["answer"] <= n_opt:
                     errs.append(w + f'空欄{b.get("label")} の answer が範囲外')
                 if not b.get("explanation"):
                     errs.append(w + f'空欄{b.get("label")} の explanation が空')

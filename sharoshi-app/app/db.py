@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS settings (
 
 DEFAULT_SETTINGS = {
     "exam_date": "2027-08-22",       # 例年8月第4日曜。公式発表で要確認
-    "mock_exam": "",                 # 模試用に分野別演習から除外する試験回（例: 令和7年度）
+    "mock_exam": "令和8年度",        # 模試用に分野別演習から除外する試験回（最新年度を取っておく）
     "law_baseline": "2027-04-16",    # 法令基準日（例年4月中旬施行のものまで）
     "per_session": "10",
     "include_uncertain": "1",        # 法改正「要確認」の問題も出題する

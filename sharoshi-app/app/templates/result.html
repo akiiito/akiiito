@@ -15,16 +15,17 @@
 <section class="card">
   <h2>基準点判定
     {% if mock.passed is true %}<span class="tag ok">合格ライン</span>{% elif mock.passed is false %}<span class="tag ng">不合格ライン</span>{% endif %}</h2>
-  {% if not mock.full %}<p class="muted small">1回分が揃っていないため、総合判定は表示しません（科目別のみ）。</p>{% endif %}
+  {% if not mock.full %}<p class="muted small">選択式・択一式の片方だけなので総合判定は出しません。{% if mock.sentaku %}選択式は{{ '基準クリア' if mock.sentaku_ok else '基準未達' }}。{% endif %}{% if mock.takuitsu %}択一式は{{ '基準クリア' if mock.takuitsu_ok else '基準未達' }}。{% endif %}</p>{% endif %}
   {% if mock.sentaku %}
-  <h3>選択式 {{ mock.sentaku_total }}/{{ mock.sentaku_max }}点 <small class="muted">（総得点目安 {{ mock.sentaku_need }}点・各科目{{ mock.sentaku_each }}点）</small></h3>
-  <ul class="scores">{% for r in mock.sentaku %}<li class="{{ 'ok' if r.ok else 'ng' }}"><span>{{ r.name }}</span><b>{{ r.score }}/{{ r.max }}</b></li>{% endfor %}</ul>
+  <h3>選択式 {{ mock.sentaku_total }}/{{ mock.sentaku_max }}点 <small class="muted">（{{ '合格基準' if mock.official else '目安' }} {{ mock.sentaku_need }}点以上・各科目{{ mock.sentaku_each }}点以上）</small></h3>
+  <ul class="scores">{% for r in mock.sentaku %}<li class="{{ 'ok' if r.ok else 'ng' }}"><span>{{ r.name }}{% if r.need != mock.sentaku_each %}<small>（基準{{ r.need }}）</small>{% endif %}</span><b>{{ r.score }}/{{ r.max }}</b></li>{% endfor %}</ul>
   {% endif %}
   {% if mock.takuitsu %}
-  <h3>択一式 {{ mock.takuitsu_total }}/{{ mock.takuitsu_max }}点 <small class="muted">（総得点目安 {{ mock.takuitsu_need }}点・各科目{{ mock.takuitsu_each }}点）</small></h3>
-  <ul class="scores">{% for r in mock.takuitsu %}<li class="{{ 'ok' if r.ok else 'ng' }}"><span>{{ r.name }}</span><b>{{ r.score }}/{{ r.max }}</b></li>{% endfor %}</ul>
+  <h3>択一式 {{ mock.takuitsu_total }}/{{ mock.takuitsu_max }}点 <small class="muted">（{{ '合格基準' if mock.official else '目安' }} {{ mock.takuitsu_need }}点以上・各科目{{ mock.takuitsu_each }}点以上）</small></h3>
+  <ul class="scores">{% for r in mock.takuitsu %}<li class="{{ 'ok' if r.ok else 'ng' }}"><span>{{ r.name }}{% if r.need != mock.takuitsu_each %}<small>（基準{{ r.need }}）</small>{% endif %}</span><b>{{ r.score }}/{{ r.max }}</b></li>{% endfor %}</ul>
   {% endif %}
-  <small class="muted">基準点は年度により補正されます。設定で変更できます。</small>
+  {% if mock.free %}<p class="small muted">法改正・出題誤り等で除外した {{ mock.free }}問は正解扱いで加点しています。</p>{% endif %}
+  <small class="muted">{% if mock.official %}{{ mock.exam }}の公式合格基準で判定しています。{% else %}合格基準は設定の目安で判定しています。{% endif %}</small>
 </section>
 {% endif %}
 

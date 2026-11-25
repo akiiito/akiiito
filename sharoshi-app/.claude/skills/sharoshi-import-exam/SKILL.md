@@ -50,6 +50,7 @@ description: 社労士試験の過去問PDF（問題・正答）を読み、Scor
   - 1〜10：roki、11〜20：rosai、21〜30：koyo、31〜40：roippan か shaippan（内容で判断）。
   - 41〜50：kenpo、51〜60：konen、61〜70：kokunen。
 - 徴収法の問題（労災・雇用の後半3問程度）は、topic に `lc_*` を使う。
+- 公式に正答が複数とされた問題：`answer` に1つ目を入れ、`"also_correct": ["D"]` を追加する。両方の肢を `correct: true` にする。
 - 組合せ問題（「アとイ」など）や個数問題も、A〜E の肢にそのまま書き起こす。
   - 各肢の explanation で、ア〜オそれぞれの正誤にも触れる。
 
@@ -66,6 +67,10 @@ description: 社労士試験の過去問PDF（問題・正答）を読み、Scor
 
 - `subject` は問1〜8の順に、roki, rosai, koyo, roippan, shaippan, kenpo, konen, kokunen。
 - `answer` は語群の番号（1始まり）。
+- 令和8年度以降は、空欄ごとに①〜④などの選択肢を持つ問題がある。その場合は次のようにする。
+  - 問題全体の `options` を省く。
+  - 各空欄に `"options": ["…", "…", "…", "…"]` を持たせる。
+  - `answer` はその空欄の選択肢内の番号にする。
 
 ## 書き起こしと解説のルール
 

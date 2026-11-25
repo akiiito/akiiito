@@ -23,14 +23,20 @@
         <label class="blank-row"><span class="blank">{{ b.label }}</span>
           <select name="blank_{{ b.label }}">
             <option value="">― 選択 ―</option>
-            {% for o in q.options %}<option value="{{ loop.index }}">{{ loop.index }}. {{ o }}</option>{% endfor %}
+            {% for o in (b.options or q.options) %}<option value="{{ loop.index }}">{{ loop.index }}. {{ o }}</option>{% endfor %}
           </select>
         </label>
         {% endfor %}
       </div>
+      {% if q.options %}
       <details class="opts"><summary>選択肢一覧（{{ q.options|length }}）</summary>
         <ol class="optlist">{% for o in q.options %}<li>{{ o }}</li>{% endfor %}</ol>
       </details>
+      {% else %}
+      <details class="opts"><summary>空欄ごとの選択肢</summary>
+        {% for b in q.blanks %}<div><b class="blank">{{ b.label }}</b> {% for o in b.options %}<span class="opt-inline">{{ loop.index }}. {{ o }}</span>{% endfor %}</div>{% endfor %}
+      </details>
+      {% endif %}
     {% else %}
       <div class="choices">
         {% for c in q.choices %}

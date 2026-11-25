@@ -1,0 +1,9 @@
+{
+  "_comment": "試験回ごとの公式合格基準（試験センター「合格基準及び正答について」より）。except は科目別基準点の補正。",
+  "令和6年度": {"pass": {"sentaku_total": 25, "sentaku_each": 3, "sentaku_except": {"roippan": 2},
+                        "takuitsu_total": 44, "takuitsu_each": 4, "takuitsu_except": {}}},
+  "令和7年度": {"pass": {"sentaku_total": 22, "sentaku_each": 3, "sentaku_except": {"rosai": 2, "roippan": 2, "shaippan": 2},
+                        "takuitsu_total": 42, "takuitsu_each": 4, "takuitsu_except": {"koyo": 3}}},
+  "令和8年度": {"pass": {"sentaku_total": 25, "sentaku_each": 3, "sentaku_except": {"koyo": 2},
+                        "takuitsu_total": 47, "takuitsu_each": 4, "takuitsu_except": {}}}
+}
