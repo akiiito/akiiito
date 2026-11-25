@@ -380,7 +380,9 @@ async function askAdvice(sessionId) {
   if (!sample) { adviceState = { busy: false, error: "この画面では Claude に相談できません（claude.ai で開いてください）。" }; render(); return; }
   adviceState = { busy: true, error: "" }; render();
   try {
-    const res = await sample.json(ADVISOR + "\n\n演習ログ:\n" + JSON.stringify(buildContext(sessionId)), { cache: false });
+    // sharoshi-advisor スキル（SKILL.md）の本文を指示として送る。data.json に無ければ内蔵の要約版を使う。
+    const instructions = DATA.advisor_prompt || ADVISOR;
+    const res = await sample.json(instructions + "\n\n演習ログ:\n" + JSON.stringify(buildContext(sessionId)), { cache: false });
     if (!res || typeof res.summary !== "string") throw { code: "invalid_json" };
     S.advice = { summary: res.summary, focus: Array.isArray(res.focus) ? res.focus.filter((f) => f && f.title).slice(0, 6) : [], actions: Array.isArray(res.actions) ? res.actions.map(String).slice(0, 6) : [], at: new Date().toISOString() };
     persist("advice", S.advice);
