@@ -27,7 +27,7 @@
     </label>
     <div class="grid2">
       <label>形式
-        <select name="fmt"><option value="">両方</option><option>択一式</option><option>選択式</option></select>
+        <select name="fmt"><option value="">両方</option><option>択一式</option><option>選択式</option><option>一問一答</option></select>
       </label>
       <label>問題数
         <select name="count">{% for n in [5, 10, 20, 30] %}<option {{ 'selected' if n|string == settings.per_session }}>{{ n }}</option>{% endfor %}</select>
@@ -50,7 +50,7 @@
   <p class="muted">本試験と同じ順で1回分を通しで解きます。回答中は正誤を表示せず、最後に科目別の基準点判定を出します。</p>
   {% if settings.mock_exam %}<p><span class="tag">{{ settings.mock_exam }}</span> は模試用として分野別演習から除外中</p>{% endif %}
   <ul class="list">
-    {% for e in exams %}
+    {% for e in exams if e.mockable %}
     <li>
       <div><strong>{{ e.exam }}</strong> <small class="muted">{{ e.count }}問</small></div>
       <form method="post" action="/mock/start" class="row-actions">

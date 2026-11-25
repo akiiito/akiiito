@@ -1,0 +1,1807 @@
+{
+ "exam": "平成29年度",
+ "year_num": 2017,
+ "prefix": "H29",
+ "items": [
+  {
+   "number": 1,
+   "branch": "A",
+   "text": "1か月単位の変形労働時間制により、毎週日曜を起算日とする1週間について、各週の月曜、火曜、木曜、金曜を所定労働日とし、その所定労働時間をそれぞれ9時間、計36時間としている事業場において、その各所定労働日に9時間を超えて労働時間を延長すれば、その延長した時間は法定労働時間を超えた労働となるが、日曜から金曜までの間において所定どおり労働した後の土曜に6時間の労働をさせた場合は、そのうちの2時間が法定労働時間を超えた労働になる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 1,
+   "branch": "B",
+   "text": "1か月単位の変形労働時間制により、毎週日曜を起算日とする1週間について、各週の月曜、火曜、木曜、金曜を所定労働日とし、その所定労働時間をそれぞれ9時間、計36時間としている事業場において、あらかじめ水曜の休日を前日の火曜に、火曜の労働時間をその水曜に振り替えて9時間の労働をさせたときは、水曜の労働はすべて法定労働時間内の労働になる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 1,
+   "branch": "C",
+   "text": "労働基準法第34条に定める休憩時間は、労働基準監督署長の許可を受けた場合に限り、一斉に与えなくてもよい。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 1,
+   "branch": "D",
+   "text": "労働基準法第35条に定める「一回の休日」は、24時間継続して労働義務から解放するものであれば、起算時点は問わないのが原則である。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 1,
+   "branch": "E",
+   "text": "休日労働が、8時間を超え、深夜業に該当しない場合の割増賃金は、休日労働と時間外労働の割増率を合算しなければならない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 2,
+   "branch": "A",
+   "text": "何ら事業を営むことのない大学生が自身の引っ越しの作業を友人に手伝ってもらい、その者に報酬を支払ったとしても、当該友人は労働基準法第9条に定める労働者に該当しないので、当該友人に労働基準法は適用されない。",
+   "lab_ox": true,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 2,
+   "branch": "B",
+   "text": "法人に雇われ、その役職員の家庭において、その家族の指揮命令の下で家事一般に従事している者については、法人に使用される労働者であり労働基準法が適用される。",
+   "lab_ox": false,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 2,
+   "branch": "C",
+   "text": "同居の親族は、事業主と居住及び生計を一にするものとされ、その就労の実態にかかわらず労働基準法第9条の労働者に該当することがないので、当該同居の親族に労働基準法が適用されることはない。",
+   "lab_ox": false,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 2,
+   "branch": "D",
+   "text": "株式会社の取締役であっても業務執行権又は代表権を持たない者は、工場長、部長等の職にあって賃金を受ける場合には、その限りにおいて労働基準法第9条に規定する労働者として労働基準法の適用を受ける。",
+   "lab_ox": true,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 2,
+   "branch": "E",
+   "text": "工場が建物修理の為に大工を雇う場合、そのような工事は一般に請負契約によることが多く、また当該工事における労働は工場の事業本来の目的の為のものでもないから、当該大工が労働基準法第9条の労働者に該当することはなく、労働基準法が適用されることはない。",
+   "lab_ox": false,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 3,
+   "branch": "A",
+   "text": "満60歳以上の労働者との間に締結される労働契約について、労働契約期間の上限は当該労働者が65歳に達するまでとされている。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 3,
+   "branch": "B",
+   "text": "明示された労働条件と異なるために労働契約を解除し帰郷する労働者について、労働基準法第15条第3項に基づいて使用者が負担しなければならない旅費は労働者本人の分であって、家族の分は含まれない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 3,
+   "branch": "C",
+   "text": "使用者は、労働者が退職から1年後に、使用期間、業務の種類、その事業における地位、賃金又は退職の事由について証明書を請求した場合は、これを交付する義務はない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 3,
+   "branch": "D",
+   "text": "使用者は、労働者が業務上の傷病により治療中であっても、休業しないで就労している場合は、労働基準法第19条による解雇制限を受けない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 3,
+   "branch": "E",
+   "text": "派遣労働者に対する労働条件の明示は、労働者派遣法における労働基準法の適用に関する特例により派遣先の事業のみを派遣中の労働者を使用する事業とみなして適用することとされている労働時間、休憩、休日等については、派遣先の使用者がその義務を負う。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 4,
+   "branch": "A",
+   "text": "労働時間等の設定の改善に関する特別措置法第7条により労働時間等設定改善委員会が設置されている事業場においては、その委員の5分の4以上の多数による議決により決議が行われたときは、当該決議を本条に規定する労使協定に代えることができるが、当該決議は、所轄労働基準監督署長への届出は免除されていない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 4,
+   "branch": "B",
+   "text": "坑内労働その他厚生労働省令で定める健康上特に有害な業務（以下本問において「坑内労働等」という。）の労働時間の延長は、1日について2時間を超えてはならないと規定されているが、坑内労働等とその他の労働が同一の日に行われる場合、例えば、坑内労働等に8時間従事した後にその他の労働に2時間を超えて従事させることは、本条による協定の限度内であっても本条に抵触する。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 4,
+   "branch": "C",
+   "text": "坑内労働等の労働時間の延長は、1日について2時間を超えてはならないと規定されているが、休日においては、10時間を超えて休日労働をさせることを禁止する法意であると解されている。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 4,
+   "branch": "D",
+   "text": "1日の所定労働時間が8時間の事業場において、1時間遅刻をした労働者に所定の終業時刻を1時間繰り下げて労働させることは、時間外労働に従事させたことにならないので、本条に規定する協定がない場合でも、労働基準法第32条違反ではない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 4,
+   "branch": "E",
+   "text": "本社、支店及び営業所の全てにおいてその事業場の労働者の過半数で組織する単一の労働組合がある会社において、本社において社長と当該単一労働組合の本部の長とが締結した本条に係る協定書に基づき、支店又は営業所がそれぞれ当該事業場の業務の種類、労働者数、所定労働時間等所要事項のみ記入して、所轄労働基準監督署長に届け出た場合、有効なものとして取り扱うこととされている。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 5,
+   "branch": "A",
+   "text": "労働基準法第3条は、使用者は、労働者の国籍、信条、性別又は社会的身分を理由として、労働条件について差別的取扱をすることを禁じている。",
+   "lab_ox": false,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 5,
+   "branch": "B",
+   "text": "労働基準法第5条に定める強制労働の禁止に違反した使用者は、「1年以上10年以下の拘禁刑又は20万円以上300万円以下の罰金」に処せられるが、これは労働基準法で最も重い刑罰を規定している。",
+   "lab_ox": true,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 5,
+   "branch": "C",
+   "text": "労働基準法第6条は、法律によって許されている場合のほか、業として他人の就業に介入して利益を得てはならないとしているが、「業として利益を得る」とは、営利を目的として、同種の行為を反覆継続することをいい、反覆継続して利益を得る意思があっても1回の行為では規制対象とならない。",
+   "lab_ox": false,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 5,
+   "branch": "D",
+   "text": "労働者（従業員）が「公職に就任することが会社業務の逐行を著しく阻害する虞れのある場合においても、普通解雇に附するは格別、同条項〔当該会社の就業規則における従業員が会社の承認を得ないで公職に就任したときは懲戒解雇する旨の条項〕を適用して従業員を懲戒解雇に附することは、許されないものといわなければならない。」とするのが、最高裁判所の判例である。",
+   "lab_ox": true,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 5,
+   "branch": "E",
+   "text": "医科大学附属病院に勤務する研修医が、医師の資質の向上を図ることを目的とする臨床研修のプログラムに従い、臨床研修指導医の指導の下に医療行為等に従事することは、教育的な側面を強く有するものであるため、研修医は労働基準法第9条所定の労働者に当たることはないとするのが、最高裁判所の判例の趣旨である。",
+   "lab_ox": false,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 6,
+   "branch": "A",
+   "text": "労働協約の定めによって通貨以外のもので賃金を支払うことが許されるのは、その労働協約の適用を受ける労働者に限られる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 6,
+   "branch": "B",
+   "text": "労働基準法第25条により労働者が非常時払を請求しうる事由は、労働者本人に係る出産、疾病、災害に限られず、その労働者の収入によって生計を維持する者に係る出産、疾病、災害も含まれる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 6,
+   "branch": "C",
+   "text": "1か月の賃金支払額（賃金の一部を控除して支払う場合には控除した額。）に100円未満の端数が生じた場合、50円未満の端数を切り捨て、それ以上を100円に切り上げて支払う事務処理方法は、労働基準法第24条違反としては取り扱わないこととされている。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 6,
+   "branch": "D",
+   "text": "賃金の過払を精算ないし調整するため、後に支払われるべき賃金から控除することは、「その額が多額にわたるものではなく、しかもあらかじめ労働者にそのことを予告している限り、過払のあつた時期と合理的に接着した時期においてされていなくても労働基準法24条1項の規定に違反するものではない。」とするのが、最高裁判所の判例である。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 6,
+   "branch": "E",
+   "text": "労働基準法第26条に定める休業手当は、同条に係る休業期間中において、労働協約、就業規則又は労働契約により休日と定められている日については、支給する義務は生じない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 7,
+   "branch": "A",
+   "text": "労働基準法第56条第1項は、「使用者は、児童が満15歳に達するまで、これを使用してはならない。」と定めている。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 7,
+   "branch": "B",
+   "text": "使用者は、児童の年齢を証明する戸籍証明書を事業場に備え付けることを条件として、満13歳以上15歳未満の児童を使用することができる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 7,
+   "branch": "C",
+   "text": "労働基準法第56条第2項の規定によって使用する児童の法定労働時間は、修学時間を通算して1週間について40時間、及び修学時間を通算して1日について7時間とされている。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 7,
+   "branch": "D",
+   "text": "使用者は、すべての妊産婦について、時間外労働、休日労働又は深夜業をさせてはならない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 7,
+   "branch": "E",
+   "text": "使用者は、生理日の就業が著しく困難な女性が休暇を請求したときは、その者を生理日に就業させてはならないが、請求にあたっては医師の診断書が必要とされている。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 8,
+   "branch": "A",
+   "text": "労働安全衛生法は、基本的に事業者に措置義務を課しているため、事業者から現場管理を任されている従業者が同法により事業者に課せられている措置義務に違反する行為に及んだ場合でも、事業者が違反の責めを負い、従業者は処罰の対象とならない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 8,
+   "branch": "B",
+   "text": "労働者が事業場内における負傷により休業した場合は、その負傷が明らかに業務に起因するものではないと判断される場合であっても、事業者は、労働安全衛生規則第97条の労働者死傷病報告を所轄労働基準監督署長にしなければならない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 8,
+   "branch": "C",
+   "text": "労働安全衛生法は、機械、器具その他の設備を設計し、製造し、又は輸入する者にも、これらの物の設計、製造又は輸入に際して、これらの物が使用されることによる労働災害の発生の防止に資するよう努めることを求めている。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 8,
+   "branch": "D",
+   "text": "労働安全衛生法は、原材料を製造し、又は輸入する者にも、これらの物の製造又は輸入に際して、これらの物が使用されることによる労働災害の発生の防止に資するよう努めることを求めている。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 8,
+   "branch": "E",
+   "text": "労働安全衛生法は、労働基準法と一体的な関係にあるので、例えば「この法律で定める労働条件の基準は最低のものであるから、」に始まる労働基準法第1条第2項に定めるような労働憲章的部分は、労働安全衛生法の施行においても基本となる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 9,
+   "branch": "A",
+   "text": "Ｘ市にある本社には、総括安全衛生管理者、衛生管理者及び産業医を選任しなければならない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 9,
+   "branch": "B",
+   "text": "Ｙ市にある工場には、安全委員会及び衛生委員会を設置しなければならず、それぞれの委員会の設置に代えて、安全衛生委員会を設置することができるが、産業医については、その工場に専属の者を選任しなければならない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 9,
+   "branch": "C",
+   "text": "Ｙ市にある工場には衛生管理者を3人選任しなければならないが、そのうち少なくとも1人を衛生工学衛生管理者免許を受けた者のうちから選任しなければならない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 9,
+   "branch": "D",
+   "text": "Ｘ市にある本社に衛生管理者が選任されていれば、Ｚ市にあるＺ1店舗には衛生推進者を選任しなくてもよい。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 9,
+   "branch": "E",
+   "text": "Ｚ市にあるＺ2店舗には衛生推進者の選任義務はない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 10,
+   "branch": "A",
+   "text": "木材加工用機械（丸のこ盤、帯のこ盤、かんな盤、面取り盤及びルーターに限るものとし、携帯用のものを除く。）を5台以上（当該機械のうちに自動送材車式帯のこ盤が含まれている場合には、3台以上）有する事業場において行う当該機械による作業",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 10,
+   "branch": "B",
+   "text": "高さが2メートル以上のはい（倉庫、上屋又は土場に積み重ねられた荷（小麦、大豆、鉱石等のばら物の荷を除く。）の集団をいう。）のはい付け又ははい崩しの作業（荷役機械の運転者のみによって行われるものを除く。）",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 10,
+   "branch": "C",
+   "text": "つり足場（ゴンドラのつり足場を除く。）、張出し足場又は高さが5メートル以上の構造の足場の組立て、解体又は変更の作業",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 10,
+   "branch": "D",
+   "text": "動力により駆動されるプレス機械を5台以上有する事業場において行う当該機械による作業",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 10,
+   "branch": "E",
+   "text": "屋内において鋼材をアーク溶接する作業",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働基準法及び労働安全衛生法",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 11,
+   "branch": "A",
+   "text": "企業に所属して、労働契約に基づき労働者として野球を行う者が、企業の代表選手として実業団野球大会に出場するのに備え、事業主が定めた練習計画以外の自主的な運動をしていた際に負傷した場合、業務上として取り扱われる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 11,
+   "branch": "B",
+   "text": "Ａ会社の大型トラックを運転して会社の荷物を運んでいた労働者Ｂは、Ｃの運転するＤ会社のトラックと出会ったが、道路の幅が狭くトラックの擦れ違いが不可能であったため、Ｄ会社のトラックはその後方の待避所へ後退するため約20メートルバックしたところで停止し、徐行に相当困難な様子であった。これを見かねたＢが、Ｃに代わって運転台に乗り、後退しようとしたが運転を誤り、道路から断崖を墜落し即死した場合、業務上として取り扱われる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 11,
+   "branch": "C",
+   "text": "乗組員6名の漁船が、作業を終えて帰港途中に、船内で夕食としてフグ汁が出された。乗組員のうち、船酔いで食べなかった1名を除く5名が食後、中毒症状を呈した。海上のため手当てできず、そのまま帰港し、直ちに医師の手当てを受けたが重傷の1名が死亡した。船中での食事は、会社の給食として慣習的に行われており、フグの給食が慣習になっていた。この場合、業務上として取り扱われる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 11,
+   "branch": "D",
+   "text": "会社が人員整理のため、指名解雇通知を行い、労働組合はこれを争い、使用者は裁判所に被解雇者の事業場立入禁止の仮処分申請を行い、労働組合は裁判所に協議約款違反による無効確認訴訟を提起し、併せて被解雇者の身分保全の仮処分を申請していたところ、労働組合は裁判所の決定を待たずに被解雇者らを就労させ、作業中に負傷事故が発生した。この場合、業務外として取り扱われる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 11,
+   "branch": "E",
+   "text": "川の護岸築堤工事現場で土砂の切取り作業をしていた労働者が、土蜂に足を刺され、そのショックで死亡した。蜂の巣は、土砂の切取り面先約30センチメートル程度の土の中にあったことが後でわかり、当日は数匹の蜂が付近を飛び回っており、労働者も使用者もどこかに巣があるのだろうと思っていた。この場合、業務上として取り扱われる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 12,
+   "branch": "A",
+   "text": "所轄労働基準監督署長は、業務上の事由により負傷し、又は疾病にかかった労働者が療養開始後1年6か月経過した日において治っていないときは、同日以降1か月以内に、当該労働者から「傷病の状態等に関する届」に医師又は歯科医師の診断書等の傷病の状態の立証に関し必要な資料を添えて提出させるものとしている。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 12,
+   "branch": "B",
+   "text": "傷病補償年金の支給要件について、障害の程度は、6か月以上の期間にわたって存する障害の状態により認定するものとされている。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 12,
+   "branch": "C",
+   "text": "傷病補償年金の受給者の障害の程度が軽くなり、厚生労働省令で定める傷病等級に該当しなくなった場合には、当該傷病補償年金の受給権は消滅するが、なお療養のため労働できず、賃金を受けられない場合には、労働者は休業補償給付を請求することができる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 12,
+   "branch": "D",
+   "text": "傷病補償年金を受ける労働者の障害の程度に変更があり、新たに他の傷病等級に該当するに至った場合には、所轄労働基準監督署長は、裁量により、新たに該当するに至った傷病等級に応ずる傷病補償年金を支給する決定ができる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 12,
+   "branch": "E",
+   "text": "業務上負傷し、又は疾病にかかった労働者が、当該負傷又は疾病に係る療養の開始後3年を経過した日において傷病補償年金を受けている場合には、労働基準法第19条第1項の規定の適用については、当該使用者は、当該3年を経過した日において同法第81条の規定による打切補償を支払ったものとみなされる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 13,
+   "branch": "A",
+   "text": "社会復帰促進等事業は、業務災害及び複数業務要因災害を被った労働者に関する事業であり、通勤災害を被った労働者は対象とされていない。",
+   "lab_ox": false,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 13,
+   "branch": "B",
+   "text": "政府は、社会復帰促進等事業のうち、事業場における災害の予防に係る事項並びに労働者の健康の保持増進に係る事項及び職業性疾病の病因、診断、予防その他の職業性疾病に係る事項に関する総合的な調査及び研究を、独立行政法人労働者健康安全機構に行わせる。",
+   "lab_ox": true,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 13,
+   "branch": "C",
+   "text": "アフターケアは、対象傷病にり患した者に対して、症状固定後においても後遺症状が動揺する場合があること、後遺障害に付随する疾病を発症させるおそれがあることから、必要に応じて予防その他の保健上の措置として診察、保健指導、検査などを実施するものである。",
+   "lab_ox": true,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 13,
+   "branch": "D",
+   "text": "アフターケアの対象傷病は、厚生労働省令によってせき髄損傷等20の傷病が定められている。",
+   "lab_ox": false,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 13,
+   "branch": "E",
+   "text": "アフターケアを受けるためには、アフターケア手帳が必要であり、新規にこの手帳の交付を受けるには、事業場の所在地を管轄する都道府県労働局長に「アフターケア手帳交付申請書」を提出することとされている。",
+   "lab_ox": true,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 14,
+   "branch": "A",
+   "text": "労災保険法は、市の経営する水道事業の非常勤職員には適用されない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 14,
+   "branch": "B",
+   "text": "労災保険法は、行政執行法人の職員に適用される。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 14,
+   "branch": "C",
+   "text": "労災保険法は、非現業の一般職の国家公務員に適用される。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 14,
+   "branch": "D",
+   "text": "労災保険法は、国の直営事業で働く労働者には適用されない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 14,
+   "branch": "E",
+   "text": "労災保険法は、常勤の地方公務員に適用される。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 15,
+   "branch": "A",
+   "text": "退勤時に長男宅に立ち寄るつもりで就業の場所を出たものであれば、就業の場所から普段利用している通勤の合理的経路上の災害であっても、通勤災害とは認められない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 15,
+   "branch": "B",
+   "text": "療養給付を受ける労働者は、一部負担金を徴収されることがある。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 15,
+   "branch": "C",
+   "text": "移動の途中の災害であれば、業務の性質を有する場合であっても、通勤災害と認められる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 15,
+   "branch": "D",
+   "text": "通勤災害における合理的な経路とは、住居等と就業の場所等との間を往復する場合の最短距離の唯一の経路を指す。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 15,
+   "branch": "E",
+   "text": "労働者が転任する際に配偶者が引き続き就業するため別居することになった場合の、配偶者が住む居宅は、「住居」と認められることはない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 16,
+   "branch": "A",
+   "text": "政府が被災労働者に対し労災保険法に基づく保険給付をしたときは、当該労働者の使用者に対する損害賠償請求権は、その保険給付と同一の事由については損害の填補がされたものとしてその給付の価額の限度において減縮するが、同一の事由の関係にあることを肯定できるのは、財産的損害のうちの消極損害（いわゆる逸失利益）のみであり、保険給付が消極損害の額を上回るとしても、当該超過分を、財産的損害のうちの積極損害（入院雑費、付添看護費を含む。）及び精神的損害（慰謝料）を填補するものとして、これらとの関係で控除することは許されないとするのが、最高裁判所の判例の趣旨である。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 16,
+   "branch": "B",
+   "text": "労働者が使用者の不法行為によって死亡し、その損害賠償請求権を取得した相続人が遺族補償年金の支給を受けることが確定したときは、損害賠償額を算定するにあたり、当該遺族補償年金の填補の対象となる損害は、特段の事情のない限り、不法行為の時に填補されたものと法的に評価して、損益相殺的な調整をすることが相当であるとするのが、最高裁判所の判例の趣旨である。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 16,
+   "branch": "C",
+   "text": "労災保険法に基づく保険給付の原因となった事故が第三者の行為により惹起され、第三者が当該行為によって生じた損害につき賠償責任を負う場合において、当該事故により被害を受けた労働者に過失があるため損害賠償額を定めるにつきこれを一定の割合で斟酌すべきときは、保険給付の原因となった事由と同一の事由による損害の賠償額を算定するには、当該損害の額から過失割合による減額をし、その残額から当該保険給付の価額を控除する方法によるのが相当であるとするのが、最高裁判所の判例の趣旨である。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 16,
+   "branch": "D",
+   "text": "政府が被災労働者に支給する特別支給金は、社会復帰促進等事業の一環として、被災労働者の療養生活の援護等によりその福祉の増進を図るために行われるものであり、被災労働者の損害を填補する性質を有するということはできず、したがって、被災労働者の受領した特別支給金を、使用者又は第三者が被災労働者に対し損害賠償すべき損害額から控除することはできないとするのが、最高裁判所の判例の趣旨である。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 16,
+   "branch": "E",
+   "text": "労災保険法に基づく保険給付の原因となった事故が第三者の行為により惹起された場合において、被災労働者が、示談により当該第三者の負担する損害賠償債務を免除した場合でも、政府がその後労災保険給付を行えば、当該第三者に対し損害賠償を請求することができるとするのが、最高裁判所の判例の趣旨である。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 17,
+   "branch": "A",
+   "text": "労災保険法による保険給付は、同法所定の手続により行政機関が保険給付の決定をすることにより給付の内容が具体的に定まり、受給者は、それ以前においては政府に対し具体的な一定の保険給付請求権を有しないとするのが、最高裁判所の判例の趣旨である。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 17,
+   "branch": "B",
+   "text": "労働基準監督署長の行う労災就学援護費の支給又は不支給の決定は、法を根拠とする優越的地位に基づいて一方的に行う公権力の行使とはいえず、被災労働者又はその遺族の権利に直接影響を及ぼす法的効果を有するものではないから、抗告訴訟の対象となる行政処分に当たらないとするのが、最高裁判所の判例の趣旨である。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 17,
+   "branch": "C",
+   "text": "最高裁判所の判例においては、労災保険法第34条第1項が定める中小事業主の特別加入の制度は、労働者に関し成立している労災保険の保険関係を前提として、当該保険関係上、中小事業主又はその代表者を労働者とみなすことにより、当該中小事業主又はその代表者に対する法の適用を可能とする制度である旨解説している。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 17,
+   "branch": "D",
+   "text": "保険給付を受ける権利は、労働者の退職によって変更されることはない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 17,
+   "branch": "E",
+   "text": "労働者が、故意に負傷、疾病、障害若しくは死亡又はその直接の原因となった事故を生じさせたときは、政府は、保険給付を行わない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 18,
+   "branch": "A",
+   "text": "労働者が在職中に、退職金相当額の全部又は一部を給与や賞与に上乗せするなど前払いされる場合は、原則として、一般保険料の算定基礎となる賃金総額に算入する。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 18,
+   "branch": "B",
+   "text": "遡って昇給が決定し、個々人に対する昇給額が未決定のまま離職した場合において、離職後支払われる昇給差額については、個々人に対して昇給をするということ及びその計算方法が決定しており、ただその計算の結果が離職時までにまだ算出されていないというものであるならば、事業主としては支払義務が確定したものとなるから、賃金として取り扱われる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 18,
+   "branch": "C",
+   "text": "労働者が賃金締切日前に死亡したため支払われていない賃金に対する保険料は、徴収しない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 18,
+   "branch": "D",
+   "text": "労働者の退職後の生活保障や在職中の死亡保障を行うことを目的として事業主が労働者を被保険者として保険会社と生命保険等厚生保険の契約をし、会社が当該保険の保険料を全額負担した場合の当該保険料は、賃金とは認められない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 18,
+   "branch": "E",
+   "text": "住居の利益は、住居施設等を無償で供与される場合において、住居施設が供与されない者に対して、住居の利益を受ける者との均衡を失しない定額の均衡手当が一律に支給されない場合は、当該住居の利益は賃金とならない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 19,
+   "branch": "A",
+   "text": "労働保険の保険関係が成立している事業の事業主は、当該事業を廃止したときは、当該事業に係る保険関係廃止届を所轄労働基準監督署長又は所轄公共職業安定所長に提出しなければならず、この保険関係廃止届が受理された日の翌日に、当該事業に係る労働保険の保険関係が消滅する。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 19,
+   "branch": "B",
+   "text": "労災保険の適用事業が、使用労働者数の減少により、労災保険暫定任意適用事業に該当するに至ったときは、その翌日に、その事業につき所轄都道府県労働局長による任意加入の認可があったものとみなされる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 19,
+   "branch": "C",
+   "text": "労災保険暫定任意適用事業の事業主は、その事業に使用される労働者の過半数が希望するときは、労災保険の任意加入の申請をしなければならず、この申請をしないときは、6月以下の拘禁刑又は30万円以下の罰金に処せられる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 19,
+   "branch": "D",
+   "text": "労働保険の保険関係が成立している事業の法人事業主は、その代表取締役に異動があった場合には、その氏名について変更届を所轄労働基準監督署長又は所轄公共職業安定所長に提出しなければならない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 19,
+   "branch": "E",
+   "text": "労働保険の保険関係が成立している暫定任意適用事業の事業主は、その保険関係の消滅の申請を行うことができるが、労災保険暫定任意適用事業と雇用保険暫定任意適用事業で、その申請要件に違いはない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 20,
+   "branch": "A",
+   "text": "概算保険料17万円を3期に分けて納付する場合、第1期及び第2期の納付額は各56,667円、第3期の納付額は56,666円である。",
+   "lab_ox": false,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 20,
+   "branch": "B",
+   "text": "延納できる要件を満たす有期事業（一括有期事業を除く。）の概算保険料については、平成29年6月15日に事業を開始し、翌年の6月5日に事業を終了する予定の場合、3期に分けて納付することができ、その場合の第1期の納期限は平成29年7月5日となる。",
+   "lab_ox": true,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 20,
+   "branch": "C",
+   "text": "継続事業（一括有期事業を含む。）の概算保険料については、平成29年10月1日に保険関係が成立したときは、その延納はできないので、平成29年11月20日までに当該概算保険料を納付しなければならない。",
+   "lab_ox": true,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 20,
+   "branch": "D",
+   "text": "認定決定された概算保険料については延納をすることができるが、認定決定された増加概算保険料については延納することはできない。",
+   "lab_ox": false,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 20,
+   "branch": "E",
+   "text": "労働保険事務の処理が労働保険事務組合に委託されている事業についての事業主は、納付すべき概算保険料の額が20万円（労災保険に係る保険関係又は雇用保険に係る保険関係のみが成立している事業については、10万円）以上（当該保険年度において10月1日以降に保険関係が成立したものを除く。）となる場合であれば、労働保険徴収法に定める申請をすることにより、その概算保険料を延納することができる。",
+   "lab_ox": false,
+   "lab_pattern": "irregular",
+   "lab_subject": "労働者災害補償保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 21,
+   "branch": "A",
+   "text": "求職者給付の支給を受ける者は、必要に応じ職業能力の開発及び向上を図りつつ、誠実かつ熱心に求職活動を行うことにより、職業に就くように努めなければならない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 21,
+   "branch": "B",
+   "text": "基本手当の受給資格者は、基本手当を受ける権利を契約により譲り渡すことができる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 21,
+   "branch": "C",
+   "text": "偽りその他不正の行為により失業等給付の支給を受けた者がある場合には、政府は、その者に対して、支給した失業等給付の全部又は一部を返還することを命ずることができ、また、厚生労働大臣の定める基準により、当該偽りその他不正の行為により支給を受けた失業等給付の額の2倍に相当する額以下の金額を納付することを命ずることができる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 21,
+   "branch": "D",
+   "text": "失業等給付の支給を受けることができる者が死亡した場合において、その未支給の失業等給付の支給を受けるべき者（その死亡した者と死亡の当時生計を同じくしていた者に限る。）の順位は、その死亡した者の配偶者（婚姻の届出をしていないが、事実上婚姻関係と同様の事情にあった者を含む。）、子、父母、孫、祖父母又は兄弟姉妹の順序による。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 21,
+   "branch": "E",
+   "text": "政府は、基本手当の受給資格者が失業の認定に係る期間中に自己の労働によって収入を得た場合であっても、当該基本手当として支給された金銭を標準として租税を課することができない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 22,
+   "branch": "A",
+   "text": "失業の認定は、雇用保険法第21条に定める待期の期間には行われない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 22,
+   "branch": "B",
+   "text": "雇用保険法第22条に定める算定基礎期間には、介護休業給付金の支給に係る休業の期間が含まれない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 22,
+   "branch": "C",
+   "text": "離職の日以前2年間に、疾病により賃金を受けずに15日欠勤し、復職後20日で再び同一の理由で賃金を受けずに80日欠勤した後に離職した場合、受給資格に係る離職理由が特定理由離職者又は特定受給資格者に係るものに該当しないとき、算定対象期間は2年間に95日を加えた期間となる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 22,
+   "branch": "D",
+   "text": "公共職業安定所長は、刑の執行が不当でなかったことが裁判上明らかとなった場合であっても、これを理由として受給期間の延長を認めることができる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 22,
+   "branch": "E",
+   "text": "一般被保険者が離職の日以前1か月において、報酬を受けて8日労働し、14日の年次有給休暇を取得した場合、賃金の支払の基礎となった日数が11日に満たないので、当該離職の日以前1か月は被保険者期間として算入されない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 23,
+   "branch": "A",
+   "text": "公共職業安定所長は、短期雇用特例被保険者資格の取得の確認を職権で行うことができるが、喪失の確認は職権で行うことができない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 23,
+   "branch": "B",
+   "text": "文書により、一般被保険者となったことの確認の請求をしようとする者は、その者を雇用し又は雇用していた事業主の事業所の所在地を管轄する公共職業安定所の長に所定の請求書を提出しなければならない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 23,
+   "branch": "C",
+   "text": "日雇労働被保険者に関しては、被保険者資格の確認の制度が適用されない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 23,
+   "branch": "D",
+   "text": "公共職業安定所長は、一般被保険者となったことの確認をしたときは、その確認に係る者に雇用保険被保険者証を交付しなければならないが、この場合、被保険者証の交付は、当該被保険者を雇用する事業主を通じて行うことができる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 23,
+   "branch": "E",
+   "text": "公共職業安定所長は、確認に係る者を雇用し、又は雇用していた事業主の所在が明らかでないために当該確認に係る者に対する通知をすることができない場合においては、当該公共職業安定所の掲示場に、その通知すべき事項を記載した文書を掲示しなければならない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 24,
+   "branch": "A",
+   "text": "事業所に係る事業活動が停止し、再開される見込みがないために当該事業所から退職した場合、退職に正当な理由がないものとして給付制限を受ける。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 24,
+   "branch": "B",
+   "text": "行政罰の対象とならない行為であって刑法に規定する犯罪行為により起訴猶予処分を受け、解雇された場合、自己の責めに帰すべき重大な理由による解雇として給付制限を受ける。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 24,
+   "branch": "C",
+   "text": "支払われた賃金が､その者に支払われるべき賃金月額の2分の1であった月があったために退職した場合、退職に正当な理由がないものとして給付制限を受ける。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 24,
+   "branch": "D",
+   "text": "配偶者と別居生活を続けることが家庭生活の上からも、経済的事情からも困難となり、配偶者と同居するために住所を移転したことにより事業所への通勤が不可能となったことで退職した場合、退職に正当な理由がないものとして給付制限を受ける。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 24,
+   "branch": "E",
+   "text": "従業員として当然守らなければならない事業所の機密を漏らしたことによって解雇された場合、自己の責めに帰すべき重大な理由による解雇として給付制限を受ける。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 25,
+   "branch": "A",
+   "text": "高年齢求職者給付金の支給を受けた者が、失業の認定の翌日に就職した場合、当該高年齢求職者給付金を返還しなければならない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 25,
+   "branch": "B",
+   "text": "疾病又は負傷のため労務に服することができない高年齢被保険者は、傷病手当を受給することができる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 25,
+   "branch": "C",
+   "text": "雇用保険法第60条の2に規定する支給要件期間が2年である高年齢被保険者は、厚生労働大臣が指定する教育訓練を受け、当該教育訓練を修了した場合、他の要件を満たしても教育訓練給付金を受給することができない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 25,
+   "branch": "D",
+   "text": "高年齢求職者給付金の支給を受けようとする高年齢受給資格者は、公共職業安定所において、離職後最初に出頭した日から起算して4週間に1回ずつ直前の28日の各日について、失業の認定を受けなければならない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 25,
+   "branch": "E",
+   "text": "雇用保険法によると、高年齢求職者給付金の支給に要する費用は、国庫の負担の対象とはならない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 26,
+   "branch": "A",
+   "text": "期間を定めて雇用される者が、その養育する子が1歳6か月（所定の場合にあっては、2歳）に達する日までに、その労働契約（契約が更新される場合にあっては、更新後のもの）が満了することが明らかでない場合は、他の要件を満たす限り育児休業給付金を受給することができる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 26,
+   "branch": "B",
+   "text": "育児休業給付金の支給申請の手続は、雇用される事業主を経由せずに本人が郵送により行うことができる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 26,
+   "branch": "C",
+   "text": "育児休業給付金を受給している被保険者が労働基準法第65条第1項の規定による産前休業をした場合、当該育児休業給付金を受給することができなくなる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 26,
+   "branch": "D",
+   "text": "育児休業給付金の支給対象となる男性が取得する育児休業は、配偶者（婚姻の届出をしていないが、事実上婚姻関係と同様の事情にある者を含む。）の出産日から8週間を経過した日を起算日とする。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 26,
+   "branch": "E",
+   "text": "育児休業給付金の受給資格者が育児休業中に事業主から賃金の支払を受けた場合において、当該賃金の額が休業開始時賃金日額に支給日数を乗じて得た額の80％に相当する額以上であるときは、当該賃金が支払われた支給単位期間について、育児休業給付金を受給することができない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 27,
+   "branch": "A",
+   "text": "政府は、勤労者財産形成促進法第6条に規定する勤労者財産形成貯蓄契約に基づき預入等が行われた預貯金等に係る利子に必要な資金の全部又は一部の補助を行うことができる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 27,
+   "branch": "B",
+   "text": "政府は、労働関係調整法第6条に規定する労働争議の解決の促進を図るために、必要な事業を行うことができる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 27,
+   "branch": "C",
+   "text": "政府は、職業能力開発促進法第10条の4第2項に規定する有給教育訓練休暇を与える事業主に対して、必要な助成及び援助を行うことができる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 27,
+   "branch": "D",
+   "text": "政府は、能力開発事業の全部を独立行政法人高齢・障害・求職者雇用支援機構に行わせることができる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 27,
+   "branch": "E",
+   "text": "政府は、季節的に失業する者が多数居住する地域において、労働者の雇用の安定を図るために必要な措置を講ずる都道府県に対して、必要な助成及び援助を行うことができる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 28,
+   "branch": "A",
+   "text": "事業主が、納付した概算保険料の額のうち確定保険料の額を超える額の還付を請求したときは、国税通則法の例にはよらず、還付加算金は支払われない。",
+   "lab_ox": true,
+   "lab_pattern": "irregular",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 28,
+   "branch": "B",
+   "text": "事業主による超過額の還付の請求がない場合であって、当該事業主から徴収すべき次の保険年度の概算保険料その他未納の労働保険料等があるときは、所轄都道府県労働局歳入徴収官は、当該超過額を当該概算保険料等に充当することができるが、この場合、当該事業主による充当についての承認及び当該事業主への充当後の通知は要しない。",
+   "lab_ox": false,
+   "lab_pattern": "irregular",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 28,
+   "branch": "C",
+   "text": "都道府県労働局歳入徴収官により認定決定された概算保険料の額及び確定保険料の額の通知は、納入告知書によって行われる。",
+   "lab_ox": true,
+   "lab_pattern": "irregular",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 28,
+   "branch": "D",
+   "text": "有期事業（一括有期事業を除く。）について、事業主が確定保険料として申告すべき労働保険料の額は、特別加入者がいない事業においては一般保険料の額となり、特別加入者がいる事業においては第1種又は第3種特別加入者がいることから、これらの者に係る特別加入保険料の額を一般保険料の額に加算した額となる。",
+   "lab_ox": false,
+   "lab_pattern": "irregular",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 28,
+   "branch": "E",
+   "text": "平成29年4月1日から2年間の有期事業（一括有期事業を除く。）の場合、概算保険料として納付すべき一般保険料の額は、各保険年度ごとに算定し、当該各保険年度に使用するすべての労働者に係る賃金総額の見込額の合計額に当該事業の一般保険料率を乗じて得た額となる。この場合、平成30年度の賃金総額の見込額については、平成29年度の賃金総額を使用することができる。",
+   "lab_ox": false,
+   "lab_pattern": "irregular",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 29,
+   "branch": "A",
+   "text": "事業主が労働保険料その他労働保険徴収法の規定による徴収金を法定納期限までに納付せず督促状が発せられた場合でも、当該事業主が督促状に指定された期限までに当該徴収金を完納したときは、延滞金は徴収されない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 29,
+   "branch": "B",
+   "text": "労働保険料その他労働保険徴収法の規定による徴収金の先取特権の順位は、国税及び地方税に次ぐものとされているが、徴収金について差押えをしている場合は、国税の交付要求があったとしても、当該差押えに係る徴収金に優先して国税に配当しなくてもよい。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 29,
+   "branch": "C",
+   "text": "認定決定された確定保険料に対しては追徴金が徴収されるが、滞納した場合には、この追徴金を含めた額に対して延滞金が徴収される。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 29,
+   "branch": "D",
+   "text": "労働保険料の納付義務者の住所及び居所が不明な場合は、公示送達（都道府県労働局の掲示場に掲示すること。）の方法により、督促を行うことになるが、公示送達の場合は、掲示を始めた日から起算して7日を経過した日、すなわち掲示日を含めて8日目にその送達の効力が生じるところ、その末日が休日に該当したときは延期される。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 29,
+   "branch": "E",
+   "text": "労働保険料を納付しない者に対して、令和8年中に、所轄都道府県労働局歳入徴収官が督促したときは、労働保険料の額に、納期限の翌日からその完納又は財産差押えの日までの期間の日数に応じ、年14.6％（当該納期限の翌日から2月を経過する日までの期間については、年7.3％）を乗じて計算した延滞金が徴収される。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 30,
+   "branch": "A",
+   "text": "労働保険事務組合に労働保険事務の処理を委託することができる事業主は、当該労働保険事務組合の主たる事務所が所在する都道府県に主たる事務所をもつ事業の事業主に限られる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 30,
+   "branch": "B",
+   "text": "労働保険事務組合に労働保険事務の処理を委託することができる事業主は、継続事業（一括有期事業を含む。）のみを行っている事業主に限られる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 30,
+   "branch": "C",
+   "text": "労働保険事務組合の認可を受けようとする事業主の団体又はその連合団体は、事業主の団体の場合は法人でなければならないが、その連合団体の場合は代表者の定めがあれば法人でなくともよい。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 30,
+   "branch": "D",
+   "text": "労働保険事務組合の主たる事務所の所在地を管轄する都道府県労働局長は、労働保険事務組合の認可の取消しがあったときには、その旨を、当該労働保険事務組合に係る委託事業主に対し通知しなければならない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 30,
+   "branch": "E",
+   "text": "委託事業主が労働保険料その他の徴収金の納付のため金銭を労働保険事務組合に交付したときは、当該委託事業主は当該徴収金を納付したものとみなされるので、当該労働保険事務組合が交付を受けた当該徴収金について滞納があり滞納処分をしてもなお徴収すべき残余がある場合においても、当該委託事業主は、当該徴収金に係る残余の額を徴収されることはない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "雇用保険法（徴収法含む）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 31,
+   "branch": "A",
+   "text": "労働契約法第2条第2項の「使用者」とは、「労働者」と相対する労働契約の締結当事者であり、「その使用する労働者に対して賃金を支払う者」をいうが、これは、労働基準法第10条の「使用者」と同義である。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 31,
+   "branch": "B",
+   "text": "「労働契約の内容である労働条件は、労働者と使用者との個別の合意によって変更することができるものであるが、就業規則に定められている労働条件に関する条項を労働者の不利益に変更する場合には、労働者と使用者との個別の合意によって変更することはできない。」とするのが、最高裁判所の判例である。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 31,
+   "branch": "C",
+   "text": "使用者が就業規則の変更により労働条件を変更する場合において、労働契約法第11条に定める就業規則の変更に係る手続を履行されていることは、労働契約の内容である労働条件が、変更後の就業規則に定めるところによるという法的効果を生じさせるための要件とされている。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 31,
+   "branch": "D",
+   "text": "従業員が職場で上司に対する暴行事件を起こしたことなどが就業規則所定の懲戒解雇事由に該当するとして、使用者が捜査機関による捜査の結果を待った上で当該事件から7年以上経過した後に諭旨退職処分を行った場合において、当該事件には目撃者が存在しており、捜査の結果を待たずとも使用者において処分を決めることが十分に可能であったこと、当該諭旨退職処分がされた時点で企業秩序維持の観点から重い懲戒処分を行うことを必要とするような状況はなかったことなど判示の事情の下では、当該諭旨退職処分は、権利の濫用として無効であるとするのが、最高裁判所の判例の趣旨である。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 31,
+   "branch": "E",
+   "text": "有期労働契約が反復して更新されたことにより、雇止めをすることが解雇と社会通念上同視できると認められる場合、又は労働者が有期労働契約の契約期間の満了時にその有期労働契約が更新されるものと期待することについて合理的な理由が認められる場合に、使用者が雇止めをすることが、客観的に合理的な理由を欠き、社会通念上相当であると認められないときは、雇止めは認められず、この場合において、労働者が、当該使用者に対し、期間の定めのない労働契約の締結の申込みをしたときは、使用者は当該申込みを承諾したものとみなされる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 32,
+   "branch": "A",
+   "text": "最低賃金法第3条は、最低賃金額は、時間又は日によって定めるものとしている。",
+   "lab_ox": false,
+   "lab_pattern": "irregular",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 32,
+   "branch": "B",
+   "text": "個別労働関係紛争解決促進法第5条第1項は、都道府県労働局長は、同項に掲げる個別労働関係紛争について、当事者の双方又は一方からあっせんの申請があった場合において、その紛争の解決のために必要があると認めるときは、紛争調整委員会にあっせんを行わせるものとすると定めている。",
+   "lab_ox": true,
+   "lab_pattern": "irregular",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 32,
+   "branch": "C",
+   "text": "労働組合法により、労働組合は少なくとも毎年1回総会が開催されることを要求されているが、「総会」とは、代議員制度を採っている場合には、その代議員制度による大会を指し、全組合員により構成されるものでなくてもよい。",
+   "lab_ox": true,
+   "lab_pattern": "irregular",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 32,
+   "branch": "D",
+   "text": "育児介護休業法は、労働者は、対象家族1人につき、1回に限り、連続したひとまとまりの期間で最長93日まで、介護休業を取得することができると定めている。",
+   "lab_ox": false,
+   "lab_pattern": "irregular",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 32,
+   "branch": "E",
+   "text": "女性活躍推進法は、国及び地方公共団体以外の事業主であって、常時雇用する労働者の数が300人を超えるものは、「厚生労働省令で定めるところにより、職業生活を営み、又は営もうとする女性の職業選択に資するよう、その事業における女性の職業生活における活躍に関する次に掲げる情報を定期的に公表するよう努めなければならない。」と定めている。",
+   "lab_ox": false,
+   "lab_pattern": "irregular",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 33,
+   "branch": "A",
+   "text": "社会保険労務士が、補佐人として、弁護士である代理人とともに裁判所に出頭し、陳述した場合、当事者又は代理人がその陳述を直ちに取り消し、又は更正しない限り、当事者又は代理人が自らその陳述をしたものとみなされる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 33,
+   "branch": "B",
+   "text": "懲戒処分により、弁護士、公認会計士、税理士又は行政書士の業務を停止された者で、現にその処分を受けているものは、社会保険労務士の登録を受けることができない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 33,
+   "branch": "C",
+   "text": "社会保険労務士法第16条に定める信用失墜行為を行った社会保険労務士は、同法第33条に基づき100万円以下の罰金に処せられる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 33,
+   "branch": "D",
+   "text": "社会保険労務士法人が行う紛争解決手続代理業務は、社員のうちに特定社会保険労務士がある社会保険労務士法人に限り、行うことができる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 33,
+   "branch": "E",
+   "text": "社会保険労務士の登録の拒否及び登録の取消しについて必要な審査を行う資格審査会の委員は、社会保険労務士、労働又は社会保険の行政事務に従事する職員及び学識経験者各同数を委嘱しなければならない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 34,
+   "branch": "A",
+   "text": "【我が国の女性の雇用に関して。なお、本問は、「平成28年版男女共同参画白書（内閣府）」を参照している】一般労働者（常用労働者のうち短時間労働者以外の者）における男女の所定内給与額の格差は、長期的に見ると縮小傾向にある。男性一般労働者の給与水準を100としたときの女性一般労働者の給与水準は、平成27年に80を超えるようになった。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 34,
+   "branch": "B",
+   "text": "【我が国の女性の雇用に関して。なお、本問は、「平成28年版男女共同参画白書（内閣府）」を参照している】過去1年間に職を変えた又は新たに職についた者のうち、現在は自営業主（内職者を除く。）となっている者（起業家）に占める女性の割合は、当該白書で示された直近の平成24年時点で約3割である。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 34,
+   "branch": "C",
+   "text": "【我が国の女性の雇用に関して。なお、本問は、「平成28年版男女共同参画白書（内閣府）」を参照している】平成27年における女性の非労働力人口のうち、1割強が就業を希望しているが、現在求職していない理由としては「出産・育児のため」が最も多くなっている。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 34,
+   "branch": "D",
+   "text": "【我が国の女性の雇用に関して。なお、本問は、「平成28年版男女共同参画白書（内閣府）」を参照している】夫婦共に雇用者の共働き世帯は全体として増加傾向にあり、平成9年以降は共働き世帯数が男性雇用者と無業の妻から成る世帯数を一貫して上回っている。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 34,
+   "branch": "E",
+   "text": "【我が国の女性の雇用に関して。なお、本問は、「平成28年版男女共同参画白書（内閣府）」を参照している】世界経済フォーラムが2015（平成27）年に発表したジェンダー・ギャップ指数をみると、我が国は、測定可能な145か国中100位以内に入っていない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 35,
+   "branch": "A",
+   "text": "【我が国の高齢者に関して。なお、本問は、「平成28年版厚生労働白書（厚生労働省）」を参照している】世帯主の年齢階級別に世帯人員1人当たりの平均所得額をみると、世帯主が65歳以上の世帯では全世帯の平均額を2割以上下回っている。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 35,
+   "branch": "B",
+   "text": "【我が国の高齢者に関して。なお、本問は、「平成28年版厚生労働白書（厚生労働省）」を参照している】60歳以上の高齢者の自主的社会活動への参加状況をみると、何らかの自主的な活動に参加している高齢者の割合は、増加傾向を示している。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 35,
+   "branch": "C",
+   "text": "【我が国の高齢者に関して。なお、本問は、「平成28年版厚生労働白書（厚生労働省）」を参照している】65歳以上の非正規の職員・従業員の雇用者について、現在の雇用形態についた主な理由（「その他」を除く。）をみると、「自分の都合のよい時間に働きたいから」が最も多く、次いで「家計の補助・学費等を得たいから」、「専門的な技能等をいかせるから」が続いている。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 35,
+   "branch": "D",
+   "text": "【我が国の高齢者に関して。なお、本問は、「平成28年版厚生労働白書（厚生労働省）」を参照している】65歳以上の高齢者のいる世帯について、世帯構造別の構成割合の推移をみると、1986年時点で1割強であった単独世帯の構成割合は、その後、一貫して上昇し、2015年では全体の約4分の1が単独世帯となっており、夫婦のみ世帯と合わせると半数を超える状況となっている。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 35,
+   "branch": "E",
+   "text": "【我が国の高齢者に関して。なお、本問は、「平成28年版厚生労働白書（厚生労働省）」を参照している】65歳以上の者の役員を除いた雇用者の雇用形態をみると、他の年齢層に比べて非正規の職員・従業員の割合がきわめて大きくなっており、2015年には全体の約4分の3を占めている。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 36,
+   "branch": "A",
+   "text": "社会保険審査官は、人格が高潔であって、社会保障に関する識見を有し、かつ、法律又は社会保険に関する学識経験を有する者のうちから、厚生労働大臣が任命することとされている。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 36,
+   "branch": "B",
+   "text": "国民健康保険の保険料に関する処分の取消しの訴えは、当該処分についての審査請求に対する裁決を経た後でなければ、提起することができない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 36,
+   "branch": "C",
+   "text": "介護保険法の要介護認定に関する処分に不服がある者は、都道府県知事に審査請求をすることができる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 36,
+   "branch": "D",
+   "text": "社会保険審査会の審理は、原則として非公開とされる。ただし、当事者の申立があったときは、公開することができる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 36,
+   "branch": "E",
+   "text": "全国社会保険労務士会連合会が行う試験事務に係る処分又はその不作為について不服がある者は、地方厚生局長又は都道府県労働局長に対して審査請求をすることができる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 37,
+   "branch": "A",
+   "text": "介護認定審査会は、市町村又は特別区（以下本問において「市町村」という。）から要介護認定の審査及び判定を求められたときは、厚生労働大臣が定める基準に従い審査及び判定を行い、その結果を市町村に通知するものとされている。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 37,
+   "branch": "B",
+   "text": "要介護認定の申請に対する処分は、当該申請に係る被保険者の心身の状況の調査に日時を要する等特別な理由がある場合を除き、当該申請のあった日から30日以内にしなければならない。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 37,
+   "branch": "C",
+   "text": "要介護認定は、要介護状態区分に応じて厚生労働省令で定める期間（以下本問において「有効期間」という。）内に限り、その効力を有する。要介護認定を受けた被保険者は、有効期間の満了後においても要介護状態に該当すると見込まれるときは、厚生労働省令で定めるところにより、市町村に対し、当該要介護認定の更新の申請をすることができる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 37,
+   "branch": "D",
+   "text": "介護保険法による保険給付には、被保険者の要介護状態に関する保険給付である「介護給付」及び被保険者の要支援状態に関する保険給付である「予防給付」のほかに、要介護状態等の軽減又は悪化の防止に資する保険給付として条例で定める「市町村特別給付」がある。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 37,
+   "branch": "E",
+   "text": "第2号被保険者は、医療保険加入者でなくなった日以後も、医療保険者に申し出ることにより第2号被保険者の資格を継続することができる。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 38,
+   "branch": "A",
+   "text": "後期高齢者医療は、高齢者の疾病又は負傷に関して必要な給付を行うものとしており、死亡に関しては給付を行わない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 38,
+   "branch": "B",
+   "text": "保険者（国民健康保険法の定めるところにより都道府県が当該都道府県内の市町村とともに行う国民健康保険にあっては、市町村。）は、特定健康診査等基本指針に即して、6年ごとに、6年を1期として、特定健康診査等の実施に関する計画を定めるものとされている。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 38,
+   "branch": "C",
+   "text": "高齢者医療確保法における保険者には、医療保険各法の規定により医療に関する給付を行う全国健康保険協会、健康保険組合、都道府県及び市町村（特別区を含む。以下本問において同じ。）、国民健康保険組合のほか、共済組合及び日本私立学校振興・共済事業団も含まれる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 38,
+   "branch": "D",
+   "text": "後期高齢者医療広域連合は、後期高齢者医療の事務（保険料の徴収の事務及び被保険者の便益の増進に寄与するものとして政令で定める事務を除く。）を処理するため、都道府県の区域ごとに当該区域内のすべての市町村が加入して設けられる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 38,
+   "branch": "E",
+   "text": "市町村は、政令で定めるところにより、後期高齢者医療広域連合に対し、その一般会計において、負担対象総額の一部を負担している。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 39,
+   "branch": "A",
+   "text": "厚生年金保険法の改正により平成26年4月1日以降は、経過措置に該当する場合を除き新たな厚生年金基金の設立は認められないこととされた。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 39,
+   "branch": "B",
+   "text": "確定拠出年金法の改正により、平成29年1月から60歳未満の第4号厚生年金被保険者（企業型年金等対象者を除く。）は、確定拠出年金の個人型年金の加入者になることができるとされ、さらに、令和4年5月からは、60歳以上の場合にも、他の要件を満たせば、加入者になることができるようになった。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 39,
+   "branch": "C",
+   "text": "障害基礎年金の受給権者であることにより、国民年金保険料の法定免除の適用を受けている者は、確定拠出年金の個人型年金の加入者になることができる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 39,
+   "branch": "D",
+   "text": "確定拠出年金の個人型年金に加入していた者は、一定要件を満たした場合、脱退一時金を請求することができるが、この要件においては、通算拠出期間については4年以下であること、個人別管理資産の額として政令で定めるところにより計算した額については50万円未満であることとされている。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 39,
+   "branch": "E",
+   "text": "確定給付企業年金を実施している企業を退職したため、その加入者の資格を喪失した一定要件を満たしている者が、転職し、転職先企業において他の確定給付企業年金の加入者の資格を取得した場合、当該他の確定給付企業年金の規約において、あらかじめ、転職前の企業が実施している確定給付企業年金の資産管理運用機関等から脱退一時金相当額の移換を受けることができる旨が定められているときは、その者は、転職前の企業が実施している確定給付企業年金の事業主等に脱退一時金相当額の移換を申し出ることができる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 40,
+   "branch": "A",
+   "text": "社会保障協定とは、日本の年金制度と外国の年金制度の重複適用の回避をするために締結される年金に関する条約その他の国際約束であり、日本の医療保険制度と外国の医療保険制度の重複適用の回避については、対象とされていない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 40,
+   "branch": "B",
+   "text": "平成29年3月末日現在、日本と社会保障協定を締結している全ての国との協定において、日本と相手国の年金制度における給付を受ける資格を得るために必要とされる期間の通算並びに当該通算により支給することとされる給付の額の計算に関する事項が定められている。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 40,
+   "branch": "C",
+   "text": "日本の事業所で勤務し厚生年金保険の被保険者である40歳の労働者が、3年の期間を定めて、日本と社会保障協定を締結している国に派遣されて当該事業所の駐在員として働く場合は、社会保障協定に基づいて派遣先の国における年金制度の適用が免除され、引き続き日本の厚生年金保険の被保険者でいることとなる。",
+   "lab_ox": true,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 40,
+   "branch": "D",
+   "text": "社会保障協定により相手国の年金制度の適用が免除されるのは、厚生年金保険の被保険者であり、国民年金の第1号被保険者については、当該協定により相手国の年金制度の適用が免除されることはない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  },
+  {
+   "number": 40,
+   "branch": "E",
+   "text": "日本と社会保障協定を締結している相手国に居住し、日本国籍を有する40歳の者が、当該相手国の企業に現地採用されることとなった場合でも、その雇用期間が一定期間以内であれば、日本の年金制度に加入することとなり、相手国の年金制度に加入することはない。",
+   "lab_ox": false,
+   "lab_pattern": "standard",
+   "lab_subject": "一般常識（労働に関する一般常識・社会保険に関する一般常識）",
+   "lab_law_status": "valid"
+  }
+ ]
+}

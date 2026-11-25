@@ -33,7 +33,7 @@ TAKUITSU_GROUPS: dict[str, list[str]] = {
 TAKUITSU_GROUP_NAMES = {**SUBJECTS, "ippan": "一般常識"}
 
 # 1問あたりの目安時間（秒）: 択一 210分/70問、選択 80分/8問
-TARGET_SECONDS = {"択一式": 180, "選択式": 600}
+TARGET_SECONDS = {"択一式": 180, "選択式": 600, "一問一答": 36}
 
 
 @dataclass
@@ -99,7 +99,8 @@ def load_store() -> Store:
             q["is_sample"] = exam == "サンプル"
             s.questions[q["id"]] = q
             n += 1
-        s.exams.append({"exam": exam, "year_num": year_num, "count": n})
+        mockable = any(q["format"] in ("択一式", "選択式") for q in data.get("questions", []))
+        s.exams.append({"exam": exam, "year_num": year_num, "count": n, "mockable": mockable})
     s.exams.sort(key=lambda e: e["year_num"], reverse=True)
 
     mpath = DATA_DIR / "exams.json"
@@ -114,5 +115,7 @@ def load_store() -> Store:
 
 
 def question_label(q: dict) -> str:
+    if q["format"] == "一問一答":
+        return f'{q["exam"]} 択一問{q["number"]}-{q["branch"]}'
     prefix = "選択" if q["format"] == "選択式" else "択一"
     return f'{q["exam"]} {prefix}問{q["number"]}'

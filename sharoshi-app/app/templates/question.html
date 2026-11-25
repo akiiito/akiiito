@@ -14,9 +14,15 @@
 
   <form method="post" id="qform">
     <input type="hidden" name="elapsed_ms" id="elapsed">
-    <p class="stem">{{ q.stem }}</p>
+    {% if q.format != '一問一答' %}<p class="stem">{{ q.stem }}</p>{% endif %}
 
-    {% if q.format == '選択式' %}
+    {% if q.format == '一問一答' %}
+      <p class="ox-text">{{ q.stem }}</p>
+      <div class="ox-buttons">
+        <button name="choice" value="o" class="ox o" onclick="this.form.querySelector('[name=action]').value='answer'">○<small>正しい</small></button>
+        <button name="choice" value="x" class="ox x" onclick="this.form.querySelector('[name=action]').value='answer'">×<small>誤り</small></button>
+      </div>
+    {% elif q.format == '選択式' %}
       <div class="sentaku-text">{{ q.text | replace('\n', '<br>') | replace('［', '<span class="blank">') | replace('］', '</span>') | safe }}</div>
       <div class="blanks">
         {% for b in q.blanks %}
@@ -49,10 +55,15 @@
       </div>
     {% endif %}
 
+    {% if q.format == '一問一答' %}
+    <input type="hidden" name="action" value="answer">
+    <div class="sticky-actions single"><button type="submit" class="btn" formnovalidate onclick="this.form.querySelector('[name=action]').value='skip'">スキップ</button></div>
+    {% else %}
     <div class="sticky-actions">
       <button name="action" value="skip" class="btn" formnovalidate>スキップ</button>
       <button name="action" value="answer" class="btn primary" id="submit">回答する</button>
     </div>
+    {% endif %}
   </form>
 </section>
 {% endblock %}
@@ -63,7 +74,7 @@ const form = document.getElementById('qform');
 form.addEventListener('submit', (e) => {
   document.getElementById('elapsed').value = Date.now() - t0;
   const btn = e.submitter;
-  if (btn && btn.value === 'answer' && form.choice !== undefined) {
+  if (btn && btn.value === 'answer' && form.querySelector('input[name=choice]')) {
     if (!form.querySelector('input[name=choice]:checked')) { e.preventDefault(); alert('選択肢を選んでください'); }
   }
 });

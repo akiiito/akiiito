@@ -163,6 +163,12 @@ async def answer(request: Request, sid: int, idx: int):
                 if selected[b["label"]] == b["answer"]:
                     correct += 1
         db.record_answer(sid, idx, q["id"], None if skipped else selected, skipped, correct, total, time_ms)
+    elif q["format"] == "一問一答":
+        sel = form.get("choice")
+        if sel not in ("o", "x") and not skipped:
+            return RedirectResponse(f"/s/{sid}/{idx}", status_code=303)
+        correct = int((sel == "o") == bool(q["ox"])) if not skipped else 0
+        db.record_answer(sid, idx, q["id"], None if skipped else sel, skipped, correct, 1, time_ms)
     else:
         sel = form.get("choice")
         if not sel and not skipped:

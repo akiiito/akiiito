@@ -91,8 +91,19 @@ def check_questions(path: Path, topics: set[str]) -> list[str]:
                     errs.append(w + f'空欄{b.get("label")} の explanation が空')
             if not is_sample and isinstance(n, int) and 1 <= n <= 8 and q.get("subject") != SENTAKU_SUBJECT[n - 1]:
                 errs.append(w + f"選択式問{n} の subject は {SENTAKU_SUBJECT[n - 1]} のはず")
+        elif q.get("format") == "一問一答":
+            if not isinstance(q.get("ox"), bool):
+                errs.append(w + "ox は true/false")
+            if q.get("branch") not in LABELS:
+                errs.append(w + "branch は A〜E")
+            if not q.get("explanation"):
+                errs.append(w + "explanation が空")
+            if isinstance(n, int):
+                exp = next((s for a, b, s in TAKUITSU_SUBJECT if a <= n <= b), None)
+                if exp and q.get("subject") not in exp:
+                    errs.append(w + f"問{n} の subject は {sorted(exp)} のはず")
         else:
-            errs.append(w + "format は 択一式 / 選択式")
+            errs.append(w + "format は 択一式 / 選択式 / 一問一答")
     return errs
 
 

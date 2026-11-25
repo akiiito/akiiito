@@ -21,9 +21,18 @@
   {% endif %}
   {% if q.law_check != 'ok' and q.law_note %}<p class="warn-box">法改正メモ: {{ q.law_note }}</p>{% endif %}
 
+  {% if q.format == '一問一答' %}
+    <p class="ox-text">{{ q.stem }}</p>
+    <div class="explain"><div class="ox-answer">正解：<b>{{ '○ 正しい' if q.ox else '× 誤り' }}</b>
+      {% if ans and not ans.skipped %}<small>（あなた: {{ '○' if ans.selected == 'o' else '×' }}）</small>{% endif %}</div>
+      <p class="small">{{ q.explanation }}</p></div>
+    {% if q.source_note %}<p class="small muted">{{ q.source_note }}</p>{% endif %}
+  {% else %}
   <p class="stem">{{ q.stem }}</p>
+  {% endif %}
 
-  {% if q.format == '選択式' %}
+  {% if q.format == '一問一答' %}
+  {% elif q.format == '選択式' %}
     <div class="sentaku-text">{{ q.text | replace('\n', '<br>') | replace('［', '<span class="blank">') | replace('］', '</span>') | safe }}</div>
     <ul class="explain">
     {% for b in q.blanks %}

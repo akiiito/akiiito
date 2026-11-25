@@ -230,3 +230,14 @@ textarea { font: inherit; font-size: .85rem; color: var(--text); background: var
 .step { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-size: .85rem; }
 .quick .btn[hidden] { display: none; }
 .opt-inline { display: inline-block; margin: 0 10px 4px 0; }
+
+/* 一問一答 */
+.ox-text { font-size: 1.05rem; background: var(--bg); border-radius: 12px; padding: 14px; white-space: pre-wrap; }
+.ox-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.ox { font: inherit; font-size: 2.4rem; font-weight: 800; border-radius: 18px; border: 2px solid var(--line); background: var(--card); padding: 14px 0 8px; display: grid; justify-items: center; cursor: pointer; }
+.ox small { font-size: .8rem; font-weight: 600; color: var(--muted); }
+.ox.o { color: var(--ok); }
+.ox.x { color: var(--ng); }
+.ox:active { background: var(--accent-soft); }
+.ox-answer { font-size: 1.1rem; margin: 10px 0 4px; }
+.sticky-actions.single { grid-template-columns: 1fr; }
