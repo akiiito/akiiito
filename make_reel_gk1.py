@@ -66,6 +66,27 @@ def build_ui(path):
     E(1.0, DIS + 0.4, "hud", r"{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\fs40}31{\fs30}／31", 7)
     E(DIS + 0.4, DIS + 0.75, "hud", r"{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\c&H3030FF&\fs52%s}30{\c&HFFFFFF&\fs30}／31" % pop, 7)
     E(DIS + 0.75, CARD, "hud", r"{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\fs40}30{\fs30}／31", 7)
+    # 「1人まざっています」：30人の席が次々に点灯 → 1つが赤い「？」に
+    for i in range(30):
+        cx_, cy_ = 165 + (i % 6) * 78, 190 + (i // 6) * 78; a_ = 4.85 + i * 0.04
+        red_ = i == 17
+        S(a_, 8.3, rect(cx_, cy_, cx_ + 64, cy_ + 64), "&HE8E8E8&", "&H30&", 11, r"\fad(60,200)")
+        if red_:
+            S(7.0, 8.3, rect(cx_, cy_, cx_ + 64, cy_ + 64), "&H2020F0&", "&H00&", 12, r"\fad(0,200)\t(0,150,\1a&H00&)")
+            E(7.0, 8.3, "count", r"{\an5\pos(%d,%d)\fs58\c&HFFFFFF&\3c&H000000&\bord3%s\fad(0,200)}？" % (cx_ + 32, cy_ + 34, pop), 13)
+    E(7.0, 8.3, "count", r"{\an5\pos(360,600)\fs44\c&HFFFFFF&\3c&H000000&\bord4%s\fad(0,200)}この中に、{\c&H3030FF&}1人" % pop, 13)
+    # 出席確認：チェックが付き、13番だけ飛ばされる → 「欠番」スタンプ
+    S(15.6, 18.15, rect(440, 120, 690, 420), "&H000000&", "&H70&", 11, r"\fad(150,150)")
+    for k, (num, t_, ok) in enumerate(((11, 15.75, True), (12, 16.55, True), (13, 17.0, False), (14, 17.2, True))):
+        y_ = 140 + k * 70
+        E(t_, 18.15, "card", r"{\an7\pos(465,%d)\fs40\c&H%s&\3c&H000000&\bord3\fad(80,150)}%d番" % (y_, "FFFFFF" if ok else "808080", num), 12)
+        E(t_, 18.15, "count", r"{\an7\pos(600,%d)\fs48\c&H%s&\3c&H000000&\bord3%s\fad(0,150)}%s" % (y_ - 6, "60FF60" if ok else "808080", pop, "✓" if ok else "―"), 12)
+    E(17.85, 18.9, "count", r"{\an5\pos(360,560)\fs120\c&H2020F0&\3c&HFFFFFF&\bord6\frz7%s\fad(0,200)}欠番" % pop, 13)
+    # 「13番は？」→ だれも振り向かない（反応 0人）→ ユイだけ（1人）
+    E(18.95, 19.55, "count", r"{\an5\pos(360,300)\fs56\c&HFFFFFF&\3c&H000000&\bord5%s}振り向いた人　{\c&H3030FF&\fs90}0{\c&HFFFFFF&\fs56}人" % pop, 12)
+    E(19.55, 21.2, "count", r"{\an5\pos(360,300)\fs56\c&HFFFFFF&\3c&H000000&\bord5\fad(0,200)}振り向いた人　{\c&HD0A0FF&\fs110%s}1{\c&HFFFFFF&\fs56}人" % pop, 12)
+    # カイトの告発
+    E(23.35, 25.1, "count", r"{\an5\pos(360,330)\fs120\c&H20A0FF&\3c&H000000&\bord7\frz-6%s\fad(0,200)}告発！" % pop, 13)
     E(10.55, 13.0, "count", r"{\an5\pos(360,250)\fs40\c&HFFFFFF&\3c&H000000&\bord4\fad(150,150)}ルール：間違えたら、{\c&H3030FF&}消える", 11)
     # 伏線に赤丸（止まった時計 16:44）
     ring = r"{\an7\pos(0,0)\p1\1a&HFF&\3c&H2020F0&\bord7\shad0\fad(80,200)%s}m 360 490 b 443 490 510 557 510 640 b 510 723 443 790 360 790 b 277 790 210 723 210 640 b 210 557 277 490 360 490{\p0}"
@@ -84,7 +105,7 @@ def build_ui(path):
     S(T0, CARD, rect(60, 120, 660, 290), "&H000000&", "&H70&", 11, r"\fad(150,150)")
     E(T0, CARD, "card", r"{\an4\pos(80,165)\fs34\c&H40D8FF&\3c&H000000&\bord3\fad(150,150)}ユイに投票", 12)
     E(T0, CARD, "card", r"{\an4\pos(80,245)\fs34\c&HFFB050&\3c&H000000&\bord3\fad(150,150)}カイトに投票", 12)
-    seq = [(0, 0), (2, 1), (4, 3), (5, 6), (8, 7), (9, 10), (12, 11), (13, 13), (14, 15), (15, 15)]
+    seq = [(0, 0), (4, 0), (8, 1), (11, 1), (13, 2), (13, 6), (14, 9), (14, 12), (15, 14), (15, 15)]
     for k, (y_, k_) in enumerate(seq):
         a_ = T0 + 0.15 + k * 0.13; b_ = (T0 + 0.15 + (k + 1) * 0.13) if k + 1 < len(seq) else CARD
         S(a_, b_, rect(290, 150, 290 + y_ * 20, 182), "&H40D8FF&", "&H00&", 12)
@@ -142,13 +163,22 @@ def build_sfx():
     add(X.swell(0.6), DIS - 0.55, 0.3); add(sparkle(1.6), DIS, 0.22); add(X.braam(2.4, 36.0), DIS, 0.45)
     add(K.hit(1.2), DIS + 0.3, 0.6)                                                        # 脱落スタンプ
     for k in range(3): add(click(0.03, 6000), DIS + 0.4 + k * 0.06, 0.4)                    # 残り人数が減る
+    for i in range(30): add(np.sin(2 * np.pi * (600 + 25 * i) * R.tt(0.06)) * R.dec(0.06, 0.02), 4.85 + i * 0.04, 0.12)   # 席が点灯
+    add(K.hit(0.8), 7.0, 0.45); add(R.lp(R.kick(90, 40, 0.4, 0.08), 800), 7.0, 0.5)                                 # 赤い「？」
+    for t_ in (15.75, 16.55, 17.2):                                                                                 # チェック
+        add(mix(np.sin(2 * np.pi * 1318.5 * R.tt(0.18)) * R.dec(0.18, 0.06), np.concatenate([np.zeros(R.n_(0.06)), np.sin(2 * np.pi * 1975.5 * R.tt(0.2)) * R.dec(0.2, 0.07)])), t_, 0.3)
+    add(X.whip(0.35), 16.98, 0.2)                                                                                   # 13番を飛ばす
+    add(K.hit(1.2), 17.85, 0.6); add(X.braam(2.0, 36.0), 17.87, 0.3)                                               # 欠番
+    add(R.lp(R.kick(70, 35, 0.5, 0.12), 600), 18.95, 0.6)                                                           # 振り向いた人 0
+    add(np.sin(2 * np.pi * 1046.5 * R.tt(0.9)) * R.dec(0.9, 0.35), 19.55, 0.25)                                    # 1人だけ
+    add(X.whip(0.35), TALLY + 0.15 + 4 * 0.13, 0.35)                                                               # 逆転開始
     add(X.braam(2.4, 33.0), 10.55, 0.35)                                                   # 消えます
     add(X.whip(0.35), 12.75, 0.3); add(np.sin(2 * np.pi * 1760 * R.tt(0.5)) * R.dec(0.5, 0.15), 13.25, 0.3); add(X.tinnitus(1.4, 5200), 13.3, 0.07)
     add(K.hit(0.8), 18.3, 0.3)                                                             # 13番は？（だれも振り向かない）
     add(notif(), LINE1, 0.35)
     add(X.stinger(1.2), 22.0, 0.35); add(X.tinnitus(1.6, 5200), 22.05, 0.08)              # 白い菊
     add(X.whip(0.35), 23.2, 0.35); add(K.hit(1.2), 23.3, 0.6); add(X.braam(2.4, 30.0), 23.32, 0.4)   # いない生徒は、ユイだ
-    for k in range(10): add(click(0.03, 4000 + 150 * k), TALLY + 0.15 + k * 0.13, 0.35)    # 得票バー
+    for k in range(10): add(click(0.03, 4000 + 150 * k), TALLY + 0.15 + k * 0.13, 0.45); add(click(0.02, 7000), TALLY + 0.21 + k * 0.13, 0.25)    # 得票バー
     add(K.hit(1.0), TALLY + 0.15 + 9 * 0.13, 0.5)                                         # 同票！
     add(X.swell(1.4), 28.9, 0.3)
     add(X.stinger(1.4), 32.0, 0.35)                                                        # 最後の1票は、あなた
