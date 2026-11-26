@@ -81,16 +81,16 @@ def build_ui(path):
     line(LINE1, 23.2, "母", r"今日はお花、\N何色がいい？")
     # 得票バー：ユイ vs カイト が競り合って同票に
     T0, T1 = TALLY, TALLY + 1.3
-    S(T0, CARD, rect(60, 300, 660, 470), "&H000000&", "&H70&", 11, r"\fad(150,150)")
-    E(T0, CARD, "card", r"{\an4\pos(80,345)\fs34\c&H40D8FF&\3c&H000000&\bord3\fad(150,150)}ユイに投票", 12)
-    E(T0, CARD, "card", r"{\an4\pos(80,425)\fs34\c&HFFB050&\3c&H000000&\bord3\fad(150,150)}カイトに投票", 12)
+    S(T0, CARD, rect(60, 120, 660, 290), "&H000000&", "&H70&", 11, r"\fad(150,150)")
+    E(T0, CARD, "card", r"{\an4\pos(80,165)\fs34\c&H40D8FF&\3c&H000000&\bord3\fad(150,150)}ユイに投票", 12)
+    E(T0, CARD, "card", r"{\an4\pos(80,245)\fs34\c&HFFB050&\3c&H000000&\bord3\fad(150,150)}カイトに投票", 12)
     seq = [(0, 0), (2, 1), (4, 3), (5, 6), (8, 7), (9, 10), (12, 11), (13, 13), (14, 15), (15, 15)]
     for k, (y_, k_) in enumerate(seq):
         a_ = T0 + 0.15 + k * 0.13; b_ = (T0 + 0.15 + (k + 1) * 0.13) if k + 1 < len(seq) else CARD
-        S(a_, b_, rect(290, 330, 290 + y_ * 20, 362), "&H40D8FF&", "&H00&", 12)
-        S(a_, b_, rect(290, 410, 290 + k_ * 20, 442), "&HFFB050&", "&H00&", 12)
-        E(a_, b_, "card", r"{\an6\pos(645,345)\fs38\c&HFFFFFF&\3c&H000000&\bord3}%d" % y_, 13)
-        E(a_, b_, "card", r"{\an6\pos(645,425)\fs38\c&HFFFFFF&\3c&H000000&\bord3}%d" % k_, 13)
+        S(a_, b_, rect(290, 150, 290 + y_ * 20, 182), "&H40D8FF&", "&H00&", 12)
+        S(a_, b_, rect(290, 230, 290 + k_ * 20, 262), "&HFFB050&", "&H00&", 12)
+        E(a_, b_, "card", r"{\an6\pos(645,165)\fs38\c&HFFFFFF&\3c&H000000&\bord3}%d" % y_, 13)
+        E(a_, b_, "card", r"{\an6\pos(645,245)\fs38\c&HFFFFFF&\3c&H000000&\bord3}%d" % k_, 13)
     tie = T0 + 0.15 + (len(seq) - 1) * 0.13
     E(tie, 29.6, "count", r"{\an5\pos(360,540)\fs90\c&H20E0FF&\3c&H000000&\bord6\frz6%s\fad(0,200)}同票！" % pop, 13)
     E(32.0, COUNT, "count", r"{\an5\pos(360,540)\fs54\c&HFFFFFF&\3c&H000000&\bord5%s\fad(100,100)}最後の1票は、{\c&H3030FF&}あなた" % pop, 13)
