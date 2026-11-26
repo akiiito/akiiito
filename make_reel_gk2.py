@@ -95,9 +95,9 @@ def build_ui(path):
         k = int(r * 0.552)
         E(t0, t1, "shape", ring % (cx, cy, cx, cy - r, cx + k, cy - r, cx + r, cy - k, cx + r, cy, cx + r, cy + k, cx + k, cy + r, cx, cy + r,
                                    cx - k, cy + r, cx - r, cy + k, cx - r, cy, cx - r, cy - k, cx - k, cy - r, cx, cy - r), 12)
-    circle(20.6, 21.5, 150, 660, 85)
-    E(20.6, 21.5, "card", r"{\an4\pos(285,380)\fs32\c&H60FF60&\3c&H000000&\bord3\fad(80,200)}← カバンあり", 12)
-    E(20.7, 21.5, "count", r"{\an5\pos(230,790)\fs40\c&HFFFFFF&\3c&H2020F0&\bord4%s\fad(0,200)}カバンがない" % pop, 12)
+    circle(20.85, 21.6, 150, 660, 85)
+    E(20.85, 21.6, "card", r"{\an4\pos(285,380)\fs32\c&H60FF60&\3c&H000000&\bord3\fad(80,200)}← カバンあり", 12)
+    E(20.9, 21.6, "count", r"{\an5\pos(230,790)\fs40\c&HFFFFFF&\3c&H2020F0&\bord4%s\fad(0,200)}カバンがない" % pop, 12)
     # 名札の13
     circle(24.4, 25.4, 180, 633, 95)
     E(24.4, 25.4, "count", r"{\an5\pos(360,880)\fs120\c&H2020F0&\3c&HFFFFFF&\bord6%s\fad(0,200)}13" % pop, 12)
@@ -156,7 +156,7 @@ def build_sfx():
     add(X.swell(1.1), 12.0, 0.35); add(sparkle(1.0), 12.0, 0.12)                            # 自分も光りかける
     add(buzzer(0.45), 13.1, 0.3); add(R.hp(R.noise(0.25), 3000) * R.dec(0.25, 0.08), 13.1, 0.3); add(X.tinnitus(1.4, 5200), 13.15, 0.07)
     add(R.lp(R.kick(70, 35, 0.5, 0.12), 600), 18.2, 0.6)                                    # 16人？
-    add(np.sin(2 * np.pi * 1760 * R.tt(0.5)) * R.dec(0.5, 0.15), 20.6, 0.3)                 # カバンがない
+    add(np.sin(2 * np.pi * 1760 * R.tt(0.5)) * R.dec(0.5, 0.15), 20.85, 0.3)                 # カバンがない
     add(X.whip(0.35), 24.2, 0.3); add(K.hit(1.2), 24.4, 0.55); add(X.braam(2.4, 33.0), 24.42, 0.35)   # 13
     add(mix(R.bp(R.noise(0.5), 300, 3000) * R.dec(0.5, 0.2)), 25.15, 0.2)
     add(X.tinnitus(1.6, 4800), 27.5, 0.07)                                                  # …だよね？
