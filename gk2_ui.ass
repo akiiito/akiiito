@@ -1,0 +1,102 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hero,IPAPGothic,66,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,1,0,1,7,3,5,30,30,0,1
+Style: narr,IPAPGothic,62,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,2,0,1,7,3,5,30,30,0,1
+Style: shout,IPAPGothic,78,&H0040E6FF,&H0040E6FF,&H00200818,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: resolve,IPAPGothic,80,&H00FFFFFF,&H00FFFFFF,&H003C14DC,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: shape,IPAPGothic,20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: ren,IPAPGothic,68,&H00FFFFFF,&H00FFFFFF,&H00202020,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: yui,IPAPGothic,68,&H00E8D0FF,&H00E8D0FF,&H00502040,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: kaito,IPAPGothic,68,&H00FFE0B0,&H00FFE0B0,&H00402010,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: mio,IPAPGothic,64,&H00C0E0FF,&H00C0E0FF,&H00203040,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: b2,IPAPGothic,70,&H00B0C8FF,&H00B0C8FF,&H00102040,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: sae,IPAPGothic,66,&H00D0FFD8,&H00D0FFD8,&H00204020,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: ann,IPAPGothic,60,&H00FFE8A0,&H00FFE8A0,&H00402000,&H00000000,-1,0,0,0,100,100,1,0,1,7,0,5,16,16,0,1
+Style: hook,IPAPGothic,58,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,7,0,5,20,20,0,1
+Style: hud,IPAPGothic,26,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,2,0,5,0,0,0,1
+Style: card,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,0,0,5,20,20,0,1
+Style: count,IPAPGothic,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,8,0,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 10,0:00:00.00,0:00:01.90,card,,0,0,0,,{\an8\pos(360,64)\fs26\c&HDDDDDD&\3c&H000000&\bord3\fad(0,300)}前回、あなたは{\c&H40D8FF&}「ユイを信じる」{\c&HDDDDDD&}を選んだ
+Dialogue: 10,0:00:00.00,0:00:01.90,count,,0,0,0,,{\an8\pos(360,104)\fs50\c&HFFFFFF&\3c&H000000&\bord5\fad(0,300)}投票結果：{\c&HFFB050&}カイト
+Dialogue: 10,0:00:01.90,0:00:04.00,card,,0,0,0,,{\an8\pos(360,64)\fs28\c&HDDDDDD&\3c&H000000&\bord3\fad(200,300)}出席番号13番　{\c&HFFFFFF&\fs40}第2話「消えた席」
+Dialogue: 11,0:00:01.60,0:00:02.90,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H60&\bord0\shad0\fad(80,250)}m 0 470 l 720 470 l 720 650 l 0 650{\p0}
+Dialogue: 12,0:00:01.60,0:00:02.90,count,,0,0,0,,{\an5\pos(360,560)\fs110\c&H2020F0&\3c&HFFFFFF&\bord6\frz-8\fscx135\fscy135\t(0,140,\fscx100\fscy100)\fad(0,250)}脱落
+Dialogue: 7,0:00:00.00,0:00:00.35,hud,,0,0,0,,{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\c&H3030FF&\fs54\fscx135\fscy135\t(0,140,\fscx100\fscy100)}30{\c&HFFFFFF&\fs30}／31
+Dialogue: 7,0:00:00.35,0:00:01.70,hud,,0,0,0,,{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\fs40}30{\fs30}／31
+Dialogue: 7,0:00:01.70,0:00:02.05,hud,,0,0,0,,{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\c&H3030FF&\fs54\fscx135\fscy135\t(0,140,\fscx100\fscy100)}29{\c&HFFFFFF&\fs30}／31
+Dialogue: 7,0:00:02.05,0:00:09.25,hud,,0,0,0,,{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\fs40}29{\fs30}／31
+Dialogue: 7,0:00:09.25,0:00:09.60,hud,,0,0,0,,{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\c&H3030FF&\fs54\fscx135\fscy135\t(0,140,\fscx100\fscy100)}26{\c&HFFFFFF&\fs30}／31
+Dialogue: 7,0:00:09.60,0:00:10.35,hud,,0,0,0,,{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\fs40}26{\fs30}／31
+Dialogue: 7,0:00:10.35,0:00:10.70,hud,,0,0,0,,{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\c&H3030FF&\fs54\fscx135\fscy135\t(0,140,\fscx100\fscy100)}22{\c&HFFFFFF&\fs30}／31
+Dialogue: 7,0:00:10.70,0:00:10.95,hud,,0,0,0,,{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\fs40}22{\fs30}／31
+Dialogue: 7,0:00:10.95,0:00:11.30,hud,,0,0,0,,{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\c&H3030FF&\fs54\fscx135\fscy135\t(0,140,\fscx100\fscy100)}18{\c&HFFFFFF&\fs30}／31
+Dialogue: 7,0:00:11.30,0:00:11.50,hud,,0,0,0,,{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\fs40}18{\fs30}／31
+Dialogue: 7,0:00:11.50,0:00:11.85,hud,,0,0,0,,{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\c&H3030FF&\fs54\fscx135\fscy135\t(0,140,\fscx100\fscy100)}15{\c&HFFFFFF&\fs30}／31
+Dialogue: 7,0:00:11.85,0:00:33.60,hud,,0,0,0,,{\an9\pos(700,24)\fs30\c&HFFFFFF&}生存　{\fs40}15{\fs30}／31
+Dialogue: 7,0:00:02.80,0:00:09.00,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&H3030FF&\fad(100,100)}● {\c&HFFFFFF&}校内放送
+Dialogue: 7,0:00:25.20,0:00:28.50,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&H3030FF&\fad(100,100)}● {\c&HFFFFFF&}校内放送
+Dialogue: 11,0:00:05.64,0:00:06.80,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H60&\bord0\shad0\fad(80,250)}m 0 430 l 720 430 l 720 700 l 0 700{\p0}
+Dialogue: 12,0:00:05.64,0:00:06.80,count,,0,0,0,,{\an5\pos(360,560)\fs200\c&H2020F0&\3c&HFFFFFF&\bord8\fscx135\fscy135\t(0,140,\fscx100\fscy100)\fad(0,150)}✕
+Dialogue: 12,0:00:05.70,0:00:06.80,count,,0,0,0,,{\an5\pos(360,690)\fs64\c&HFFFFFF&\3c&H2020F0&\bord5\fscx135\fscy135\t(0,140,\fscx100\fscy100)\fad(0,150)}不正解
+Dialogue: 11,0:00:06.85,0:00:09.00,count,,0,0,0,,{\an5\pos(360,250)\fs42\c&HFFFFFF&\3c&H000000&\bord4\fad(150,150)}カイトに投票した人も、{\c&H3030FF&}消える
+Dialogue: 12,0:00:09.25,0:00:10.35,count,,0,0,0,,{\an5\pos(360,560)\fs90\c&H2020F0&\3c&HFFFFFF&\bord6\frz-7\fscx135\fscy135\t(0,140,\fscx100\fscy100)}脱落 {\fs130}×3
+Dialogue: 12,0:00:10.35,0:00:10.95,count,,0,0,0,,{\an5\pos(360,560)\fs90\c&H2020F0&\3c&HFFFFFF&\bord6\frz6\fscx135\fscy135\t(0,140,\fscx100\fscy100)}脱落 {\fs130}×7
+Dialogue: 12,0:00:10.95,0:00:11.50,count,,0,0,0,,{\an5\pos(360,560)\fs90\c&H2020F0&\3c&HFFFFFF&\bord6\frz-5\fscx135\fscy135\t(0,140,\fscx100\fscy100)}脱落 {\fs130}×11
+Dialogue: 12,0:00:11.50,0:00:12.00,count,,0,0,0,,{\an5\pos(360,560)\fs90\c&H2020F0&\3c&HFFFFFF&\bord6\frz8\fscx135\fscy135\t(0,140,\fscx100\fscy100)}脱落 {\fs130}×14
+Dialogue: 12,0:00:12.00,0:00:13.10,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H40&\bord0\shad0}m 110 560 l 610 560 l 610 600 l 110 600{\p0}
+Dialogue: 13,0:00:12.00,0:00:12.09,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF0F0F0&\1a&H00&\bord0\shad0}m 114 564 l 114 564 l 114 596 l 114 596{\p0}
+Dialogue: 13,0:00:12.09,0:00:12.18,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF0F0F0&\1a&H00&\bord0\shad0}m 114 564 l 149 564 l 149 596 l 114 596{\p0}
+Dialogue: 13,0:00:12.18,0:00:12.27,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF0F0F0&\1a&H00&\bord0\shad0}m 114 564 l 185 564 l 185 596 l 114 596{\p0}
+Dialogue: 13,0:00:12.27,0:00:12.36,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF0F0F0&\1a&H00&\bord0\shad0}m 114 564 l 221 564 l 221 596 l 114 596{\p0}
+Dialogue: 13,0:00:12.36,0:00:12.45,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF0F0F0&\1a&H00&\bord0\shad0}m 114 564 l 257 564 l 257 596 l 114 596{\p0}
+Dialogue: 13,0:00:12.45,0:00:12.54,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF0F0F0&\1a&H00&\bord0\shad0}m 114 564 l 293 564 l 293 596 l 114 596{\p0}
+Dialogue: 13,0:00:12.54,0:00:12.63,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF0F0F0&\1a&H00&\bord0\shad0}m 114 564 l 329 564 l 329 596 l 114 596{\p0}
+Dialogue: 13,0:00:12.63,0:00:12.72,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF0F0F0&\1a&H00&\bord0\shad0}m 114 564 l 365 564 l 365 596 l 114 596{\p0}
+Dialogue: 13,0:00:12.72,0:00:12.81,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF0F0F0&\1a&H00&\bord0\shad0}m 114 564 l 401 564 l 401 596 l 114 596{\p0}
+Dialogue: 13,0:00:12.81,0:00:12.90,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF0F0F0&\1a&H00&\bord0\shad0}m 114 564 l 437 564 l 437 596 l 114 596{\p0}
+Dialogue: 13,0:00:12.90,0:00:13.10,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF0F0F0&\1a&H00&\bord0\shad0}m 114 564 l 473 564 l 473 596 l 114 596{\p0}
+Dialogue: 13,0:00:12.00,0:00:13.10,count,,0,0,0,,{\an5\pos(360,520)\fs40\c&HFFFFFF&\3c&H000000&\bord4}あなた：消去中… {\fs34}
+Dialogue: 13,0:00:13.10,0:00:14.30,count,,0,0,0,,{\an5\pos(360,560)\fs64\c&H2020F0&\3c&HFFFFFF&\bord5\fscx135\fscy135\t(0,140,\fscx100\fscy100)\fad(0,200)}ERROR{\N\fs46\c&HFFFFFF&\3c&H000000&}消去できません
+Dialogue: 12,0:00:18.20,0:00:19.60,count,,0,0,0,,{\an5\pos(360,250)\fs46\c&HFFFFFF&\3c&H000000&\bord4\fscx135\fscy135\t(0,140,\fscx100\fscy100)\fad(0,200)}15人　{\c&H40E0FF&}＋　あなた　＝　16人？
+Dialogue: 12,0:00:20.60,0:00:21.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1a&HFF&\3c&H2020F0&\bord7\shad0\fad(80,200)\org(225,610)\fscx150\fscy150\t(0,160,\fscx100\fscy100)}m 225 520 b 274 520 315 561 315 610 b 315 659 274 700 225 700 b 176 700 135 659 135 610 b 135 561 176 520 225 520{\p0}
+Dialogue: 12,0:00:20.70,0:00:21.50,count,,0,0,0,,{\an5\pos(225,740)\fs40\c&HFFFFFF&\3c&H2020F0&\bord4\fscx135\fscy135\t(0,140,\fscx100\fscy100)\fad(0,200)}カバンがない
+Dialogue: 12,0:00:24.40,0:00:25.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1a&HFF&\3c&H2020F0&\bord7\shad0\fad(80,200)\org(330,650)\fscx150\fscy150\t(0,160,\fscx100\fscy100)}m 330 530 b 396 530 450 584 450 650 b 450 716 396 770 330 770 b 264 770 210 716 210 650 b 210 584 264 530 330 530{\p0}
+Dialogue: 12,0:00:24.40,0:00:25.40,count,,0,0,0,,{\an5\pos(360,880)\fs120\c&H2020F0&\3c&HFFFFFF&\bord6\fscx135\fscy135\t(0,140,\fscx100\fscy100)\fad(0,200)}13
+Dialogue: 11,0:00:32.20,0:00:32.67,count,,0,0,0,,{\an5\pos(360,420)\fs56\c&HFFFFFF&\3c&H000000&\bord5}次の投票まで{\N}{\c&H3030FF&\fs160\fscx135\fscy135\t(0,140,\fscx100\fscy100)}3
+Dialogue: 11,0:00:32.67,0:00:33.13,count,,0,0,0,,{\an5\pos(360,420)\fs56\c&HFFFFFF&\3c&H000000&\bord5}次の投票まで{\N}{\c&H3030FF&\fs160\fscx135\fscy135\t(0,140,\fscx100\fscy100)}2
+Dialogue: 11,0:00:33.13,0:00:33.60,count,,0,0,0,,{\an5\pos(360,420)\fs56\c&HFFFFFF&\3c&H000000&\bord5}次の投票まで{\N}{\c&H3030FF&\fs160\fscx135\fscy135\t(0,140,\fscx100\fscy100)}1
+Dialogue: 15,0:00:33.60,0:00:37.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H50&\bord0\shad0\fad(250,0)}m 0 0 l 720 0 l 720 1280 l 0 1280{\p0}
+Dialogue: 16,0:00:33.60,0:00:37.50,count,,0,0,0,,{\an5\pos(360,330)\fs64\c&HFFFFFF&\3c&H000000&\bord6\fad(200,0)}あなたなら\Nどうする？
+Dialogue: 16,0:00:33.75,0:00:37.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H2E9AC8&\1a&H00&\bord0\shad0\fad(150,0)\t(0,120,\fscx102\fscy102)}m 30 430 l 690 430 l 690 600 l 30 600{\p0}
+Dialogue: 17,0:00:33.75,0:00:37.50,count,,0,0,0,,{\an4\pos(140,515)\fs50\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}名札をはがす
+Dialogue: 17,0:00:33.95,0:00:37.50,count,,0,0,0,,{\an5\pos(360,650)\fs44\c&H40E0FF&\3c&H000000&\bord4\fad(150,0)}それとも
+Dialogue: 16,0:00:34.10,0:00:37.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HC07030&\1a&H00&\bord0\shad0\fad(150,0)\t(0,120,\fscx102\fscy102)}m 30 700 l 690 700 l 690 870 l 30 870{\p0}
+Dialogue: 17,0:00:34.10,0:00:37.50,count,,0,0,0,,{\an4\pos(140,785)\fs50\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}ユイに聞く
+Dialogue: 17,0:00:34.40,0:00:37.50,count,,0,0,0,,{\an5\pos(360,960)\fs50\c&HFFFFFF&\3c&H000000&\bord5\fad(150,0)}コメントで教えて　
+Dialogue: 9,0:00:00.15,0:00:01.72,kaito,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}待てよ…\N俺じゃない！
+Dialogue: 9,0:00:02.90,0:00:05.79,ann,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}カイトさんは…\Nいない生徒では、ありません
+Dialogue: 9,0:00:05.64,0:00:06.96,ann,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}不正解です
+Dialogue: 9,0:00:06.81,0:00:09.40,ann,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}カイトさんに投票した人も、\N消えます
+Dialogue: 9,0:00:09.30,0:00:10.13,mio,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}いやっ…！
+Dialogue: 9,0:00:10.40,0:00:11.53,b2,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}うそだろ…
+Dialogue: 9,0:00:12.40,0:00:14.46,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}…俺も、\Nカイトに入れたのに
+Dialogue: 9,0:00:14.31,0:00:16.37,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}なんで、俺だけ…\N消えない？
+Dialogue: 9,0:00:16.22,0:00:17.23,yui,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}…よかった
+Dialogue: 9,0:00:17.10,0:00:19.80,sae,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}残り15人。\N全員、そろってるね
+Dialogue: 9,0:00:19.65,0:00:21.66,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}カイトのカバンも…\Nない
+Dialogue: 9,0:00:21.90,0:00:24.31,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}この机…名札が、\N塗りつぶされてる
+Dialogue: 9,0:00:24.40,0:00:25.36,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}…13？
+Dialogue: 9,0:00:25.30,0:00:27.68,ann,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}次の投票まで、\Nあと10秒
+Dialogue: 9,0:00:27.53,0:00:28.62,yui,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}…だよね？
+Dialogue: 9,0:00:28.60,0:00:30.49,yui,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}…それ、\Nはがさないで
+Dialogue: 9,0:00:30.34,0:00:32.42,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}ユイ…\N何か知ってるのか？
