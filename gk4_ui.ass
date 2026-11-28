@@ -1,0 +1,120 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: hero,IPAPGothic,66,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,1,0,1,7,3,5,30,30,0,1
+Style: narr,IPAPGothic,62,&H00FFFFFF,&H00FFFFFF,&H00301018,&H96000000,-1,0,0,0,100,100,2,0,1,7,3,5,30,30,0,1
+Style: shout,IPAPGothic,78,&H0040E6FF,&H0040E6FF,&H00200818,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: resolve,IPAPGothic,80,&H00FFFFFF,&H00FFFFFF,&H003C14DC,&H96000000,-1,0,0,0,100,100,1,0,1,8,3,5,30,30,0,1
+Style: shape,IPAPGothic,20,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,0,0,0,1
+Style: ren,IPAPGothic,68,&H00FFFFFF,&H00FFFFFF,&H00202020,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: yui,IPAPGothic,68,&H00E8D0FF,&H00E8D0FF,&H00502040,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: kaito,IPAPGothic,68,&H00FFE0B0,&H00FFE0B0,&H00402010,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: mio,IPAPGothic,64,&H00C0E0FF,&H00C0E0FF,&H00203040,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: b2,IPAPGothic,70,&H00B0C8FF,&H00B0C8FF,&H00102040,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: sae,IPAPGothic,66,&H00D0FFD8,&H00D0FFD8,&H00204020,&H00000000,-1,0,0,0,100,100,1,0,1,8,0,5,16,16,0,1
+Style: ann,IPAPGothic,60,&H00FFE8A0,&H00FFE8A0,&H00402000,&H00000000,-1,0,0,0,100,100,1,0,1,7,0,5,16,16,0,1
+Style: hook,IPAPGothic,58,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,7,0,5,20,20,0,1
+Style: hud,IPAPGothic,26,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,2,0,5,0,0,0,1
+Style: card,IPAPGothic,44,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,1,0,1,0,0,5,20,20,0,1
+Style: count,IPAPGothic,84,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,8,0,5,0,0,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 10,0:00:00.00,0:00:01.60,card,,0,0,0,,{\an8\pos(360,64)\fs26\c&HDDDDDD&\3c&H000000&\bord3\fad(0,300)}前回、あなたは{\c&H40C8F0&}「教室から逃げる」{\c&HDDDDDD&}を選んだ
+Dialogue: 11,0:00:00.80,0:00:02.05,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H60&\bord0\shad0\fad(80,250)}m 0 330 l 720 330 l 720 520 l 0 520{\p0}
+Dialogue: 12,0:00:00.80,0:00:02.05,count,,0,0,0,,{\an5\pos(353,427)\fs96\c&H3030FF&\3c&H3030FF&\bord0\alpha&H60&\fscx135\fscy135\t(0,140,\fscx100\fscy100)}戻ってる！？
+Dialogue: 12,0:00:00.80,0:00:02.05,count,,0,0,0,,{\an5\pos(367,423)\fs96\c&HFFFF30&\3c&HFFFF30&\bord0\alpha&H60&\fscx135\fscy135\t(0,140,\fscx100\fscy100)}戻ってる！？
+Dialogue: 13,0:00:00.80,0:00:02.05,count,,0,0,0,,{\an5\pos(360,425)\fs96\c&HFFFFFF&\3c&H000000&\bord5\fscx135\fscy135\t(0,140,\fscx100\fscy100)}戻ってる！？
+Dialogue: 12,0:00:02.75,0:00:02.90,count,,0,0,0,,{\an5\pos(353,602)\fs150\c&H3030FF&\3c&H3030FF&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 1
+Dialogue: 12,0:00:02.75,0:00:02.90,count,,0,0,0,,{\an5\pos(367,598)\fs150\c&HFFFF30&\3c&HFFFF30&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 1
+Dialogue: 13,0:00:02.75,0:00:02.90,count,,0,0,0,,{\an5\pos(360,600)\fs150\c&HFFFFFF&\3c&H000000&\bord5\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 1
+Dialogue: 12,0:00:02.90,0:00:03.05,count,,0,0,0,,{\an5\pos(353,602)\fs150\c&H3030FF&\3c&H3030FF&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 2
+Dialogue: 12,0:00:02.90,0:00:03.05,count,,0,0,0,,{\an5\pos(367,598)\fs150\c&HFFFF30&\3c&HFFFF30&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 2
+Dialogue: 13,0:00:02.90,0:00:03.05,count,,0,0,0,,{\an5\pos(360,600)\fs150\c&HFFFFFF&\3c&H000000&\bord5\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 2
+Dialogue: 12,0:00:03.05,0:00:03.20,count,,0,0,0,,{\an5\pos(353,602)\fs150\c&H3030FF&\3c&H3030FF&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 3
+Dialogue: 12,0:00:03.05,0:00:03.20,count,,0,0,0,,{\an5\pos(367,598)\fs150\c&HFFFF30&\3c&HFFFF30&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 3
+Dialogue: 13,0:00:03.05,0:00:03.20,count,,0,0,0,,{\an5\pos(360,600)\fs150\c&HFFFFFF&\3c&H000000&\bord5\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 3
+Dialogue: 12,0:00:03.20,0:00:03.35,count,,0,0,0,,{\an5\pos(353,602)\fs150\c&H3030FF&\3c&H3030FF&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 5
+Dialogue: 12,0:00:03.20,0:00:03.35,count,,0,0,0,,{\an5\pos(367,598)\fs150\c&HFFFF30&\3c&HFFFF30&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 5
+Dialogue: 13,0:00:03.20,0:00:03.35,count,,0,0,0,,{\an5\pos(360,600)\fs150\c&HFFFFFF&\3c&H000000&\bord5\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 5
+Dialogue: 12,0:00:03.35,0:00:03.50,count,,0,0,0,,{\an5\pos(353,602)\fs150\c&H3030FF&\3c&H3030FF&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 9
+Dialogue: 12,0:00:03.35,0:00:03.50,count,,0,0,0,,{\an5\pos(367,598)\fs150\c&HFFFF30&\3c&HFFFF30&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 9
+Dialogue: 13,0:00:03.35,0:00:03.50,count,,0,0,0,,{\an5\pos(360,600)\fs150\c&HFFFFFF&\3c&H000000&\bord5\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 9
+Dialogue: 12,0:00:03.50,0:00:03.65,count,,0,0,0,,{\an5\pos(353,602)\fs150\c&H3030FF&\3c&H3030FF&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 17
+Dialogue: 12,0:00:03.50,0:00:03.65,count,,0,0,0,,{\an5\pos(367,598)\fs150\c&HFFFF30&\3c&HFFFF30&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 17
+Dialogue: 13,0:00:03.50,0:00:03.65,count,,0,0,0,,{\an5\pos(360,600)\fs150\c&HFFFFFF&\3c&H000000&\bord5\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 17
+Dialogue: 12,0:00:03.65,0:00:03.80,count,,0,0,0,,{\an5\pos(353,602)\fs150\c&H3030FF&\3c&H3030FF&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 38
+Dialogue: 12,0:00:03.65,0:00:03.80,count,,0,0,0,,{\an5\pos(367,598)\fs150\c&HFFFF30&\3c&HFFFF30&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 38
+Dialogue: 13,0:00:03.65,0:00:03.80,count,,0,0,0,,{\an5\pos(360,600)\fs150\c&HFFFFFF&\3c&H000000&\bord5\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 38
+Dialogue: 12,0:00:03.80,0:00:03.95,count,,0,0,0,,{\an5\pos(353,602)\fs150\c&H3030FF&\3c&H3030FF&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 99
+Dialogue: 12,0:00:03.80,0:00:03.95,count,,0,0,0,,{\an5\pos(367,598)\fs150\c&HFFFF30&\3c&HFFFF30&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 99
+Dialogue: 13,0:00:03.80,0:00:03.95,count,,0,0,0,,{\an5\pos(360,600)\fs150\c&HFFFFFF&\3c&H000000&\bord5\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 99
+Dialogue: 12,0:00:03.95,0:00:04.10,count,,0,0,0,,{\an5\pos(353,602)\fs150\c&H3030FF&\3c&H3030FF&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 256
+Dialogue: 12,0:00:03.95,0:00:04.10,count,,0,0,0,,{\an5\pos(367,598)\fs150\c&HFFFF30&\3c&HFFFF30&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 256
+Dialogue: 13,0:00:03.95,0:00:04.10,count,,0,0,0,,{\an5\pos(360,600)\fs150\c&HFFFFFF&\3c&H000000&\bord5\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 256
+Dialogue: 12,0:00:04.10,0:00:04.75,count,,0,0,0,,{\an5\pos(353,602)\fs180\c&H3030FF&\3c&H3030FF&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 444
+Dialogue: 12,0:00:04.10,0:00:04.75,count,,0,0,0,,{\an5\pos(367,598)\fs180\c&HFFFF30&\3c&HFFFF30&\bord0\alpha&H60&\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 444
+Dialogue: 13,0:00:04.10,0:00:04.75,count,,0,0,0,,{\an5\pos(360,600)\fs180\c&HFFFFFF&\3c&H000000&\bord5\fscx115\fscy115\t(0,60,\fscx100\fscy100)}LOOP 444
+Dialogue: 11,0:00:02.75,0:00:04.75,card,,0,0,0,,{\an5\pos(360,470)\fs40\c&HFFFFFF&\3c&H000000&\bord4}何度逃げても、{\c&H3030FF&}ここに戻る
+Dialogue: 10,0:00:04.75,0:00:06.40,card,,0,0,0,,{\an8\pos(360,64)\fs28\c&HDDDDDD&\3c&H000000&\bord3\fad(200,300)}出席番号13番　{\c&HFFFFFF&\fs40}第4話「16時44分」
+Dialogue: 12,0:00:04.30,0:00:04.60,count,,0,0,0,,{\an5\pos(353,302)\fs70\c&H3030FF&\3c&H3030FF&\bord0\alpha&H60&}ERROR
+Dialogue: 12,0:00:04.30,0:00:04.60,count,,0,0,0,,{\an5\pos(367,298)\fs70\c&HFFFF30&\3c&HFFFF30&\bord0\alpha&H60&}ERROR
+Dialogue: 13,0:00:04.30,0:00:04.60,count,,0,0,0,,{\an5\pos(360,300)\fs70\c&HFFFFFF&\3c&H000000&\bord5}ERROR
+Dialogue: 11,0:00:11.30,0:00:12.60,count,,0,0,0,,{\an5\pos(360,250)\fs44\c&HFFFFFF&\3c&H000000&\bord4\fad(100,0)}時計が、{\c&H3030FF&}狂っていく
+Dialogue: 12,0:00:12.60,0:00:15.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1a&HFF&\3c&H2020F0&\bord7\shad0\fad(80,200)\org(360,640)\fscx150\fscy150\t(0,160,\fscx100\fscy100)}m 360 490 b 442 490 510 558 510 640 b 510 722 442 790 360 790 b 278 790 210 722 210 640 b 210 558 278 490 360 490{\p0}
+Dialogue: 12,0:00:12.65,0:00:15.00,count,,0,0,0,,{\an5\pos(353,872)\fs110\c&H3030FF&\3c&H3030FF&\bord0\alpha&H60&\fscx135\fscy135\t(0,140,\fscx100\fscy100)}16:44
+Dialogue: 12,0:00:12.65,0:00:15.00,count,,0,0,0,,{\an5\pos(367,868)\fs110\c&HFFFF30&\3c&HFFFF30&\bord0\alpha&H60&\fscx135\fscy135\t(0,140,\fscx100\fscy100)}16:44
+Dialogue: 13,0:00:12.65,0:00:15.00,count,,0,0,0,,{\an5\pos(360,870)\fs110\c&HFFFFFF&\3c&H000000&\bord5\fscx135\fscy135\t(0,140,\fscx100\fscy100)}16:44
+Dialogue: 12,0:00:13.30,0:00:15.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF4F4F4&\1a&H08&\bord0\shad0\fad(120,200)\move(0,-120,0,0,0,150)}m 24 60 l 696 60 l 696 200 l 24 200{\p0}
+Dialogue: 14,0:00:13.30,0:00:15.00,card,,0,0,0,,{\an7\pos(44,82)\fs28\c&H303030&\fad(120,200)\move(44,-38,44,82,0,150)}スマホ
+Dialogue: 14,0:00:13.30,0:00:15.00,card,,0,0,0,,{\an9\pos(676,82)\fs30\c&H2020F0&\fad(120,200)\move(676,-38,676,82,0,150)}16:44　100%
+Dialogue: 14,0:00:13.30,0:00:15.00,card,,0,0,0,,{\an7\pos(44,130)\fs30\c&H202020&\fad(120,200)\move(44,10,44,130,0,150)}1年前から、ずっと動いていない
+Dialogue: 11,0:00:16.05,0:00:17.60,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H60&\bord0\shad0\fad(80,250)}m 0 200 l 720 200 l 720 330 l 0 330{\p0}
+Dialogue: 12,0:00:16.05,0:00:17.60,count,,0,0,0,,{\an5\pos(353,267)\fs54\c&H3030FF&\3c&H3030FF&\bord0\alpha&H60&\fad(0,200)}1年前　11月25日　16:44
+Dialogue: 12,0:00:16.05,0:00:17.60,count,,0,0,0,,{\an5\pos(367,263)\fs54\c&HFFFF30&\3c&HFFFF30&\bord0\alpha&H60&\fad(0,200)}1年前　11月25日　16:44
+Dialogue: 13,0:00:16.05,0:00:17.60,count,,0,0,0,,{\an5\pos(360,265)\fs54\c&HFFFFFF&\3c&H000000&\bord5\fad(0,200)}1年前　11月25日　16:44
+Dialogue: 7,0:00:16.00,0:00:27.60,hud,,0,0,0,,{\an7\pos(28,24)\fs26\c&H3030FF&}● {\c&HFFFFFF&}記憶を再生中
+Dialogue: 12,0:00:17.30,0:00:19.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1a&HFF&\3c&H2020F0&\bord7\shad0\fad(80,200)\org(520,600)\fscx150\fscy150\t(0,160,\fscx100\fscy100)}m 520 520 b 564 520 600 556 600 600 b 600 644 564 680 520 680 b 476 680 440 644 440 600 b 440 556 476 520 520 520{\p0}
+Dialogue: 12,0:00:17.40,0:00:19.40,count,,0,0,0,,{\an5\pos(520,720)\fs40\c&HFFFFFF&\3c&H2020F0&\bord4\fscx135\fscy135\t(0,140,\fscx100\fscy100)\fad(0,200)}ライター
+Dialogue: 12,0:00:18.40,0:00:19.30,count,,0,0,0,,{\an5\pos(360,250)\fs46\c&HFFFFFF&\3c&H000000&\bord5\fscx135\fscy135\t(0,140,\fscx100\fscy100)\fad(0,150)}火事の原因は――{\c&H40B0FF&}カイト
+Dialogue: 11,0:00:23.45,0:00:25.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H60&\bord0\shad0\fad(80,250)}m 0 300 l 720 300 l 720 600 l 0 600{\p0}
+Dialogue: 12,0:00:23.45,0:00:25.40,count,,0,0,0,,{\an5\pos(360,370)\fs46\c&HFFFFFF&\3c&H000000&\bord5\fad(100,200)}ユイを窓から押し出したのは――
+Dialogue: 13,0:00:24.05,0:00:25.40,count,,0,0,0,,{\an5\pos(360,500)\fs140\c&H2020F0&\3c&HFFFFFF&\bord7\frz-6\fscx135\fscy135\t(0,140,\fscx100\fscy100)\fad(0,200)}あなた
+Dialogue: 12,0:00:27.90,0:00:31.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HF4F4F4&\1a&H08&\bord0\shad0\fad(150,250)}m 24 560 l 696 560 l 696 760 l 24 760{\p0}
+Dialogue: 13,0:00:27.90,0:00:31.00,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H55C806&\1a&H00&\bord0\shad0\fad(150,250)}m 44 582 l 84 582 l 84 622 l 44 622{\p0}
+Dialogue: 14,0:00:27.90,0:00:31.00,card,,0,0,0,,{\an7\pos(96,580)\fs28\c&H303030&\fad(150,250)}母
+Dialogue: 14,0:00:27.90,0:00:31.00,card,,0,0,0,,{\an9\pos(676,580)\fs26\c&H808080&\fad(150,250)}16:44
+Dialogue: 14,0:00:27.90,0:00:31.00,card,,0,0,0,,{\an7\pos(44,636)\fs32\c&H202020&\fad(150,250)}白い菊にしたよ。\Nあなた、好きだったでしょ
+Dialogue: 11,0:00:33.20,0:00:35.40,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H60&\bord0\shad0\fad(80,250)}m 0 200 l 720 200 l 720 330 l 0 330{\p0}
+Dialogue: 12,0:00:33.25,0:00:35.40,count,,0,0,0,,{\an5\pos(353,267)\fs60\c&H3030FF&\3c&H3030FF&\bord0\alpha&H60&\fscx135\fscy135\t(0,140,\fscx100\fscy100)}あなたは、1年前に――
+Dialogue: 12,0:00:33.25,0:00:35.40,count,,0,0,0,,{\an5\pos(367,263)\fs60\c&HFFFF30&\3c&HFFFF30&\bord0\alpha&H60&\fscx135\fscy135\t(0,140,\fscx100\fscy100)}あなたは、1年前に――
+Dialogue: 13,0:00:33.25,0:00:35.40,count,,0,0,0,,{\an5\pos(360,265)\fs60\c&HFFFFFF&\3c&H000000&\bord5\fscx135\fscy135\t(0,140,\fscx100\fscy100)}あなたは、1年前に――
+Dialogue: 15,0:00:35.40,0:00:39.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H000000&\1a&H50&\bord0\shad0\fad(250,0)}m 0 0 l 720 0 l 720 1280 l 0 1280{\p0}
+Dialogue: 16,0:00:35.40,0:00:39.50,count,,0,0,0,,{\an5\pos(360,330)\fs64\c&HFFFFFF&\3c&H000000&\bord6\fad(200,0)}ユイに、\Nなんて言う？
+Dialogue: 16,0:00:35.55,0:00:39.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&H2E9AC8&\1a&H00&\bord0\shad0\fad(150,0)\t(0,120,\fscx102\fscy102)}m 30 430 l 690 430 l 690 600 l 30 600{\p0}
+Dialogue: 17,0:00:35.55,0:00:39.50,count,,0,0,0,,{\an4\pos(140,515)\fs48\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}「ありがとう」
+Dialogue: 17,0:00:35.75,0:00:39.50,count,,0,0,0,,{\an5\pos(360,650)\fs44\c&H40E0FF&\3c&H000000&\bord4\fad(150,0)}それとも
+Dialogue: 16,0:00:35.90,0:00:39.50,shape,,0,0,0,,{\an7\pos(0,0)\p1\1c&HC07030&\1a&H00&\bord0\shad0\fad(150,0)\t(0,120,\fscx102\fscy102)}m 30 700 l 690 700 l 690 870 l 30 870{\p0}
+Dialogue: 17,0:00:35.90,0:00:39.50,count,,0,0,0,,{\an4\pos(140,785)\fs48\c&HFFFFFF&\3c&H303030&\bord4\fad(150,0)}「なんで来た」
+Dialogue: 17,0:00:36.20,0:00:39.50,count,,0,0,0,,{\an5\pos(360,960)\fs50\c&HFFFFFF&\3c&H000000&\bord5\fad(150,0)}コメントで教えて　
+Dialogue: 9,0:00:00.05,0:00:01.10,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}出口…！
+Dialogue: 9,0:00:00.95,0:00:02.49,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}…え？\N戻ってる…？
+Dialogue: 9,0:00:04.35,0:00:05.50,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}出られない…！？
+Dialogue: 9,0:00:05.80,0:00:08.11,yui,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}…逃げても、\Nここに戻るよ
+Dialogue: 9,0:00:07.96,0:00:09.12,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}なんでだよ…！
+Dialogue: 9,0:00:08.97,0:00:11.58,yui,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}蓮くんの時間は…\N止まってるから
+Dialogue: 9,0:00:12.80,0:00:15.60,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}時計も、スマホも…\N16時44分
+Dialogue: 9,0:00:15.45,0:00:16.59,yui,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}…思い出して
+Dialogue: 9,0:00:17.00,0:00:18.32,kaito,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}やべぇ…\N火が…！
+Dialogue: 9,0:00:19.80,0:00:22.19,yui,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}蓮くん…！\N足が、動かない…
+Dialogue: 9,0:00:22.04,0:00:23.81,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}ユイ、\N窓から出ろ！
+Dialogue: 9,0:00:25.60,0:00:26.61,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}…よかった
+Dialogue: 9,0:00:29.40,0:00:30.62,yui,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}…思い出した？
+Dialogue: 9,0:00:30.70,0:00:33.60,yui,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}あの日、助けてくれたの…\N蓮くんだよ
+Dialogue: 9,0:00:33.45,0:00:35.15,ren,,0,0,0,,{\an5\pos(360,1040)\fad(60,100)}俺…\N死んでたのか
