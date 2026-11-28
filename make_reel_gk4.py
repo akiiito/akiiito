@@ -92,8 +92,8 @@ def build_ui(path):
     band(MEM + 0.05, 17.6, 200, 330)
     gl(MEM + 0.05, 17.6, 360, 265, 54, "1年前　11月25日　16:44", 12, r"\fad(0,200)")
     E(MEM, BLACK, "hud", r"{\an7\pos(28,24)\fs26\c&H3030FF&}● {\c&HFFFFFF&}記憶を再生中", 7)
-    circle(17.3, 19.4, LIGHTER[0], LIGHTER[1], 80)
-    E(17.4, 19.4, "count", r"{\an5\pos(%d,%d)\fs40\c&HFFFFFF&\3c&H2020F0&\bord4%s\fad(0,200)}ライター" % (LIGHTER[0], LIGHTER[1] + 120, pop), 12)
+    circle(17.3, 19.4, LIGHTER[0], LIGHTER[1], 105)
+    E(17.4, 19.4, "count", r"{\an5\pos(%d,%d)\fs40\c&HFFFFFF&\3c&H2020F0&\bord4%s\fad(0,200)}ライター" % (LIGHTER[0], LIGHTER[1] + 150, pop), 12)
     E(18.4, WIN - 0.3, "count", r"{\an5\pos(360,250)\fs46\c&HFFFFFF&\3c&H000000&\bord5%s\fad(0,150)}火事の原因は――{\c&H40B0FF&}カイト" % pop, 12)
     # ユイを窓から押し出したのは
     band(PUSH + 0.15, FALL + 0.4, 300, 600)
@@ -123,7 +123,7 @@ def build_ui(path):
     open(path, "w", encoding="utf-8").write(head + "\n".join(ev) + "\n")
 
 CLKXY = (360, 640)      # 止まった時計（画面上の位置）
-LIGHTER = (520, 600)    # カイトのライター
+LIGHTER = (400, 640)    # カイトのライター
 
 def mix(*xs):
     n = max(len(x) for x in xs); out = np.zeros(n)

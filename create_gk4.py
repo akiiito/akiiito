@@ -137,8 +137,9 @@ for k, (kind, face, p, hc) in EXTRA.items():
 PRESENT = ["yuih", "sae2", "g5", "b6"]
 # ---------------------------------------------------------------- 1年前の記憶：火事
 KAI_M = Vector((1.85, -3.3, 0))
-C["kaip"] = add_boy("kaip", "yota", KAI_M, (0.07, 0.06, 0.06), arms=POINT)
-W.box("lighter", (-0.12, 0.64, 1.3), (0.025, 0.012, 0.06), W.mat("lighter", (0.75, 0.08, 0.06), 0.3, 0.2), parent=C["kaip"][0])
+KPOINT = {"L": ((0.2, 0.3, 1.3), (0.12, 0.62, 1.33))}                # 画面の内側の手でライターを持つ
+C["kaip"] = add_boy("kaip", "yota", KAI_M, (0.07, 0.06, 0.06), arms=KPOINT)
+W.box("lighter", (0.12, 0.64, 1.3), (0.04, 0.02, 0.085), W.mat("lighter", (0.75, 0.08, 0.06), 0.3, 0.2), parent=C["kaip"][0])
 def emat(name, col, strength):
     m = bpy.data.materials.new(name); m.use_nodes = True; nt = m.node_tree; nt.nodes.clear()
     o = nt.nodes.new("ShaderNodeOutputMaterial"); e = nt.nodes.new("ShaderNodeEmission")
@@ -151,7 +152,7 @@ def fxo(name, mesh_mat, sub=2):
     o.data.materials.append(mesh_mat)
     for c_ in list(o.users_collection): c_.objects.unlink(o)
     FX.objects.link(o); return o
-lflame = fxo("lflame", fm2); lflame.parent = C["kaip"][0]; lflame.location = (-0.12, 0.64, 1.36); lflame.scale = (0.008, 0.008, 0.02)
+lflame = fxo("lflame", fm2); lflame.parent = C["kaip"][0]; lflame.location = (0.12, 0.64, 1.39); lflame.scale = (0.018, 0.018, 0.045)
 FIRE0 = Vector((3.35, -4.05, 0))
 rng = random.Random(4); FLAMES = []
 for i in range(30):
