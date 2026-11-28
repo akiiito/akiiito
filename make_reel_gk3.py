@@ -135,7 +135,11 @@ def rip(sec=0.45):
     n = R.tt(sec); env = np.minimum(1, n / 0.03) * R.dec(sec, sec * 0.5)
     x = R.noise(sec) * (0.6 + 0.4 * np.sign(np.sin(2 * np.pi * 38 * n * (1 + 2 * n))))
     return R.bp(x, 900, 6000) * env
-def step(): return R.lp(R.kick(90, 45, 0.18, 0.04), 700) * 0.8 + R.lp(R.noise(0.05), 2500) * R.dec(0.05, 0.01) * 0.4
+def step():
+    a = R.lp(R.kick(90, 45, 0.18, 0.04), 700) * 0.8
+    b = R.lp(R.noise(0.05), 2500) * R.dec(0.05, 0.01) * 0.4
+    a[:len(b)] += b[:len(a)]
+    return a
 def slide(sec=0.6):
     n = R.tt(sec); return R.bp(R.noise(sec), 200, 1800) * np.sin(np.pi * n / sec) * (1 + 0.3 * np.sin(2 * np.pi * 23 * n))
 def build_sfx():
